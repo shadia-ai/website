@@ -1,0 +1,8 @@
+---
+import ChannelPageLayout from '../../../components/ChannelPageLayout.astro';
+import { getChannelPage } from '../../../lib/channel-pages';
+
+const page = getChannelPage('es', 'tiktok');
+---
+
+<ChannelPageLayout {...page} />

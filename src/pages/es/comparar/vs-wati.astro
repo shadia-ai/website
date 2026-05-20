@@ -1,0 +1,20 @@
+---
+import ComparePage from '../../../components/ComparePage.astro';
+const compareRows = [
+  { feature: 'Agentes IA conversacionales (LLM)', shadia: true, competitor: false },
+  { feature: 'Motor de citas nativo', shadia: true, competitor: false },
+  { feature: 'Conversaciones unificadas multi-canal', shadia: true, competitor: 'Solo WhatsApp' },
+  { feature: 'Instagram + TikTok + Facebook', shadia: true, competitor: false },
+  { feature: 'Shadia Agent (agente de tu equipo)', shadia: true, competitor: false },
+  { feature: 'Auto-asignación de conversaciones', shadia: true, competitor: true },
+  { feature: 'Difusiones masivas de WhatsApp', shadia: true, competitor: true },
+  { feature: 'API para integraciones', shadia: true, competitor: 'Solo REST' },
+  { feature: 'Precio por equipo completo', shadia: 'Desde $49/mes', competitor: 'Desde $49/mes' },
+  { feature: 'Shadia Agent (IA de tu equipo)', shadia: true, competitor: false },
+];
+const faqs = [
+  { q: '¿En qué se diferencia Shadia de Wati?', a: 'Wati es una plataforma de WhatsApp Business API con automatizaciones básicas y broadcasts. Shadia es una plataforma AI-native con agentes conversacionales reales (LLM), motor de citas, agentes omnicanal y Shadia Agent — todo diseñado para operar sin configuraciones manuales complejas.' },
+  { q: '¿Shadia tiene las mismas funciones de difusión que Wati?', a: 'Sí. Shadia soporta difusiones masivas con plantillas aprobadas, segmentación de contactos y métricas de apertura — igual que Wati, pero con IA integrada que puede hacer seguimiento automático de los que responden.' },
+];
+---
+<ComparePage lang="es" competitor="Wati" competitorSlug="wati" title="Shadia AI vs Wati — WhatsApp AI-native vs plataforma de mensajería | Shadia AI" description="Compara Shadia AI vs Wati. Agentes IA reales, motor de citas y omnicanal vs una plataforma de WhatsApp con automatizaciones básicas." canonical="https://shadia.ai/es/comparar/vs-wati" ogImage="/og/compare-wati-es.png" heroHeadline="Shadia AI vs Wati — IA real vs mensajería automatizada" heroSubheadline="Wati te ayuda a enviar mensajes por WhatsApp. Shadia AI opera tu negocio completo en WhatsApp y más — con agentes que piensan, no solo que envían." verdictPoints={['IA conversacional real (LLM) vs automatizaciones básicas de flujo','Motor de citas nativo: sin necesidad de herramientas adicionales','Omnicanal: WhatsApp + Instagram + TikTok + Facebook vs solo WhatsApp','Shadia Agent para gestión de tu operación del equipo','Precio competitivo con más valor incluido']} compareRows={compareRows} detailedText={`<h2>¿Qué hace bien Wati?</h2><p>Wati es una buena opción para empresas que necesitan enviar mensajes masivos por WhatsApp Business API, configurar respuestas automáticas básicas y gestionar un equipo de soporte en WhatsApp. Es una plataforma madura con buena confiabilidad.</p><h2>La diferencia fundamental</h2><p>Wati opera con lógica de automatización: si el cliente escribe A, responde B. Shadia usa LLMs para entender la intención del cliente, mantener contexto a lo largo de la conversación y tomar decisiones de manera autónoma — como un agente humano real, pero disponible 24/7.</p><p>Además, Wati es principalmente una plataforma de WhatsApp. Shadia unifica WhatsApp, Instagram, TikTok y Facebook en un solo lugar, con la misma IA gestionando todos los canales.</p>`} migrationText="Si actualmente usas Wati, migrar a Shadia toma menos de 48 horas. Importamos tus contactos, plantillas y configuraciones de equipo." faqs={faqs} />

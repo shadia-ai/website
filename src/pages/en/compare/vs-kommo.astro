@@ -1,0 +1,51 @@
+---
+import ComparePage from '../../../components/ComparePage.astro';
+
+const compareRows = [
+  { feature: 'AI-native from the ground up', shadia: true, competitor: false },
+  { feature: 'Autonomous AI Agents', shadia: true, competitor: false },
+  { feature: 'Native appointments engine', shadia: true, competitor: false },
+  { feature: 'WhatsApp-native AI agents', shadia: true, competitor: 'Partial' },
+  { feature: 'Visual sales pipeline', shadia: 'Integrated', competitor: true },
+  { feature: 'Automatic client reactivation', shadia: true, competitor: false },
+  { feature: 'Automatic appointment reminders', shadia: true, competitor: false },
+  { feature: 'Spanish language support', shadia: true, competitor: true },
+  { feature: 'Transparent SMB pricing', shadia: true, competitor: 'Partial' },
+  { feature: 'No complex database management', shadia: true, competitor: false },
+];
+
+const faqs = [
+  { q: 'Is Shadia better than Kommo for WhatsApp sales ?', a: 'For businesses that need real AI automation, appointments engine and autonomous operation, Shadia AI is superior. Kommo is a good traditional contact platform with WhatsApp integration, but lacks AI agents and a native scheduling engine.' },
+  { q: 'Does Kommo have AI?', a: 'Kommo has some basic automation features and flow bots, but no autonomous AI agents that can operate conversations contextually without human intervention.' },
+];
+---
+
+<ComparePage
+  lang="en"
+  competitor="Kommo"
+  competitorSlug="kommo"
+  title="Shadia AI vs Kommo — AI operations platform vs Kommo | Shadia AI"
+  description="Compare Shadia AI vs Kommo. The Kommo alternative with native AI, appointments engine and complete automation for growing businesses."
+  canonical="https://shadia.ai/en/compare/vs-kommo"
+  ogImage="/og/compare-kommo-en.png"
+  heroHeadline="Shadia AI vs Kommo — More than contact software, an AI operations platform"
+  heroSubheadline="Kommo (formerly amoCRM) is popular  for WhatsApp sales. But if you need autonomous AI agents, native appointments engine and real automation — Shadia AI goes much further."
+  verdictPoints={[
+    'Shadia has autonomous AI agents; Kommo has basic flow bots',
+    'Native appointments engine in Shadia; Kommo includes no scheduling',
+    'Proactive client reactivation: exclusive to Shadia',
+    'No need to manually manage contacts manually — Shadia does it automatically',
+    'Similar pricing, vastly superior features',
+  ]}
+  compareRows={compareRows}
+  detailedText={`
+    <h2>What does Kommo do well?</h2>
+    <p>Kommo (formerly amoCRM) is a contact-management platform with good WhatsApp integration and a visual pipeline that helps sales teams track their opportunities. It's popular with sales teams wanting to centralize their messaging operation in one place.</p>
+    <h2>Where Kommo falls short</h2>
+    <p>Kommo relies on your team manually updating the pipeline, managing contacts and making follow-ups. It has no AI agents that operate autonomously, no native appointments engine and its automation is basic.</p>
+    <h2>Shadia AI: The evolution of Kommo</h2>
+    <p>Think of Shadia AI as what Kommo would be if it had been built in 2026 with AI at the center. The sales pipeline updates automatically because AI agents keep the record. Contacts self-enrich. Follow-ups happen automatically. Your team only intervenes when there's a qualified opportunity ready to close.</p>
+  `}
+  migrationText="We export all your contacts and conversation history from Kommo. Reconfigure your pipelines as AI agent flows. Typical migration takes 3-5 business days."
+  faqs={faqs}
+/>

@@ -1,0 +1,207 @@
+---
+import Icon from '../../components/Icon.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import PageBand from '../../components/PageBand.astro';
+import PageCta from '../../components/PageCta.astro';
+import IndustryCarousel from '../../components/IndustryCarousel.tsx';
+
+const lang = 'es';
+
+const enterpriseSlides = [
+  {
+    tag: 'Escala real',
+    stat1: '10M+',
+    stat1Label: 'Mensajes por mes\ngestionados sin degradación',
+    stat2: '99.9%',
+    stat2Label: 'SLA de disponibilidad\ncon infraestructura dedicada',
+    insight: 'Las operaciones enterprise no pueden depender de herramientas que se caen cuando más se necesitan.',
+    detail: 'Shadia opera en infraestructura dedicada con SLA garantizado. Sin límites arbitrarios de volumen, sin degradación de rendimiento en picos de demanda. Escala con tu negocio, no contra él.',
+  },
+  {
+    tag: 'ROI comprobado',
+    stat1: '< 3 meses',
+    stat1Label: 'Tiempo promedio de\nrecuperación de inversión',
+    stat2: '4.7x',
+    stat2Label: 'ROI promedio al\ncierre del primer año',
+    insight: 'No es tecnología por tecnología — es reducción de costo operativo medible desde el primer mes.',
+    detail: 'La combinación de resolución autónoma, menor headcount de soporte y mayor retención de clientes produce un ROI que se puede medir, reportar y escalar. Sin especulación.',
+  },
+  {
+    tag: 'Equipo eficiente',
+    stat1: '3x',
+    stat1Label: 'Más capacidad sin\ncontratar nuevas personas',
+    stat2: '67%',
+    stat2Label: 'Reducción de costo vs.\ncrecimiento tradicional de equipo',
+    insight: 'Cada contratación de soporte tiene un costo oculto: onboarding, formación, rotación. La IA no rota.',
+    detail: 'Shadia absorbe el volumen rutinario para que tu equipo actual pueda escalar. El ahorro no es solo en salarios — es en tiempo de management, calidad consistente y disponibilidad 24/7.',
+  },
+  {
+    tag: 'Seguridad',
+    stat1: 'E2E',
+    stat1Label: 'Cifrado de extremo a extremo\nen todos los canales',
+    stat2: 'GDPR',
+    stat2Label: 'Cumplimiento y controles\nde datos configurables',
+    insight: 'En enterprise, la seguridad no es un feature opcional — es el punto de partida.',
+    detail: 'Shadia ofrece controles de acceso por rol, cifrado en tránsito y en reposo, y configuración de retención de datos. Cumplimiento GDPR con soporte para DPA empresarial.',
+  },
+];
+
+const features = [
+  {
+    icon: 'lock',
+    title: 'Seguridad enterprise-grade',
+    desc: 'Encriptación end-to-end, auditoría completa de acciones, control de acceso por rol y cumplimiento con estándares de privacidad internacionales.',
+  },
+  {
+    icon: 'users',
+    title: 'Equipos y permisos',
+    desc: 'Organiza tu operación en equipos con permisos granulares por rol, carpeta y canal. Cada miembro ve solo lo que necesita.',
+  },
+  {
+    icon: 'zap',
+    title: 'API avanzada',
+    desc: 'Integraciones profundas con tus sistemas internos. Consultas, mutaciones y webhooks en tiempo real para sincronizar cada evento de conversación.',
+  },
+  {
+    icon: 'bar-chart',
+    title: 'Reportes personalizados',
+    desc: 'Dashboards de rendimiento por miembro, equipo y canal. SLA tracking, tiempos de respuesta y análisis de conversión.',
+  },
+  {
+    icon: 'bot',
+    title: 'Agentes IA a medida',
+    desc: 'Entrena agentes especializados en tu operación, tus productos y tus clientes. Reglas de escalación, horarios de atención y asignación automática.',
+  },
+  {
+    icon: 'globe',
+    title: 'Soporte multicanal dedicado',
+    desc: 'WhatsApp Business API oficial, Instagram, Facebook Messenger y TikTok — todos en un plataforma unificada con contexto completo del cliente.',
+  },
+];
+
+const stats = [
+  { value: '< 5 min', label: 'Tiempo promedio de respuesta con agentes IA' },
+  { value: '90%', label: 'Conversaciones resueltas sin intervención humana' },
+  { value: '24/7', label: 'Disponibilidad sin costos extra de nómina' },
+  { value: '3x', label: 'Incremento promedio en capacidad de atención' },
+];
+---
+
+<BaseLayout
+  lang={lang}
+  title="Shadia AI Enterprise — Plataforma de agentes IA para equipos"
+  description="Shadia AI Enterprise: seguridad avanzada, API, equipos con permisos granulares y agentes IA que escalan con tu operación."
+>
+  <PageHero
+    eyebrow="Enterprise"
+    title="Agentes IA que escalan"
+    titleAccent="con tu operación."
+    lead="Control, seguridad y personalización sin límites — para equipos que no pueden depender de herramientas frágiles."
+    narrow={false}
+  >
+    <div class="page-hero__actions">
+      <button class="btn-primary" style="padding: 0.75rem 1.75rem; font-size: 1rem;" data-open-modal>Hablar con ventas</button>
+      <a href="/es/precios" class="btn-secondary" style="padding: 0.75rem 1.75rem; font-size: 1rem;">Ver planes</a>
+    </div>
+  </PageHero>
+
+  <PageBand variant="muted" size="sm">
+    <div class="container">
+      <div class="page-stats-row">
+        {stats.map(s => (
+          <div>
+            <div class="page-stat__value">{s.value}</div>
+            <div class="page-stat__label">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </PageBand>
+
+  <PageBand variant="plain">
+    <div class="container">
+      <div class="page-section-head">
+        <h2 class="section-title">Todo lo que necesita una operación seria</h2>
+        <p class="lead-sm">Control completo sobre tu infraestructura de atención al cliente.</p>
+      </div>
+      <div class="page-grid-3" style="max-width:none;">
+        {features.map(f => (
+          <div class="card page-card">
+            <div style="display:flex;align-items:center;margin-bottom:1rem;color:var(--accent);"><Icon name={f.icon} size={20} /></div>
+            <h3 class="page-card__title">{f.title}</h3>
+            <p class="page-card__desc">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </PageBand>
+
+  <PageBand variant="tint">
+    <div class="container" style="max-width: 900px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+        <div>
+          <div style="font-size: 0.8125rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Seguridad y privacidad</div>
+          <h2 style="font-size: clamp(1.5rem, 3.5vw, 2.25rem); font-weight: 700; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1rem;">
+            Tu data. Solo tuya.
+          </h2>
+          <p style="font-size: 1rem; color: var(--ink-3); line-height: 1.7; margin-bottom: 1.5rem;">
+            Nunca usamos tus conversaciones para entrenar modelos. Encriptación en tránsito y en reposo. Backups automáticos y control de retención de datos configurable.
+          </p>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.625rem;">
+            {['Encriptación TLS/AES-256', 'Audit log completo', 'Control de acceso por rol', 'Cumplimiento GDPR-ready', 'Retención de datos configurable'].map(item => (
+              <li style="display: flex; align-items: center; gap: 0.625rem; font-size: 0.9375rem; color: var(--ink-2);">
+                <span style="width: 18px; height: 18px; border-radius: 50%; background: var(--accent-bg); border: 1px solid var(--accent-ring); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="card" style="padding: 2rem;">
+          <h3 style="font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 1.25rem;">Soporte Enterprise dedicado</h3>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            {[
+              { icon: 'zap', title: 'Onboarding guiado', desc: 'Implementación dedicada con tu equipo técnico' },
+              { icon: 'phone', title: 'Account Manager', desc: 'Un punto de contacto directo para tu cuenta' },
+              { icon: 'zap', title: 'SLA prioritario', desc: 'Tiempo de respuesta garantizado < 4 horas' },
+              { icon: 'wrench', title: 'Integraciones custom', desc: 'Desarrollo de conectores para tus sistemas internos' },
+            ].map(item => (
+              <div style="display: flex; gap: 0.875rem; align-items: flex-start;">
+                <span style="font-size: 1.25rem; flex-shrink: 0; line-height: 1;"><Icon name={item.icon} size={20} /></span>
+                <div>
+                  <div style="font-size: 0.9375rem; font-weight: 600; color: var(--ink); margin-bottom: 0.125rem;">{item.title}</div>
+                  <div style="font-size: 0.875rem; color: var(--ink-3);">{item.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </PageBand>
+
+  <PageBand variant="muted">
+    <div class="container">
+      <IndustryCarousel slides={enterpriseSlides} eyebrow="Por qué los equipos enterprise eligen Shadia" client:load />
+    </div>
+  </PageBand>
+
+  <PageCta
+    lang={lang}
+    source="enterprise_cta"
+    title="¿Listo para escalar"
+    titleAccent="tu operación?"
+    lead="Habla con nuestro equipo y te mostramos cómo Shadia AI se adapta a tus necesidades enterprise."
+  />
+</BaseLayout>
+
+<style>
+  @media (max-width: 860px) {
+    .page-band .container > div[style*="grid-template-columns: 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+      gap: 2rem !important;
+    }
+  }
+</style>

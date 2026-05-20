@@ -1,0 +1,62 @@
+---
+import ComparePage from '../../../components/ComparePage.astro';
+
+const compareRows = [
+  { feature: 'AI-native desde la base', shadia: true, competitor: 'Parcial' },
+  { feature: 'WhatsApp-native AI agents', shadia: true, competitor: false },
+  { feature: 'Motor de citas nativo', shadia: true, competitor: false },
+  { feature: 'Agentes IA para WhatsApp', shadia: true, competitor: false },
+  { feature: 'Orientado a negocios ', shadia: true, competitor: false },
+  { feature: 'Precios para SMB ', shadia: true, competitor: false },
+  { feature: 'Soporte en español', shadia: true, competitor: 'Limitado' },
+  { feature: 'Instagram + TikTok + Facebook', shadia: true, competitor: false },
+  { feature: 'Reactivación automática de clientes', shadia: true, competitor: false },
+  { feature: 'Motor de agendamiento nativo', shadia: true, competitor: false },
+];
+
+const faqs = [
+  {
+    q: '¿Es Shadia AI una buena alternativa a Intercom en español?',
+    a: 'Para negocios que operan en WhatsApp y necesitan automatización en español, Shadia AI es definitivamente una mejor alternativa a Intercom. Intercom está orientado a SaaS y startups tech con soporte via chat web. Shadia está diseñada para negocios de servicio que operan en WhatsApp .',
+  },
+  {
+    q: '¿Cuánto cuesta Intercom vs Shadia AI?',
+    a: 'Intercom empieza desde $74/mes para funciones básicas y puede llegar a $500-$1500/mes para funcionalidades avanzadas con IA. Shadia AI cuesta desde $49/mes con motor de citas, agentes de IA y soporte en español incluidos desde el plan base.',
+  },
+  {
+    q: '¿Intercom funciona bien con WhatsApp?',
+    a: 'Intercom tiene integración con WhatsApp pero no es un producto WhatsApp-first. Está diseñado principalmente para chat web y email. Para negocios cuyo canal principal es WhatsApp, Shadia AI ofrece una experiencia mucho más completa.',
+  },
+];
+---
+
+<ComparePage
+  lang="es"
+  competitor="Intercom"
+  competitorSlug="intercom"
+  title="Shadia AI vs Intercom — Alternativa a Intercom en español para LATAM | Shadia AI"
+  description="Compara Shadia AI vs Intercom. La alternativa a Intercom en español: AI-native, WhatsApp-first y con motor de citas nativo para negocios en crecimiento."
+  canonical="https://shadia.ai/es/comparar/vs-intercom"
+  ogImage="/og/compare-intercom-es.png"
+  heroHeadline="Shadia AI vs Intercom — Agentes IA vs soporte tradicional"
+  heroSubheadline="Intercom es el líder en customer support para startups tech. Pero si tu negocio opera en WhatsApp, habla español y necesita agendar citas, Shadia AI es la plataforma correcta."
+  verdictPoints={[
+    'Shadia es WhatsApp-first; Intercom está diseñado para chat web y email',
+    'Motor de citas nativo en Shadia; Intercom no tiene agendamiento',
+    'Precios accesibles para LATAM desde $49/mes vs $74-$1500+/mes de Intercom',
+    'Soporte completo en español vs soporte limitado en Intercom',
+    'Diseñado para negocios de servicio, no para SaaS tech como Intercom',
+  ]}
+  compareRows={compareRows}
+  detailedText={`
+    <h2>¿Qué hace bien Intercom?</h2>
+    <p>Intercom es el estándar de la industria para customer success en empresas de software. Tiene un producto muy completo para onboarding de usuarios, support via chat web y automatización de ciclo de vida para SaaS. Si tienes una startup de software y quieres mejorar el soporte a usuarios en tu aplicación, Intercom es excelente.</p>
+    <h2>¿Por qué Intercom no es la solución para negocios en crecimiento?</h2>
+    <p>El problema es que Intercom fue construida para un caso de uso muy específico: soporte dentro de una aplicación web o móvil. No fue construida para un salón de belleza en Santo Domingo, una clínica en Guadalajara o una academia de inglés en Bogotá.</p>
+    <p>Los negocios  necesitan algo diferente: WhatsApp como canal principal, capacidad de agendar y gestionar citas, agentes de IA que operen autónomamente y precios que tengan sentido para una empresa que factura en pesos o dólares en la región.</p>
+    <h2>Shadia AI vs Intercom: El veredicto final</h2>
+    <p>Si tu negocio no es una startup de SaaS y tu canal principal no es un chat web sino WhatsApp — Shadia AI es la plataforma correcta. Construida específicamente para la forma en que los negocios en República Dominicana, México, Colombia, Argentina y toda LATAM realmente operan.</p>
+  `}
+  migrationText="Si actualmente usas Intercom para soporte básico en WhatsApp, la migración a Shadia AI es directa. Importamos tus contactos y configuramos tus primeros agentes de IA en menos de una semana."
+  faqs={faqs}
+/>

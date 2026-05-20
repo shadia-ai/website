@@ -1,0 +1,56 @@
+---
+// Root — auto-detects browser language and redirects accordingly.
+// Remembers the user's choice in localStorage so future visits skip detection.
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Shadia AI</title>
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://shadia.ai/es/" />
+  <style>
+    body { background: #fff; margin: 0; }
+  </style>
+</head>
+<body>
+<script is:inline>
+  (function () {
+    var STORAGE_KEY = 'shadia_lang';
+    var supported   = ['es', 'en'];
+    var fallback    = 'es';
+
+    // Detect the best matching language from the browser's preference list
+    function detectLang() {
+      var langs = (navigator.languages && navigator.languages.length)
+        ? navigator.languages
+        : [navigator.language || navigator.userLanguage || fallback];
+
+      for (var i = 0; i < langs.length; i++) {
+        // Compare the primary subtag (e.g. "en" from "en-US", "es" from "es-419")
+        var primary = langs[i].split('-')[0].toLowerCase();
+        if (supported.indexOf(primary) !== -1) return primary;
+      }
+      return fallback;
+    }
+
+    // Check for a previously saved preference
+    var saved = null;
+    try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+
+    var lang = (saved && supported.indexOf(saved) !== -1) ? saved : detectLang();
+
+    // Save for future visits
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+
+    // Redirect immediately — use replace so there's no back-button loop
+    var dest = '/' + lang + '/';
+    window.location.replace(dest);
+  })();
+</script>
+<!-- Fallback for browsers with JS disabled -->
+<noscript>
+  <meta http-equiv="refresh" content="0; url=/es/" />
+</noscript>
+</body>
+</html>

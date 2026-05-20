@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import PageBand from '../../../components/PageBand.astro';
+import PageCta from '../../../components/PageCta.astro';
+import ChannelCards from '../../../components/ChannelCards.astro';
+import { WhatsAppIcon, InstagramIcon, MessengerIcon, TikTokIcon } from '../../../lib/channel-icons';
+
+const channels = [
+  {
+    id: 'whatsapp',
+    name: 'WhatsApp',
+    featured: true,
+    desc: 'Resolve orders, bookings, and support threads on the channel with the highest open rates.',
+    href: '/en/channels/whatsapp',
+    iconSvg: WhatsAppIcon,
+  },
+  {
+    id: 'instagram',
+    name: 'Instagram DMs',
+    desc: 'Turn social DMs and comments into qualified support conversations — 24/7.',
+    href: '/en/channels/instagram',
+    iconSvg: InstagramIcon,
+  },
+  {
+    id: 'messenger',
+    name: 'Messenger',
+    desc: 'Handle Facebook Messenger and move high-intent threads to WhatsApp when it helps.',
+    href: '/en/channels/facebook',
+    iconSvg: MessengerIcon,
+  },
+  {
+    id: 'tiktok',
+    name: 'TikTok',
+    desc: 'Reply to TikTok DMs and convert engagement into real conversations and bookings.',
+    href: '/en/channels/tiktok',
+    iconSvg: TikTokIcon,
+  },
+];
+---
+
+<BaseLayout
+  title="Channels — WhatsApp, Instagram, Messenger and TikTok | Shadia AI"
+  description="Deploy your AI support agent on WhatsApp, Instagram, Messenger, and TikTok. One agent, consistent resolution on every channel."
+  lang="en"
+  canonical="https://shadia.ai/en/channels/"
+  ogImage="/og/channels-en.png"
+>
+  <PageHero
+    eyebrow="Channels"
+    title="Every channel your customers use,"
+    titleAccent="one AI agent."
+    lead="Deploy consistent AI customer service on WhatsApp, Instagram, Messenger, and TikTok — unified platform, smart escalation, full context."
+  />
+
+  <PageBand variant="plain" size="sm">
+    <div class="container-wide">
+      <ChannelCards lang="en" channels={channels} />
+    </div>
+  </PageBand>
+
+  <PageBand variant="muted">
+    <div class="container">
+      <div class="page-section-head">
+        <div class="eyebrow">Why unify</div>
+        <h2 class="section-title">One operation, not four apps</h2>
+        <p class="lead-sm">Your coordinators stop switching devices. AI keeps context across every channel.</p>
+      </div>
+      <div class="page-grid-3">
+        {[
+          { t: 'Full context', d: 'Customer history whether they wrote on WhatsApp or Instagram.' },
+          { t: 'AI on every channel', d: 'Same tone and business rules — scheduling, FAQs, follow-up.' },
+          { t: 'Human handoff', d: 'Your team jumps in when needed, with the full thread in view.' },
+        ].map(item => (
+          <div class="card page-card">
+            <h3 class="page-card__title">{item.t}</h3>
+            <p class="page-card__desc">{item.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </PageBand>
+
+  <PageCta
+    lang="en"
+    source="channels_index_cta"
+    title="Connect your channels"
+    titleAccent="in minutes."
+    lead="Start free. No credit card — add WhatsApp and expand when you're ready."
+  />
+</BaseLayout>

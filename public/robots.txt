@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://shadia.ai/sitemap-index.xml
+Sitemap: https://shadia.ai/sitemap-0.xml
+
+# GEO / LLM-readable site information
+# See: https://shadia.ai/llms.txt
+
+# Crawl-delay for well-behaved bots
+Crawl-delay: 1

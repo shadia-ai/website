@@ -1,0 +1,83 @@
+---
+import Icon from '../../../components/Icon.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import PageBand from '../../../components/PageBand.astro';
+import PageCta from '../../../components/PageCta.astro';
+
+const differentiators = [
+  { icon: 'bot', title: 'AI-native desde la base', desc: 'No es IA añadida encima de software legacy. Shadia fue construida para operar con agentes desde el primer día.' },
+  { icon: 'message-square', title: 'WhatsApp-first', desc: 'Diseñada para cómo operan los negocios en LATAM — WhatsApp es el canal principal, no un extra.' },
+  { icon: 'calendar', title: 'Motor de citas nativo', desc: 'Sin Calendly ni herramientas externas. El agendamiento vive en el chat y lo opera la IA.' },
+  { icon: 'globe', title: 'Hecha para la región', desc: 'Español, precios accesibles y casos de uso para clínicas, salones y comercios locales.' },
+];
+
+const competitors = [
+  { name: 'Respond.io', slug: 'vs-respond-io', desc: 'La plataforma de mensajería más popular. ¿Cuál resuelve más sin ampliar equipo?', priority: true },
+  { name: 'Intercom', slug: 'vs-intercom', desc: 'Potente pero costosa. ¿Tiene sentido si tu negocio vive en WhatsApp?', priority: true },
+  { name: 'Wati', slug: 'vs-wati', desc: 'Herramienta popular de WhatsApp. Shadia suma agentes IA reales y citas nativas.', priority: true },
+  { name: 'ManyChat', slug: 'vs-manychat', desc: 'Automatización por flujos. Shadia reemplaza flujos con inteligencia conversacional.', priority: false },
+  { name: 'Trengo', slug: 'vs-trengo', desc: 'Customer service europeo. Shadia ofrece IA nativa que Trengo no tiene.', priority: false },
+  { name: 'Kommo', slug: 'vs-kommo', desc: 'Plataforma de ventas por WhatsApp. Comparamos Kommo vs Shadia en profundidad.', priority: false },
+  { name: 'Confirmafy', slug: 'vs-confirmafy', desc: 'Recordatorios de citas. Shadia va mucho más allá de recordatorios simples.', priority: false },
+];
+---
+
+<BaseLayout
+  title="Comparaciones — Alternativas a Respond.io, Trengo, Intercom | Shadia AI"
+  description="Compara Shadia AI con las principales plataformas. AI-native, WhatsApp-first y motor de citas nativo para negocios en crecimiento."
+  lang="es"
+  canonical="https://shadia.ai/es/comparar"
+  ogImage="/og/compare-es.png"
+>
+  <PageHero
+    eyebrow="Comparaciones"
+    title="Elige con datos,"
+    titleAccent="no con marketing."
+    lead="Shadia es AI-native, WhatsApp-first y con citas nativas — diseñada para negocios que quieren resolver, no solo enrutar mensajes."
+  />
+
+  <PageBand variant="muted" size="sm">
+    <div class="container" style="max-width: 720px;">
+      <div class="page-grid-2">
+        {differentiators.map(d => (
+          <div class="card page-card">
+            <div style="display:flex;align-items:center;margin-bottom:0.625rem;color:var(--accent);"><Icon name={d.icon} size={20} /></div>
+            <h3 class="page-card__title" style="font-size:0.9375rem;">{d.title}</h3>
+            <p class="page-card__desc" style="font-size:0.8125rem;margin-bottom:0;">{d.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </PageBand>
+
+  <PageBand variant="plain">
+    <div class="container">
+      <div class="page-section-head">
+        <h2 class="section-title">Comparaciones detalladas</h2>
+      </div>
+      <div class="page-grid-3">
+        {competitors.map(c => (
+          <a href={`/es/comparar/${c.slug}`} class="page-card-link">
+            <div class:list={['card', 'page-card', c.priority && 'page-card--featured']}>
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem;">
+                <h3 class="page-card__title" style="font-size:1rem;">Shadia vs {c.name}</h3>
+                {c.priority && <span class="pill-badge" style="font-size:0.6875rem;padding:0.15rem 0.5rem;">Popular</span>}
+              </div>
+              <p class="page-card__desc" style="font-size:0.8125rem;">{c.desc}</p>
+              <span class="page-card__link">Ver comparación →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </PageBand>
+
+  <PageCta
+    lang="es"
+    source="compare_index_cta"
+    title="Pruébalo en tu operación"
+    titleAccent="7 días gratis."
+    lead="Conecta WhatsApp y compara resultados reales — sin tarjeta de crédito."
+  />
+</BaseLayout>

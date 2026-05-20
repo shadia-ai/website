@@ -1,0 +1,32 @@
+---
+interface Channel {
+  id: string;
+  name: string;
+  desc: string;
+  href: string;
+  featured?: boolean;
+  iconSvg: string;
+}
+
+interface Props {
+  lang: 'es' | 'en';
+  channels: Channel[];
+}
+
+const { lang, channels } = Astro.props;
+const learnMore = lang === 'es' ? 'Saber más' : 'Learn more';
+---
+
+<div class="channel-cards">
+  {channels.map((ch) => (
+    <a href={ch.href} class:list={['channel-card', ch.featured && 'channel-card--featured']}>
+      <div class="channel-card__icon" set:html={ch.iconSvg} />
+      <h3 class="channel-card__title">{ch.name}</h3>
+      <p class="channel-card__desc">{ch.desc}</p>
+      <span class="channel-card__link">
+        {learnMore}
+        <span aria-hidden="true">→</span>
+      </span>
+    </a>
+  ))}
+</div>

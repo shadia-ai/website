@@ -1,0 +1,251 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SignupInput from '../../components/SignupInput.tsx';
+import ChannelCards from '../../components/ChannelCards.astro';
+import { HeroFloatComposition, InboxFloatPreview } from '../../components/FloatWidgets.tsx';
+import { WhatsAppIcon, InstagramIcon, MessengerIcon, WhatsAppBadge, InstagramBadge, TikTokBadge, MessengerBadge } from '../../lib/channel-icons';
+
+const channelCards = [
+  {
+    id: 'whatsapp',
+    name: 'WhatsApp',
+    featured: true,
+    desc: 'Donde tus clientes ya te escriben: citas, precios y seguimiento en el mismo chat.',
+    href: '/es/canales/whatsapp',
+    iconSvg: WhatsAppIcon,
+  },
+  {
+    id: 'instagram',
+    name: 'Instagram DMs',
+    desc: 'Convierte preguntas y comentarios en citas y ventas — aunque no estés en línea.',
+    href: '/es/canales/instagram',
+    iconSvg: InstagramIcon,
+  },
+  {
+    id: 'messenger',
+    name: 'Messenger',
+    desc: 'Pedidos y consultas de Facebook sin que tu equipo esté pegado al celular.',
+    href: '/es/canales/facebook',
+    iconSvg: MessengerIcon,
+  },
+];
+
+const pillars = [
+  { label: 'Omnicanal', title: 'Agentes IA en todos tus canales', desc: 'Clínicas, salones y negocios locales: contexto completo antes de que alguien de tu equipo responda.', href: '/es/producto/omnicanal' },
+  { label: 'Citas', title: 'Agenda sin links ni formularios', desc: 'Confirma, recuerda y reagenda en el chat. Menos ausencias, más espacios llenos.', href: '/es/producto/citas' },
+  { label: 'IA', title: 'Configúralo en español, sin tecnicismos', desc: 'Dile a Shadia cómo atiendes. Tu equipo sigue cerrando y cuidando la relación.', href: '/es/producto/agentes-ia' },
+];
+
+const steps = [
+  { n: '01', title: 'Cuéntanos tu negocio', desc: 'Horarios, servicios y cómo quieres atender por WhatsApp.' },
+  { n: '02', title: 'Activamos tu IA', desc: 'Con el tono y reglas de tu consultorio, salón o tienda.' },
+  { n: '03', title: 'Empiezas a llenar agenda', desc: 'Más citas confirmadas, menos mensajes sin responder.' },
+];
+
+const liveScenarios = [
+  { event: 'Un paciente cancela', reaction: 'Reagenda y avisa por WhatsApp' },
+  { event: 'Queda un hueco hoy', reaction: 'Contacta a quien estaba en espera' },
+  { event: 'Preguntan precio en Instagram', reaction: 'Responde y ofrece agendar' },
+];
+---
+
+<BaseLayout
+  title="Shadia AI — IA para tu negocio en WhatsApp | RD y LATAM"
+  description="IA que trabaja con tu equipo en República Dominicana y Latinoamérica. Citas, ventas y atención por WhatsApp e Instagram — sin workflows."
+  lang="es"
+  canonical="https://shadia.ai/es/"
+  ogImage="/og/home-es.png"
+>
+
+<section class="home-band hero-mesh section-lg" style="padding-bottom: 4rem;">
+  <div class="container-wide hero-split">
+    <div>
+      <div class="pill-badge" style="margin-bottom: 1.25rem;">
+        <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent);"></span>
+        Para negocios en RD y LATAM
+      </div>
+      <h1 class="hero-title" style="margin-bottom: 1rem;">
+        Tu negocio en WhatsApp,<br/>
+        <span class="headline-accent">con IA a tu lado.</span>
+      </h1>
+      <p class="lead" style="margin-bottom: 1rem;">
+        Shadia confirma citas, responde consultas y da seguimiento — para que tu equipo se enfoque en atender, vender y dar el trato personal.
+      </p>
+      <p class="lead-sm" style="margin-bottom: 1.5rem;">Más de 200 negocios en República Dominicana y la región.</p>
+      <SignupInput lang="es" source="home_hero" size="lg" client:load />
+      <p class="lead-sm" style="margin-top: 0.875rem;">Sin tarjeta · Conecta WhatsApp en minutos</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem;">
+        <span class="channel-badge" set:html={`${WhatsAppBadge}<span style="font-weight:500;color:#25D366">WhatsApp</span>`}></span>
+        <span class="channel-badge" set:html={`${InstagramBadge}<span>Instagram</span>`}></span>
+        <span class="channel-badge" set:html={`${TikTokBadge}<span>TikTok</span>`}></span>
+        <span class="channel-badge" set:html={`${MessengerBadge}<span>Messenger</span>`}></span>
+      </div>
+    </div>
+    <div>
+      <HeroFloatComposition lang="es" client:load />
+    </div>
+  </div>
+</section>
+
+<section class="home-band home-band--plain section-sm">
+  <div class="container-wide">
+    <div class="section-intro" style="margin-bottom: 2.5rem;">
+      <div class="eyebrow">Canales</div>
+      <h2 class="section-title" style="margin-bottom: 0.75rem;">Donde te buscan tus clientes</h2>
+      <p class="lead-sm">En LATAM el negocio pasa por WhatsApp. Shadia unifica todo en una sola operación.</p>
+    </div>
+    <ChannelCards lang="es" channels={channelCards} />
+  </div>
+</section>
+
+<section class="home-band home-band--muted section">
+  <div class="container-wide section-split">
+    <div class="section-intro section-intro--wide">
+      <div class="eyebrow">Juntos</div>
+      <h2 class="section-title" style="margin-bottom: 1rem;">Tu equipo, con refuerzo de IA</h2>
+      <p class="lead" style="margin-bottom: 1rem;">
+        Shadia no reemplaza a tu gente. Le quita lo repetitivo para que cierren, atiendan en consultorio y cuiden la relación.
+      </p>
+      <p class="lead-sm">Ideal para clínicas, odontología, belleza, academias y comercios que viven del chat.</p>
+    </div>
+    <div class="split-grid" style="max-width: none; margin: 0;">
+      <div class="split-panel split-panel--accent">
+        <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 1rem; color: var(--accent);">Shadia responde por ti</h3>
+        <ul class="split-list">
+          <li>✦ Recordatorios y reagendos de cita</li>
+          <li>✦ Consultas de precio y disponibilidad</li>
+          <li>✦ Seguimiento a quien no confirmó</li>
+        </ul>
+      </div>
+      <div class="split-panel">
+        <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 1rem; color: var(--ink);">Tu equipo cierra</h3>
+        <ul class="split-list">
+          <li>✓ La atención en persona</li>
+          <li>✓ Casos que requieren criterio</li>
+          <li>✓ Relación y confianza del cliente</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-band home-band--plain section">
+  <div class="container-wide">
+    <div class="section-intro" style="margin-bottom: 2.5rem;">
+      <div class="eyebrow">Producto</div>
+      <h2 class="section-title" style="margin-bottom: 0.75rem;">Hecho para cómo vendes en la región</h2>
+      <p class="lead-sm">WhatsApp, agenda y IA en una sola plataforma — sin Calendly ni flujos complicados.</p>
+    </div>
+    <div class="pillar-grid">
+      {pillars.map(p => (
+        <a href={p.href} class="pillar-card" style="text-decoration: none; color: inherit;">
+          <span class="pillar-card__label">{p.label}</span>
+          <h3 class="pillar-card__title">{p.title}</h3>
+          <p class="pillar-card__desc">{p.desc}</p>
+          <span class="pillar-card__link">Saber más →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="home-band home-band--tint section">
+  <div class="container-wide section-split section-split--reverse">
+    <div class="section-split__visual">
+      <InboxFloatPreview lang="es" client:load />
+    </div>
+    <div class="section-intro">
+      <div class="eyebrow">En acción</div>
+      <h2 class="section-title" style="margin-bottom: 1rem;">Ves todo. Intervienes cuando quieres.</h2>
+      <p class="lead">
+        Cada chat de WhatsApp e Instagram con historial claro. Apruebas solo lo que necesita un humano.
+      </p>
+      <a href="/es/producto/omnicanal" class="btn-ghost" style="margin-top: 1.5rem; display: inline-flex;">Ver agentes omnicanal →</a>
+    </div>
+  </div>
+</section>
+
+<section class="home-band home-band--plain section">
+  <div class="container-wide">
+    <div class="section-intro">
+      <div class="eyebrow">Siempre activo</div>
+      <h2 class="section-title" style="margin-bottom: 0.75rem;">Tu consultorio no cierra en WhatsApp</h2>
+      <p class="lead-sm">Aunque tu local esté cerrado, Shadia sigue confirmando y dando seguimiento.</p>
+    </div>
+    <div class="live-row">
+      {liveScenarios.map(s => (
+        <div class="live-item">
+          <strong>{s.event}</strong>
+          <span>✦ {s.reaction}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="home-band home-band--muted section">
+  <div class="container-wide">
+    <div class="section-intro" style="margin-bottom: 2rem;">
+      <div class="eyebrow">Cómo lo usas</div>
+      <h2 class="section-title" style="margin-bottom: 0.75rem;">Tú eliges el nivel de apoyo</h2>
+    </div>
+    <div class="mode-grid">
+      <div class="mode-card">
+        <div class="mode-card__tag">Modo autónomo</div>
+        <h3>Shadia atiende el día a día</h3>
+        <p>Ideal si recibes muchos mensajes y quieres llenar agenda sin ampliar recepción.</p>
+      </div>
+      <div class="mode-card">
+        <div class="mode-card__tag">Modo asistido</div>
+        <h3>Shadia apoya a recepción</h3>
+        <p>Sugerencias, contexto y borradores — tu equipo valida y envía.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-band home-band--plain section">
+  <div class="container-wide">
+    <div class="section-intro">
+      <div class="eyebrow">Cómo funciona</div>
+      <h2 class="section-title">Listo hoy, no en semanas</h2>
+    </div>
+    <div class="steps-row">
+      {steps.map(s => (
+        <div class="step-item">
+          <div class="step-item__num">{s.n}</div>
+          <h3>{s.title}</h3>
+          <p>{s.desc}</p>
+        </div>
+      ))}
+    </div>
+    <p style="margin-top: 2.5rem;">
+      <a href="/es/caracteristicas" class="btn-secondary">Ver capacidades →</a>
+    </p>
+  </div>
+</section>
+
+<section class="home-band home-band--dark section" style="overflow: hidden;">
+  <div class="home-band__glow" aria-hidden="true"></div>
+  <div class="container-wide">
+    <div class="hero-split" style="align-items: center;">
+      <div>
+        <h2 class="hero-title" style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem;">
+          Potencia a tu equipo<br/>
+          <span class="headline-accent">en WhatsApp.</span>
+        </h2>
+        <p class="lead" style="margin-bottom: 1.75rem; max-width: 26rem;">
+          Empieza gratis. Conecta tu WhatsApp y deja que Shadia trabaje contigo — incluso fuera de horario.
+        </p>
+        <SignupInput lang="es" source="home_footer_cta" size="lg" client:load />
+      </div>
+      <div style="display: flex; justify-content: flex-end; opacity: 0.9;">
+        <div class="home-band__quote">
+          <p>“En la clínica dejamos de perder citas por mensajes que nadie alcanzaba a ver.”</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>

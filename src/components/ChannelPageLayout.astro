@@ -1,0 +1,307 @@
+---
+import Icon from './Icon.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductHeroSplit from './ProductHeroSplit.astro';
+import PageBand from './PageBand.astro';
+import PageCta from './PageCta.astro';
+import { ChannelFloatPreview } from './FloatWidgets.tsx';
+import type { Lang } from '../i18n/utils';
+
+export interface ChannelFeature {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+export interface ChannelStep {
+  n: string;
+  title: string;
+  desc: string;
+}
+
+export interface ChannelUseCase {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+export interface ChannelTrustItem {
+  label: string;
+  badge: string;
+}
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage: string;
+  badge: string;
+  heroTitle: string;
+  heroAccent: string;
+  heroLead: string;
+  source: string;
+  heroHint: string;
+  channelId: 'whatsapp' | 'instagram' | 'facebook' | 'tiktok';
+  stats: { v: string; l: string }[];
+  featuresEyebrow: string;
+  featuresTitle: string;
+  featuresTitleAccent: string;
+  features: ChannelFeature[];
+  stepsEyebrow: string;
+  stepsTitle: string;
+  stepsTitleAccent: string;
+  steps: ChannelStep[];
+  useCasesEyebrow: string;
+  useCasesTitle: string;
+  useCasesTitleAccent: string;
+  useCases: ChannelUseCase[];
+  trustEyebrow: string;
+  trustTitle: string;
+  trustTitleAccent: string;
+  trustLead: string;
+  trustBullets: string[];
+  trustItems: ChannelTrustItem[];
+  ctaTitle: string;
+  ctaAccent: string;
+  ctaLead: string;
+  ctaSource: string;
+  ctaHint: string;
+}
+
+const {
+  lang,
+  title,
+  description,
+  canonical,
+  ogImage,
+  badge,
+  heroTitle,
+  heroAccent,
+  heroLead,
+  source,
+  heroHint,
+  channelId,
+  stats,
+  featuresEyebrow,
+  featuresTitle,
+  featuresTitleAccent,
+  features,
+  stepsEyebrow,
+  stepsTitle,
+  stepsTitleAccent,
+  steps,
+  useCasesEyebrow,
+  useCasesTitle,
+  useCasesTitleAccent,
+  useCases,
+  trustEyebrow,
+  trustTitle,
+  trustTitleAccent,
+  trustLead,
+  trustBullets,
+  trustItems,
+  ctaTitle,
+  ctaAccent,
+  ctaLead,
+  ctaSource,
+  ctaHint,
+} = Astro.props;
+---
+
+<BaseLayout {title} {description} lang={lang} {canonical} {ogImage}>
+
+<ProductHeroSplit
+  badge={badge}
+  title={heroTitle}
+  titleAccent={heroAccent}
+  lead={heroLead}
+  {lang}
+  {source}
+  hint={heroHint}
+>
+  <ChannelFloatPreview lang={lang} channel={channelId} client:load />
+</ProductHeroSplit>
+
+<PageBand variant="muted" size="sm">
+  <div class="container">
+    <div class="page-stats-row">
+      {stats.map(s => (
+        <div>
+          <div class="page-stat__value">{s.v}</div>
+          <div class="page-stat__label">{s.l}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="plain">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">{featuresEyebrow}</div>
+      <h2 class="section-title">
+        {featuresTitle}
+        <br />
+        <span class="headline-accent">{featuresTitleAccent}</span>
+      </h2>
+    </div>
+    <div class="page-grid-3">
+      {features.map(f => (
+        <div class="card page-card">
+          <div class="feature-icon"><Icon name={f.icon} size={20} /></div>
+          <h3 class="page-card__title">{f.title}</h3>
+          <p class="page-card__desc">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container" style="max-width: 820px;">
+    <div class="page-section-head">
+      <div class="eyebrow">{stepsEyebrow}</div>
+      <h2 class="section-title">
+        {stepsTitle}
+        <br />
+        <span class="headline-accent">{stepsTitleAccent}</span>
+      </h2>
+    </div>
+    <div class="page-grid-3">
+      {steps.map(s => (
+        <div class="page-card page-card--center">
+          <div class="channel-step-num">{s.n}</div>
+          <h3 class="page-card__title">{s.title}</h3>
+          <p class="page-card__desc">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="plain">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">{useCasesEyebrow}</div>
+      <h2 class="section-title">
+        {useCasesTitle}
+        <br />
+        <span class="headline-accent">{useCasesTitleAccent}</span>
+      </h2>
+    </div>
+    <div class="page-grid-3 page-grid-3--4">
+      {useCases.map(u => (
+        <div class="card page-card">
+          <div class="feature-icon"><Icon name={u.icon} size={20} /></div>
+          <h3 class="page-card__title">{u.title}</h3>
+          <p class="page-card__desc">{u.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container">
+    <div class="hero-split">
+      <div>
+        <div class="eyebrow">{trustEyebrow}</div>
+        <h2 class="section-title" style="margin-bottom: 1rem;">
+          {trustTitle}
+          <br />
+          <span class="headline-accent">{trustTitleAccent}</span>
+        </h2>
+        <p class="lead-sm" style="margin-bottom: 1.5rem;">{trustLead}</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.625rem;">
+          {trustBullets.map(item => (
+            <li style="display: flex; align-items: center; gap: 0.625rem; font-size: 0.9375rem; color: var(--ink-3);">
+              <span style="color: var(--green); font-weight: 700; flex-shrink: 0;">✓</span> {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="channel-trust-stack">
+        {trustItems.map(item => (
+          <div class="channel-trust-row">
+            <span class="channel-trust-row__label">{item.label}</span>
+            <span class="channel-trust-row__badge">{item.badge}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</PageBand>
+
+<PageCta
+  {lang}
+  title={ctaTitle}
+  titleAccent={ctaAccent}
+  lead={ctaLead}
+  source={ctaSource}
+>
+  <p class="lead-sm" style="margin-top: 1rem; opacity: 0.65;">{ctaHint}</p>
+</PageCta>
+
+</BaseLayout>
+
+<style>
+  .channel-step-num {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-family: var(--font-display);
+  }
+
+  .page-card--center { text-align: center; }
+
+  .page-grid-3--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 900px) {
+    .page-grid-3--4 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .page-grid-3--4 { grid-template-columns: 1fr; }
+  }
+
+  .channel-trust-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .channel-trust-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+  }
+
+  .channel-trust-row__label {
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: var(--ink);
+  }
+
+  .channel-trust-row__badge {
+    padding: 0.2rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+</style>

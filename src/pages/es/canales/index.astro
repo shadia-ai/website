@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import PageBand from '../../../components/PageBand.astro';
+import PageCta from '../../../components/PageCta.astro';
+import ChannelCards from '../../../components/ChannelCards.astro';
+import { WhatsAppIcon, InstagramIcon, MessengerIcon, TikTokIcon } from '../../../lib/channel-icons';
+
+const channels = [
+  {
+    id: 'whatsapp',
+    name: 'WhatsApp',
+    featured: true,
+    desc: 'Citas, ventas y seguimiento en el canal que ya usan tus clientes en RD y LATAM.',
+    href: '/es/canales/whatsapp',
+    iconSvg: WhatsAppIcon,
+  },
+  {
+    id: 'instagram',
+    name: 'Instagram DMs',
+    desc: 'Convierte DMs y comentarios en citas — aunque tu equipo no esté en línea.',
+    href: '/es/canales/instagram',
+    iconSvg: InstagramIcon,
+  },
+  {
+    id: 'messenger',
+    name: 'Messenger',
+    desc: 'Atiende Facebook Messenger y ofrece continuar en WhatsApp cuando convenga.',
+    href: '/es/canales/facebook',
+    iconSvg: MessengerIcon,
+  },
+  {
+    id: 'tiktok',
+    name: 'TikTok',
+    desc: 'Responde DMs de TikTok y lleva la conversación a una cita o venta real.',
+    href: '/es/canales/tiktok',
+    iconSvg: TikTokIcon,
+  },
+];
+---
+
+<BaseLayout
+  title="Canales — WhatsApp, Instagram, Messenger y TikTok | Shadia AI"
+  description="Unifica WhatsApp, Instagram, Messenger y TikTok en una sola operación con IA. Hecho para negocios en República Dominicana y Latinoamérica."
+  lang="es"
+  canonical="https://shadia.ai/es/canales/"
+  ogImage="/og/channels-es.png"
+>
+  <PageHero
+    eyebrow="Canales"
+    title="Donde te escriben,"
+    titleAccent="en un solo lugar."
+    lead="Shadia conecta los canales que ya usas en LATAM — con plataforma unificada, citas nativas e IA que trabaja con tu equipo."
+  />
+
+  <PageBand variant="plain" size="sm">
+    <div class="container-wide">
+      <ChannelCards lang="es" channels={channels} />
+    </div>
+  </PageBand>
+
+  <PageBand variant="muted">
+    <div class="container">
+      <div class="page-section-head">
+        <div class="eyebrow">Por qué unificar</div>
+        <h2 class="section-title">Una operación, no cuatro apps</h2>
+        <p class="lead-sm">Tu equipo deja de saltar entre celulares. La IA mantiene contexto en todos los canales.</p>
+      </div>
+      <div class="page-grid-3">
+        {[
+          { t: 'Contexto completo', d: 'Historial del cliente sin importar si escribió por WhatsApp o Instagram.' },
+          { t: 'IA en cada canal', d: 'Mismo tono y reglas de negocio — citas, precios y seguimiento.' },
+          { t: 'Handoff humano', d: 'Tu equipo interviene cuando quiera, con todo el hilo visible.' },
+        ].map(item => (
+          <div class="card page-card">
+            <h3 class="page-card__title">{item.t}</h3>
+            <p class="page-card__desc">{item.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </PageBand>
+
+  <PageCta
+    lang="es"
+    source="channels_index_cta"
+    title="Conecta tus canales"
+    titleAccent="en minutos."
+    lead="Empieza gratis. Sin tarjeta — activa WhatsApp y el resto cuando quieras."
+  />
+</BaseLayout>

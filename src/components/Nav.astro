@@ -1,0 +1,251 @@
+---
+import Icon from './Icon.astro';
+import NavModal from './NavModal.tsx';
+import { t, type Lang } from '../i18n/utils';
+import { getAlternatePath } from '../lib/routes';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const chevron = `<svg width="11" height="11" viewBox="0 0 12 12" fill="none" style="margin-left:3px;transition:transform 0.2s ease;flex-shrink:0"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+const productItems = [
+  { label: '✦ Shadia Agent', href: lang === 'es' ? '/es/producto/agente' : '/en/product/agent', accent: true },
+  { label: t('nav.omnichannel', lang), href: lang === 'es' ? '/es/producto/omnicanal' : '/en/product/omnichannel' },
+  { label: t('nav.agents', lang),       href: lang === 'es' ? '/es/producto/agentes-ia'  : '/en/product/ai-agents' },
+  { label: t('nav.appointments', lang), href: lang === 'es' ? '/es/producto/citas'        : '/en/product/appointments' },
+];
+
+const whatsappSvg = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.946.536 3.766 1.47 5.321L2 22l4.826-1.445A9.951 9.951 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="#25D366"/><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="white"/></svg>`;
+const instagramSvg = `<svg width="16" height="16" viewBox="0 0 24 24"><defs><radialGradient id="ig-nav" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#ffd600"/><stop offset="30%" stop-color="#ff6b00"/><stop offset="55%" stop-color="#e0005a"/><stop offset="80%" stop-color="#8130d8"/><stop offset="100%" stop-color="#4568f6"/></radialGradient></defs><rect width="24" height="24" rx="6" fill="url(#ig-nav)"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>`;
+const facebookSvg = `<svg width="16" height="16" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1877F2"/><path d="M15.12 8H13v-1.5c0-.45.45-1 1-1H15V3.5h-2.1C11.19 3.5 10 4.69 10 6.4V8H8v2.5h2V20h2.5v-9.5h1.87L15.12 8z" fill="white"/></svg>`;
+const tiktokSvg = `<svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#000"/><path d="M17.5 4.5h-2.3c0 2.7 2 3.8 2.8 3.8V10c-.6 0-1.8-.2-3-1v6.5c0 2.5-2 4.5-4.5 4.5S6 18 6 15.5 8 11 10.5 11c.2 0 .5 0 .7.1v2.3c-.2 0-.4-.1-.7-.1-1.2 0-2.2 1-2.2 2.2s1 2.2 2.2 2.2 2.2-1 2.2-2.2V4.5h2.3c.2 1.8 1.4 3 2.5 3.3V4.5z" fill="white"/></svg>`;
+
+const channelItems = [
+  { label: 'WhatsApp',  svg: whatsappSvg,  href: lang === 'es' ? '/es/canales/whatsapp'  : '/en/channels/whatsapp'  },
+  { label: 'Instagram', svg: instagramSvg, href: lang === 'es' ? '/es/canales/instagram' : '/en/channels/instagram' },
+  { label: 'Facebook',  svg: facebookSvg,  href: lang === 'es' ? '/es/canales/facebook'  : '/en/channels/facebook'  },
+  { label: 'TikTok',    svg: tiktokSvg,    href: lang === 'es' ? '/es/canales/tiktok'    : '/en/channels/tiktok'    },
+];
+
+const industryItems = [
+  { label: t('nav.ecommerce', lang), href: lang === 'es' ? '/es/industrias/ecommerce'  : '/en/industries/ecommerce'  },
+  { label: t('nav.healthcare', lang),href: lang === 'es' ? '/es/industrias/salud'       : '/en/industries/healthcare' },
+  { label: t('nav.sales', lang),     href: lang === 'es' ? '/es/industrias/ventas'      : '/en/industries/sales'      },
+  { label: t('nav.support', lang),   href: lang === 'es' ? '/es/industrias/soporte'     : '/en/industries/support'    },
+  { label: t('nav.agency', lang),    href: lang === 'es' ? '/es/industrias/agencias'    : '/en/industries/agencies'   },
+  { label: t('nav.dental', lang),    href: lang === 'es' ? '/es/industrias/odontologia' : '/en/industries/dental'     },
+  { label: t('nav.beauty', lang),    href: lang === 'es' ? '/es/industrias/belleza'     : '/en/industries/beauty'     },
+];
+
+const channelsIndexHref = lang === 'es' ? '/es/canales/' : '/en/channels/';
+const pricingHref   = lang === 'es' ? '/es/precios'   : '/en/pricing';
+const enterpriseHref = lang === 'es' ? '/es/empresa'  : '/en/enterprise';
+const featuresHref  = lang === 'es' ? '/es/caracteristicas' : '/en/features';
+const homeHref      = lang === 'es' ? '/es/' : '/en/';
+const alternateLang = lang === 'es' ? 'en' : 'es';
+const alternatePath = getAlternatePath(Astro.url.pathname, alternateLang as 'es' | 'en');
+const ctaLabel = lang === 'es' ? 'Comenzar gratis' : 'Get started free';
+
+const solutionsLabel  = lang === 'es' ? 'Soluciones' : 'Solutions';
+const enterpriseLabel = lang === 'es' ? 'Enterprise'  : 'Enterprise';
+const productLabel    = lang === 'es' ? 'Producto'    : 'Product';
+const channelsLabel   = lang === 'es' ? 'Canales'     : 'Channels';
+const industriesLabel = lang === 'es' ? 'Industrias'  : 'Industries';
+const featuresLabel   = lang === 'es' ? 'Ver todas las características →' : 'See all features →';
+const allChannelsLabel = lang === 'es' ? 'Ver todos los canales →' : 'See all channels →';
+---
+
+<div class="site-header-shell" id="site-nav-shell">
+  <header class="site-header" id="site-nav">
+    <div class="site-header__inner">
+
+      <a href={homeHref} class="site-header__logo" aria-label="Shadia AI">
+        <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="8" fill="#2F2636"/>
+          <path d="M16 6 L22 14 L16 12 L10 14 Z" fill="#8C5A9E"/>
+          <path d="M16 12 L22 14 L16 26 L10 14 Z" fill="#8C5A9E" opacity="0.6"/>
+        </svg>
+        <span class="site-header__logo-text">Shadia AI</span>
+      </a>
+
+      <nav class="desktop-nav site-header__nav">
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" set:html={`${solutionsLabel}${chevron}`}></button>
+          <div class="dropdown-menu mega-menu" role="menu">
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; padding:0.25rem;">
+              <div style="padding:0.75rem 1rem;">
+                <div style="font-size:0.6875rem; font-weight:700; color:var(--ink-4); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.625rem; padding:0 0.25rem;">{productLabel}</div>
+                {productItems.map(item => (
+                  <a href={item.href} class="dropdown-item" role="menuitem" data-track="nav_click" data-link={item.href}
+                     style={item.accent ? 'color:var(--accent);font-weight:600;' : ''}>
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+              <div style="padding:0.75rem 1rem; border-left:1px solid var(--border);">
+                <div style="font-size:0.6875rem; font-weight:700; color:var(--ink-4); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.625rem; padding:0 0.25rem;">{channelsLabel}</div>
+                {channelItems.map(item => (
+                  <a href={item.href} class="dropdown-item" role="menuitem" data-track="nav_click" data-link={item.href}>
+                    <span style="margin-right:0.5rem; display:inline-flex; align-items:center;" set:html={item.svg}></span>{item.label}
+                  </a>
+                ))}
+              </div>
+              <div style="padding:0.75rem 1rem; border-left:1px solid var(--border);">
+                <div style="font-size:0.6875rem; font-weight:700; color:var(--ink-4); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.625rem; padding:0 0.25rem;">{industriesLabel}</div>
+                {industryItems.map(item => (
+                  <a href={item.href} class="dropdown-item" role="menuitem" data-track="nav_click" data-link={item.href}>
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div style="border-top:1px solid var(--border); padding:0.625rem 1.25rem; display:flex; gap:1.25rem; flex-wrap:wrap;">
+              <a href={featuresHref} class="dropdown-item" style="color:var(--accent); font-size:0.8125rem; font-weight:500; padding:0;" role="menuitem" data-track="nav_click" data-link={featuresHref}>
+                {featuresLabel}
+              </a>
+              <a href={channelsIndexHref} class="dropdown-item" style="color:var(--accent); font-size:0.8125rem; font-weight:500; padding:0;" role="menuitem" data-track="nav_click" data-link={channelsIndexHref}>
+                {allChannelsLabel}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href={enterpriseHref} class="nav-link site-header__nav-link" data-track="nav_click" data-link={enterpriseHref}>
+          {enterpriseLabel}
+        </a>
+        <a href={pricingHref} class="nav-link site-header__nav-link" data-track="nav_click" data-link={pricingHref}>
+          {t('nav.pricing', lang)}
+        </a>
+      </nav>
+
+      <div class="site-header__actions">
+        <a href={alternatePath} class="site-header__lang" data-track="lang_switch" data-from={lang} data-to={alternateLang}>
+          {alternateLang}
+        </a>
+        <button id="nav-cta" class="btn-primary site-header__cta" data-section="nav">
+          {ctaLabel}
+        </button>
+        <button id="mobile-menu-btn" class="site-header__menu-btn" aria-label="Open menu" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="site-header__mobile-menu">
+      <div style="display:flex; flex-direction:column; gap:0.25rem;">
+        <div style="padding:0.5rem 0; font-size:0.6875rem; font-weight:700; color:var(--ink-4); text-transform:uppercase; letter-spacing:0.1em;">{productLabel}</div>
+        {productItems.map(item => (
+          <a href={item.href} style={`padding:0.5rem 0; color:${item.accent ? 'var(--accent)' : 'var(--ink)'}; text-decoration:none; font-size:0.9375rem;`}>{item.label}</a>
+        ))}
+        <div style="height:1px; background:var(--border); margin:0.5rem 0;"></div>
+        <div style="padding:0.5rem 0; font-size:0.6875rem; font-weight:700; color:var(--ink-4); text-transform:uppercase; letter-spacing:0.1em;">{channelsLabel}</div>
+        {channelItems.map(item => (
+          <a href={item.href} style="padding:0.5rem 0; color:var(--ink); text-decoration:none; font-size:0.9375rem; display:flex; align-items:center; gap:0.5rem;">
+            <span set:html={item.svg}></span>{item.label}
+          </a>
+        ))}
+        <a href={channelsIndexHref} style="padding:0.5rem 0; color:var(--accent); text-decoration:none; font-size:0.9375rem; font-weight:500;">{allChannelsLabel}</a>
+        <div style="height:1px; background:var(--border); margin:0.5rem 0;"></div>
+        <div style="padding:0.5rem 0; font-size:0.6875rem; font-weight:700; color:var(--ink-4); text-transform:uppercase; letter-spacing:0.1em;">{industriesLabel}</div>
+        {industryItems.map(item => (
+          <a href={item.href} style="padding:0.5rem 0; color:var(--ink); text-decoration:none; font-size:0.9375rem;">{item.label}</a>
+        ))}
+        <div style="height:1px; background:var(--border); margin:0.5rem 0;"></div>
+        <a href={featuresHref} style="padding:0.5rem 0; color:var(--accent); text-decoration:none; font-size:0.9375rem; font-weight:500;">{featuresLabel}</a>
+        <a href={enterpriseHref} style="padding:0.5rem 0; color:var(--ink); text-decoration:none; font-size:0.9375rem; font-weight:600;">{enterpriseLabel}</a>
+        <a href={pricingHref} style="padding:0.5rem 0; color:var(--ink); text-decoration:none; font-size:0.9375rem; font-weight:600;">{t('nav.pricing', lang)}</a>
+        <button id="mobile-cta" class="btn-primary" style="margin-top:1rem; text-align:center; justify-content:center; width:100%;">{ctaLabel}</button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<NavModal lang={lang} client:load />
+
+<style>
+  .nav-dropdown-trigger {
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+
+  .nav-dropdown .dropdown-menu {
+    opacity: 0; visibility: hidden;
+    transform: translateY(-4px) translateX(-50%);
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  }
+  .nav-dropdown:hover .dropdown-menu,
+  .nav-dropdown:focus-within .dropdown-menu {
+    opacity: 1; visibility: visible; transform: translateY(0) translateX(-50%);
+  }
+
+  .mega-menu {
+    width: 560px;
+    padding: 0;
+  }
+  .nav-dropdown:hover .nav-dropdown-trigger svg,
+  .nav-dropdown:focus-within .nav-dropdown-trigger svg { transform: rotate(180deg); }
+
+</style>
+
+<script>
+  const header = document.getElementById('site-nav');
+  const shell = document.getElementById('site-nav-shell');
+
+  const onScroll = () => {
+    if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 12);
+  };
+
+  const setMenuOpen = (open: boolean) => {
+    header?.classList.toggle('site-header--menu-open', open);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      const isOpen = menu.classList.contains('is-open');
+      const nextOpen = !isOpen;
+      menu.classList.toggle('is-open', nextOpen);
+      btn.setAttribute('aria-expanded', nextOpen ? 'true' : 'false');
+      setMenuOpen(nextOpen);
+    });
+  }
+
+  ['nav-cta', 'mobile-cta'].forEach(id => {
+    document.getElementById(id)?.addEventListener('click', () => {
+      window.dispatchEvent(new Event('shadia:open-modal'));
+    });
+  });
+
+  document.querySelectorAll('[data-open-modal]').forEach(el => {
+    el.addEventListener('click', () => window.dispatchEvent(new Event('shadia:open-modal')));
+  });
+
+  import { track } from '../lib/analytics';
+
+  document.querySelectorAll('[data-track="nav_click"]').forEach(el => {
+    el.addEventListener('click', () => {
+      const link = (el as HTMLElement).dataset.link ?? '';
+      track('nav_click', { link, lang: document.documentElement.lang });
+    });
+  });
+
+  document.querySelectorAll('[data-track="lang_switch"]').forEach(el => {
+    el.addEventListener('click', () => {
+      const { from, to } = (el as HTMLElement).dataset;
+      track('lang_switch', { from, to });
+    });
+  });
+</script>

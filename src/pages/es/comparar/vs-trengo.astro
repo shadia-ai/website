@@ -1,0 +1,62 @@
+---
+import ComparePage from '../../../components/ComparePage.astro';
+
+const compareRows = [
+  { feature: 'AI-native desde la base', shadia: true, competitor: false },
+  { feature: 'WhatsApp-native AI agents', shadia: true, competitor: 'Parcial' },
+  { feature: 'Motor de citas nativo', shadia: true, competitor: false },
+  { feature: 'Agentes de IA autónomos', shadia: true, competitor: false },
+  { feature: 'Reactivación automática de clientes', shadia: true, competitor: false },
+  { feature: 'Seguimientos automáticos inteligentes', shadia: true, competitor: false },
+  { feature: 'Instagram + TikTok + Facebook', shadia: true, competitor: true },
+  { feature: 'Precios accesibles para LATAM', shadia: true, competitor: false },
+  { feature: 'Soporte en español', shadia: true, competitor: false },
+  { feature: 'Configuración sin código', shadia: true, competitor: 'Parcial' },
+];
+
+const faqs = [
+  {
+    q: '¿Es Shadia AI una buena alternativa a Trengo?',
+    a: 'Sí. Para negocios latinoamericanos, Shadia AI es una alternativa superior a Trengo en casi todas las dimensiones relevantes: tiene IA nativa, motor de citas, soporte en español y precios apropiados para la región. Trengo es una plataforma europea de customer service enfocada en equipos grandes.',
+  },
+  {
+    q: '¿Trengo tiene IA integrada?',
+    a: 'Trengo tiene algunas funciones de IA básicas pero no es AI-native. No tiene agentes de IA autónomos ni motor de citas. Shadia fue construida desde cero con IA en el centro de cada funcionalidad.',
+  },
+  {
+    q: '¿Cuánto cuesta Trengo vs Shadia AI?',
+    a: 'Trengo cobra desde €25/usuario/mes, lo que para un equipo de 5 personas son €125/mes (~$135 USD). Shadia AI cuesta desde $49/mes para el plan HUB con funcionalidades que Trengo no ofrece, incluyendo agentes de IA y motor de citas nativo.',
+  },
+];
+---
+
+<ComparePage
+  lang="es"
+  competitor="Trengo"
+  competitorSlug="trengo"
+  title="Shadia AI vs Trengo — Alternativa a Trengo para negocios en crecimiento | Shadia AI"
+  description="Compara Shadia AI vs Trengo. Por qué los negocios de alto crecimiento eligen Shadia: AI-native, motor de citas nativo y WhatsApp-first. Alternativa a Trengo en español."
+  canonical="https://shadia.ai/es/comparar/vs-trengo"
+  ogImage="/og/compare-trengo-es.png"
+  heroHeadline="Shadia AI vs Trengo — IA nativa vs customer service tradicional"
+  heroSubheadline="Trengo es una plataforma de customer service europea sólida. Pero para negocios en crecimiento que necesitan IA real, agendamiento nativo y soporte en español, Shadia AI es la elección obvia."
+  verdictPoints={[
+    'Shadia incluye motor de citas nativo; Trengo no tiene agendamiento',
+    'Agentes de IA autónomos en Shadia vs automatización básica en Trengo',
+    'Soporte en español y precios para LATAM (desde $49/mes)',
+    'WhatsApp-first: optimizado para el canal dominante ',
+    'Reactivación proactiva de clientes: funcionalidad exclusiva de Shadia',
+  ]}
+  compareRows={compareRows}
+  detailedText={`
+    <h2>¿Qué hace bien Trengo?</h2>
+    <p>Trengo es una plataforma de mensajería holandesa bien construida, con buen soporte multicanal, integraciones con herramientas populares y un diseño de interfaz moderno. Es popular entre empresas europeas de customer service.</p>
+    <h2>¿Por qué Trengo no es ideal para LATAM?</h2>
+    <p>Trengo fue diseñada para el mercado europeo y su modelo de precios (por usuario) se vuelve costoso rápidamente para equipos en crecimiento. No tiene IA nativa que pueda operar autónomamente, ni motor de citas, ni campañas de reactivación proactivas.</p>
+    <p>Para una clínica en Santo Domingo, un salón en Ciudad de México o una academia en Bogotá, Trengo resuelve la mitad del problema: centraliza la mensajería. Pero no automatiza la operación.</p>
+    <h2>Shadia AI: La alternativa completa</h2>
+    <p>Con Shadia, los mismos negocios obtienen plataforma unificada + agentes de IA + motor de citas + reactivación automática — todo en una plataforma con soporte en español y precios accesibles para negocios en República Dominicana, México, Colombia, Argentina y toda la región.</p>
+  `}
+  migrationText="Importamos tus contactos y conversaciones históricas de Trengo. Configuramos tus flujos en menos de 5 días laborables y te damos soporte 1:1 durante el onboarding."
+  faqs={faqs}
+/>

@@ -1,0 +1,74 @@
+---
+import ComparePage from '../../../components/ComparePage.astro';
+
+const compareRows = [
+  { feature: 'AI-native desde la base', shadia: true, competitor: false },
+  { feature: 'WhatsApp-native AI agents', shadia: true, competitor: 'Parcial' },
+  { feature: 'Motor de citas nativo', shadia: true, competitor: false },
+  { feature: 'Agentes de IA reales', shadia: true, competitor: false },
+  { feature: 'Automatización de seguimientos', shadia: true, competitor: 'Básico' },
+  { feature: 'Reactivación automática de clientes', shadia: true, competitor: false },
+  { feature: 'Instagram + TikTok + Facebook', shadia: true, competitor: 'Parcial' },
+  { feature: 'Precios accesibles para LATAM', shadia: true, competitor: false },
+  { feature: 'Soporte en español', shadia: true, competitor: false },
+  { feature: 'Configuración sin código', shadia: true, competitor: false },
+  { feature: 'Integraciones MCP / avanzadas', shadia: true, competitor: 'Básico' },
+];
+
+const faqs = [
+  {
+    q: '¿Es Shadia AI mejor que Respond.io para negocios en crecimiento?',
+    a: 'Para negocios  que operan en WhatsApp, Shadia AI ofrece ventajas clave que Respond.io no tiene: motor de citas nativo, agentes de IA reales (no solo reglas), soporte en español y precios diseñados para la región. Respond.io es una plataforma sólida pero genérica — Shadia es específica para el tipo de operación que tienen los negocios latinoamericanos.',
+  },
+  {
+    q: '¿Tiene Respond.io motor de citas integrado?',
+    a: 'No. Respond.io no tiene un motor de agendamiento nativo. Para gestionar citas necesitas integrarlo con herramientas externas como Calendly o Google Calendar. Shadia AI incluye agendamiento nativo con recordatorios, reagendamiento y optimización de agenda incluidos.',
+  },
+  {
+    q: '¿Respond.io tiene agentes de IA autónomos?',
+    a: 'Respond.io tiene algunas funciones de automatización basadas en reglas, pero no tiene agentes de IA autónomos del tipo que ofrece Shadia. Los agentes de Shadia pueden calificar leads, hacer seguimientos contextuales, reactivar clientes y tomar decisiones basadas en el historial de la conversación.',
+  },
+  {
+    q: '¿Puedo migrar de Respond.io a Shadia fácilmente?',
+    a: 'Sí. Nuestro equipo ofrece soporte de onboarding que incluye la migración de contactos, configuración de flujos y entrenamiento del equipo. La mayoría de los clientes completan la migración en menos de una semana.',
+  },
+];
+---
+
+<ComparePage
+  lang="es"
+  competitor="Respond.io"
+  competitorSlug="respond-io"
+  title="Shadia AI vs Respond.io — La mejor alternativa para negocios en crecimiento | Shadia AI"
+  description="Compara Shadia AI vs Respond.io. AI-native, motor de citas nativo y WhatsApp-first. La alternativa a Respond.io diseñada para negocios en crecimiento."
+  canonical="https://shadia.ai/es/comparar/vs-respond-io"
+  ogImage="/og/compare-respond-io-es.png"
+  heroHeadline="Shadia AI vs Respond.io — La alternativa AI-native para LATAM"
+  heroSubheadline="Respond.io es una buena plataforma. Pero no fue construida para negocios en crecimiento que viven en WhatsApp, necesitan agendar citas y quieren agentes de IA reales — no solo reglas."
+  verdictPoints={[
+    'Shadia AI incluye motor de citas nativo; Respond.io requiere herramientas externas',
+    'Los Agentes IA de Shadia son autónomos; Respond.io ofrece automatización basada en reglas',
+    'Shadia tiene soporte en español y precios accesibles para LATAM',
+    'WhatsApp-first desde la arquitectura — no como canal secundario',
+    'Reactivación automática de clientes: exclusivo de Shadia',
+  ]}
+  compareRows={compareRows}
+  detailedText={`
+    <h2>¿Qué hace bien Respond.io?</h2>
+    <p>Respond.io es una plataforma robusta para la gestión de mensajería multicanal. Tiene buena gestión de conversaciones, soporte para WhatsApp Business API, y una interfaz de usuario bien diseñada. Es popular entre startups y equipos de customer support que necesitan centralizar la comunicación de equipos.</p>
+    <p>Si tienes un equipo grande de soporte al cliente y necesitas una herramienta de ticketing integrada con mensajería, Respond.io puede funcionar bien.</p>
+    <h2>¿Dónde Respond.io se queda corto para negocios en crecimiento?</h2>
+    <p>El problema de Respond.io es que está diseñada para el mercado global de customer support, no para el modelo de negocio específico de LATAM. En nuestra región, los negocios de salud, belleza, educación y ventas necesitan algo diferente:</p>
+    <ul>
+      <li>Agendamiento nativo integrado — no Calendly como add-on externo</li>
+      <li>Agentes de IA que operen de forma autónoma, no solo reglas y triggers</li>
+      <li>Reactivación proactiva de clientes, no solo respuesta reactiva</li>
+      <li>Precios en dólares accesibles, no planes enterprise de $500+/mes</li>
+    </ul>
+    <p>Respond.io cuesta desde $79/mes para equipos pequeños y escala a cientos de dólares rápidamente. Shadia AI tiene planes desde $49/mes con funcionalidades que Respond.io no ofrece ni en sus planes más caros.</p>
+    <h2>Conclusión</h2>
+    <p>Si tu negocio en República Dominicana, México, Colombia o cualquier país de LATAM opera principalmente en WhatsApp, necesita gestionar citas y quiere automatización de verdad — Shadia AI es la alternativa superior a Respond.io.</p>
+  `}
+  migrationText="Nuestro equipo te ayuda a migrar desde Respond.io en menos de una semana. Exportamos tus contactos, reconfiguramos tus flujos de automatización y entrenamos a tu equipo en la nueva plataforma."
+  faqs={faqs}
+/>

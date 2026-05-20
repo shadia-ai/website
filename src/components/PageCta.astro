@@ -1,0 +1,35 @@
+---
+import SignupInput from './SignupInput.tsx';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  titleAccent?: string;
+  lead: string;
+  source: string;
+  class?: string;
+}
+
+const { lang, title, titleAccent, lead, source, class: className } = Astro.props;
+---
+
+<section class:list={['page-band', 'page-band--dark', 'section', className]} style="overflow: hidden;">
+  <div class="home-band__glow" aria-hidden="true"></div>
+  <div class="container page-cta">
+    <h2 class="hero-title">
+      {title}
+      {titleAccent && (
+        <>
+          <br />
+          <span class="headline-accent">{titleAccent}</span>
+        </>
+      )}
+    </h2>
+    <p class="lead">{lead}</p>
+    <div class="page-cta__action">
+      <SignupInput lang={lang} source={source} size="lg" client:load />
+    </div>
+    <slot />
+  </div>
+</section>

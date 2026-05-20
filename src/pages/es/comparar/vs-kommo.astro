@@ -1,0 +1,58 @@
+---
+import ComparePage from '../../../components/ComparePage.astro';
+
+const compareRows = [
+  { feature: 'AI-native desde la base', shadia: true, competitor: false },
+  { feature: 'Agentes IA autónomos', shadia: true, competitor: false },
+  { feature: 'Motor de citas nativo', shadia: true, competitor: false },
+  { feature: 'WhatsApp-native AI agents', shadia: true, competitor: 'Parcial' },
+  { feature: 'Pipeline de ventas visual', shadia: 'Integrado', competitor: true },
+  { feature: 'Reactivación automática de clientes', shadia: true, competitor: false },
+  { feature: 'Recordatorios de citas automáticos', shadia: true, competitor: false },
+  { feature: 'Soporte en español', shadia: true, competitor: true },
+  { feature: 'Precios accesibles para LATAM', shadia: true, competitor: 'Parcial' },
+  { feature: 'Sin gestión de base de datos compleja', shadia: true, competitor: false },
+];
+
+const faqs = [
+  {
+    q: '¿Es Shadia mejor que Kommo para ventas por WhatsApp ?',
+    a: 'Para negocios que necesitan automatización con IA real, motor de citas y operación autónoma, Shadia AI es superior. Kommo es un buen plataforma de contactos tradicional con integración de WhatsApp, pero no tiene agentes de IA ni motor de agendamiento. Son productos complementarios pero distintos.',
+  },
+  {
+    q: '¿Kommo tiene IA?',
+    a: 'Kommo tiene algunas funciones de automatización básicas y bots de flujo, pero no tiene agentes de IA autónomos que puedan operar conversaciones sin intervención humana de forma contextual.',
+  },
+];
+---
+
+<ComparePage
+  lang="es"
+  competitor="Kommo"
+  competitorSlug="kommo"
+  title="Shadia AI vs Kommo — Alternativa a Kommo para LATAM | Shadia AI"
+  description="Compara Shadia AI vs Kommo. La alternativa a Kommo con IA nativa, motor de citas y automatización completa para negocios en crecimiento."
+  canonical="https://shadia.ai/es/comparar/vs-kommo"
+  ogImage="/og/compare-kommo-es.png"
+  heroHeadline="Shadia AI vs Kommo — Más que software de contactos, una plataforma de operaciones con IA"
+  heroSubheadline="Kommo (antes amoCRM) es popular  para ventas por WhatsApp. Pero si necesitas agentes de IA autónomos, motor de citas nativo y automatización real — Shadia AI va mucho más lejos."
+  verdictPoints={[
+    'Shadia tiene agentes de IA autónomos; Kommo tiene bots de flujo básicos',
+    'Motor de citas nativo en Shadia; Kommo no incluye agendamiento',
+    'Reactivación proactiva de clientes: exclusiva de Shadia',
+    'Sin necesidad de gestionar contactos manualmente — Shadia lo hace automáticamente',
+    'Precios similares, funcionalidades muy superiores',
+  ]}
+  compareRows={compareRows}
+  detailedText={`
+    <h2>¿Qué hace bien Kommo?</h2>
+    <p>Kommo (anteriormente amoCRM) es un plataforma de contactos con buena integración de WhatsApp y un pipeline visual que ayuda a equipos de ventas a seguir sus oportunidades. Es popular en México, Argentina y Colombia para equipos de ventas que quieren centralizar su operación de WhatsApp.</p>
+    <h2>¿Dónde Kommo se queda corto?</h2>
+    <p>Kommo depende de que tu equipo actualice el pipeline manualmente, gestione contactos y haga los seguimientos. No tiene agentes de IA que operen autónomamente, no tiene motor de citas nativo y su automatización es básica.</p>
+    <p>Para negocios que necesitan que la IA opere por sí sola — respondiendo a clientes a las 11 PM, llenando espacios de agenda cuando hay cancelaciones, reactivando clientes que no han comprado en 60 días — Kommo no es suficiente.</p>
+    <h2>Shadia AI: La evolución de Kommo</h2>
+    <p>Piensa en Shadia AI como lo que Kommo sería si hubiera sido construido en 2026 con IA en el centro. El pipeline de ventas se actualiza automáticamente porque los agentes de IA llevan el registro. Los contactos se enriquecen solos. Los seguimientos se hacen solos. El equipo solo interviene cuando hay una oportunidad calificada lista para cerrar.</p>
+  `}
+  migrationText="Exportamos todos tus contactos y el historial de conversaciones desde Kommo. Reconfiguramos tus pipelines como flujos de agentes de IA. La migración típica toma 3-5 días hábiles."
+  faqs={faqs}
+/>

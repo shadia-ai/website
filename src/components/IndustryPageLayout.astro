@@ -1,0 +1,856 @@
+---
+import Icon from './Icon.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductHeroSplit from './ProductHeroSplit.astro';
+import PageBand from './PageBand.astro';
+import PageCta from './PageCta.astro';
+import IndustryCarousel from './IndustryCarousel.tsx';
+import {
+  CalendarFloatPreview,
+  InboxFloatPreview,
+  AgentFloatPreview,
+} from './FloatWidgets.tsx';
+import type { Lang } from '../i18n/utils';
+import type { CarouselSlide } from './IndustryCarousel.tsx';
+
+export type IndustryPreview = 'calendar' | 'conversations' | 'agent';
+
+export interface IndustryFeature {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+export interface IndustryPain {
+  icon: string;
+  prob: string;
+  sol: string;
+}
+
+export interface IndustryGridItem {
+  icon: string;
+  name: string;
+  desc: string;
+}
+
+export interface IndustryTimelineItem {
+  time: string;
+  icon: string;
+  text: string;
+}
+
+export interface IndustryLifecycleStep {
+  n: string;
+  title: string;
+  desc: string;
+}
+
+export interface IndustrySplitBlock {
+  eyebrow: string;
+  title: string;
+  lead?: string;
+  lead2?: string;
+  negatives?: string[];
+  positives?: string[];
+}
+
+export interface IndustryCompareFlow {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  lead2?: string;
+  withoutLabel: string;
+  withLabel: string;
+  withoutSteps: string[];
+  withSteps: string[];
+}
+
+export interface IndustryMetricRow {
+  metric: string;
+  before: string;
+  after: string;
+}
+
+export interface IndustryPageProps {
+  lang: Lang;
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage?: string;
+  jsonLd?: object;
+  accent: string;
+  badge: string;
+  heroTitle: string;
+  heroAccent: string;
+  heroLead: string;
+  source: string;
+  heroHint: string;
+  preview: IndustryPreview;
+  stats: { v: string; l: string }[];
+  pain?: {
+    eyebrow: string;
+    title: string;
+    lead?: string;
+    items: IndustryPain[];
+  };
+  split?: IndustrySplitBlock;
+  compare?: IndustryCompareFlow;
+  features: {
+    eyebrow?: string;
+    title: string;
+    items: IndustryFeature[];
+  };
+  lifecycle?: {
+    eyebrow: string;
+    title: string;
+    titleAccent?: string;
+    steps: IndustryLifecycleStep[];
+  };
+  integrations?: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    bullets: string[];
+    rows: { label: string; val: string }[];
+  };
+  grid?: {
+    eyebrow: string;
+    title: string;
+    items: IndustryGridItem[];
+    cols?: 3 | 4;
+  };
+  timeline?: {
+    eyebrow: string;
+    title: string;
+    items: IndustryTimelineItem[];
+  };
+  trust?: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    items: IndustryFeature[];
+  };
+  beforeAfter?: {
+    eyebrow: string;
+    title: string;
+    without: string[];
+    with: string[];
+  };
+  team?: {
+    eyebrow: string;
+    title: string;
+    titleAccent?: string;
+    lead: string;
+    highlights: IndustryFeature[];
+    metrics: IndustryMetricRow[];
+  };
+  carousel?: {
+    eyebrow: string;
+    slides: CarouselSlide[];
+  };
+  faqs: { q: string; a: string }[];
+  cta: {
+    title: string;
+    titleAccent?: string;
+    lead: string;
+    source: string;
+    hint?: string;
+  };
+}
+
+const props = Astro.props as IndustryPageProps;
+const {
+  lang,
+  title,
+  description,
+  canonical,
+  ogImage,
+  jsonLd,
+  accent,
+  badge,
+  heroTitle,
+  heroAccent,
+  heroLead,
+  source,
+  heroHint,
+  preview,
+  stats,
+  pain,
+  split,
+  compare,
+  features,
+  lifecycle,
+  integrations,
+  grid,
+  timeline,
+  trust,
+  beforeAfter,
+  team,
+  carousel,
+  faqs,
+  cta,
+} = props;
+
+const colorBg = `color-mix(in srgb, ${accent} 8%, transparent)`;
+const colorBorder = `color-mix(in srgb, ${accent} 22%, transparent)`;
+---
+
+<BaseLayout {title} {description} lang={lang} {canonical} ogImage={ogImage} jsonLd={jsonLd}>
+
+<ProductHeroSplit
+  {badge}
+  title={heroTitle}
+  titleAccent={heroAccent}
+  lead={heroLead}
+  {lang}
+  source={source}
+  hint={heroHint}
+>
+  {preview === 'calendar' && <CalendarFloatPreview lang={lang} client:load />}
+  {preview === 'conversations' && <InboxFloatPreview lang={lang} client:load />}
+  {preview === 'agent' && <AgentFloatPreview lang={lang} client:load />}
+</ProductHeroSplit>
+
+<PageBand variant="muted" size="sm">
+  <div class="container">
+    <div class="page-stats-row industry-stats" style={`--industry-accent: ${accent};`}>
+      {stats.map(s => (
+        <div>
+          <div class="page-stat__value">{s.v}</div>
+          <div class="page-stat__label">{s.l}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+{pain && (
+  <PageBand variant="plain">
+    <div class="container">
+      <div class="page-section-head">
+        <div class="eyebrow">{pain.eyebrow}</div>
+        <h2 class="section-title">{pain.title}</h2>
+        {pain.lead && <p class="lead-sm" style="max-width: 560px; margin: 0.875rem auto 0;">{pain.lead}</p>}
+      </div>
+      <div class="page-grid-3">
+        {pain.items.map(item => (
+          <div class="card page-card industry-pain-card" style={`--industry-accent: ${accent};`}>
+            {item.icon && (
+              <div class="feature-icon"><Icon name={item.icon} size={20} /></div>
+            )}
+            <h3 class="page-card__title" style="font-size: 0.9375rem; color: var(--ink-3);">{item.prob}</h3>
+            <p class="page-card__desc">{item.sol}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </PageBand>
+)}
+
+{split && (
+  <PageBand variant="plain">
+    <div class="container">
+      <div class="hero-split">
+        <div>
+          <div class="eyebrow">{split.eyebrow}</div>
+          <h2 class="section-title" style="margin-bottom: 1rem;">{split.title}</h2>
+          {split.lead && <p class="lead-sm" style="margin-bottom: 1rem;">{split.lead}</p>}
+          {split.lead2 && <p class="lead-sm" style="margin-bottom: 1.5rem;">{split.lead2}</p>}
+          {split.negatives && (
+            <ul class="industry-bullet-list industry-bullet-list--bad">
+              {split.negatives.map(item => <li><span aria-hidden="true">✕</span> {item}</li>)}
+            </ul>
+          )}
+        </div>
+        {split.positives && (
+          <div class="industry-highlight-box" style={`--industry-accent: ${accent}; background: ${colorBg}; border-color: ${colorBorder};`}>
+            <div class="industry-highlight-box__label">{lang === 'es' ? 'Con Shadia' : 'With Shadia'}</div>
+            <ul class="industry-bullet-list industry-bullet-list--good">
+              {split.positives.map(item => <li><span aria-hidden="true">✓</span> {item}</li>)}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  </PageBand>
+)}
+
+{compare && (
+  <PageBand variant="plain">
+    <div class="container">
+      <div class="page-section-head" style="text-align: left; max-width: 640px; margin: 0 auto 2.5rem;">
+        <div class="eyebrow">{compare.eyebrow}</div>
+        <h2 class="section-title">{compare.title}</h2>
+        <p class="lead-sm">{compare.lead}</p>
+        {compare.lead2 && <p class="lead-sm" style="margin-top: 0.75rem;">{compare.lead2}</p>}
+      </div>
+      <div class="industry-compare-grid">
+        <div class="industry-compare-col industry-compare-col--bad">
+          <div class="industry-compare-col__label">{compare.withoutLabel}</div>
+          {compare.withoutSteps.map(s => (
+            <div class="industry-compare-step"><span>✕</span> {s}</div>
+          ))}
+        </div>
+        <div class="industry-compare-col industry-compare-col--good" style={`--industry-accent: ${accent}; background: ${colorBg}; border-color: ${colorBorder};`}>
+          <div class="industry-compare-col__label">{compare.withLabel}</div>
+          {compare.withSteps.map(s => (
+            <div class="industry-compare-step"><span>✓</span> {s}</div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </PageBand>
+)}
+
+<PageBand variant={pain || split || compare ? 'muted' : 'plain'}>
+  <div class="container">
+    <div class="page-section-head">
+      {features.eyebrow && <div class="eyebrow">{features.eyebrow}</div>}
+      <h2 class="section-title">{features.title}</h2>
+    </div>
+    <div class="page-grid-3">
+      {features.items.map(f => (
+        <div class="card page-card">
+          <div class="feature-icon"><Icon name={f.icon} size={20} /></div>
+          <h3 class="page-card__title">{f.title}</h3>
+          <p class="page-card__desc">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+{lifecycle && (
+  <PageBand variant="plain">
+    <div class="container" style="max-width: 900px;">
+      <div class="page-section-head">
+        <div class="eyebrow">{lifecycle.eyebrow}</div>
+        <h2 class="section-title">
+          {lifecycle.title}
+          {lifecycle.titleAccent && (
+            <>
+              <br />
+              <span class="headline-accent" style={`color: ${accent};`}>{lifecycle.titleAccent}</span>
+            </>
+          )}
+        </h2>
+      </div>
+      <div class="industry-lifecycle">
+        {lifecycle.steps.map(s => (
+          <div class="industry-lifecycle__step">
+            <div class="industry-lifecycle__num" style={`background: ${accent};`}>{s.n}</div>
+            <h3 class="page-card__title">{s.title}</h3>
+            <p class="page-card__desc">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </PageBand>
+)}
+
+{integrations && (
+  <PageBand variant="muted">
+    <div class="container">
+      <div class="hero-split">
+        <div>
+          <div class="eyebrow">{integrations.eyebrow}</div>
+          <h2 class="section-title" style="margin-bottom: 1rem;">{integrations.title}</h2>
+          <p class="lead-sm" style="margin-bottom: 1.5rem;">{integrations.lead}</p>
+          <ul class="industry-check-grid">
+            {integrations.bullets.map(item => (
+              <li><span style={`color: ${accent};`}>✓</span> {item}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="industry-trust-stack">
+          {integrations.rows.map(row => (
+            <div class="channel-trust-row">
+              <span class="channel-trust-row__label">{row.label}</span>
+              <span class="channel-trust-row__badge" style={`background: ${colorBg}; color: ${accent};`}>{row.val}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </PageBand>
+)}
+
+{grid && (
+  <PageBand variant="muted">
+    <div class="container">
+      <div class="page-section-head">
+        <div class="eyebrow">{grid.eyebrow}</div>
+        <h2 class="section-title">{grid.title}</h2>
+      </div>
+      <div class:list={['page-grid-3', grid.cols === 4 && 'page-grid-3--4']}>
+        {grid.items.map(item => (
+          <div class="card page-card page-card--center">
+            <div class="feature-icon" style="margin: 0 auto 0.5rem;"><Icon name={item.icon} size={20} /></div>
+            <h3 class="page-card__title">{item.name}</h3>
+            <p class="page-card__desc">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </PageBand>
+)}
+
+{timeline && (
+  <PageBand variant="plain">
+    <div class="container" style="max-width: 860px;">
+      <div class="page-section-head">
+        <div class="eyebrow">{timeline.eyebrow}</div>
+        <h2 class="section-title">{timeline.title}</h2>
+      </div>
+      <div class="industry-timeline">
+        {timeline.items.map(item => (
+          <div class="industry-timeline__row">
+            <div class="industry-timeline__meta">
+              <Icon name={item.icon} size={20} />
+              <span style={`color: ${accent};`}>{item.time}</span>
+            </div>
+            <p>{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </PageBand>
+)}
+
+{trust && (
+  <PageBand variant="muted">
+    <div class="container" style="max-width: 760px; text-align: center;">
+      <div class="page-section-head">
+        <div class="eyebrow">{trust.eyebrow}</div>
+        <h2 class="section-title">{trust.title}</h2>
+        <p class="lead-sm">{trust.lead}</p>
+      </div>
+      <div class="page-grid-3">
+        {trust.items.map(t => (
+          <div class="card page-card page-card--center">
+            <div class="feature-icon" style="margin: 0 auto 0.75rem;"><Icon name={t.icon} size={20} /></div>
+            <h3 class="page-card__title">{t.title}</h3>
+            <p class="page-card__desc">{t.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </PageBand>
+)}
+
+{beforeAfter && (
+  <PageBand variant="plain">
+    <div class="container" style="max-width: 860px;">
+      <div class="page-section-head">
+        <div class="eyebrow">{beforeAfter.eyebrow}</div>
+        <h2 class="section-title">{beforeAfter.title}</h2>
+      </div>
+      <div class="industry-before-after">
+        <div class="industry-before-after__col industry-before-after__col--bad">
+          <div class="industry-before-after__label">{lang === 'es' ? 'Sin Shadia' : 'Without Shadia'}</div>
+          <ul>
+            {beforeAfter.without.map(item => <li><span>✗</span> {item}</li>)}
+          </ul>
+        </div>
+        <div class="industry-before-after__col industry-before-after__col--good" style={`--industry-accent: ${accent};`}>
+          <div class="industry-before-after__label">{lang === 'es' ? 'Con Shadia' : 'With Shadia'}</div>
+          <ul>
+            {beforeAfter.with.map(item => <li><span>✓</span> {item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </PageBand>
+)}
+
+{team && (
+  <PageBand variant="plain">
+    <div class="container">
+      <div class="hero-split">
+        <div>
+          <div class="eyebrow">{team.eyebrow}</div>
+          <h2 class="section-title" style="margin-bottom: 1rem;">
+            {team.title}
+            {team.titleAccent && (
+              <>
+                <br />
+                <span class="headline-accent">{team.titleAccent}</span>
+              </>
+            )}
+          </h2>
+          <p class="lead-sm" style="margin-bottom: 1.5rem;">{team.lead}</p>
+          <div class="industry-team-highlights">
+            {team.highlights.map(h => (
+              <div class="industry-team-highlight">
+                <div class="feature-icon" style={`background: ${colorBg}; border: 1px solid ${colorBorder};`}>
+                  <Icon name={h.icon} size={16} color={accent} />
+                </div>
+                <div>
+                  <div class="page-card__title" style="margin-bottom: 0.25rem;">{h.title}</div>
+                  <p class="page-card__desc">{h.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="industry-metrics-panel">
+          <div class="industry-metrics-panel__title">{lang === 'es' ? 'Antes vs después' : 'Before vs after'}</div>
+          {team.metrics.map(row => (
+            <div class="industry-metrics-panel__row">
+              <span class="industry-metrics-panel__metric">{row.metric}</span>
+              <span class="industry-metrics-panel__before">{row.before}</span>
+              <span class="industry-metrics-panel__after">{row.after}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </PageBand>
+)}
+
+{carousel && (
+  <PageBand variant="muted">
+    <div class="container">
+      <IndustryCarousel
+        slides={carousel.slides}
+        color={accent}
+        colorBg={colorBg}
+        colorBorder={colorBorder}
+        eyebrow={carousel.eyebrow}
+        client:load
+      />
+    </div>
+  </PageBand>
+)}
+
+<PageBand variant="plain">
+  <div class="container" style="max-width: 680px;">
+    <div class="page-section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-title">{lang === 'es' ? 'Preguntas frecuentes' : 'Frequently asked questions'}</h2>
+    </div>
+    {faqs.map(faq => (
+      <div class="faq-item">
+        <div style="padding: 1.25rem 0; font-weight: 600; font-size: 1rem; color: var(--ink);">{faq.q}</div>
+        <div class="faq-answer">{faq.a}</div>
+      </div>
+    ))}
+  </div>
+</PageBand>
+
+<PageCta
+  {lang}
+  title={cta.title}
+  titleAccent={cta.titleAccent}
+  lead={cta.lead}
+  source={cta.source}
+>
+  {cta.hint && <p class="lead-sm" style="margin-top: 1rem; opacity: 0.65;">{cta.hint}</p>}
+</PageCta>
+
+</BaseLayout>
+
+<style>
+  .industry-stats .page-stat__value {
+    color: var(--industry-accent, var(--accent));
+  }
+
+  .industry-pain-card {
+    border-left: 3px solid color-mix(in srgb, var(--industry-accent) 35%, transparent);
+  }
+
+  .industry-bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .industry-bullet-list li {
+    display: flex;
+    gap: 0.625rem;
+    font-size: 0.9375rem;
+    color: var(--ink-3);
+    line-height: 1.5;
+  }
+
+  .industry-bullet-list--bad span { color: #ef4444; flex-shrink: 0; }
+  .industry-bullet-list--good span { color: var(--green); flex-shrink: 0; }
+
+  .industry-highlight-box {
+    border: 1px solid;
+    border-radius: 16px;
+    padding: 1.75rem;
+  }
+
+  .industry-highlight-box__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--industry-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+  }
+
+  .industry-compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .industry-compare-col {
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+  }
+
+  .industry-compare-col--bad { background: var(--bg-subtle); }
+  .industry-compare-col--good { border-color: var(--border); }
+
+  .industry-compare-col__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+    color: var(--ink-4);
+  }
+
+  .industry-compare-col--good .industry-compare-col__label {
+    color: var(--industry-accent);
+  }
+
+  .industry-compare-step {
+    font-size: 0.875rem;
+    color: var(--ink-3);
+    margin-bottom: 0.375rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .industry-lifecycle {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .industry-lifecycle__num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+  }
+
+  .industry-check-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .industry-check-grid li {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    color: var(--ink-2);
+    font-weight: 500;
+  }
+
+  .industry-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .industry-timeline__row {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1.25rem 1.5rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+  }
+
+  .industry-timeline__meta {
+    text-align: center;
+    flex-shrink: 0;
+    min-width: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+  }
+
+  .industry-timeline__row p {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--ink-3);
+    line-height: 1.65;
+  }
+
+  .industry-before-after {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .industry-before-after__col {
+    padding: 1.75rem;
+    border-radius: 18px;
+    border: 1px solid;
+  }
+
+  .industry-before-after__col--bad {
+    background: rgba(239, 68, 68, 0.04);
+    border-color: rgba(239, 68, 68, 0.15);
+  }
+
+  .industry-before-after__col--good {
+    background: color-mix(in srgb, var(--industry-accent) 6%, transparent);
+    border-color: color-mix(in srgb, var(--industry-accent) 22%, transparent);
+  }
+
+  .industry-before-after__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.25rem;
+  }
+
+  .industry-before-after__col--bad .industry-before-after__label { color: #ef4444; }
+  .industry-before-after__col--good .industry-before-after__label { color: var(--industry-accent); }
+
+  .industry-before-after ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .industry-before-after li {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    color: var(--ink-3);
+    line-height: 1.5;
+  }
+
+  .industry-before-after__col--good li { color: var(--ink); }
+
+  .industry-team-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .industry-team-highlight {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .industry-metrics-panel {
+    background: var(--btn-primary);
+    border-radius: 16px;
+    padding: 2rem;
+    color: #fff;
+  }
+
+  .industry-metrics-panel__title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+  }
+
+  .industry-metrics-panel__row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    align-items: center;
+  }
+
+  .industry-metrics-panel__row:last-child { border-bottom: none; }
+
+  .industry-metrics-panel__metric {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .industry-metrics-panel__before {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+  }
+
+  .industry-metrics-panel__after {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #4ade80;
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .industry-lifecycle { grid-template-columns: repeat(2, 1fr); }
+    .industry-compare-grid,
+    .industry-before-after { grid-template-columns: 1fr; }
+    .industry-check-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .industry-lifecycle { grid-template-columns: 1fr; }
+  }
+
+  .channel-trust-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .channel-trust-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+  }
+
+  .channel-trust-row__label {
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: var(--ink);
+  }
+
+  .channel-trust-row__badge {
+    padding: 0.2rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+  }
+</style>

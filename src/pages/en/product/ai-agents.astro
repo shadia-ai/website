@@ -1,0 +1,207 @@
+---
+import Icon from '../../../components/Icon.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProductHeroSplit from '../../../components/ProductHeroSplit.astro';
+import PageBand from '../../../components/PageBand.astro';
+import PageCta from '../../../components/PageCta.astro';
+import { AgentFloatPreview } from '../../../components/FloatWidgets.tsx';
+import { OnboardingWidget } from '../../../components/ProductWidgets.tsx';
+import { Check } from 'lucide-react';
+import IndustryCarousel from '../../../components/IndustryCarousel.tsx';
+
+const agentSlides = [
+  {
+    tag: 'Autonomous resolution',
+    stat1: '80%',
+    stat1Label: 'Of conversations closed\nwithout escalating to the team',
+    stat2: '< 2 min',
+    stat2Label: 'Average resolution time\nfor the AI agent',
+    insight: 'An agent that routes does not save you work. An agent that resolves does.',
+    detail: 'Shadia\'s AI agent does not transfer the conversation — it resolves it. It queries your systems, understands full context and closes the case. Your team only steps in when they have genuine value to add.',
+  },
+  {
+    tag: 'Full context',
+    stat1: '16',
+    stat1Label: 'Data attribute types\nper contact and conversation',
+    stat2: '100%',
+    stat2Label: 'Context preserved\nacross sessions and channels',
+    insight: 'An agent without memory is not an agent — it is a glorified FAQ.',
+    detail: 'Shadia maintains the complete history of each contact: orders, appointments, preferences, prior conversations. The agent knows who the customer is before they type the first word.',
+  },
+  {
+    tag: 'Smart escalation',
+    stat1: '20%',
+    stat1Label: 'Escalation rate\nto human team members',
+    stat2: '0',
+    stat2Label: 'Missed escalations\nwith intelligent routing',
+    insight: 'The difference between automation and chaos is knowing exactly when to escalate.',
+    detail: 'The agent detects signals of frustration, complexity or sensitivity and transfers — with full context — to the right team member. The customer never has to repeat themselves.',
+  },
+  {
+    tag: 'No manual training',
+    stat1: 'Day 1',
+    stat1Label: 'Production-ready\nfrom initial configuration',
+    stat2: 'Automatic',
+    stat2Label: 'Continuous improvement based\non real conversation data',
+    insight: 'Configuring once is not enough. The best agent is the one that improves on its own.',
+    detail: 'Shadia analyses patterns from resolved conversations, identifies gaps and suggests adjustments. No manual retraining, no ML team required — the agent evolves with your business.',
+  },
+];
+---
+
+<BaseLayout
+  title="AI Agents — Customer service automation | Shadia AI"
+  description="Build AI support agents that resolve complex queries, take actions on your systems, and escalate with full context. Train in plain language, no code."
+  lang="en"
+  canonical="https://shadia.ai/en/product/ai-agents"
+  ogImage="/og/agentes-es.png"
+>
+
+<ProductHeroSplit
+  badge="AI Agents"
+  title="AI agents that resolve"
+  titleAccent="customer support."
+  lead="Train agents on your policies and knowledge in plain language. They answer complex queries, run actions on your systems, and hand off to humans with zero repetition."
+  lang="en"
+  source="product_agents_hero"
+  hint="No credit card required · Free to start"
+>
+  <AgentFloatPreview lang="en" client:load />
+</ProductHeroSplit>
+
+<PageBand variant="plain" size="sm">
+  <div class="container">
+    <div class="page-stats-row">
+      {[
+        { v: '10+', l: 'Pre-built skills' },
+        { v: '∞', l: 'Simultaneous agents' },
+        { v: '30 min', l: 'From config to production' },
+        { v: '100%', l: 'Configurable without code' },
+      ].map(s => (
+        <div>
+          <div class="page-stat__value" style="color: var(--accent);">{s.v}</div>
+          <div class="page-stat__label">{s.l}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">Agent Types</div>
+      <h2 class="section-title">An agent for every need</h2>
+    </div>
+    <div class="grid-3">
+      {[
+        { icon: 'refresh-cw', title: 'Follow-up Agent', desc: 'Contacts inactive clients, reminds of commitments and reactivates cold leads automatically.' },
+        { icon: 'calendar', title: 'Appointments Agent', desc: 'Books, confirms and reschedules appointments. Coordinates availability with your whole team.' },
+        { icon: 'target', title: 'Sales Agent', desc: 'Qualifies leads, answers objections, sends proposals and closes via WhatsApp.' },
+        { icon: '🆘', title: 'Support Agent', desc: 'Resolves FAQs, manages tickets and escalates complex cases to the right team.' },
+        { icon: 'mail', title: 'Onboarding Agent', desc: 'Guides new clients step by step through onboarding to your service.' },
+        { icon: 'star', title: 'Satisfaction Agent', desc: 'Requests reviews, manages complaints and measures NPS automatically post-service.' },
+      ].map(f => (
+        <div class="card-feature">
+          <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={f.icon} size={20} /></div>
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">{f.title}</h3>
+          <p style="font-size:0.875rem;line-height:1.65;">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="plain">
+  <div class="container">
+    <div class="hero-split">
+      <div>
+        <div class="eyebrow">Agent Builder</div>
+        <h2 class="section-title" style="text-align:left;margin-bottom:1.25rem;">Configure any agent in minutes</h2>
+        <p class="lead-sm" style="margin-bottom:1.75rem;">Define in plain language what your agent does, when it acts and what tools it can use. No code. No learning curve.</p>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem;">
+          {['Describe behavior in plain text', 'Connect tools: WhatsApp, Calendar, contact systems', 'Define escalations and agent limits', 'Test and deploy in seconds'].map(item => (
+            <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9375rem;color:var(--ink-3);">
+              <Check size={15} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: '2px' }} />{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <OnboardingWidget lang="en" client:load />
+      </div>
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="tint">
+  <div class="container" style="max-width:860px;">
+    <div class="page-section-head">
+      <div class="eyebrow">Capabilities</div>
+      <h2 class="section-title">What your agents can do</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;">
+      {[
+        { icon: 'message-square', cap: 'Read and write messages on any channel' },
+        { icon: 'calendar', cap: 'Query and update calendars' },
+        { icon: 'user', cap: 'Update contact information in contact records' },
+        { icon: 'bar-chart', cap: 'Generate reports and summaries' },
+        { icon: 'link', cap: 'Integrate with external APIs' },
+        { icon: 'zap', cap: 'Execute automatic automatizaciones' },
+        { icon: 'lightbulb', cap: 'Remember context from previous conversations' },
+        { icon: 'target', cap: 'Escalate to the right human with full context' },
+      ].map(c => (
+        <div style="display:flex;align-items:center;gap:0.75rem;padding:1rem 1.25rem;background:var(--surface-raised);border:1px solid var(--border);border-radius:var(--radius);">
+          <span style="font-size:1.25rem;"><Icon name={c.icon} size={20} /></span>
+          <span style="font-size:0.9375rem;color:var(--ink-3);">{c.cap}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container">
+    <IndustryCarousel
+      slides={agentSlides}
+      eyebrow="AI agents — what the numbers show"
+      client:load
+    />
+  </div>
+</PageBand>
+
+<PageBand variant="plain">
+  <div class="container" style="max-width:680px;">
+    <div class="page-section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-title">Frequently asked questions</h2>
+    </div>
+    {[
+      { q: 'Do I need to know how to code to configure an agent?', a: 'No. Agents are configured entirely in plain language. You describe what you want it to do, and Shadia builds it automatically.' },
+      { q: 'Can the agent make mistakes?', a: 'Agents have configurable limits. You define exactly what they can and cannot do. For sensitive actions, the agent requests human approval.' },
+      { q: 'How many agents can I create?', a: 'On PRO you can create up to 3 active agents. On ULTRA, unlimited.' },
+      { q: 'Do agents work on all channels?', a: 'Yes. A single agent can operate on WhatsApp, Instagram, Email and any connected channel from the same configuration.' },
+    ].map(faq => (
+      <div class="faq-item">
+        <div style="padding:1.25rem 0;font-weight:600;font-size:1rem;color:var(--ink);">{faq.q}</div>
+        <div class="faq-answer">{faq.a}</div>
+      </div>
+    ))}
+  </div>
+</PageBand>
+
+<PageCta
+  lang="en"
+  source="product_agents_cta"
+  title="Your first AI employee"
+  titleAccent="is minutes away"
+  lead="Create your first agent today and start growing with a team that works around the clock."
+/>
+
+</BaseLayout>
+
+<style>
+  @media (max-width: 900px) {
+    [style*="grid-template-columns: repeat(2, 1fr)"] { grid-template-columns: 1fr !important; }
+  }
+</style>

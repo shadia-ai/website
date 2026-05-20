@@ -1,0 +1,165 @@
+---
+import Icon from '../../../components/Icon.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProductHeroSplit from '../../../components/ProductHeroSplit.astro';
+import PageBand from '../../../components/PageBand.astro';
+import PageCta from '../../../components/PageCta.astro';
+import { AgentFloatPreview } from '../../../components/FloatWidgets.tsx';
+
+const threads = [
+  {
+    title: '¿Qué pasó con este cliente?',
+    msg: 'Shadia, dame un resumen de la última interacción con el contacto que preguntó por el plan Pro la semana pasada.',
+    response: 'El jueves pasado tuvieron 3 mensajes. El cliente preguntó por precios del plan Pro, tu agente le envió el PDF de propuesta y quedó en responder antes del viernes. Aún sin respuesta. ¿Quieres que haga seguimiento?',
+    time: 'hace 2 min',
+  },
+  {
+    title: 'Redacta una respuesta',
+    msg: 'Redacta una respuesta profesional para el cliente que se quejó del tiempo de espera esta mañana.',
+    response: 'Aquí tienes una propuesta: "Hola [Nombre], lamentamos la demora en nuestra respuesta. Queremos asegurarnos de que tengas la mejor experiencia. ¿Podemos programar una llamada hoy para resolver tu consulta de inmediato?" ¿La envío?',
+    time: 'hace 15 min',
+  },
+  {
+    title: 'Analiza la semana',
+    msg: '¿Cómo fue el rendimiento de esta semana comparado con la anterior?',
+    response: 'Esta semana: 247 conversaciones (+18%), tiempo promedio de respuesta 1.8 min (vs 2.4 min anterior), 89% resueltas por IA. El canal WhatsApp creció 24%. El jueves fue el día con más volumen.',
+    time: 'ayer',
+  },
+];
+---
+
+<BaseLayout
+  title="Shadia Agent — La IA que trabaja con tu equipo | Shadia AI"
+  description="Shadia Agent trabaja con tu equipo: responde preguntas sobre clientes, resume conversaciones, redacta respuestas y ejecuta acciones — todo en lenguaje natural."
+  lang="es"
+  canonical="https://shadia.ai/es/producto/agente"
+  ogImage="/og/agent-es.png"
+>
+
+<ProductHeroSplit
+  badge="✦ Nuevo — Shadia Agent"
+  title="La IA que trabaja contigo."
+  titleAccent="Siempre disponible."
+  lead="Shadia Agent es el asistente IA que vive dentro de tu operación. Pregúntale sobre clientes, pide que redacte mensajes, analiza métricas o escala situaciones — todo en lenguaje natural, en threads dentro del app."
+  lang="es"
+  source="product_agent_hero"
+>
+  <AgentFloatPreview lang="es" client:load />
+</ProductHeroSplit>
+
+<PageBand variant="muted">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">Casos de uso</div>
+      <h2 class="section-title">
+        Pregunta lo que quieras.<br/>
+        <span class="headline-accent">Shadia tiene el contexto.</span>
+      </h2>
+    </div>
+    <div class="grid-3">
+      {[
+        { q: '"¿Qué pasó con el cliente X?"', a: 'Shadia revisa todo el historial de conversaciones y te da un resumen con contexto completo.' },
+        { q: '"Redacta una disculpa para este caso"', a: 'Shadia genera un mensaje apropiado basándose en el tono de tu marca y el contexto del cliente.' },
+        { q: '"¿Cómo fue el rendimiento esta semana?"', a: 'Obtén métricas de conversaciones, tiempos de respuesta y volumen por canal al instante.' },
+        { q: '"Marca este contacto como VIP"', a: 'Shadia actualiza el perfil del contacto, añade la etiqueta y notifica al agente responsable.' },
+        { q: '"¿Cuántas citas hay mañana?"', a: 'Shadia consulta el calendario y te da el resumen con los detalles de cada cita.' },
+        { q: '"Escala este caso al equipo legal"', a: 'Shadia crea una notificación interna, asigna el caso y añade el contexto necesario.' },
+      ].map(item => (
+        <div class="card-feature">
+          <div style="font-size: 0.875rem; font-weight: 700; color: var(--accent); margin-bottom: 0.625rem; font-style: italic; line-height: 1.4;">{item.q}</div>
+          <p style="font-size: 0.9375rem; color: var(--ink-3); line-height: 1.65;">{item.a}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="plain">
+  <div class="container" style="max-width: 860px;">
+    <div class="hero-split" style="align-items: start;">
+      <div>
+        <div class="eyebrow">Threads</div>
+        <h2 class="section-title" style="margin-bottom: 1.25rem;">
+          Organiza tu trabajo<br/>
+          <span class="headline-accent">en threads inteligentes.</span>
+        </h2>
+        <p class="lead-sm" style="margin-bottom: 2rem;">
+          Crea threads para cualquier tarea o pregunta. Shadia recuerda el contexto de cada conversación
+          y puede retomar donde lo dejaste. Comparte threads con tu equipo o mantenlos privados.
+        </p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+          {[
+            'Contexto persistente por thread',
+            'Comparte threads con el equipo',
+            'Menciona a Shadia con @shadia',
+            'Archiva o fija threads importantes',
+            'Historial completo de conversaciones',
+          ].map(item => (
+            <li style="display: flex; align-items: center; gap: 0.625rem; font-size: 0.9375rem; color: var(--ink-3);">
+              <span style="color: var(--accent); font-weight: 700;">✓</span> {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 0.875rem;">
+        {threads.map((t, i) => (
+          <div class="card" style={`padding: 1.125rem 1.25rem; opacity: ${i === 0 ? 1 : 0.65};`}>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span style="font-weight: 600; font-size: 0.875rem; color: var(--ink);">{t.title}</span>
+              <span style="font-size: 0.6875rem; color: var(--ink-4);">{t.time}</span>
+            </div>
+            <p style="font-size: 0.8125rem; color: var(--ink-3); margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{t.msg}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="tint">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">Para equipos</div>
+      <h2 class="section-title">
+        Diseñado para que<br/>
+        <span class="headline-accent">todo el equipo trabaje junto.</span>
+      </h2>
+    </div>
+    <div class="grid-4">
+      {[
+        { icon: '@', title: 'Menciones', desc: 'Menciona a Shadia o a un colega en cualquier thread.' },
+        { icon: 'eye', title: 'Presencia', desc: 'Ve quién está activo y qué está trabajando en tiempo real.' },
+        { icon: 'message-square', title: 'Reacciones', desc: 'Reacciona a mensajes del equipo con emojis para dar contexto rápido.' },
+        { icon: 'folder', title: 'Folders', desc: 'Organiza threads en carpetas por proyecto, cliente o equipo.' },
+        { icon: 'tag', title: 'Tags', desc: 'Etiqueta threads y contactos para filtrar y encontrar lo que necesitas.' },
+        { icon: '↩', title: 'Respuestas en hilo', desc: 'Responde a mensajes específicos manteniendo el contexto del thread.' },
+        { icon: 'paperclip', title: 'Adjuntos', desc: 'Comparte archivos, imágenes y documentos directamente en los threads.' },
+        { icon: 'building', title: 'Empresas', desc: 'Organiza contactos bajo empresas y ve toda la actividad de un cliente.' },
+      ].map(f => (
+        <div class="card-feature" style="text-align: center;">
+          <div style="width: 40px; height: 40px; border-radius: 12px; background: var(--accent-bg); border: 1px solid var(--accent-ring); display: flex; align-items: center; justify-content: center; font-size: 1.125rem; margin: 0 auto 0.875rem; color: var(--accent); font-weight: 700;"><Icon name={f.icon} size={20} /></div>
+          <h3 style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 0.375rem; color: var(--ink);">{f.title}</h3>
+          <p style="font-size: 0.8125rem; color: var(--ink-3); line-height: 1.6;">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageCta
+  lang="es"
+  source="product_agent_cta"
+  title="Tu IA. Siempre activa."
+  titleAccent="Lista desde el primer día."
+  lead="Shadia Agent viene incluido en todos los planes. Sin configuraciones complicadas — solo pregunta."
+>
+  <p class="lead-sm" style="margin-top: 0.75rem; text-align: center;">Sin tarjeta de crédito · Incluido en todos los planes</p>
+</PageCta>
+
+</BaseLayout>
+
+<style>
+  @media (max-width: 900px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+</style>

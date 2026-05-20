@@ -1,0 +1,20 @@
+---
+import ComparePage from '../../../components/ComparePage.astro';
+const compareRows = [
+  { feature: 'Agendamiento por WhatsApp', shadia: true, competitor: false },
+  { feature: 'Agentes IA conversacionales', shadia: true, competitor: false },
+  { feature: 'Responde preguntas automáticamente', shadia: true, competitor: false },
+  { feature: 'Recordatorios por WhatsApp', shadia: true, competitor: 'Solo email' },
+  { feature: 'Conversaciones unificadas omnicanal', shadia: true, competitor: false },
+  { feature: 'Ventas y seguimiento post-cita', shadia: true, competitor: false },
+  { feature: 'Reagendamiento por chat', shadia: true, competitor: 'Por link' },
+  { feature: 'Sin necesidad de link externo', shadia: true, competitor: false },
+  { feature: 'Precio accesible', shadia: 'Desde $49/mes', competitor: '$10–20/usuario/mes' },
+  { feature: 'Integración WhatsApp Business API', shadia: true, competitor: false },
+];
+const faqs = [
+  { q: '¿Por qué usar Shadia en lugar de Calendly?', a: 'Calendly es excelente para agendar reuniones virtuales entre profesionales. Pero no habla con tus clientes, no responde preguntas, no cierra ventas ni gestiona toda la operación. Shadia hace todo eso — y también agenda citas.' },
+  { q: '¿Puede Shadia reemplazar completamente a Calendly?', a: 'Para la mayoría de negocios orientados a clientes finales: sí. Shadia agenda, confirma, reconfirma y gestiona toda la comunicación desde WhatsApp sin que el cliente tenga que abrir un link externo.' },
+];
+---
+<ComparePage lang="es" competitor="Calendly" competitorSlug="calendly" title="Shadia AI vs Calendly — Agenda inteligente por WhatsApp vs links de citas | Shadia AI" description="Calendly genera links para que tus clientes agenden. Shadia AI agenda directamente por WhatsApp con IA. La diferencia es enorme para negocios de atención al cliente." canonical="https://shadia.ai/es/comparar/vs-calendly" ogImage="/og/compare-calendly-es.png" heroHeadline="Shadia AI vs Calendly — Agente IA vs links de agenda" heroSubheadline="Calendly es un link que tus clientes tienen que abrir. Shadia es el agente que habla con ellos, entiende lo que necesitan y agenda sin que salgan de WhatsApp." verdictPoints={['Shadia agenda por WhatsApp; Calendly requiere un link externo','Shadia tiene IA que responde preguntas; Calendly solo muestra un calendario','Recordatorios automáticos por WhatsApp vs solo email','Shadia gestiona toda la operación; Calendly solo maneja el agendamiento','Precio muy inferior para equipos completos']} compareRows={compareRows} detailedText={`<h2>¿Qué hace bien Calendly?</h2><p>Calendly es excelente para profesionales independientes y equipos B2B que necesitan coordinar reuniones con otros profesionales. Es la herramienta estándar para agendar demos, calls de ventas y reuniones internas de equipos remotos.</p><h2>Por qué Calendly no es suficiente para negocios de atención al cliente</h2><p>Calendly asume que tu cliente está dispuesto a abrir un link, navegar por tu disponibilidad y llenar un formulario. Pero la realidad de negocios de salud, belleza, educación o ventas directas es diferente: el cliente ya está en WhatsApp y no quiere salir de ahí.</p><p>Shadia atiende al cliente donde ya está. Responde preguntas, maneja objeciones, presenta opciones de horario en la conversación y confirma la cita — todo en el mismo chat de WhatsApp, sin fricciones.</p><h2>La diferencia práctica</h2><p>Con Calendly, envías un link. El cliente puede o no abrirlo. Con Shadia, el cliente escribe "quiero una cita" a tu número de WhatsApp y el agente confirma la cita en 3 mensajes.</p>`} migrationText="Si usas Calendly, Shadia puede importar tus tipos de cita y disponibilidad. En menos de 2 horas, tu agente estará agendando citas directamente por WhatsApp." faqs={faqs} />

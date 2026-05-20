@@ -1,0 +1,207 @@
+---
+import Icon from '../../../components/Icon.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProductHeroSplit from '../../../components/ProductHeroSplit.astro';
+import PageBand from '../../../components/PageBand.astro';
+import PageCta from '../../../components/PageCta.astro';
+import { AgentFloatPreview } from '../../../components/FloatWidgets.tsx';
+import { OnboardingWidget } from '../../../components/ProductWidgets.tsx';
+import { Check } from 'lucide-react';
+import IndustryCarousel from '../../../components/IndustryCarousel.tsx';
+
+const agentSlides = [
+  {
+    tag: 'Resolución autónoma',
+    stat1: '80%',
+    stat1Label: 'De conversaciones cerradas\nsin escalar al equipo',
+    stat2: '< 2 min',
+    stat2Label: 'Tiempo de resolución\npromedio del agente IA',
+    insight: 'Un agente que enruta no te ahorra trabajo. Un agente que resuelve sí.',
+    detail: 'El agente IA de Shadia no transfiere la conversación — la resuelve. Consulta tus sistemas, entiende el contexto completo y cierra el caso. Tu equipo interviene solo cuando tiene valor real que aportar.',
+  },
+  {
+    tag: 'Contexto total',
+    stat1: '16',
+    stat1Label: 'Tipos de atributos de datos\npor contacto y conversación',
+    stat2: '100%',
+    stat2Label: 'Contexto mantenido\nentre sesiones y canales',
+    insight: 'Un agente sin memoria no es un agente — es una FAQ glorificada.',
+    detail: 'Shadia mantiene el historial completo de cada contacto: pedidos, citas, preferencias, conversaciones anteriores. El agente sabe quién es el cliente antes de que escriba la primera palabra.',
+  },
+  {
+    tag: 'Escalación inteligente',
+    stat1: '20%',
+    stat1Label: 'Tasa de escalación\nal equipo humano',
+    stat2: '0',
+    stat2Label: 'Escalaciones perdidas\ncon routing inteligente',
+    insight: 'La diferencia entre automatización y caos es saber exactamente cuándo escalar.',
+    detail: 'El agente detecta señales de frustración, complejidad o sensibilidad y transfiere con todo el contexto al miembro correcto del equipo — sin que el cliente tenga que repetir nada.',
+  },
+  {
+    tag: 'Sin entrenamiento manual',
+    stat1: 'Día 1',
+    stat1Label: 'Listo para producción\ndesde la configuración inicial',
+    stat2: 'Automático',
+    stat2Label: 'Mejora continua basada\nen conversaciones reales',
+    insight: 'Configurar una vez no es suficiente. El mejor agente es el que mejora solo.',
+    detail: 'Shadia detecta los patrones de las conversaciones resueltas, identifica gaps y sugiere ajustes. Sin reentrenamiento manual, sin equipos de ML — el agente evoluciona con tu negocio.',
+  },
+];
+---
+
+<BaseLayout
+  title="Agentes IA — Empleados Digitales para tu Negocio | Shadia AI"
+  description="Crea agentes IA con habilidades específicas para tu negocio. Seguimientos, reactivaciones, soporte y más. Configuración en lenguaje natural, sin código."
+  lang="es"
+  canonical="https://shadia.ai/es/producto/agentes-ia"
+  ogImage="/og/agentes-es.png"
+>
+
+<ProductHeroSplit
+  badge="Agentes IA"
+  title="Empleados IA que"
+  titleAccent="conocen tu negocio."
+  lead="Configura agentes IA con habilidades específicas usando lenguaje natural. Cada agente conoce tu negocio, sigue tus reglas y trabaja junto a tu equipo humano."
+  lang="es"
+  source="product_agents_hero"
+  hint="Sin tarjeta de crédito · Gratis para empezar"
+>
+  <AgentFloatPreview lang="es" client:load />
+</ProductHeroSplit>
+
+<PageBand variant="plain" size="sm">
+  <div class="container">
+    <div class="page-stats-row">
+      {[
+        { v: '10+', l: 'Habilidades preconstruidas' },
+        { v: '∞', l: 'Agentes simultáneos' },
+        { v: '30 min', l: 'De configuración a producción' },
+        { v: '100%', l: 'Configurable sin código' },
+      ].map(s => (
+        <div>
+          <div class="page-stat__value" style="color: var(--accent);">{s.v}</div>
+          <div class="page-stat__label">{s.l}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">Tipos de Agente</div>
+      <h2 class="section-title">Un agente para cada necesidad</h2>
+    </div>
+    <div class="grid-3">
+      {[
+        { icon: 'refresh-cw', title: 'Agente de Seguimiento', desc: 'Contacta clientes inactivos, recuerda compromisos y reactiva leads fríos automáticamente.' },
+        { icon: 'calendar', title: 'Agente de Citas', desc: 'Agenda, confirma y reagenda citas. Coordina disponibilidad con todo tu equipo.' },
+        { icon: 'target', title: 'Agente de Ventas', desc: 'Califica leads, responde objeciones, envía propuestas y cierra en WhatsApp.' },
+        { icon: '🆘', title: 'Agente de Soporte', desc: 'Resuelve FAQs, gestiona tickets y escala casos complejos al equipo correcto.' },
+        { icon: 'mail', title: 'Agente de Onboarding', desc: 'Guía nuevos clientes paso a paso por el proceso de incorporación a tu servicio.' },
+        { icon: 'star', title: 'Agente de Satisfacción', desc: 'Solicita reseñas, gestiona quejas y mide NPS automáticamente post-servicio.' },
+      ].map(f => (
+        <div class="card-feature">
+          <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={f.icon} size={20} /></div>
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">{f.title}</h3>
+          <p style="font-size:0.875rem;line-height:1.65;">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="plain">
+  <div class="container">
+    <div class="hero-split">
+      <div>
+        <div class="eyebrow">Constructor de Agentes</div>
+        <h2 class="section-title" style="text-align:left;margin-bottom:1.25rem;">Configura cualquier agente en minutos</h2>
+        <p class="lead-sm" style="margin-bottom:1.75rem;">Define en lenguaje natural qué hace tu agente, cuándo actúa y qué herramientas puede usar. Sin código. Sin curva de aprendizaje.</p>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem;">
+          {['Describe el comportamiento en texto libre', 'Conecta herramientas: WhatsApp, Calendar, contact systems', 'Define escalaciones y límites del agente', 'Prueba y despliega en segundos'].map(item => (
+            <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9375rem;color:var(--ink-3);">
+              <Check size={15} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: '2px' }} />{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <OnboardingWidget lang="es" client:load />
+      </div>
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="tint">
+  <div class="container" style="max-width:860px;">
+    <div class="page-section-head">
+      <div class="eyebrow">Capacidades</div>
+      <h2 class="section-title">Lo que tus agentes pueden hacer</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;">
+      {[
+        { icon: 'message-square', cap: 'Leer y escribir mensajes en cualquier canal' },
+        { icon: 'calendar', cap: 'Consultar y modificar calendarios' },
+        { icon: 'user', cap: 'Actualizar información de contactos en tus contactos' },
+        { icon: 'bar-chart', cap: 'Generar reportes y resúmenes' },
+        { icon: 'link', cap: 'Integrarse con APIs externas' },
+        { icon: 'zap', cap: 'Ejecutar automatizaciones automáticos' },
+        { icon: 'lightbulb', cap: 'Recordar el contexto de conversaciones anteriores' },
+        { icon: 'target', cap: 'Escalar al humano correcto con contexto completo' },
+      ].map(c => (
+        <div style="display:flex;align-items:center;gap:0.75rem;padding:1rem 1.25rem;background:var(--surface-raised);border:1px solid var(--border);border-radius:var(--radius);">
+          <span style="font-size:1.25rem;"><Icon name={c.icon} size={20} /></span>
+          <span style="font-size:0.9375rem;color:var(--ink-3);">{c.cap}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container">
+    <IndustryCarousel
+      slides={agentSlides}
+      eyebrow="Agentes IA — lo que los números muestran"
+      client:load
+    />
+  </div>
+</PageBand>
+
+<PageBand variant="plain">
+  <div class="container" style="max-width:680px;">
+    <div class="page-section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-title">Preguntas frecuentes</h2>
+    </div>
+    {[
+      { q: '¿Necesito saber programar para configurar un agente?', a: 'No. Los agentes se configuran completamente en lenguaje natural. Describes qué quieres que haga, y Shadia lo construye automáticamente.' },
+      { q: '¿El agente puede cometer errores?', a: 'Los agentes tienen límites configurables. Defines exactamente qué pueden y no pueden hacer. Para acciones sensibles, el agente solicita aprobación humana.' },
+      { q: '¿Cuántos agentes puedo crear?', a: 'En PRO puedes crear hasta 3 agentes activos. En ULTRA, ilimitados.' },
+      { q: '¿Los agentes funcionan en todos los canales?', a: 'Sí. Un agente puede operar en WhatsApp, Instagram, Email y cualquier canal conectado desde la misma configuración.' },
+    ].map(faq => (
+      <div class="faq-item">
+        <div style="padding:1.25rem 0;font-weight:600;font-size:1rem;color:var(--ink);">{faq.q}</div>
+        <div class="faq-answer">{faq.a}</div>
+      </div>
+    ))}
+  </div>
+</PageBand>
+
+<PageCta
+  lang="es"
+  source="product_agents_cta"
+  title="Tu primer empleado IA"
+  titleAccent="está a minutos"
+  lead="Crea tu primer agente hoy y empieza a crecer con un equipo que trabaja las 24 horas."
+/>
+
+</BaseLayout>
+
+<style>
+  @media (max-width: 900px) {
+    [style*="grid-template-columns: repeat(2, 1fr)"] { grid-template-columns: 1fr !important; }
+  }
+</style>

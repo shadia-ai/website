@@ -1,0 +1,123 @@
+---
+import Icon from '../../../components/Icon.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProductHeroSplit from '../../../components/ProductHeroSplit.astro';
+import PageBand from '../../../components/PageBand.astro';
+import PageCta from '../../../components/PageCta.astro';
+import { AgentFloatPreview } from '../../../components/FloatWidgets.tsx';
+
+const threads = [
+  {
+    title: 'What happened with this client?',
+    msg: 'Shadia, give me a summary of the last interaction with the contact who asked about the Pro plan last week.',
+    response: 'Last Thursday they had 3 messages. The client asked about Pro plan pricing, your agent sent the proposal PDF and they said they\'d respond before Friday. Still no reply. Want me to follow up?',
+    time: '2 min ago',
+  },
+  {
+    title: 'Draft a response',
+    msg: 'Draft a professional response for the client who complained about wait time this morning.',
+    response: 'Here\'s a draft: "Hi [Name], we\'re sorry for the delay in responding. We want to make sure you have the best experience. Can we schedule a call today to resolve your question right away?" Shall I send it?',
+    time: '15 min ago',
+  },
+  {
+    title: 'Analyze this week',
+    msg: 'How did this week perform compared to last week?',
+    response: 'This week: 247 conversations (+18%), avg response time 1.8 min (vs 2.4 min prior), 89% resolved by AI. WhatsApp channel grew 24%. Thursday was the highest volume day.',
+    time: 'yesterday',
+  },
+];
+---
+
+<BaseLayout
+  title="Shadia Agent — AI copilot for your support team | Shadia AI"
+  description="Your team's AI copilot: summarize tickets, draft replies, analyze resolution metrics, and run actions — in plain language inside your workspace."
+  lang="en"
+  canonical="https://shadia.ai/en/product/agent"
+  ogImage="/og/agent-en.png"
+>
+
+<ProductHeroSplit
+  badge="✦ Shadia Agent"
+  title="AI copilot for"
+  titleAccent="your support team."
+  lead="Ask about any conversation, draft on-brand replies, review resolution analytics, or trigger actions — Shadia Agent works inside your workspace, not beside it."
+  lang="en"
+  source="product_agent_hero"
+>
+  <AgentFloatPreview lang="en" client:load />
+</ProductHeroSplit>
+
+<PageBand variant="muted">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">Use cases</div>
+      <h2 class="section-title">
+        Ask whatever you need.<br/>
+        <span class="headline-accent">Shadia has the context.</span>
+      </h2>
+    </div>
+    <div class="grid-3">
+      {[
+        { q: '"What happened with client X?"', a: 'Shadia reviews the entire conversation history and gives you a summary with full context.' },
+        { q: '"Draft an apology for this case"', a: 'Shadia generates an appropriate message based on your brand tone and the client context.' },
+        { q: '"How did we perform this week?"', a: 'Get conversation metrics, response times and channel volume instantly.' },
+        { q: '"Mark this contact as VIP"', a: 'Shadia updates the contact profile, adds the tag and notifies the responsible agent.' },
+        { q: '"How many appointments are tomorrow?"', a: 'Shadia checks the calendar and gives you the summary with each appointment\'s details.' },
+        { q: '"Escalate this case to legal team"', a: 'Shadia creates an internal notification, assigns the case and adds the necessary context.' },
+      ].map(item => (
+        <div class="card-feature">
+          <div style="font-size: 0.875rem; font-weight: 700; color: var(--accent); margin-bottom: 0.625rem; font-style: italic; line-height: 1.4;">{item.q}</div>
+          <p style="font-size: 0.9375rem; color: var(--ink-3); line-height: 1.65;">{item.a}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="tint">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">For teams</div>
+      <h2 class="section-title">
+        Built for your whole<br/>
+        <span class="headline-accent">team to work together.</span>
+      </h2>
+    </div>
+    <div class="grid-4">
+      {[
+        { icon: '@', title: 'Mentions', desc: 'Mention Shadia or a teammate in any thread.' },
+        { icon: 'eye', title: 'Presence', desc: 'See who\'s active and what they\'re working on in real time.' },
+        { icon: 'message-square', title: 'Reactions', desc: 'React to team messages with emojis for quick context.' },
+        { icon: 'folder', title: 'Folders', desc: 'Organize threads in folders by project, client or team.' },
+        { icon: 'tag', title: 'Tags', desc: 'Tag threads and contacts to filter and find what you need.' },
+        { icon: '↩', title: 'Thread replies', desc: 'Reply to specific messages while keeping thread context.' },
+        { icon: 'paperclip', title: 'Attachments', desc: 'Share files, images and documents directly in threads.' },
+        { icon: 'building', title: 'Companies', desc: 'Organize contacts under companies and see all client activity.' },
+      ].map(f => (
+        <div class="card-feature" style="text-align: center;">
+          <div style="width: 40px; height: 40px; border-radius: 12px; background: var(--accent-bg); border: 1px solid var(--accent-ring); display: flex; align-items: center; justify-content: center; font-size: 1.125rem; margin: 0 auto 0.875rem; color: var(--accent); font-weight: 700;"><Icon name={f.icon} size={20} /></div>
+          <h3 style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 0.375rem; color: var(--ink);">{f.title}</h3>
+          <p style="font-size: 0.8125rem; color: var(--ink-3); line-height: 1.6;">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageCta
+  lang="en"
+  source="product_agent_cta"
+  title="Your AI. Always on."
+  titleAccent="Ready from day one."
+  lead="Shadia Agent is included in all plans. No complex setup — just ask."
+>
+  <p class="lead-sm" style="margin-top: 0.75rem; text-align: center;">No credit card · Included in all plans</p>
+</PageCta>
+
+</BaseLayout>
+
+<style>
+  @media (max-width: 900px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+</style>

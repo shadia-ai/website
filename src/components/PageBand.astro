@@ -1,0 +1,25 @@
+---
+interface Props {
+  variant?: 'plain' | 'muted' | 'tint' | 'dark';
+  size?: 'sm' | 'md' | 'lg';
+  mesh?: boolean;
+  class?: string;
+  id?: string;
+}
+
+const { variant = 'plain', size = 'md', mesh = false, class: className, id } = Astro.props;
+const sizeClass = size === 'sm' ? 'section-sm' : size === 'lg' ? 'section-lg' : 'section';
+---
+
+<section
+  id={id}
+  class:list={[
+    'page-band',
+    `page-band--${variant}`,
+    sizeClass,
+    mesh && 'hero-mesh',
+    className,
+  ]}
+>
+  <slot />
+</section>

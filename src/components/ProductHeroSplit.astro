@@ -1,0 +1,46 @@
+---
+import SignupInput from './SignupInput.tsx';
+import PageBand from './PageBand.astro';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  badge: string;
+  title: string;
+  titleAccent?: string;
+  lead: string;
+  lang: Lang;
+  source: string;
+  hint?: string;
+  size?: 'lg' | 'md';
+}
+
+const { badge, title, titleAccent, lead, lang, source, hint, size = 'lg' } = Astro.props;
+---
+
+<PageBand variant="plain" mesh size={size} class="product-hero">
+  <div class="container">
+    <div class="hero-split">
+      <div>
+        <div class="pill-badge" style="margin-bottom: 1.25rem;">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent);"></span>
+          {badge}
+        </div>
+        <h1 class="hero-title" style="margin-bottom: 1rem;">
+          {title}
+          {titleAccent && (
+            <>
+              <br />
+              <span class="headline-accent">{titleAccent}</span>
+            </>
+          )}
+        </h1>
+        <p class="lead" style="margin-bottom: 1.5rem;">{lead}</p>
+        <SignupInput lang={lang} source={source} size="lg" client:load />
+        {hint && <p class="lead-sm" style="margin-top: 0.875rem;">{hint}</p>}
+      </div>
+      <div class="product-hero__visual">
+        <slot />
+      </div>
+    </div>
+  </div>
+</PageBand>

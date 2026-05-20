@@ -1,0 +1,20 @@
+---
+import ComparePage from '../../../components/ComparePage.astro';
+const compareRows = [
+  { feature: 'AI agents with real LLM', shadia: true, competitor: false },
+  { feature: 'Native appointments engine', shadia: true, competitor: false },
+  { feature: 'Omnichannel agents (WA + IG + FB + TK)', shadia: true, competitor: 'WhatsApp only' },
+  { feature: 'Shadia Agent (AI on your team)', shadia: true, competitor: false },
+  { feature: 'Robust API', shadia: true, competitor: false },
+  { feature: 'Auto-assignment of conversations', shadia: true, competitor: true },
+  { feature: 'WhatsApp broadcasts', shadia: true, competitor: true },
+  { feature: 'Automatic business hours', shadia: true, competitor: 'Basic' },
+  { feature: 'Switch to WhatsApp from other channels', shadia: true, competitor: false },
+  { feature: 'Full team pricing', shadia: 'From $49/mo', competitor: 'Varies' },
+];
+const faqs = [
+  { q: 'What sets Shadia apart from Wazzy?', a: 'Wazzy focuses on WhatsApp automation. Shadia AI goes much further: real LLM AI agents, native appointments engine, omnichannel agents, Shadia Agent for your operation and API for full integrations.' },
+  { q: 'Does Shadia have the broadcast features of Wazzy?', a: 'Yes. Shadia supports bulk broadcasts with segmentation, approved templates and metrics, just like Wazzy — but backed by AI that can automatically follow up with responders.' },
+];
+---
+<ComparePage lang="en" competitor="Wazzy" competitorSlug="wazzy" title="Shadia AI vs Wazzy — AI-native platform vs WhatsApp automation | Shadia AI" description="Compare Shadia AI vs Wazzy. Real AI with LLM, native appointments engine and omnichannel vs basic WhatsApp automation." canonical="https://shadia.ai/en/compare/vs-wazzy" ogImage="/og/compare-wazzy-en.png" heroHeadline="Shadia AI vs Wazzy — Real AI vs basic automation" heroSubheadline="Wazzy automates replies on WhatsApp. Shadia AI runs your entire business with AI agents that understand context and act autonomously." verdictPoints={['Real AI (LLM) vs predefined automations','Native omnichannel: WhatsApp, Instagram, TikTok and Facebook','Built-in appointments engine without additional tools','Shadia Agent for your operation','API for complex integrations']} compareRows={compareRows} detailedText={`<h2>What does Wazzy do well?</h2><p>Wazzy is a functional tool for automating responses on WhatsApp Business. It's relatively easy to set up for simple use cases and allows sending broadcasts and configuring basic auto-replies.</p><h2>The intelligence gap</h2><p>The most important difference is in the intelligence behind responses. Wazzy operates with predefined rules and flows. Shadia uses large language models that understand context, remember client history and can handle unstructured conversations with real autonomy.</p><p>For a client who asks questions off-script, Wazzy fails. Shadia responds intelligently, booking appointments, handling objections and escalating to humans only when truly necessary.</p>`} migrationText="Migrating from Wazzy to Shadia is simple. We import your contacts and configurations, and your AI agent is running in less than 48 hours." faqs={faqs} />

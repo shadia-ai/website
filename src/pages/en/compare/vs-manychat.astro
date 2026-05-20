@@ -1,0 +1,20 @@
+---
+import ComparePage from '../../../components/ComparePage.astro';
+const compareRows = [
+  { feature: 'AI agents with real LLM', shadia: true, competitor: false },
+  { feature: 'Native WhatsApp appointments engine', shadia: true, competitor: false },
+  { feature: 'Contextual conversations', shadia: true, competitor: false },
+  { feature: 'Official WhatsApp Business API', shadia: true, competitor: 'Limited' },
+  { feature: 'Instagram + Facebook + TikTok', shadia: true, competitor: true },
+  { feature: 'Shadia Agent (AI on your team)', shadia: true, competitor: false },
+  { feature: 'Unified team workspace', shadia: true, competitor: 'Basic' },
+  { feature: 'Automatic business hours', shadia: true, competitor: false },
+  { feature: 'Full team pricing', shadia: 'From $49/mo', competitor: '$15–299/mo' },
+  { feature: 'Unlimited contacts (PRO+)', shadia: true, competitor: false },
+];
+const faqs = [
+  { q: 'What is the main difference with ManyChat?', a: 'ManyChat is a marketing automation tool focused on social media lead capture flows. Shadia AI is a conversational operations platform with real AI agents, an appointments engine and team management — to run the business, not just capture leads.' },
+  { q: 'Can Shadia do what ManyChat does for Instagram and Facebook?', a: 'Yes. Shadia manages Instagram and Facebook DMs with AI, can qualify leads and move them to WhatsApp. Plus it has the entire appointments, support and sales operation integrated.' },
+];
+---
+<ComparePage lang="en" competitor="ManyChat" competitorSlug="manychat" title="Shadia AI vs ManyChat — AI-native operations vs chatbot marketing | Shadia AI" description="Compare Shadia AI vs ManyChat. Real AI agents with LLM vs predefined chatbot flows for marketing. The difference is in depth and autonomy." canonical="https://shadia.ai/en/compare/vs-manychat" ogImage="/og/compare-manychat-en.png" heroHeadline="Shadia AI vs ManyChat — Real AI vs marketing chatbot" heroSubheadline="ManyChat automates messages based on predefined flows. Shadia AI has agents that understand context, make decisions and manage your entire business operation." verdictPoints={['Real AI (LLM) vs predefined automation flows','Native appointments engine: not available in ManyChat','Full WhatsApp Business API vs limited support','Unified team workspace vs no human handoff workspace','Unlimited contacts on PRO and ULTRA plans']} compareRows={compareRows} detailedText={`<h2>What does ManyChat do well?</h2><p>ManyChat is excellent for automating lead capture on Instagram and Facebook with visual flows. It's popular with e-commerce and brands that want to scale initial responses and prospect qualification on social media.</p><h2>Why ManyChat isn't enough to run a business</h2><p>ManyChat doesn't book appointments, doesn't manage a human team, doesn't remember past conversations and can't operate outside a manually designed flow. For businesses that want AI to truly operate — responding, scheduling, following up — you need more than flows.</p><p>Shadia uses LLMs to handle any conversation with real context, integrates WhatsApp, Instagram, TikTok and Facebook, and lets your team collaborate in the same platform.</p>`} migrationText="If you use ManyChat, we can recreate your lead capture flows as AI agents in Shadia. The result is smarter and operates across more channels." faqs={faqs} />

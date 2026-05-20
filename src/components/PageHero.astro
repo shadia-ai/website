@@ -1,0 +1,40 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  titleAccent?: string;
+  lead?: string;
+  center?: boolean;
+  mesh?: boolean;
+  narrow?: boolean;
+  class?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  titleAccent,
+  lead,
+  center = true,
+  mesh = true,
+  narrow = true,
+  class: className,
+} = Astro.props;
+---
+
+<section class:list={['page-band', 'page-hero', 'section-lg', mesh && 'hero-mesh', 'page-band--plain', className]}>
+  <div class:list={['container', center && 'page-hero--center', narrow && 'page-hero--narrow']}>
+    {eyebrow && <div class="eyebrow">{eyebrow}</div>}
+    <h1 class="hero-title">
+      {title}
+      {titleAccent && (
+        <>
+          <br />
+          <span class="headline-accent">{titleAccent}</span>
+        </>
+      )}
+    </h1>
+    {lead && <p class="lead">{lead}</p>}
+    <slot />
+  </div>
+</section>

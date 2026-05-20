@@ -1,0 +1,83 @@
+---
+import Icon from '../../../components/Icon.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import PageBand from '../../../components/PageBand.astro';
+import PageCta from '../../../components/PageCta.astro';
+
+const differentiators = [
+  { icon: 'bot', title: 'AI-native from the ground up', desc: 'Not AI bolted onto legacy software. Every feature was designed around autonomous agents from day one.' },
+  { icon: 'message-square', title: 'Omnichannel messaging', desc: 'WhatsApp, Instagram, Messenger, and TikTok — where your customers already reach out, with one consistent agent.' },
+  { icon: 'calendar', title: 'Native appointments engine', desc: 'No Calendly or Acuity required. Scheduling lives in the conversation and is run by AI.' },
+  { icon: 'trending-up', title: 'Resolution, not routing', desc: 'AI closes routine tickets end-to-end so your support team focuses on what needs judgment.' },
+];
+
+const competitors = [
+  { name: 'Respond.io', slug: 'vs-respond-io', desc: 'Popular messaging platform for teams. Which one actually resolves more volume?', priority: true },
+  { name: 'Intercom', slug: 'vs-intercom', desc: 'Powerful but expensive. Worth it for WhatsApp-first service businesses?', priority: true },
+  { name: 'Wati', slug: 'vs-wati', desc: 'Popular WhatsApp tool. Shadia adds real AI agents and native scheduling.', priority: true },
+  { name: 'ManyChat', slug: 'vs-manychat', desc: 'Flow-based automation. Shadia replaces flows with conversational intelligence.', priority: false },
+  { name: 'Trengo', slug: 'vs-trengo', desc: 'European CS platform. Shadia offers native AI Trengo lacks.', priority: false },
+  { name: 'Kommo', slug: 'vs-kommo', desc: 'WhatsApp sales platform. In-depth Kommo vs Shadia comparison.', priority: false },
+  { name: 'Confirmafy', slug: 'vs-confirmafy', desc: 'Appointment reminders. Shadia goes far beyond simple reminders.', priority: false },
+];
+---
+
+<BaseLayout
+  title="Compare — Shadia AI vs Respond.io, Trengo, Intercom and more | Shadia AI"
+  description="Compare Shadia AI with leading platforms. AI-native agents, native appointments, and a WhatsApp-native AI agents built for resolution."
+  lang="en"
+  canonical="https://shadia.ai/en/compare"
+  ogImage="/og/compare-en.png"
+>
+  <PageHero
+    eyebrow="Compare"
+    title="Choose with clarity,"
+    titleAccent="not hype."
+    lead="Shadia is AI-native, WhatsApp-first, and built to resolve conversations — not just route them to your team."
+  />
+
+  <PageBand variant="muted" size="sm">
+    <div class="container" style="max-width: 720px;">
+      <div class="page-grid-2">
+        {differentiators.map(d => (
+          <div class="card page-card">
+            <div style="display:flex;align-items:center;margin-bottom:0.625rem;color:var(--accent);"><Icon name={d.icon} size={20} /></div>
+            <h3 class="page-card__title" style="font-size:0.9375rem;">{d.title}</h3>
+            <p class="page-card__desc" style="font-size:0.8125rem;margin-bottom:0;">{d.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </PageBand>
+
+  <PageBand variant="plain">
+    <div class="container">
+      <div class="page-section-head">
+        <h2 class="section-title">Detailed comparisons</h2>
+      </div>
+      <div class="page-grid-3">
+        {competitors.map(c => (
+          <a href={`/en/compare/${c.slug}`} class="page-card-link">
+            <div class:list={['card', 'page-card', c.priority && 'page-card--featured']}>
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem;">
+                <h3 class="page-card__title" style="font-size:1rem;">Shadia vs {c.name}</h3>
+                {c.priority && <span class="pill-badge" style="font-size:0.6875rem;padding:0.15rem 0.5rem;">Popular</span>}
+              </div>
+              <p class="page-card__desc" style="font-size:0.8125rem;">{c.desc}</p>
+              <span class="page-card__link">See comparison →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </PageBand>
+
+  <PageCta
+    lang="en"
+    source="compare_index_cta"
+    title="Try it on your support volume"
+    titleAccent="free for 7 days."
+    lead="Connect your channels and compare real outcomes — no credit card required."
+  />
+</BaseLayout>

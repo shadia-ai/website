@@ -1,0 +1,257 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SignupInput from '../../components/SignupInput.tsx';
+import ChannelCards from '../../components/ChannelCards.astro';
+import { HeroFloatComposition, InboxFloatPreview } from '../../components/FloatWidgets.tsx';
+import { WhatsAppIcon, InstagramIcon, MessengerIcon, TikTokIcon, WhatsAppBadge, InstagramBadge, TikTokBadge, MessengerBadge } from '../../lib/channel-icons';
+
+const channelCards = [
+  {
+    id: 'whatsapp',
+    name: 'WhatsApp',
+    featured: true,
+    desc: 'Resolve orders, bookings, and support threads on the channel with the highest open rates.',
+    href: '/en/channels/whatsapp',
+    iconSvg: WhatsAppIcon,
+  },
+  {
+    id: 'instagram',
+    name: 'Instagram DMs',
+    desc: 'Turn social DMs and comments into qualified conversations — 24/7.',
+    href: '/en/channels/instagram',
+    iconSvg: InstagramIcon,
+  },
+  {
+    id: 'messenger',
+    name: 'Messenger',
+    desc: 'Handle Facebook Messenger and keep context when customers switch channels.',
+    href: '/en/channels/facebook',
+    iconSvg: MessengerIcon,
+  },
+  {
+    id: 'tiktok',
+    name: 'TikTok',
+    desc: 'Reply to TikTok DMs instantly and move high-intent users to a real resolution.',
+    href: '/en/channels/tiktok',
+    iconSvg: TikTokIcon,
+  },
+];
+
+const flywheel = [
+  { n: '01', title: 'Train', desc: 'Teach your agent your policies, FAQs, and procedures — in plain language, no flow builders.', href: '/en/product/ai-agents' },
+  { n: '02', title: 'Deploy', desc: 'Go live on WhatsApp, Instagram, Messenger, TikTok, and your team workspace — one consistent agent.', href: '/en/channels/' },
+  { n: '03', title: 'Resolve', desc: 'The agent answers, takes actions on your systems, and closes routine tickets end-to-end.', href: '/en/product/omnichannel' },
+  { n: '04', title: 'Improve', desc: 'Review resolution analytics, refine answers, and escalate edge cases with full context.', href: '/en/features' },
+];
+
+const pillars = [
+  { label: 'AI Agents', title: 'Agents that resolve — not just reply', desc: 'Purpose-built for complex support queries with memory, actions, and smart escalation.', href: '/en/product/ai-agents' },
+  { label: 'Omnichannel', title: 'AI agents on every channel', desc: 'Every channel in one place. Humans step in with full history when the agent hands off.', href: '/en/product/omnichannel' },
+  { label: 'Copilot', title: 'Shadia Agent for your team', desc: 'Ask questions, draft replies, and analyze performance in natural language.', href: '/en/product/agent' },
+];
+
+const scenarios = [
+  { event: 'Customer asks order status', reaction: 'Pulls live data and responds in seconds' },
+  { event: 'Booking request after hours', reaction: 'Checks availability and confirms in chat' },
+  { event: 'Frustrated customer detected', reaction: 'Escalates to a human with full thread context' },
+];
+---
+
+<BaseLayout
+  title="Shadia AI — AI agents for customer service"
+  description="Build and deploy AI support agents that resolve complex queries across WhatsApp, Instagram, Messenger, and more. Train in plain language, deploy in minutes, escalate with context."
+  lang="en"
+  canonical="https://shadia.ai/en/"
+  ogImage="/og/home-en.png"
+>
+
+<section class="home-band hero-mesh section-lg" style="padding-bottom: 4rem;">
+  <div class="container-wide hero-split">
+    <div>
+      <div class="pill-badge" style="margin-bottom: 1.25rem;">
+        <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent);"></span>
+        AI agents for customer service
+      </div>
+      <h1 class="hero-title" style="margin-bottom: 1rem;">
+        The AI agent platform<br/>
+        <span class="headline-accent">for customer support.</span>
+      </h1>
+      <p class="lead" style="margin-bottom: 1rem;">
+        Shadia is the complete platform to build, deploy, and improve AI support agents — so your team resolves more conversations without adding headcount.
+      </p>
+      <p class="lead-sm" style="margin-bottom: 1.5rem;">Train in plain language · Deploy across every channel · Escalate with full context</p>
+      <SignupInput lang="en" source="home_hero" size="lg" client:load />
+      <p class="lead-sm" style="margin-top: 0.875rem;">No credit card · Live in under an hour</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem;">
+        <span class="channel-badge" set:html={`${WhatsAppBadge}<span style="font-weight:500;color:#25D366">WhatsApp</span>`}></span>
+        <span class="channel-badge" set:html={`${InstagramBadge}<span>Instagram</span>`}></span>
+        <span class="channel-badge" set:html={`${MessengerBadge}<span>Messenger</span>`}></span>
+        <span class="channel-badge" set:html={`${TikTokBadge}<span>TikTok</span>`}></span>
+      </div>
+    </div>
+    <div>
+      <HeroFloatComposition lang="en" client:load />
+    </div>
+  </div>
+</section>
+
+<section class="home-band home-band--plain section-sm">
+  <div class="container-wide">
+    <div class="page-stats-row">
+      {[
+        { v: '80%+', l: 'Routine queries resolved by AI' },
+        { v: '< 2 min', l: 'Average first response' },
+        { v: '24/7', l: 'Coverage on every channel' },
+        { v: 'All channels', l: 'All conversations unified' },
+      ].map(s => (
+        <div>
+          <div class="page-stat__value" style="color: var(--accent);">{s.v}</div>
+          <div class="page-stat__label">{s.l}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="home-band home-band--muted section">
+  <div class="container-wide">
+    <div class="section-intro" style="margin-bottom: 2.5rem;">
+      <div class="eyebrow">Capabilities</div>
+      <h2 class="section-title" style="margin-bottom: 0.75rem;">Resolve complex queries on every channel</h2>
+      <p class="lead-sm">Train your agent, deploy omnichannel, resolve autonomously, and improve with analytics — the loop serious support teams need.</p>
+    </div>
+    <div class="steps-row">
+      {flywheel.map(s => (
+        <a href={s.href} class="step-item" style="text-decoration: none; color: inherit;">
+          <div class="step-item__num">{s.n}</div>
+          <h3>{s.title}</h3>
+          <p>{s.desc}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="home-band home-band--plain section">
+  <div class="container-wide">
+    <div class="section-intro" style="margin-bottom: 2.5rem;">
+      <div class="eyebrow">Omnichannel</div>
+      <h2 class="section-title" style="margin-bottom: 0.75rem;">One agent. Every channel customers use.</h2>
+      <p class="lead-sm">WhatsApp, Instagram, Messenger, TikTok — same policies, same tone, same resolution quality.</p>
+    </div>
+    <ChannelCards lang="en" channels={channelCards} />
+  </div>
+</section>
+
+<section class="home-band home-band--tint section">
+  <div class="container-wide section-split">
+    <div class="section-intro section-intro--wide">
+      <div class="eyebrow">Resolution, not routing</div>
+      <h2 class="section-title" style="margin-bottom: 1rem;">An agent that closes tickets — not just deflects them</h2>
+      <p class="lead" style="margin-bottom: 1rem;">
+        Most tools assign, tag, and queue conversations. Shadia's agent understands context, checks your data, takes actions, and resolves — your humans only see what truly needs judgment.
+      </p>
+      <p class="lead-sm">Works alongside your team workspace — not a black box.</p>
+    </div>
+    <div class="split-grid" style="max-width: none; margin: 0;">
+      <div class="split-panel split-panel--accent">
+        <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 1rem; color: var(--accent);">The agent handles</h3>
+        <ul class="split-list">
+          <li>✦ Order status, returns, and FAQs</li>
+          <li>✦ Booking and scheduling in chat</li>
+          <li>✦ Follow-ups and proactive outreach</li>
+        </ul>
+      </div>
+      <div class="split-panel">
+        <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 1rem; color: var(--ink);">Your team handles</h3>
+        <ul class="split-list">
+          <li>✓ Escalations with full context</li>
+          <li>✓ Sensitive or high-stakes cases</li>
+          <li>✓ Relationship-building moments</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-band home-band--plain section">
+  <div class="container-wide">
+    <div class="section-intro" style="margin-bottom: 2.5rem;">
+      <div class="eyebrow">Platform</div>
+      <h2 class="section-title" style="margin-bottom: 0.75rem;">Everything to run AI customer service</h2>
+      <p class="lead-sm">Agents, channels, and copilot — designed to work together, not as three disconnected tools.</p>
+    </div>
+    <div class="pillar-grid">
+      {pillars.map(p => (
+        <a href={p.href} class="pillar-card" style="text-decoration: none; color: inherit;">
+          <span class="pillar-card__label">{p.label}</span>
+          <h3 class="pillar-card__title">{p.title}</h3>
+          <p class="pillar-card__desc">{p.desc}</p>
+          <span class="pillar-card__link">Learn more →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="home-band home-band--muted section">
+  <div class="container-wide section-split section-split--reverse">
+    <div class="section-split__visual">
+      <InboxFloatPreview lang="en" client:load />
+    </div>
+    <div class="section-intro">
+      <div class="eyebrow">How it works</div>
+      <h2 class="section-title" style="margin-bottom: 1rem;">From setup to resolving in hours</h2>
+      <ol style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+        <li style="font-size: 0.9375rem; color: var(--ink-3); line-height: 1.6;"><strong style="color: var(--ink);">Build & deploy.</strong> Train on your knowledge, connect channels, go live.</li>
+        <li style="font-size: 0.9375rem; color: var(--ink-3); line-height: 1.6;"><strong style="color: var(--ink);">Agent solves.</strong> Answers questions and runs actions on your systems.</li>
+        <li style="font-size: 0.9375rem; color: var(--ink-3); line-height: 1.6;"><strong style="color: var(--ink);">Refine & optimize.</strong> Analytics show what resolves and what needs tuning.</li>
+        <li style="font-size: 0.9375rem; color: var(--ink-3); line-height: 1.6;"><strong style="color: var(--ink);">Human handoff.</strong> Complex cases reach the right agent with zero repetition.</li>
+      </ol>
+      <a href="/en/features" class="btn-ghost" style="margin-top: 1.5rem; display: inline-flex;">See full platform →</a>
+    </div>
+  </div>
+</section>
+
+<section class="home-band home-band--plain section">
+  <div class="container-wide">
+    <div class="section-intro">
+      <div class="eyebrow">In production</div>
+      <h2 class="section-title" style="margin-bottom: 0.75rem;">Built for real support volume</h2>
+      <p class="lead-sm">Reactive scenarios your agent should handle without waking the team.</p>
+    </div>
+    <div class="live-row">
+      {scenarios.map(s => (
+        <div class="live-item">
+          <strong>{s.event}</strong>
+          <span>✦ {s.reaction}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="home-band home-band--dark section" style="overflow: hidden;">
+  <div class="home-band__glow" aria-hidden="true"></div>
+  <div class="container-wide">
+    <div class="hero-split" style="align-items: center;">
+      <div>
+        <h2 class="hero-title" style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem;">
+          Deploy your AI agent<br/>
+          <span class="headline-accent">for customer service today.</span>
+        </h2>
+        <p class="lead" style="margin-bottom: 1.75rem; max-width: 26rem;">
+          Start free. Train in plain language. Resolve more conversations on the channels your customers already use.
+        </p>
+        <SignupInput lang="en" source="home_footer_cta" size="lg" client:load />
+      </div>
+      <div style="display: flex; justify-content: flex-end; opacity: 0.9;">
+        <div class="home-band__quote">
+          <p>"We moved from deflecting tickets to actually closing them — without doubling the support team."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>

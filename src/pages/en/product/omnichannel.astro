@@ -1,0 +1,188 @@
+---
+import Icon from '../../../components/Icon.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProductHeroSplit from '../../../components/ProductHeroSplit.astro';
+import PageBand from '../../../components/PageBand.astro';
+import PageCta from '../../../components/PageCta.astro';
+import { InboxFloatPreview } from '../../../components/FloatWidgets.tsx';
+import { Check } from 'lucide-react';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Do Shadia AI agents work with the official WhatsApp API?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Shadia uses the official WhatsApp Business API, ensuring your number is never blocked and you have access to all premium features.' } },
+    { '@type': 'Question', name: 'How many team members can collaborate on conversations?', acceptedAnswer: { '@type': 'Answer', text: 'PRO plan includes up to 5 members. ULTRA enterprise supports custom seat counts. Every member sees the full conversation history and can collaborate with notes.' } },
+    { '@type': 'Question', name: 'Does the AI replace my team?', acceptedAnswer: { '@type': 'Answer', text: 'No. The AI agent handles volume and escalates to the right human. Your team decides which responses to approve and when to step in.' } },
+  ],
+};
+---
+
+<BaseLayout
+  title="Omnichannel AI Agents — Customer service on every channel | Shadia AI"
+  description="Deploy AI agents on WhatsApp, Instagram, Messenger, and TikTok. Autonomous resolution with smart escalation and full context for your team."
+  lang="en"
+  canonical="https://shadia.ai/en/product/omnichannel"
+  ogImage="/og/omnichannel-en.png"
+  jsonLd={faqSchema}
+>
+
+<ProductHeroSplit
+  badge="Omnichannel"
+  title="AI agents on"
+  titleAccent="every channel."
+  lead="One agent across WhatsApp, Instagram, Messenger, and TikTok. It resolves routine volume; your team steps in with full history — no switching apps, no repeated questions."
+  lang="en"
+  source="product_omnichannel_hero"
+  hint="No credit card required · Free to start"
+>
+  <InboxFloatPreview lang="en" client:load />
+</ProductHeroSplit>
+
+<PageBand variant="muted" size="sm">
+  <div class="container">
+    <div class="page-stats-row">
+      {[
+        { v: '< 3 min', l: 'Time to first response' },
+        { v: '94%', l: 'Messages resolved by AI' },
+        { v: '0', l: 'Missed conversations' },
+        { v: '24/7', l: 'AI agent availability' },
+      ].map(s => (
+        <div>
+          <div class="page-stat__value" style="color: var(--accent);">{s.v}</div>
+          <div class="page-stat__label">{s.l}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">Capabilities</div>
+      <h2 class="section-title">Everything your AI agents need at scale</h2>
+    </div>
+    <div class="grid-3">
+      {[
+        { icon: 'zap', title: 'AI-assisted responses', desc: 'Your agent suggests replies based on client history. Approve or edit with one click. Your team responds 5x faster.' },
+        { icon: 'users', title: 'Team collaboration', desc: 'Assign conversations, leave internal notes, see who is handling what. Never two agents responding to the same client.' },
+        { icon: 'bar-chart', title: 'Contact intelligence', desc: 'Full contact history, tags, notes and lifecycle tracking — built in, no external contact tools required.' },
+        { icon: 'search', title: 'Instant search', desc: 'Find any message in seconds. Filter by channel, agent, tag, date or search inside message content.' },
+        { icon: 'bot', title: 'Smart automation', desc: 'Automatic responses for FAQs, welcome messages, out-of-hours and more. Visual, no-code, configurable.' },
+        { icon: 'trending-up', title: 'Resolution analytics', desc: 'Real-time metrics: response times, resolution rates, satisfaction and performance by member and channel.' },
+      ].map(f => (
+        <div class="card-feature">
+          <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={f.icon} size={20} /></div>
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">{f.title}</h3>
+          <p style="font-size:0.875rem;line-height:1.65;">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="plain">
+  <div class="container" style="max-width: 860px;">
+    <div class="page-section-head">
+      <div class="eyebrow">Before & after</div>
+      <h2 class="section-title">The difference is immediate</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+      <div style="padding:1.75rem;background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.15);border-radius:18px;">
+        <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#ef4444;margin-bottom:1.25rem;">Without Shadia</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
+          {['Messages lost across WhatsApp, Instagram and Email', 'Slow responses that lose sales', 'No centralized client history', 'Team confusion about who handles what', 'Impossible to scale without hiring more staff'].map(item => (
+            <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink-3);">
+              <span style="color:#ef4444;flex-shrink:0;">✗</span>{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div style="padding:1.75rem;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.2);border-radius:18px;">
+        <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#22c55e;margin-bottom:1.25rem;">With Shadia agents</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
+          {['All channels connected, zero missed messages', 'AI responds in seconds, 24/7 without intervention', 'Full customer history in one place', 'Auto assignment + internal team notes', 'Scale without hiring: agents handle the volume'].map(item => (
+            <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink);">
+              <Check size={15} style={{ color: '#22c55e', flexShrink: 0, marginTop: '2px' }} />{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="tint">
+  <div class="container" style="max-width: 860px;">
+    <div class="page-section-head">
+      <div class="eyebrow">How it works</div>
+      <h2 class="section-title">Start in minutes, not days</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+      {[
+        { n: '1', title: 'Connect your channels', desc: 'WhatsApp Business API, Instagram, Facebook, Email — all in one click. No complex technical setup.' },
+        { n: '2', title: 'Configure your AI agent', desc: 'Give your agent business context, common responses and escalation rules. Plain language, no code.' },
+        { n: '3', title: 'Invite your team', desc: 'Add agents, define roles and permissions. Each person sees only what they need.' },
+        { n: '4', title: 'AI starts working', desc: 'From the first message, your agent responds, classifies and escalates. Your team approves and refines.' },
+      ].map(s => (
+        <div class="card" style="display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">{s.n}</div>
+          <div>
+            <h3 style="font-size:1.0625rem;font-weight:700;margin-bottom:0.375rem;">{s.title}</h3>
+            <p style="font-size:0.9375rem;color:var(--ink-3);margin:0;">{s.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="plain">
+  <div class="container page-section-head" style="max-width:760px;">
+    <div class="eyebrow">Integrations</div>
+    <h2 class="section-title">Connect with the tools you already use</h2>
+    <p class="lead-sm" style="margin-bottom:2.5rem;">Shadia integrates natively with the most popular systems. No Zapier, no code.</p>
+    <div class="product-channel-bar">
+      {['WhatsApp Business API', 'Google Workspace', 'HubSpot', 'Salesforce', 'Calendly', 'Stripe', 'Shopify', 'Notion', 'Zapier', 'Slack', 'Twilio', 'Mailchimp'].map(int => (
+        <span class="channel-badge">{int}</span>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container" style="max-width:680px;">
+    <div class="page-section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-title">Frequently asked questions</h2>
+    </div>
+    {[
+      { q: 'Does it work with the official WhatsApp API?', a: 'Yes. We use the official WhatsApp Business API, ensuring your number is never blocked and you have full access to premium features.' },
+      { q: 'How many team members can collaborate?', a: 'PRO includes up to 5 members. ULTRA supports custom seat counts. Every member sees full history and can leave notes.' },
+      { q: 'Does the AI replace my support team?', a: 'No. The AI agent handles volume and escalates to the right human. Your team decides which responses to approve and when to intervene.' },
+      { q: 'What happens when a client writes outside business hours?', a: 'Your AI agent responds 24/7. You configure what it handles alone and what waits for the next business day.' },
+    ].map(faq => (
+      <div class="faq-item">
+        <div style="padding:1.25rem 0;font-weight:600;font-size:1rem;color:var(--ink);">{faq.q}</div>
+        <div class="faq-answer">{faq.a}</div>
+      </div>
+    ))}
+  </div>
+</PageBand>
+
+<PageCta
+  lang="en"
+  source="product_omnichannel_cta"
+  title="Deploy your agents"
+  titleAccent="on every channel."
+  lead="Connect WhatsApp, Instagram, Messenger, and TikTok today — one agent, consistent resolution."
+/>
+
+</BaseLayout>
+
+<style>
+  @media (max-width: 900px) {
+    [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  }
+</style>
