@@ -1,0 +1,189 @@
+---
+import Icon from '../../../components/Icon.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProductHeroSplit from '../../../components/ProductHeroSplit.astro';
+import PageBand from '../../../components/PageBand.astro';
+import PageCta from '../../../components/PageCta.astro';
+import { SessionFloatComposition } from '../../../components/FloatWidgets.tsx';
+import { t } from '../../../i18n/utils';
+
+const workflowSteps = [
+  { n: '1', title: 'Grabar', desc: 'El médico activa Shadia al iniciar la consulta. El audio se captura de forma segura y encriptada, con el consentimiento del paciente.' },
+  { n: '2', title: 'Expediente', desc: 'La IA transcribe la conversación y estructura la información clínica directamente en el historial del paciente.' },
+  { n: '3', title: 'Resumen médico', desc: 'Una nota clínica clara con motivo de consulta, hallazgos, diagnóstico y plan, lista para que el médico revise y apruebe.' },
+  { n: '4', title: 'Versión paciente', desc: 'El mismo encuentro, en lenguaje simple y sin jerga médica, para que el paciente entienda su tratamiento.' },
+  { n: '5', title: 'Canal', desc: 'Apenas el médico aprueba, el resumen se envía por WhatsApp, el paciente queda informado sin llamadas ni papeleo.' },
+];
+---
+
+<BaseLayout
+  title={t('meta.sessions.title', 'es')}
+  description={t('meta.sessions.desc', 'es')}
+  lang="es"
+  canonical="https://shadia.ai/es/producto/sesiones"
+  ogImage="/og/sesiones-es.png"
+>
+
+<ProductHeroSplit
+  badge="Sesiones clínicas"
+  title="Graba la consulta y deja"
+  titleAccent="el expediente al día."
+  lead="Shadia escucha la consulta, arma la nota clínica, actualiza el expediente y manda un resumen al paciente por WhatsApp. Tú revisas y apruebas."
+  lang="es"
+  source="product_sesiones_hero"
+  hint="Sin tarjeta de crédito · Configuración en 24h"
+>
+  <SessionFloatComposition lang="es" client:load />
+</ProductHeroSplit>
+
+<PageBand variant="plain" size="sm">
+  <div class="container">
+    <div class="page-stats-row">
+      {[
+        { v: '<2 min', l: 'Para revisar y aprobar la nota' },
+        { v: '2', l: 'Resúmenes por consulta: médico y paciente' },
+        { v: '100%', l: 'Notas revisadas por el médico' },
+        { v: '24/7', l: 'Disponible para documentar' },
+      ].map(s => (
+        <div>
+          <div class="page-stat__value" style="color: var(--accent);">{s.v}</div>
+          <div class="page-stat__label">{s.l}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">Funcionalidades</div>
+      <h2 class="section-title">Todo lo que necesitas para documentar sin fricción</h2>
+    </div>
+    <div class="grid-3">
+      {[
+        { icon: 'activity', title: 'Grabación de la consulta', desc: 'Captura el audio de la visita de forma segura y encriptada, con consentimiento explícito del paciente.' },
+        { icon: 'file-text', title: 'Nota clínica automática', desc: 'Borrador estructurado con motivo, hallazgos, diagnóstico y plan, listo para que el médico revise en minutos.' },
+        { icon: 'clipboard', title: 'Resumen para el paciente', desc: 'La misma consulta, explicada en lenguaje simple, sin tecnicismos médicos.' },
+        { icon: 'smartphone', title: 'Envío por WhatsApp', desc: 'El resumen se comparte automáticamente apenas el médico lo aprueba, sin llamadas ni impresos.' },
+        { icon: 'shield', title: 'Consentimiento y privacidad', desc: 'El paciente autoriza la grabación antes de empezar. Puede rechazar y la consulta continúa sin grabación.' },
+        { icon: 'users', title: 'Multi-proveedor', desc: 'Cada médico o especialista tiene su propia plantilla de nota y flujo de aprobación.' },
+      ].map(f => (
+        <div class="card-feature">
+          <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={f.icon} size={20} /></div>
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">{f.title}</h3>
+          <p style="font-size:0.875rem;line-height:1.65;">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="tint">
+  <div class="container" style="max-width: 860px;">
+    <div class="page-section-head">
+      <div class="eyebrow">Flujo de sesión</div>
+      <h2 class="section-title">De la consulta al mensaje, en cinco pasos</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+      {workflowSteps.map(s => (
+        <div style="display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--surface-raised);border:1px solid var(--border);border-radius:14px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:0.875rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;">{s.n}</div>
+          <div>
+            <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.25rem;">{s.title}</h3>
+            <p style="font-size:0.9rem;color:var(--ink-3);">{s.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="plain">
+  <div class="container" style="max-width: 860px;">
+    <div class="page-section-head">
+      <div class="eyebrow">Antes y Después</div>
+      <h2 class="section-title">Documentar ya no compite con atender</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+      <div style="padding:1.75rem;background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.15);border-radius:18px;">
+        <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#ef4444;margin-bottom:1.25rem;">Sin Shadia</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
+          {['15 minutos o más documentando cada consulta', 'Notas que se atrasan hasta el final del día', 'Pacientes que no entienden su plan de tratamiento', 'Seguimiento manual por teléfono o papel', 'Expediente incompleto por falta de tiempo'].map(item => (
+            <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink-3);">
+              <span style="color:#ef4444;flex-shrink:0;">✗</span>{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div style="padding:1.75rem;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.2);border-radius:18px;">
+        <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#22c55e;margin-bottom:1.25rem;">Con Sesiones Clínicas</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
+          {['Nota clínica lista para revisar en menos de 2 minutos', 'Expediente actualizado antes de que salga el paciente', 'Resumen en lenguaje simple enviado por WhatsApp', 'El médico revisa, edita y aprueba, la decisión sigue siendo suya', 'Historial completo y consistente para cada visita'].map(item => (
+            <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink);">
+              <span style="color:var(--green);font-weight:700;flex-shrink:0;">✓</span>{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">Privacidad y Seguridad</div>
+      <h2 class="section-title">Diseñado para datos de salud</h2>
+    </div>
+    <div class="grid-3">
+      {[
+        { icon: 'lock', title: 'Encriptación de extremo a extremo', desc: 'Audio, transcripciones y notas clínicas protegidos en tránsito y en reposo.' },
+        { icon: 'shield', title: 'Consentimiento explícito', desc: 'Cada grabación requiere autorización del paciente antes de comenzar.' },
+        { icon: 'clipboard', title: 'Auditoría y control de acceso', desc: 'Registro de cada interacción con timestamp y permisos por rol dentro del equipo.' },
+      ].map(f => (
+        <div class="card-feature">
+          <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={f.icon} size={20} /></div>
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">{f.title}</h3>
+          <p style="font-size:0.875rem;line-height:1.65;">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="plain">
+  <div class="container" style="max-width:680px;">
+    <div class="page-section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-title">Preguntas frecuentes</h2>
+    </div>
+    {[
+      { q: '¿La IA reemplaza la nota que escribe el médico?', a: 'No. Shadia genera un borrador estructurado a partir de la consulta. El médico siempre revisa, edita y aprueba antes de que quede en el expediente.' },
+      { q: '¿Qué pasa con el consentimiento del paciente?', a: 'Se solicita y registra consentimiento antes de grabar. Si el paciente prefiere no ser grabado, la consulta continúa normalmente sin grabación.' },
+      { q: '¿Cómo se comparte el resumen con el paciente?', a: 'Por WhatsApp de forma automática una vez el médico aprueba la nota. También puede enviarse por correo si el paciente lo prefiere.' },
+      { q: '¿Funciona para múltiples médicos o especialistas?', a: 'Sí. Cada proveedor tiene su propia plantilla de nota clínica y su propio flujo de revisión y aprobación.' },
+    ].map(faq => (
+      <div class="faq-item">
+        <div style="padding:1.25rem 0;font-weight:600;font-size:1rem;color:var(--ink);">{faq.q}</div>
+        <div class="faq-answer">{faq.a}</div>
+      </div>
+    ))}
+  </div>
+</PageBand>
+
+<PageCta
+  lang="es"
+  source="product_sesiones_cta"
+  title="Menos tiempo documentando,"
+  titleAccent="más tiempo con el paciente."
+  lead="Activa sesiones clínicas y deja que Shadia prepare el expediente mientras tú atiendes."
+/>
+
+</BaseLayout>
+
+<style>
+  @media (max-width: 900px) {
+    [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  }
+</style>

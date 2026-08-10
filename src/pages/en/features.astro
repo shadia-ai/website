@@ -8,174 +8,149 @@ import SignupInput from '../../components/SignupInput.tsx';
 
 const sections = [
   {
-    id: 'channels',
-    title: 'Channels & agents',
-    subtitle: 'Every channel, one place',
-    desc: 'Connect WhatsApp, Instagram, TikTok, Facebook Messenger and more. Manage all conversations from a single unified platform.',
-    icon: 'message-square',
+    id: 'sessions',
+    title: 'Clinical sessions',
+    subtitle: 'Documentation while you care for patients',
+    desc: 'Shadia listens to the visit, structures the clinical note, and prepares it for your review, without breaking the patient relationship.',
+    icon: 'clipboard',
     features: [
-      { name: 'Official WhatsApp Business API', desc: 'Verified number, approved templates and full access to Meta\'s API.' },
-      { name: 'Instagram DMs & comments', desc: 'Automatically respond to direct messages and comments with purchase intent.' },
-      { name: 'Facebook Messenger', desc: 'Automate Messenger DMs and offer to continue on WhatsApp in the user\'s preferred language.' },
-      { name: 'TikTok DMs', desc: 'Convert TikTok engagement into real conversations and appointments.' },
-      { name: 'Switch to WhatsApp', desc: 'When a lead starts in Messenger, Shadia offers to move the conversation to WhatsApp — in their preferred language.' },
-      { name: 'Unified omnichannel conversations', desc: 'All channels in one platform. Your team responds without switching windows.' },
-      { name: 'Broadcast campaigns', desc: 'Send campaigns to contact segments with approved WhatsApp templates.' },
-      { name: 'WhatsApp templates', desc: 'Create, manage and use approved templates for proactive outbound messages.' },
+      { name: 'AI clinical scribe', desc: 'Transcribes and structures the visit in real time. You review and approve before anything is saved.' },
+      { name: 'Specialty templates', desc: 'Notes tailored to primary care, dental, aesthetics, mental health, and more.' },
+      { name: 'Post-visit summary', desc: 'Generates a clear chart summary and follow-up instructions for the patient.' },
+      { name: 'Patient instructions', desc: 'Pre-visit prep, medication guidance, post-procedure care, written in plain language.' },
+      { name: 'Session history', desc: 'Every visit links to the patient profile with full context for your team.' },
+      { name: 'Review before save', desc: 'No note is finalized without clinician approval. Full control over what enters the chart.' },
+      { name: 'Multi-provider', desc: 'Multiple clinicians document in the same practice with templates and role-based permissions.' },
+      { name: 'Note export', desc: 'Export approved notes in standard formats for your clinical workflow.' },
     ],
   },
   {
-    id: 'conversations',
-    title: 'Conversations',
-    subtitle: 'Everything you need to handle any interaction',
-    desc: 'Collaboration, organization and resolution tools to manage any customer conversation efficiently.',
-    icon: 'message-square',
-    features: [
-      { name: 'Auto-assignment', desc: 'Automatically assign conversations to the right agent based on team rules and workload.' },
-      { name: 'Internal notes', desc: 'Add private notes inside any conversation so the team has full context.' },
-      { name: 'Message reactions', desc: 'React quickly to customer or team messages with emojis.' },
-      { name: 'Thread replies', desc: 'Reply to specific messages while keeping the conversation thread organized.' },
-      { name: 'Mentions (@)', desc: 'Mention a colleague or Shadia Agent in any conversation to ask for help or context.' },
-      { name: 'Team presence', desc: 'See who is online and actively working on conversations in real time.' },
-      { name: 'Attachments', desc: 'Share and receive documents, images, audio and videos directly in the chat.' },
-      { name: 'Conversation search', desc: 'Find any conversation, message or file instantly with advanced search.' },
-      { name: 'Business hours', desc: 'Define business hours per channel and team. Automatic out-of-hours messages.' },
-      { name: 'Collision detection', desc: 'Alerts when two agents are replying to the same conversation simultaneously.' },
-      { name: 'Scheduled messages', desc: 'Schedule messages to send later, just like Slack. Set the exact date and time and Shadia delivers it automatically.' },
-      { name: 'Auto-close by inactivity', desc: 'Automatically close conversations after X days/months without activity. Configurable per account, channel or team.' },
-      { name: 'Conversation collaborators', desc: 'Assign multiple roles to the same conversation (e.g. sales + support). Mentioning (@user) automatically adds them as a participant.' },
-      { name: 'View modes', desc: 'Four agent-configurable views: Full (everything), Standard (no internal notes), Focus (client messages only), Collaborative (team notes only).' },
-    ],
-  },
-  {
-    id: 'ai',
-    title: 'AI & Agents',
-    subtitle: 'AI that truly operates',
-    desc: 'Conversational AI agents with real LLM that maintain context, make decisions and manage complete conversations autonomously.',
+    id: 'receptionist',
+    title: 'AI Receptionist',
+    subtitle: 'The front desk that never closes',
+    desc: 'Answers FAQs, triages inquiries, books appointments, and escalates to your team only when the case requires a human.',
     icon: 'bot',
     features: [
-      { name: 'Conversational AI agents (LLM)', desc: 'Agents that understand context, remember conversations and respond with real intelligence.' },
-      { name: 'Shadia Agent (AI on your team)', desc: 'Your AI on your team copilot. Ask about clients, request summaries, draft responses — in plain language.' },
-      { name: 'AI Threads', desc: 'Start AI on your team-assisted conversations ChatGPT-style about your own data. Delegate, activate, assign, and send work to the AI directly from chat so it activates your business.' },
-      { name: 'AI Presence', desc: 'See exactly where the AI is working across your account in real time: which conversations it\'s processing, what actions it\'s executing, and its current status.' },
-      { name: 'Smart escalation', desc: 'The agent escalates to the human team when it detects the situation requires it.' },
-      { name: 'Brand personality & tone', desc: 'Define how your agent speaks: formal, friendly, technical. Consistent in every message.' },
-      { name: 'Automatic FAQ responses', desc: 'The agent answers frequent questions without human intervention, 24/7.' },
-      { name: 'Conversation memory', desc: 'The agent remembers client history and adapts responses to context.' },
-      { name: 'Multiple AI agents', desc: 'Configure different agents for different channels, teams or types of inquiry.' },
+      { name: '24/7 WhatsApp coverage', desc: 'Patients write at any hour. Shadia replies, guides, and books without wait times.' },
+      { name: 'Practice FAQs', desc: 'Hours, location, services, pricing guidance, and visit requirements, answered instantly.' },
+      { name: 'Inquiry triage', desc: 'Identifies urgency, service type, and whether the patient is new or returning before booking.' },
+      { name: 'Smart escalation', desc: 'Sensitive cases, complaints, or out-of-protocol situations go to staff with full history.' },
+      { name: 'Your practice tone', desc: 'Formal, warm, or clinical, the receptionist speaks like your team, not a generic bot.' },
+      { name: 'Pre-visit preparation', desc: 'Sends fasting instructions, required documents, and insurance confirmation before the visit.' },
+      { name: 'Multi-location routing', desc: 'Directs patients to the right location based on service, provider, or availability.' },
+      { name: 'Handoff with context', desc: 'When a human steps in, they already know what the patient asked, what AI offered, and what remains.' },
     ],
   },
   {
     id: 'appointments',
-    title: 'Appointments Engine',
+    title: 'Appointments engine',
     subtitle: 'Autonomous scheduling, no external tools',
-    desc: 'No Calendly, no external links. Shadia books, confirms, reschedules and handles all appointment logistics directly on WhatsApp.',
+    desc: 'Shadia books, confirms, reschedules, and handles cancellations directly on WhatsApp, synced with your practice calendar.',
     icon: 'calendar',
     features: [
-      { name: 'WhatsApp booking', desc: 'Client requests an appointment on WhatsApp and the agent confirms in the same chat.' },
-      { name: 'Automatic reminders', desc: 'Automatic WhatsApp 24h and 1h before. Client confirms with a reply.' },
-      { name: 'In-chat rescheduling', desc: 'Client can change the appointment by replying to the reminder. Agent updates the calendar.' },
-      { name: 'Google Calendar sync', desc: 'Bidirectional real-time sync. Zero double bookings.' },
-      { name: 'Multiple appointment types', desc: 'Define services with duration, price, prep time and specific availability.' },
-      { name: 'Availability rules', desc: 'Hours, days, max simultaneous appointments per service or agent.' },
-      { name: 'Post-appointment follow-up', desc: 'Automatic satisfaction survey and next appointment reminder.' },
-      { name: 'Multiple locations', desc: 'Manage availability across different branches or agents from the same system.' },
+      { name: 'WhatsApp booking', desc: 'Patient requests an appointment in chat and the AI receptionist confirms in the same thread.' },
+      { name: 'Automatic reminders', desc: 'WhatsApp 24h and 1h before. Patient confirms with a reply and no-shows drop.' },
+      { name: 'In-chat rescheduling', desc: 'Patient changes the appointment by replying to the reminder. Calendar updates instantly.' },
+      { name: 'Google Calendar sync', desc: 'Bidirectional real-time sync by provider, room, or location. Zero double booking.' },
+      { name: 'Clinical appointment types', desc: 'Initial consult, follow-up, procedure, telehealth, with duration and prep requirements.' },
+      { name: 'Availability rules', desc: 'Provider schedules, surgical blocks, holidays, and max simultaneous appointments.' },
+      { name: 'Post-visit follow-up', desc: 'Satisfaction survey, care reminders, and next appointment suggestion, automated.' },
+      { name: 'Multiple locations', desc: 'Manage availability across offices, clinics, and centers from one system.' },
     ],
   },
   {
-    id: 'contacts',
-    title: 'Contacts & Data',
-    subtitle: 'Full client context, always available',
-    desc: 'Organize contacts, companies and all relevant information. No spreadsheets, no separate tools — Shadia manages the context for you.',
+    id: 'channels',
+    title: 'Omnichannel',
+    subtitle: 'Every channel, one patient record',
+    desc: 'WhatsApp as the primary channel, Instagram for aesthetics, Facebook and TikTok for patient acquisition, all unified with clinical context.',
+    icon: 'message-square',
+    features: [
+      { name: 'Official WhatsApp Business API', desc: 'Primary channel for appointments, reminders, post-visit summaries, and clinical follow-up.' },
+      { name: 'Instagram DMs & comments', desc: 'Ideal for aesthetics practices: answer procedure questions and book from the DM.' },
+      { name: 'Facebook Messenger', desc: 'Handle your practice page and offer to continue on WhatsApp when the patient prefers.' },
+      { name: 'TikTok DMs', desc: 'Turn interest from aesthetics or wellness videos into consultations and booked visits.' },
+      { name: 'Unified conversations', desc: 'One patient, one profile. Regardless of channel, your team sees the full history.' },
+      { name: 'Switch to WhatsApp', desc: 'Move the conversation to the preferred channel without losing context.' },
+      { name: 'WhatsApp templates', desc: 'Appointment reminders, pre-visit instructions, and follow-up with approved templates.' },
+      { name: 'Segmented broadcasts', desc: 'Preventive care campaigns, screening promotions, or follow-up reminders to patient segments.' },
+    ],
+  },
+  {
+    id: 'patients',
+    title: 'Patients & contacts',
+    subtitle: 'Unified record for every patient',
+    desc: 'Conversation history, appointments, clinical notes, and patient attributes in one profile, no spreadsheets or parallel systems.',
     icon: 'user',
     features: [
-      { name: 'Unified contact profiles', desc: 'Full history of conversations, appointments, notes and attributes in one profile.' },
-      { name: 'Companies & organizations', desc: 'Associate contacts with companies and see all activity for a corporate client.' },
-      { name: 'Tags & labels', desc: 'Organize and segment contacts with custom tags to filter and find.' },
-      { name: 'Custom data attributes (16 types)', desc: 'The most complete attribute system in the category: TEXT, LINK, EMAIL, PHONE, NUMBER, DATE, DATETIME, TIME, BOOLEAN, CURRENCY, SELECTION, GEOLOCATION, SIGNATURE, CONSENT, STATEMENT, ATTACHMENT, and RELATIONSHIP. Model any business data without limitations.' },
-      { name: 'Contact notes', desc: 'The team can add notes to any contact with important context.' },
-      { name: 'Resource viewers', desc: 'See which resources, documents or pages each contact has visited.' },
-      { name: 'Duplicate suggestions', desc: 'Shadia automatically detects duplicate contacts and suggests merging them.' },
-      { name: 'CSV import/export', desc: 'Import your existing contact base and export segments when needed.' },
-      { name: 'AI contact cleanup', desc: 'The AI detects and automatically flags contacts with no response, no interest, or long inactivity. Keep your database clean without manual work.' },
-      { name: 'Bulk actions', desc: 'Import contacts, assign tags, change folder, update status and more — in batch across multiple contacts at once.' },
+      { name: 'Unified patient profile', desc: 'Conversations, appointments, clinical sessions, team notes, and attributes in one place.' },
+      { name: 'Conversational clinical history', desc: 'Every interaction is logged so front desk, clinicians, and admin share context.' },
+      { name: 'Tags & segmentation', desc: 'Tag by specialty, treatment stage, insurance, or campaign to filter and follow up.' },
+      { name: 'Custom attributes (16 types)', desc: 'Insurance, allergies, PCP, consent, model any clinical or administrative data point.' },
+      { name: 'Team notes', desc: 'Front desk, nursing, and admin add context without mixing it into the clinical note.' },
+      { name: 'Duplicate detection', desc: 'Identifies duplicate patients by phone or name and suggests merging records.' },
+      { name: 'CSV import/export', desc: 'Migrate your existing patient base and export segments for reports or campaigns.' },
+      { name: 'Data masking', desc: 'Hide phones and emails from roles that do not need them. Privacy without operational friction.' },
     ],
   },
   {
-    id: 'teams',
-    title: 'Teams & Collaboration',
-    subtitle: 'Your team working as one',
-    desc: 'Tools designed for full teams to collaborate on conversations with visibility, control and efficiency.',
-    icon: 'users',
+    id: 'automation',
+    title: 'Automation',
+    subtitle: 'Clinical workflows that run themselves',
+    desc: 'From first inquiry to post-procedure follow-up, automate the repetitive so your team focuses on care.',
+    icon: 'zap',
     features: [
-      { name: 'Smart auto-assignment', desc: 'Automatically assigns conversations by availability, workload and agent skills.' },
-      { name: 'Folders & organization', desc: 'Organize conversations and threads in folders by project, channel or team.' },
-      { name: 'Teams & sub-teams', desc: 'Create agent groups for different areas: sales, support, operations.' },
-      { name: 'Real-time presence', desc: 'See who\'s active, busy or offline. Distribute workload intelligently.' },
-      { name: 'Role-based access (RBAC)', desc: 'Define what each team member can see and do in the platform.' },
-      { name: 'Action audit log', desc: 'Records who did what and when for compliance and internal reviews.' },
-      { name: 'Agent schedules', desc: 'Configure each agent\'s availability so assignments respect their hours.' },
-      { name: 'Member capacity', desc: 'Prevent overload by limiting simultaneous conversations per team member.' },
+      { name: 'New patient flows', desc: 'New patients receive orientation, intake prompts, and booking options on first contact.' },
+      { name: 'Appointment reminders', desc: 'Automatic sequence of confirmation, pre-visit prep, and no-show alerts.' },
+      { name: 'Post-visit follow-up', desc: 'Care instructions, satisfaction survey, and follow-up appointment reminders, scheduled.' },
+      { name: 'Patient reactivation', desc: 'Identify inactive patients and send screening or periodic check-up reminders.' },
+      { name: 'Rule-based escalation', desc: 'Define when AI hands off to humans: urgency, complaints, out-of-protocol cases, or explicit request.' },
+      { name: 'Automatic routing', desc: 'Route conversations to the right team: front desk, billing, specialist, or location.' },
+      { name: 'Business hours', desc: 'Automatic after-hours messages with option to leave a question or book for the next day.' },
+      { name: 'Scheduled messages', desc: 'Schedule follow-ups, medication reminders, or result notifications for exact date and time.' },
     ],
   },
   {
-    id: 'api',
-    title: 'API & Integrations',
-    subtitle: 'Connect Shadia to your entire stack',
-    desc: 'Robust API, real-time webhooks and native integrations to connect Shadia with any tool in your ecosystem.',
-    icon: 'link',
-    features: [
-      { name: 'Full API', desc: 'Queries and mutations to access and modify contacts, conversations, appointments and more.' },
-      { name: 'Real-time webhooks', desc: 'Receive Shadia events in your system instantly for external automations.' },
-      { name: 'OAuth 2.0', desc: 'Secure, standard authentication for third-party integrations.' },
-      { name: 'Interactive documentation', desc: 'Explore and test the API directly from the online documentation.' },
-      { name: 'SDK (Node.js, Python)', desc: 'Official libraries to integrate Shadia into your applications faster.' },
-      { name: 'Native integrations', desc: 'Google Calendar, HubSpot, Zapier, Slack and more — connected in minutes.' },
-      { name: 'Dashboard apps', desc: 'Embed custom applications inside Shadia for specific use cases.' },
-      { name: 'IP whitelisting', desc: 'Control which IPs can access your API for maximum security.' },
-    ],
-  },
-  {
-    id: 'reports',
-    title: 'Reports & Analytics',
-    subtitle: 'Data that helps you decide',
-    desc: 'Real-time dashboards and detailed reports to measure the performance of your operation, team and channels.',
+    id: 'analytics',
+    title: 'Analytics',
+    subtitle: 'Data to improve clinical operations',
+    desc: 'Measure response times, calendar utilization, patient satisfaction, and performance by location, in real time.',
     icon: 'bar-chart',
     features: [
-      { name: 'Real-time dashboard', desc: 'Overview of active conversations, response times and team workload.' },
-      { name: 'Member reports', desc: 'Measure individual team member performance: speed, resolution and satisfaction.' },
-      { name: 'Channel reports', desc: 'See which channels generate the most conversations and which convert best.' },
-      { name: 'CSAT (Customer satisfaction)', desc: 'Automatic post-conversation surveys with real-time satisfaction metrics.' },
-      { name: 'Appointment reports', desc: 'Calendar occupancy, most requested services, no-shows and trends.' },
-      { name: 'Report export', desc: 'Download any report in CSV for external analysis or presentations.' },
-      { name: 'Custom reports', desc: 'Create custom reports with the metrics that matter most to your business (ULTRA).' },
-      { name: 'Live view', desc: 'Monitor active team conversations in real time from the dashboard.' },
+      { name: 'Real-time dashboard', desc: 'Active conversations, today\'s appointments, response times, and team workload.' },
+      { name: 'Appointment reports', desc: 'Utilization by provider, most requested services, no-shows, and weekly trends.' },
+      { name: 'Patient satisfaction (CSAT)', desc: 'Automatic post-visit surveys with real-time satisfaction metrics.' },
+      { name: 'Channel reports', desc: 'Which channel drives the most bookings: WhatsApp, Instagram, Facebook, or TikTok.' },
+      { name: 'Location reports', desc: 'Compare performance across offices, clinics, or network sites.' },
+      { name: 'Team performance', desc: 'Response times, resolution, and escalations by team member.' },
+      { name: 'CSV export', desc: 'Download reports for external analysis, leadership reviews, or internal audits.' },
+      { name: 'Custom reports (ULTRA)', desc: 'Tailored metrics for hospital networks and multi-site operations.' },
     ],
   },
   {
     id: 'security',
-    title: 'Security & Compliance',
-    subtitle: 'Enterprise security from day one',
-    desc: 'Encryption, audit logs, access control and data privacy compliance so your operation is always protected.',
+    title: 'Security & privacy',
+    subtitle: 'Clinical data protection by design',
+    desc: 'Encryption, role-based access, audit logs, and retention controls, built for the confidentiality healthcare demands.',
     icon: 'lock',
     features: [
-      { name: 'End-to-end encryption (TLS + AES-256)', desc: 'All data in transit and at rest encrypted to enterprise standards.' },
-      { name: 'Role-based access control (RBAC)', desc: 'Define granular permissions per role for every platform function.' },
-      { name: 'Full audit log', desc: 'Detailed record of all actions performed by platform users.' },
-      { name: 'SSO / SAML', desc: 'Single sign-on compatible with major identity providers (ULTRA).' },
+      { name: 'TLS + AES-256 encryption', desc: 'Data in transit and at rest encrypted to enterprise standards.' },
+      { name: 'Role-based access (RBAC)', desc: 'Front desk, nursing, clinicians, and admin see only what their role requires.' },
+      { name: 'Full audit log', desc: 'Record of who accessed, modified, or exported patient information.' },
+      { name: 'Sensitive data masking', desc: 'Hide phones, emails, and identifiers based on user role.' },
+      { name: 'Configurable retention', desc: 'Define retention and deletion policies for conversations and clinical notes.' },
+      { name: 'SSO / SAML (ULTRA)', desc: 'Single sign-on for networks with active corporate directory.' },
       { name: '99.9% uptime SLA', desc: 'Redundant infrastructure with contractual availability commitments.' },
-      { name: 'GDPR compliance', desc: 'Tools and controls to comply with data privacy regulations.' },
-      { name: 'IP whitelisting', desc: 'Restrict access to specific IPs for API and admin panel access.' },
-      { name: 'Meta Business Partner', desc: 'Officially verified Meta integration for maximum WhatsApp security.' },
-      { name: 'Data masking (Mask)', desc: 'Hide phone numbers and email addresses from agents to protect sensitive contact information. Privacy and data security without operational friction.' },
+      { name: 'Meta Business Partner', desc: 'Officially verified Meta integration for WhatsApp with maximum security.' },
+      { name: 'No training on your data', desc: 'Your conversations and clinical notes are never used to train AI models.' },
+      { name: 'Designed for healthcare privacy', desc: 'Built with healthcare privacy expectations in mind. BAA available for enterprise accounts.' },
     ],
   },
 ];
 ---
 
 <BaseLayout
-  title="Features — Everything included in Shadia AI | Shadia AI"
-  description="The complete platform for AI customer service: omnichannel agents, AI agents, scheduling, integrations, analytics, and enterprise security."
+  title="Features. Clinical AI platform | Shadia AI"
+  description="Clinical sessions, AI receptionist, appointments, omnichannel, patient records, automation, analytics, and security, all in Shadia AI for clinics."
   lang="en"
   canonical="https://shadia.ai/en/features"
   ogImage="/og/features-en.png"
@@ -183,9 +158,9 @@ const sections = [
 
 <PageHero
   eyebrow="Features"
-  title="The platform for"
-  titleAccent="AI customer service."
-  lead="Omnichannel agents, autonomous agents, scheduling, integrations, analytics, and guardrails — everything to build, deploy, and improve support agents."
+  title="Everything your clinic"
+  titleAccent="needs with AI."
+  lead="Clinical sessions, AI receptionist, appointments engine, omnichannel, patient records, automation, and security, in one platform."
   narrow={false}
 >
   <div class="page-hero__actions">
@@ -239,33 +214,33 @@ const sections = [
 <PageBand variant="tint">
   <div class="container" style="max-width: 960px;">
     <div style="text-align: center; margin-bottom: 3rem;">
-      <div class="eyebrow" style="justify-content: center; margin-bottom: 0.875rem;">Data Attributes</div>
+      <div class="eyebrow" style="justify-content: center; margin-bottom: 0.875rem;">Patient record</div>
       <h2 style="font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 600; line-height: 1.15; margin-bottom: 0.875rem;">
         16 attribute types.<br/>
-        <span style="font-family: var(--font-display); font-style: italic; font-weight: 400;">Model any business data.</span>
+        <span style="font-family: var(--font-display); font-style: italic; font-weight: 400;">Model any clinical data.</span>
       </h2>
       <p style="color: var(--ink-3); font-size: 1rem; max-width: 580px; margin: 0 auto;">
-        Most platforms give you a text field and call it done. Shadia supports 16 structured data types — from geolocation and digital signatures to legal consent and entity relationships.
+        From allergies and insurance to informed consent and digital signatures. Shadia supports 16 structured data types for the patient record.
       </p>
     </div>
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem;">
       {[
-        { type: 'TEXT',         label: 'Text',           desc: 'Free-form single-line text' },
-        { type: 'NUMBER',       label: 'Number',         desc: 'Integer or decimal' },
-        { type: 'BOOLEAN',      label: 'Boolean',        desc: 'True / False flag' },
-        { type: 'DATE',         label: 'Date',           desc: 'ISO-8601 YYYY-MM-DD' },
-        { type: 'DATETIME',     label: 'Date & Time',    desc: 'With timezone info' },
-        { type: 'TIME',         label: 'Time',           desc: 'HH:MM:SS' },
-        { type: 'CURRENCY',     label: 'Currency',       desc: 'Amount + ISO-4217 code' },
-        { type: 'SELECTION',    label: 'Selection',      desc: 'Configured option list' },
-        { type: 'LINK',         label: 'Link',           desc: 'Validated URL' },
-        { type: 'EMAIL',        label: 'Email',          desc: 'Normalized address' },
-        { type: 'PHONE',        label: 'Phone',          desc: 'E.164 format' },
-        { type: 'GEOLOCATION',  label: 'Geolocation',    desc: 'Latitude & longitude' },
-        { type: 'SIGNATURE',    label: 'Signature',      desc: 'Digital signature capture' },
-        { type: 'CONSENT',      label: 'Consent',        desc: 'Accept policy or terms' },
-        { type: 'STATEMENT',    label: 'Statement',      desc: 'Display / acknowledge text' },
-        { type: 'ATTACHMENT',   label: 'Attachment',     desc: 'Uploaded file reference' },
+        { type: 'TEXT',         label: 'Text',           desc: 'Diagnosis, observations' },
+        { type: 'NUMBER',       label: 'Number',         desc: 'Weight, vitals, lab values' },
+        { type: 'BOOLEAN',      label: 'Boolean',        desc: 'Allergy yes/no, pregnancy' },
+        { type: 'DATE',         label: 'Date',           desc: 'DOB, last visit' },
+        { type: 'DATETIME',     label: 'Date & Time',    desc: 'Appointment, procedure' },
+        { type: 'TIME',         label: 'Time',           desc: 'Preferred time slot' },
+        { type: 'CURRENCY',     label: 'Currency',       desc: 'Copay, balance due' },
+        { type: 'SELECTION',    label: 'Selection',      desc: 'Insurance, specialty' },
+        { type: 'LINK',         label: 'Link',           desc: 'Results, intake forms' },
+        { type: 'EMAIL',        label: 'Email',          desc: 'Patient email' },
+        { type: 'PHONE',        label: 'Phone',          desc: 'Primary WhatsApp' },
+        { type: 'GEOLOCATION',  label: 'Geolocation',    desc: 'Nearest location' },
+        { type: 'SIGNATURE',    label: 'Signature',      desc: 'Informed consent' },
+        { type: 'CONSENT',      label: 'Consent',        desc: 'Data authorization' },
+        { type: 'STATEMENT',    label: 'Statement',      desc: 'Privacy notice' },
+        { type: 'ATTACHMENT',   label: 'Attachment',     desc: 'Labs, ID documents' },
       ].map(a => (
         <div style="background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 0.875rem 1rem;">
           <div style="font-size: 0.625rem; font-weight: 700; letter-spacing: 0.08em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.25rem; font-family: 'SF Mono', 'Fira Code', monospace;">{a.type}</div>

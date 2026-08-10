@@ -11,14 +11,14 @@ const channels = [
     id: 'whatsapp',
     name: 'WhatsApp',
     featured: true,
-    desc: 'Resolve orders, bookings, and support threads on the channel with the highest open rates.',
+    desc: 'Bookings, confirmations, and visit summaries on the channel patients already open.',
     href: '/en/channels/whatsapp',
     iconSvg: WhatsAppIcon,
   },
   {
     id: 'instagram',
     name: 'Instagram DMs',
-    desc: 'Turn social DMs and comments into qualified support conversations — 24/7.',
+    desc: 'Turn aesthetics and new-patient DMs into booked visits, even after hours.',
     href: '/en/channels/instagram',
     iconSvg: InstagramIcon,
   },
@@ -32,7 +32,7 @@ const channels = [
   {
     id: 'tiktok',
     name: 'TikTok',
-    desc: 'Reply to TikTok DMs and convert engagement into real conversations and bookings.',
+    desc: 'Reply to medical aesthetics DMs and convert engagement into booked consults.',
     href: '/en/channels/tiktok',
     iconSvg: TikTokIcon,
   },
@@ -40,17 +40,17 @@ const channels = [
 ---
 
 <BaseLayout
-  title="Channels — WhatsApp, Instagram, Messenger and TikTok | Shadia AI"
-  description="Deploy your AI support agent on WhatsApp, Instagram, Messenger, and TikTok. One agent, consistent resolution on every channel."
+  title="Channels. WhatsApp, Instagram, Messenger for clinics | Shadia AI"
+  description="Unify WhatsApp, Instagram, and Messenger for your clinic. Appointments, AI receptionist, and visit summaries."
   lang="en"
   canonical="https://shadia.ai/en/channels/"
   ogImage="/og/channels-en.png"
 >
   <PageHero
     eyebrow="Channels"
-    title="Every channel your customers use,"
-    titleAccent="one AI agent."
-    lead="Deploy consistent AI customer service on WhatsApp, Instagram, Messenger, and TikTok — unified platform, smart escalation, full context."
+    title="Where patients message you,"
+    titleAccent="one clinical inbox."
+    lead="Shadia connects your practice channels, unified inbox, native appointments, and full patient context."
   />
 
   <PageBand variant="plain" size="sm">
@@ -63,14 +63,14 @@ const channels = [
     <div class="container">
       <div class="page-section-head">
         <div class="eyebrow">Why unify</div>
-        <h2 class="section-title">One operation, not four apps</h2>
-        <p class="lead-sm">Your coordinators stop switching devices. AI keeps context across every channel.</p>
+        <h2 class="section-title">One practice, not four apps</h2>
+        <p class="lead-sm">Your team stops jumping between phones. AI keeps patient context across every channel.</p>
       </div>
       <div class="page-grid-3">
         {[
-          { t: 'Full context', d: 'Customer history whether they wrote on WhatsApp or Instagram.' },
-          { t: 'AI on every channel', d: 'Same tone and business rules — scheduling, FAQs, follow-up.' },
-          { t: 'Human handoff', d: 'Your team jumps in when needed, with the full thread in view.' },
+          { t: 'Patient context', d: 'History whether they wrote on WhatsApp or Instagram.' },
+          { t: 'AI on every channel', d: 'Same clinical tone, bookings, visit prep, and follow-up.' },
+          { t: 'Human handoff', d: 'Staff step in when needed, with the full thread visible.' },
         ].map(item => (
           <div class="card page-card">
             <h3 class="page-card__title">{item.t}</h3>
@@ -86,6 +86,6 @@ const channels = [
     source="channels_index_cta"
     title="Connect your channels"
     titleAccent="in minutes."
-    lead="Start free. No credit card — add WhatsApp and expand when you're ready."
+    lead="Book a demo. Turn on WhatsApp first, add the rest when you are ready."
   />
 </BaseLayout>

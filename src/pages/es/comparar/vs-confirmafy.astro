@@ -3,25 +3,23 @@ import ComparePage from '../../../components/ComparePage.astro';
 
 const compareRows = [
   { feature: 'Recordatorios de citas', shadia: true, competitor: true },
-  { feature: 'Reagendamiento automático', shadia: true, competitor: 'Básico' },
-  { feature: 'AI-native con LLMs', shadia: true, competitor: false },
-  { feature: 'Agentes IA autónomos', shadia: true, competitor: false },
-  { feature: 'Conversaciones unificadas multicanal', shadia: true, competitor: false },
-  { feature: 'Calificación de leads', shadia: true, competitor: false },
-  { feature: 'Reactivación de clientes inactivos', shadia: true, competitor: false },
-  { feature: 'Motor de citas completo + optimización', shadia: true, competitor: 'Parcial' },
-  { feature: 'Instagram + Facebook + TikTok', shadia: true, competitor: false },
+  { feature: 'Reagendamiento inteligente', shadia: true, competitor: 'Básico' },
+  { feature: 'Lista de espera / llenar huecos', shadia: true, competitor: false },
+  { feature: 'Recepcionista IA 24/7', shadia: true, competitor: false },
+  { feature: 'Sesiones clínicas y resúmenes', shadia: true, competitor: false },
+  { feature: 'Omnicanal (WhatsApp, IG, Messenger)', shadia: true, competitor: false },
+  { feature: 'Reactivación de pacientes', shadia: true, competitor: false },
   { feature: 'Soporte en español', shadia: true, competitor: true },
 ];
 
 const faqs = [
   {
     q: '¿Cuál es la diferencia entre Shadia AI y Confirmafy?',
-    a: 'Confirmafy es una herramienta especializada en recordatorios de citas via WhatsApp. Shadia AI es una plataforma completa de operaciones con IA: incluye recordatorios, más reagendamiento inteligente, agentes de IA autónomos, plataforma unificada, calificación de leads y reactivación de clientes. Confirmafy resuelve un problema específico. Shadia resuelve toda la operación.',
+    a: 'Confirmafy se especializa en recordatorios de citas. Shadia es la plataforma de la clínica: recordatorios, recepción IA, sesiones documentadas y seguimiento del paciente en un solo lugar.',
   },
   {
-    q: '¿Debería usar Confirmafy o Shadia AI para mi clínica?',
-    a: 'Si solo necesitas recordatorios básicos y tienes un presupuesto muy limitado, Confirmafy puede ser suficiente. Si quieres automatizar la operación completa — recordatorios, reagendamiento inteligente, lista de espera, reactivación de pacientes y comunicación multicanal — Shadia AI es la plataforma correcta.',
+    q: '¿Debería usar Confirmafy o Shadia para mi clínica?',
+    a: 'Si solo necesitas recordatorios básicos, Confirmafy puede bastar. Si quieres operar recepción, agenda y documentación con IA, Shadia es la opción completa.',
   },
 ];
 ---
@@ -30,29 +28,21 @@ const faqs = [
   lang="es"
   competitor="Confirmafy"
   competitorSlug="confirmafy"
-  title="Shadia AI vs Confirmafy — Más que recordatorios: operaciones completas con IA | Shadia AI"
-  description="Compara Shadia AI vs Confirmafy. La alternativa a Confirmafy que va más allá de los recordatorios: agentes IA, motor de citas completo y automatización total."
+  title="Shadia AI vs Confirmafy. Clínica completa vs solo recordatorios | Shadia AI"
+  description="Confirmafy recuerda citas. Shadia confirma, reagenda, documenta sesiones y atiende pacientes por WhatsApp."
   canonical="https://shadia.ai/es/comparar/vs-confirmafy"
   ogImage="/og/compare-confirmafy-es.png"
-  heroHeadline="Shadia AI vs Confirmafy — Más que recordatorios, operaciones completas"
-  heroSubheadline="Confirmafy hace bien una cosa: recordatorios de citas. Shadia AI hace eso y mucho más: agentes de IA autónomos, plataforma unificada, reactivación de clientes y motor de citas completo."
+  heroHeadline="Shadia AI vs Confirmafy. Más que recordatorios"
+  heroSubheadline="Confirmafy recuerda la cita. Shadia opera la clínica: recepción, agenda y sesiones documentadas."
   verdictPoints={[
-    'Shadia incluye recordatorios + reagendamiento + reactivación + agentes omnicanal',
-    'Confirmafy solo hace recordatorios; para más funciones necesitas herramientas adicionales',
-    'Motor de citas completo con optimización y lista de espera en Shadia',
-    'Agentes de IA autónomos que operan 24/7 en Shadia; no disponibles en Confirmafy',
-    'Una sola plataforma vs múltiples herramientas con Confirmafy',
+    'Recordatorios + reagendamiento + lista de espera',
+    'Recepcionista IA y sesiones clínicas incluidas',
+    'Pacientes informados con resumen post-consulta',
+    'Un solo sistema vs herramientas fragmentadas',
+    'Hecha para clínicas que trabajan por WhatsApp',
   ]}
   compareRows={compareRows}
-  detailedText={`
-    <h2>¿Qué hace bien Confirmafy?</h2>
-    <p>Confirmafy es una herramienta simple y efectiva para enviar recordatorios de citas via WhatsApp. Es fácil de configurar, tiene buen soporte en español y es una solución económica para negocios que solo necesitan recordatorios básicos.</p>
-    <h2>¿Por qué muchos negocios superan Confirmafy y necesitan Shadia?</h2>
-    <p>Confirmafy resuelve un problema pero crea otro: cuando un paciente cancela después del recordatorio, ¿quién gestiona el reagendamiento? ¿Quién notifica al siguiente en lista de espera? ¿Quién hace el seguimiento con los clientes que no han vuelto en 2 meses?</p>
-    <p>Shadia AI no solo recuerda las citas — gestiona toda la operación: cuando alguien cancela, la IA rellena ese espacio. Cuando un cliente lleva 60 días sin volver, la IA lo contacta. Cuando hay una consulta nueva a las 10 PM, la IA responde.</p>
-    <h2>El costo de las herramientas fragmentadas</h2>
-    <p>Muchos negocios usan Confirmafy + WhatsApp manual + Google Calendar + Calendly + otras herramientas de contactos. El resultado es operación fragmentada, datos duplicados y tiempo del equipo perdido coordinando herramientas. Shadia unifica todo en una sola plataforma.</p>
-  `}
-  migrationText="Si actualmente usas Confirmafy, la migración a Shadia AI tarda menos de un día. Configuramos tu primer agente de citas con recordatorios, reagendamiento y lista de espera activos desde el primer día."
+  detailedText={`<h2>¿Qué hace bien Confirmafy?</h2><p>Confirmafy es efectiva para recordatorios de citas por WhatsApp. Simple, en español y económica si solo necesitas ese caso de uso.</p><h2>Lo que una clínica necesita después del recordatorio</h2><p>Cuando el paciente cancela, ¿quién llena el hueco? ¿Quién responde a las 10 PM? ¿Quién documenta la consulta y envía el resumen?</p><p>Shadia cubre ese ciclo: confirma, reagenda, documenta y da seguimiento, sin apilar más herramientas.</p>`}
+  migrationText="Si usas Confirmafy, puedes migrar en menos de un día: conectamos WhatsApp, activamos recordatorios y dejamos lista la recepcionista IA."
   faqs={faqs}
 />

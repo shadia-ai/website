@@ -1,0 +1,189 @@
+---
+import Icon from '../../../components/Icon.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProductHeroSplit from '../../../components/ProductHeroSplit.astro';
+import PageBand from '../../../components/PageBand.astro';
+import PageCta from '../../../components/PageCta.astro';
+import { SessionFloatComposition } from '../../../components/FloatWidgets.tsx';
+import { t } from '../../../i18n/utils';
+
+const workflowSteps = [
+  { n: '1', title: 'Record', desc: 'The clinician starts Shadia at the beginning of the visit. Audio is captured securely and with patient consent.' },
+  { n: '2', title: 'Chart', desc: 'The AI transcribes the conversation and structures the clinical information directly into the patient chart.' },
+  { n: '3', title: 'Clinical note', desc: 'A clear note with chief complaint, findings, diagnosis and plan, ready for the clinician to review and approve.' },
+  { n: '4', title: 'Patient version', desc: 'The same visit, in plain language, so the patient understands their treatment without medical jargon.' },
+  { n: '5', title: 'Channel', desc: 'As soon as the clinician approves, the summary is shared on chat, the patient stays informed without calls or paperwork.' },
+];
+---
+
+<BaseLayout
+  title={t('meta.sessions.title', 'en')}
+  description={t('meta.sessions.desc', 'en')}
+  lang="en"
+  canonical="https://shadia.ai/en/product/sessions"
+  ogImage="/og/sessions-en.png"
+>
+
+<ProductHeroSplit
+  badge="Clinical Sessions"
+  title="Record the visit and"
+  titleAccent="keep the chart current."
+  lead="Shadia listens to the visit, drafts the clinical note, updates the chart, and shares a patient summary on chat. You review and approve."
+  lang="en"
+  source="product_sessions_hero"
+  hint="No credit card required · Setup in 24h"
+>
+  <SessionFloatComposition lang="en" client:load />
+</ProductHeroSplit>
+
+<PageBand variant="plain" size="sm">
+  <div class="container">
+    <div class="page-stats-row">
+      {[
+        { v: '<2 min', l: 'To review and approve the note' },
+        { v: '2', l: 'Summaries per visit: clinician and patient' },
+        { v: '100%', l: 'Notes reviewed by the clinician' },
+        { v: '24/7', l: 'Available to document' },
+      ].map(s => (
+        <div>
+          <div class="page-stat__value" style="color: var(--accent);">{s.v}</div>
+          <div class="page-stat__label">{s.l}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">Capabilities</div>
+      <h2 class="section-title">Everything you need to document without friction</h2>
+    </div>
+    <div class="grid-3">
+      {[
+        { icon: 'activity', title: 'Visit recording', desc: 'Captures the visit audio securely and with explicit patient consent.' },
+        { icon: 'file-text', title: 'Automatic clinical note', desc: 'A structured draft with chief complaint, findings, diagnosis and plan, ready for the clinician to review in minutes.' },
+        { icon: 'clipboard', title: 'Patient summary', desc: 'The same visit, explained in plain language, free of medical jargon.' },
+        { icon: 'smartphone', title: 'Shared on chat', desc: 'The summary is shared automatically as soon as the clinician approves it, no calls, no printouts.' },
+        { icon: 'shield', title: 'Consent and privacy', desc: 'The patient authorizes the recording before it starts. They can decline and the visit continues without recording.' },
+        { icon: 'users', title: 'Multiple providers', desc: 'Each clinician or specialist has their own note template and approval flow.' },
+      ].map(f => (
+        <div class="card-feature">
+          <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={f.icon} size={20} /></div>
+          <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">{f.title}</h3>
+          <p style="font-size:0.875rem;line-height:1.65;color:var(--ink-3);">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="tint">
+  <div class="container" style="max-width: 860px;">
+    <div class="page-section-head">
+      <div class="eyebrow">Session flow</div>
+      <h2 class="section-title">From visit to message, in five steps</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+      {workflowSteps.map(s => (
+        <div style="display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--surface-raised);border:1px solid var(--border);border-radius:14px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:0.875rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;">{s.n}</div>
+          <div>
+            <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.25rem;">{s.title}</h3>
+            <p style="font-size:0.9rem;color:var(--ink-3);">{s.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="plain">
+  <div class="container" style="max-width: 860px;">
+    <div class="page-section-head">
+      <div class="eyebrow">Before & After</div>
+      <h2 class="section-title">Documentation no longer competes with care</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+      <div style="padding:1.75rem;background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.15);border-radius:18px;">
+        <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#ef4444;margin-bottom:1.25rem;">Without Shadia</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
+          {['15+ minutes documenting every visit', 'Notes that pile up until the end of the day', 'Patients who don\'t understand their treatment plan', 'Manual follow-up by phone or paper', 'Incomplete charts due to lack of time'].map(item => (
+            <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink-3);">
+              <span style="color:#ef4444;flex-shrink:0;">✗</span>{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div style="padding:1.75rem;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.2);border-radius:18px;">
+        <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#22c55e;margin-bottom:1.25rem;">With Clinical Sessions</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
+          {['Note ready to review in under 2 minutes', 'Chart updated before the patient leaves the room', 'Plain-language summary shared on chat', 'The clinician reviews, edits and approves, they keep the final call', 'Consistent, complete history for every visit'].map(item => (
+            <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink);">
+              <span style="color:var(--green);font-weight:700;flex-shrink:0;">✓</span>{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">Privacy & Security</div>
+      <h2 class="section-title">Built for health data</h2>
+    </div>
+    <div class="grid-3">
+      {[
+        { icon: 'lock', title: 'End-to-end encryption', desc: 'Audio, transcripts and clinical notes protected in transit and at rest.' },
+        { icon: 'shield', title: 'Explicit consent', desc: 'Every recording requires patient authorization before it starts.' },
+        { icon: 'clipboard', title: 'Audit and access control', desc: 'Every interaction logged with a timestamp and role-based permissions across the team.' },
+      ].map(f => (
+        <div class="card-feature">
+          <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={f.icon} size={20} /></div>
+          <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">{f.title}</h3>
+          <p style="font-size:0.875rem;line-height:1.65;color:var(--ink-3);">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="plain">
+  <div class="container" style="max-width:680px;">
+    <div class="page-section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-title">Frequently asked questions</h2>
+    </div>
+    {[
+      { q: 'Does the AI replace the note my clinician writes?', a: 'No. Shadia generates a structured draft from the visit. The clinician always reviews, edits and approves it before it goes into the chart.' },
+      { q: 'What about patient consent?', a: 'Consent is requested and logged before recording starts. If a patient prefers not to be recorded, the visit continues normally without recording.' },
+      { q: 'How is the summary shared with the patient?', a: 'Automatically on chat once the clinician approves the note. It can also be sent by email if the patient prefers.' },
+      { q: 'Does it work with multiple clinicians or specialists?', a: 'Yes. Each provider has their own clinical note template and their own review and approval flow.' },
+    ].map(faq => (
+      <div class="faq-item">
+        <div style="padding:1.25rem 0;font-weight:600;font-size:1rem;color:var(--ink);">{faq.q}</div>
+        <div class="faq-answer">{faq.a}</div>
+      </div>
+    ))}
+  </div>
+</PageBand>
+
+<PageCta
+  lang="en"
+  source="product_sessions_cta"
+  title="Less time documenting."
+  titleAccent="more time with the patient."
+  lead="Turn on clinical sessions and let Shadia prep the chart while you stay with care."
+/>
+
+</BaseLayout>
+
+<style>
+  @media (max-width: 900px) {
+    [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  }
+</style>

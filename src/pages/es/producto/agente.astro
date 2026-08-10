@@ -8,39 +8,39 @@ import { AgentFloatPreview } from '../../../components/FloatWidgets.tsx';
 
 const threads = [
   {
-    title: '¿Qué pasó con este cliente?',
-    msg: 'Shadia, dame un resumen de la última interacción con el contacto que preguntó por el plan Pro la semana pasada.',
-    response: 'El jueves pasado tuvieron 3 mensajes. El cliente preguntó por precios del plan Pro, tu agente le envió el PDF de propuesta y quedó en responder antes del viernes. Aún sin respuesta. ¿Quieres que haga seguimiento?',
+    title: '¿Qué pasó con este paciente?',
+    msg: '@shadia dame un resumen de la última visita del paciente que preguntó por sus resultados la semana pasada.',
+    response: 'El jueves pasado tuvo consulta de seguimiento con el Dr. Pérez. Se ajustó la dosis y quedó control en 4 semanas. El resumen se envió por WhatsApp y aún no lo ha confirmado. ¿Quieres que le dé seguimiento?',
     time: 'hace 2 min',
   },
   {
-    title: 'Redacta una respuesta',
-    msg: 'Redacta una respuesta profesional para el cliente que se quejó del tiempo de espera esta mañana.',
-    response: 'Aquí tienes una propuesta: "Hola [Nombre], lamentamos la demora en nuestra respuesta. Queremos asegurarnos de que tengas la mejor experiencia. ¿Podemos programar una llamada hoy para resolver tu consulta de inmediato?" ¿La envío?',
+    title: 'Redacta un mensaje',
+    msg: '@shadia redacta un mensaje para el paciente que no llegó a su cita esta mañana.',
+    response: 'Aquí tienes una propuesta: "Hola [Nombre], notamos que no pudiste asistir a tu cita de hoy. ¿Quieres que te ayudemos a reagendar? Tenemos espacio esta semana." ¿La envío?',
     time: 'hace 15 min',
   },
   {
     title: 'Analiza la semana',
-    msg: '¿Cómo fue el rendimiento de esta semana comparado con la anterior?',
-    response: 'Esta semana: 247 conversaciones (+18%), tiempo promedio de respuesta 1.8 min (vs 2.4 min anterior), 89% resueltas por IA. El canal WhatsApp creció 24%. El jueves fue el día con más volumen.',
+    msg: '@shadia ¿cómo fue la ocupación de la agenda esta semana comparado con la anterior?',
+    response: 'Esta semana: 84 citas (+12%), 6 no-shows (-40% vs. semana pasada), 91% confirmadas por WhatsApp sin intervención. El Dr. Pérez tuvo la agenda más ocupada. 3 pacientes en lista de espera sin contactar aún.',
     time: 'ayer',
   },
 ];
 ---
 
 <BaseLayout
-  title="Shadia Agent — La IA que trabaja con tu equipo | Shadia AI"
-  description="Shadia Agent trabaja con tu equipo: responde preguntas sobre clientes, resume conversaciones, redacta respuestas y ejecuta acciones — todo en lenguaje natural."
+  title="Shadia Agent. El copiloto IA de tu equipo clínico | Shadia AI"
+  description="Shadia Agent trabaja con tu equipo clínico: resume pacientes, redacta mensajes, analiza la ocupación de la agenda y ejecuta acciones, todo en lenguaje natural, mencionando @shadia."
   lang="es"
   canonical="https://shadia.ai/es/producto/agente"
-  ogImage="/og/agent-es.png"
+  ogImage="/og/agente-es.png"
 >
 
 <ProductHeroSplit
-  badge="✦ Nuevo — Shadia Agent"
-  title="La IA que trabaja contigo."
-  titleAccent="Siempre disponible."
-  lead="Shadia Agent es el asistente IA que vive dentro de tu operación. Pregúntale sobre clientes, pide que redacte mensajes, analiza métricas o escala situaciones — todo en lenguaje natural, en threads dentro del app."
+  badge="✦ Shadia Agent"
+  title="La IA que trabaja"
+  titleAccent="junto a tu equipo."
+  lead="Shadia Agent vive dentro de la operación de tu clínica. Pregúntale por un paciente, pide un borrador de mensaje, revisa la ocupación de la agenda o escala un caso escribiendo @shadia."
   lang="es"
   source="product_agent_hero"
 >
@@ -52,18 +52,18 @@ const threads = [
     <div class="page-section-head">
       <div class="eyebrow">Casos de uso</div>
       <h2 class="section-title">
-        Pregunta lo que quieras.<br/>
-        <span class="headline-accent">Shadia tiene el contexto.</span>
+        Pregunta lo que necesites.<br/>
+        <span class="headline-accent">Shadia tiene el contexto clínico.</span>
       </h2>
     </div>
     <div class="grid-3">
       {[
-        { q: '"¿Qué pasó con el cliente X?"', a: 'Shadia revisa todo el historial de conversaciones y te da un resumen con contexto completo.' },
-        { q: '"Redacta una disculpa para este caso"', a: 'Shadia genera un mensaje apropiado basándose en el tono de tu marca y el contexto del cliente.' },
-        { q: '"¿Cómo fue el rendimiento esta semana?"', a: 'Obtén métricas de conversaciones, tiempos de respuesta y volumen por canal al instante.' },
-        { q: '"Marca este contacto como VIP"', a: 'Shadia actualiza el perfil del contacto, añade la etiqueta y notifica al agente responsable.' },
-        { q: '"¿Cuántas citas hay mañana?"', a: 'Shadia consulta el calendario y te da el resumen con los detalles de cada cita.' },
-        { q: '"Escala este caso al equipo legal"', a: 'Shadia crea una notificación interna, asigna el caso y añade el contexto necesario.' },
+        { q: '"¿Qué pasó con el paciente X?"', a: 'Shadia revisa el historial de visitas y mensajes y te da un resumen con contexto completo.' },
+        { q: '"Redacta un mensaje de seguimiento"', a: 'Shadia genera un mensaje apropiado según el caso, el tono de tu clínica y el historial del paciente.' },
+        { q: '"¿Cómo fue la ocupación esta semana?"', a: 'Obtén métricas de citas, no-shows y confirmaciones por canal al instante.' },
+        { q: '"Marca a este paciente para seguimiento"', a: 'Shadia actualiza el perfil, añade la etiqueta y notifica al miembro del equipo responsable.' },
+        { q: '"¿Cuántas citas hay mañana?"', a: 'Shadia consulta la agenda y te da el resumen con los detalles de cada cita y proveedor.' },
+        { q: '"Escala este caso al médico responsable"', a: 'Shadia crea una notificación interna, asigna el caso y añade el contexto clínico necesario.' },
       ].map(item => (
         <div class="card-feature">
           <div style="font-size: 0.875rem; font-weight: 700; color: var(--accent); margin-bottom: 0.625rem; font-style: italic; line-height: 1.4;">{item.q}</div>
@@ -80,20 +80,20 @@ const threads = [
       <div>
         <div class="eyebrow">Threads</div>
         <h2 class="section-title" style="margin-bottom: 1.25rem;">
-          Organiza tu trabajo<br/>
+          Organiza la operación<br/>
           <span class="headline-accent">en threads inteligentes.</span>
         </h2>
         <p class="lead-sm" style="margin-bottom: 2rem;">
-          Crea threads para cualquier tarea o pregunta. Shadia recuerda el contexto de cada conversación
+          Crea threads para cualquier tarea o pregunta de la clínica. Shadia recuerda el contexto de cada conversación
           y puede retomar donde lo dejaste. Comparte threads con tu equipo o mantenlos privados.
         </p>
         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem;">
           {[
             'Contexto persistente por thread',
-            'Comparte threads con el equipo',
+            'Comparte threads con tu equipo clínico',
             'Menciona a Shadia con @shadia',
             'Archiva o fija threads importantes',
-            'Historial completo de conversaciones',
+            'Historial completo de la operación',
           ].map(item => (
             <li style="display: flex; align-items: center; gap: 0.625rem; font-size: 0.9375rem; color: var(--ink-3);">
               <span style="color: var(--accent); font-weight: 700;">✓</span> {item}
@@ -119,22 +119,22 @@ const threads = [
 <PageBand variant="tint">
   <div class="container">
     <div class="page-section-head">
-      <div class="eyebrow">Para equipos</div>
+      <div class="eyebrow">Para equipos clínicos</div>
       <h2 class="section-title">
         Diseñado para que<br/>
-        <span class="headline-accent">todo el equipo trabaje junto.</span>
+        <span class="headline-accent">todo tu equipo trabaje junto.</span>
       </h2>
     </div>
     <div class="grid-4">
       {[
         { icon: '@', title: 'Menciones', desc: 'Menciona a Shadia o a un colega en cualquier thread.' },
-        { icon: 'eye', title: 'Presencia', desc: 'Ve quién está activo y qué está trabajando en tiempo real.' },
+        { icon: 'eye', title: 'Presencia', desc: 'Ve quién está activo y qué está atendiendo en tiempo real.' },
         { icon: 'message-square', title: 'Reacciones', desc: 'Reacciona a mensajes del equipo con emojis para dar contexto rápido.' },
-        { icon: 'folder', title: 'Folders', desc: 'Organiza threads en carpetas por proyecto, cliente o equipo.' },
-        { icon: 'tag', title: 'Tags', desc: 'Etiqueta threads y contactos para filtrar y encontrar lo que necesitas.' },
+        { icon: 'folder', title: 'Folders', desc: 'Organiza threads por proveedor, especialidad o tipo de caso.' },
+        { icon: 'tag', title: 'Tags', desc: 'Etiqueta threads y pacientes para filtrar y encontrar lo que necesitas.' },
         { icon: '↩', title: 'Respuestas en hilo', desc: 'Responde a mensajes específicos manteniendo el contexto del thread.' },
-        { icon: 'paperclip', title: 'Adjuntos', desc: 'Comparte archivos, imágenes y documentos directamente en los threads.' },
-        { icon: 'building', title: 'Empresas', desc: 'Organiza contactos bajo empresas y ve toda la actividad de un cliente.' },
+        { icon: 'paperclip', title: 'Adjuntos', desc: 'Comparte documentos, imágenes y resultados directamente en los threads.' },
+        { icon: 'user', title: 'Pacientes', desc: 'Organiza el contexto por paciente y ve toda su actividad reciente.' },
       ].map(f => (
         <div class="card-feature" style="text-align: center;">
           <div style="width: 40px; height: 40px; border-radius: 12px; background: var(--accent-bg); border: 1px solid var(--accent-ring); display: flex; align-items: center; justify-content: center; font-size: 1.125rem; margin: 0 auto 0.875rem; color: var(--accent); font-weight: 700;"><Icon name={f.icon} size={20} /></div>
@@ -149,9 +149,9 @@ const threads = [
 <PageCta
   lang="es"
   source="product_agent_cta"
-  title="Tu IA. Siempre activa."
-  titleAccent="Lista desde el primer día."
-  lead="Shadia Agent viene incluido en todos los planes. Sin configuraciones complicadas — solo pregunta."
+  title="Incluido en todos los planes."
+  titleAccent="Empieza con @shadia."
+  lead="Shadia Agent viene con todos los planes. Sin configuraciones complicadas: escribe @shadia y listo."
 >
   <p class="lead-sm" style="margin-top: 0.75rem; text-align: center;">Sin tarjeta de crédito · Incluido en todos los planes</p>
 </PageCta>

@@ -1,149 +1,93 @@
-# Shadia AI — AI-Native Conversational Operations Platform
+# Shadia AI. AI for Clinics
 
 ## What is Shadia AI?
 
-Shadia AI is an AI-native conversational operations platform designed specifically for growing businesses (Latin America). It combines omnichannel AI agents, autonomous resolution, and a native appointments engine into one integrated platform.
+Shadia AI is an AI platform for clinics and medical practices. It combines clinical session documentation, an AI receptionist, and a native appointments engine, so clinicians focus on care while Shadia runs front-desk and documentation workflows.
 
-Shadia AI is **not** a chatbot builder or generic helpdesk. It is built for service businesses (health, beauty, education, sales) that operate primarily on WhatsApp and social messaging.
+Languages: Spanish (default, focused on Dominican Republic and Latin America) and English (global).
+
+Shadia AI is **not** a generic chatbot builder or multi-industry helpdesk. It is built for healthcare practices that operate on WhatsApp and messaging channels.
 
 ## Core Products
 
-### 1. Omnichannel AI Agents (Agentes omnicanal)
-- One AI agent across WhatsApp Business API, Instagram DMs, Facebook Messenger, and TikTok
-- Autonomous resolution with smart escalation to humans
-- Team collaboration: assignment, internal notes, agent tracking
-- Built-in contact intelligence and conversation history
-- Available at: /es/producto/omnicanal and /en/product/omnichannel
+### 1. Clinical Sessions (Sesiones clínicas)
+- Record doctor–patient visits
+- Update the medical record / chart with structured notes
+- Generate clinician summary + patient-friendly summary
+- Share summaries on the connected channel (WhatsApp-first in LATAM)
+- Available at: /es/producto/sesiones and /en/product/sessions
 
-### 2. AI Agents (Agentes IA)
-- Autonomous AI agents powered by LLMs (not flow-based chatbots)
-- Agent types: Qualifier, Follow-up, Reactivation, Onboarding, Sales, Custom
-- Configurable policies, escalation rules, and MCP integrations
-- Contextual memory across conversation history
-- Available at: /es/producto/agentes-ia and /en/product/ai-agents
+### 2. AI Receptionist (Recepcionista IA)
+- 24/7 booking, confirmations, FAQs, and visit prep
+- Smart escalation to human staff with full context
+- Omnichannel inbox for clinic ops
+- Available at: /es/producto/recepcionista and /en/product/receptionist
+- Legacy URL redirects: /es/producto/agentes-ia → recepcionista
 
 ### 3. Appointments Engine (Motor de Citas)
-- Native scheduling — no Calendly, no Acuity, no third-party tools required
-- Automatic reminders: 24h, 2h, 30min before appointments
-- Smart rescheduling: AI offers alternatives when clients cancel
-- Automatic slot filling from waitlist
-- Multi-service, multi-provider, multi-location support
+- Native scheduling, no Calendly required
+- Reminders, rescheduling, waitlist fill
+- Multi-provider / multi-location support
 - Available at: /es/producto/citas and /en/product/appointments
 
-## Target Markets
+### 4. Omnichannel (Omnicanal)
+- WhatsApp, Instagram, Messenger in one clinical inbox
+- Available at: /es/producto/omnicanal and /en/product/omnichannel
 
-**Primary:** Dominican Republic, Mexico, Colombia
-**Secondary:** Argentina, Chile, Peru, Ecuador, USA (Hispanic market)
+### 5. Shadia Agent
+- Clinic team copilot via natural language (@shadia)
+- Available at: /es/producto/agente and /en/product/agent
 
-**Primary Industries:**
-- Health & Clinics: dental, medical, nutrition, psychology, physiotherapy
-- Beauty & Wellness: salons, spas, barbershops, aesthetic centers
-- Education: language academies, tutoring, skills schools, online courses
-- Sales: B2B and B2C teams operating WhatsApp-first
+## Specialties
+
+- General clinics: /es/especialidades/clinicas · /en/specialties/clinics
+- Dental: /es/especialidades/odontologia · /en/specialties/dental
+- Mental health: /es/especialidades/salud-mental · /en/specialties/mental-health
+- Medical aesthetics: /es/especialidades/estetica · /en/specialties/aesthetics
+- Hospitals & networks: /es/especialidades/hospitales · /en/specialties/hospitals
+
+Legacy industry URLs redirect to specialties.
+
+## Audience
+
+Clinics and medical practices. Spanish experience is tuned for Dominican Republic and Latin America; English is global.
 
 ## Pricing
 
-Three plans (all prices in USD):
-- **HOB** (Hobby): $49/month — For entrepreneurs. 1 WhatsApp number, up to 500 conversations/month, 1 AI Agent, basic appointments engine
-- **PRO**: $129/month (monthly) / $103/month (annual) — For teams. 3 WhatsApp numbers, up to 3,000 conversations, 5 AI Agents, full appointments engine, all channels
-- **ULTRA**: Contact us — For enterprises. Unlimited everything, custom AI Agents, MCP integrations, dedicated account manager
+Three plans (USD): HOB (solo / small practices), PRO (growing clinics), ULTRA (networks).
+See /es/precios and /en/pricing.
 
-Annual billing saves 20%.
+## Comparisons
 
-No contracts. Cancel anytime. 14-day free trial available.
+- vs Calendly, conversational clinic scheduling vs booking links
+- vs Confirmafy, full clinic ops vs reminder-only tools
+- vs Heidi, sessions + receptionist + appointments vs scribe-only
+- vs traditional front desk. AI layer vs people-and-spreadsheets only
 
-## Key Differentiators vs Competitors
-
-vs Respond.io: Shadia has native appointments engine and real AI agents; Respond.io requires external scheduling tools
-vs Trengo: Shadia is AI-native and LATAM-designed; Trengo is a European customer service platform
-vs Intercom: Shadia is WhatsApp-first for service businesses; Intercom is web chat-first for SaaS companies
-vs Chatfuel: Shadia uses real LLMs; Chatfuel uses predefined flow bots
-vs Kommo: Shadia has autonomous AI and appointments; Kommo requires manual pipeline updates
-vs Confirmafy: Shadia does reminders + rescheduling + reactivation + omnichannel agents; Confirmafy only does reminders
+Hub: /es/comparar · /en/compare
 
 ## Languages
 
-- Primary: Spanish (es-DO, es-MX, es-CO)
-- Secondary: English (en-US)
-- All UI and support available in both languages
+- Spanish (es-DO), default
+- English (en-US)
 
-## Site Structure
+## Site Structure (high level)
 
-### Spanish (Primary)
-- /es/ — Home
-- /es/precios — Pricing
-- /es/producto/omnicanal — Omnichannel AI Agents product
-- /es/producto/agentes-ia — AI Agents product
-- /es/producto/citas — Appointments Engine product
-- /es/industrias/ — Industries hub
-- /es/industrias/salud — Health & Clinics
-- /es/industrias/belleza — Beauty & Wellness
-- /es/industrias/educacion — Education
-- /es/industrias/ventas — Sales
-- /es/comparar/ — Compare hub
-- /es/comparar/vs-respond-io — Shadia vs Respond.io
-- /es/comparar/vs-trengo — Shadia vs Trengo
-- /es/comparar/vs-intercom — Shadia vs Intercom
-- /es/comparar/vs-chatfuel — Shadia vs Chatfuel
-- /es/comparar/vs-kommo — Shadia vs Kommo
-- /es/comparar/vs-rasayel — Shadia vs Rasayel
-- /es/comparar/vs-confirmafy — Shadia vs Confirmafy
-- /es/blog — Blog (coming soon)
+### Spanish
+- /es/. Home
+- /es/precios. Pricing
+- /es/caracteristicas. Features
+- /es/empresa. Enterprise
+- /es/producto/*. Product pages
+- /es/especialidades/*. Specialties
+- /es/canales/*. Channels
+- /es/comparar/*. Comparisons
 
 ### English
-- /en/ — Home
-- /en/pricing — Pricing
-- /en/product/omnichannel — Omnichannel AI Agents product
-- /en/product/ai-agents — AI Agents product
-- /en/product/appointments — Appointments Engine product
-- /en/industries/ — Industries hub
-- /en/industries/health — Health & Clinics
-- /en/industries/beauty — Beauty & Wellness
-- /en/industries/education — Education
-- /en/industries/sales — Sales
-- /en/compare/ — Compare hub
-- /en/compare/vs-respond-io — Shadia vs Respond.io
-- /en/compare/vs-trengo — Shadia vs Trengo
-- /en/compare/vs-intercom — Shadia vs Intercom
-- /en/compare/vs-chatfuel — Shadia vs Chatfuel
-- /en/compare/vs-kommo — Shadia vs Kommo
-- /en/compare/vs-rasayel — Shadia vs Rasayel
-- /en/compare/vs-confirmafy — Shadia vs Confirmafy
-- /en/blog — Blog (coming soon)
+- /en/. Home
+- /en/pricing, /en/features, /en/enterprise
+- /en/product/*, /en/specialties/*, /en/channels/*, /en/compare/*
 
-## Technical Stack
-
-- Framework: Astro 6 + React (islands architecture)
-- Styling: Tailwind CSS v4 with custom design tokens
-- Analytics: Mixpanel (page_view, cta_click, email_captured, pricing_cta_click, compare_page_view, lang_switch)
-- Forms: Formspree
-- Deployment: GitHub Pages via GitHub Actions
-- SEO: hreflang, canonical tags, JSON-LD structured data, sitemap
-
-## Contact & Onboarding
+## Contact
 
 Website: https://shadia.ai
-WhatsApp: https://wa.me/18091234567
-Email: hola@shadia.ai
-
-Onboarding process: Reserve access via the website form → team contacts within 24h → setup call → go live in 3-7 days
-
-## Frequently Asked Questions
-
-**Q: Is Shadia AI only for WhatsApp?**
-A: Shadia is WhatsApp-first but also supports Instagram DMs, Facebook Messenger and TikTok with the same AI agent. All agents work across all channels.
-
-**Q: Do I need to know how to code to use Shadia?**
-A: No. Shadia is designed for non-technical business owners. AI agents are configured through natural language instructions, not code.
-
-**Q: Does Shadia replace my existing team?**
-A: No. Shadia augments your team by handling repetitive operational tasks (reminders, follow-ups, reactivations) so your team can focus on high-value work.
-
-**Q: Is Shadia available outside LATAM?**
-A: Yes. While designed for LATAM, Shadia works for any business serving Spanish or English-speaking customers on WhatsApp globally.
-
-**Q: What makes Shadia different from a regular chatbot?**
-A: Shadia uses real LLMs (large language models) to create contextual, intelligent agents — not rule-based flow bots. Agents understand context, remember conversation history and can handle unexpected situations intelligently.
-
----
-Last updated: 2026-05-18

@@ -6,26 +6,23 @@ import PageBand from '../../../components/PageBand.astro';
 import PageCta from '../../../components/PageCta.astro';
 
 const differentiators = [
-  { icon: 'bot', title: 'AI-native from the ground up', desc: 'Not AI bolted onto legacy software. Every feature was designed around autonomous agents from day one.' },
-  { icon: 'message-square', title: 'Omnichannel messaging', desc: 'WhatsApp, Instagram, Messenger, and TikTok — where your customers already reach out, with one consistent agent.' },
-  { icon: 'calendar', title: 'Native appointments engine', desc: 'No Calendly or Acuity required. Scheduling lives in the conversation and is run by AI.' },
-  { icon: 'trending-up', title: 'Resolution, not routing', desc: 'AI closes routine tickets end-to-end so your support team focuses on what needs judgment.' },
+  { icon: 'clipboard', title: 'Clinical sessions with AI', desc: 'Record the visit, update the chart, and generate clinician + patient summaries.' },
+  { icon: 'bot', title: 'AI Receptionist', desc: 'Book, confirm, and answer patients 24/7, with smart human handoff.' },
+  { icon: 'calendar', title: 'Native appointments', desc: 'No Calendly. Confirmations, waitlists, and fewer no-shows in chat.' },
+  { icon: 'message-square', title: 'Built for modern clinics', desc: 'Messaging-first workflows designed for front desk + clinical documentation.' },
 ];
 
 const competitors = [
-  { name: 'Respond.io', slug: 'vs-respond-io', desc: 'Popular messaging platform for teams. Which one actually resolves more volume?', priority: true },
-  { name: 'Intercom', slug: 'vs-intercom', desc: 'Powerful but expensive. Worth it for WhatsApp-first service businesses?', priority: true },
-  { name: 'Wati', slug: 'vs-wati', desc: 'Popular WhatsApp tool. Shadia adds real AI agents and native scheduling.', priority: true },
-  { name: 'ManyChat', slug: 'vs-manychat', desc: 'Flow-based automation. Shadia replaces flows with conversational intelligence.', priority: false },
-  { name: 'Trengo', slug: 'vs-trengo', desc: 'European CS platform. Shadia offers native AI Trengo lacks.', priority: false },
-  { name: 'Kommo', slug: 'vs-kommo', desc: 'WhatsApp sales platform. In-depth Kommo vs Shadia comparison.', priority: false },
-  { name: 'Confirmafy', slug: 'vs-confirmafy', desc: 'Appointment reminders. Shadia goes far beyond simple reminders.', priority: false },
+  { name: 'Calendly', slug: 'vs-calendly', desc: 'Booking links vs conversational scheduling for patients.', priority: true },
+  { name: 'Confirmafy', slug: 'vs-confirmafy', desc: 'Appointment reminders vs a full clinical ops platform.', priority: true },
+  { name: 'Heidi', slug: 'vs-heidi', desc: 'Clinical scribe vs sessions + front desk + appointments together.', priority: true },
+  { name: 'Traditional front desk', slug: 'vs-traditional-front-desk', desc: 'The hidden cost of running the practice on people and spreadsheets alone.', priority: false },
 ];
 ---
 
 <BaseLayout
-  title="Compare — Shadia AI vs Respond.io, Trengo, Intercom and more | Shadia AI"
-  description="Compare Shadia AI with leading platforms. AI-native agents, native appointments, and a WhatsApp-native AI agents built for resolution."
+  title="Compare. Shadia AI vs Calendly, Confirmafy, Heidi | Shadia AI"
+  description="Compare Shadia AI with scheduling and clinical documentation tools. Sessions, receptionist, and appointments for clinics."
   lang="en"
   canonical="https://shadia.ai/en/compare"
   ogImage="/og/compare-en.png"
@@ -34,7 +31,7 @@ const competitors = [
     eyebrow="Compare"
     title="Choose with clarity,"
     titleAccent="not hype."
-    lead="Shadia is AI-native, WhatsApp-first, and built to resolve conversations — not just route them to your team."
+    lead="Shadia combines clinical sessions, AI receptionist, and appointments, built for modern clinics."
   />
 
   <PageBand variant="muted" size="sm">
@@ -76,8 +73,8 @@ const competitors = [
   <PageCta
     lang="en"
     source="compare_index_cta"
-    title="Try it on your support volume"
-    titleAccent="free for 7 days."
-    lead="Connect your channels and compare real outcomes — no credit card required."
+    title="Try it in your practice"
+    titleAccent="with a demo."
+    lead="Connect your channels and see sessions, front desk, and appointments in action."
   />
 </BaseLayout>

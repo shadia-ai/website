@@ -6,26 +6,23 @@ import PageBand from '../../../components/PageBand.astro';
 import PageCta from '../../../components/PageCta.astro';
 
 const differentiators = [
-  { icon: 'bot', title: 'AI-native desde la base', desc: 'No es IA añadida encima de software legacy. Shadia fue construida para operar con agentes desde el primer día.' },
-  { icon: 'message-square', title: 'WhatsApp-first', desc: 'Diseñada para cómo operan los negocios en LATAM — WhatsApp es el canal principal, no un extra.' },
-  { icon: 'calendar', title: 'Motor de citas nativo', desc: 'Sin Calendly ni herramientas externas. El agendamiento vive en el chat y lo opera la IA.' },
-  { icon: 'globe', title: 'Hecha para la región', desc: 'Español, precios accesibles y casos de uso para clínicas, salones y comercios locales.' },
+  { icon: 'clipboard', title: 'Sesiones clínicas con IA', desc: 'Graba la consulta, actualiza el expediente y genera resumen médico + versión paciente.' },
+  { icon: 'bot', title: 'Recepcionista IA', desc: 'Agenda, confirma y responde pacientes 24/7 en WhatsApp, con handoff humano.' },
+  { icon: 'calendar', title: 'Motor de citas nativo', desc: 'Sin Calendly. Confirmaciones, lista de espera y menos no-shows en el chat.' },
+  { icon: 'message-square', title: 'Hecha para clínicas', desc: 'WhatsApp-first, en español, y flujos pensados para consultorios y clínicas.' },
 ];
 
 const competitors = [
-  { name: 'Respond.io', slug: 'vs-respond-io', desc: 'La plataforma de mensajería más popular. ¿Cuál resuelve más sin ampliar equipo?', priority: true },
-  { name: 'Intercom', slug: 'vs-intercom', desc: 'Potente pero costosa. ¿Tiene sentido si tu negocio vive en WhatsApp?', priority: true },
-  { name: 'Wati', slug: 'vs-wati', desc: 'Herramienta popular de WhatsApp. Shadia suma agentes IA reales y citas nativas.', priority: true },
-  { name: 'ManyChat', slug: 'vs-manychat', desc: 'Automatización por flujos. Shadia reemplaza flujos con inteligencia conversacional.', priority: false },
-  { name: 'Trengo', slug: 'vs-trengo', desc: 'Customer service europeo. Shadia ofrece IA nativa que Trengo no tiene.', priority: false },
-  { name: 'Kommo', slug: 'vs-kommo', desc: 'Plataforma de ventas por WhatsApp. Comparamos Kommo vs Shadia en profundidad.', priority: false },
-  { name: 'Confirmafy', slug: 'vs-confirmafy', desc: 'Recordatorios de citas. Shadia va mucho más allá de recordatorios simples.', priority: false },
+  { name: 'Calendly', slug: 'vs-calendly', desc: 'Links de agenda vs citas conversacionales por WhatsApp para pacientes.', priority: true },
+  { name: 'Confirmafy', slug: 'vs-confirmafy', desc: 'Recordatorios de citas vs plataforma clínica completa.', priority: true },
+  { name: 'Heidi', slug: 'vs-heidi', desc: 'Scribe clínico vs sesiones + recepción + citas en un solo lugar.', priority: true },
+  { name: 'Recepcionista tradicional', slug: 'vs-recepcionista-tradicional', desc: 'El costo oculto de operar la clínica solo con personas y hojas de cálculo.', priority: false },
 ];
 ---
 
 <BaseLayout
-  title="Comparaciones — Alternativas a Respond.io, Trengo, Intercom | Shadia AI"
-  description="Compara Shadia AI con las principales plataformas. AI-native, WhatsApp-first y motor de citas nativo para negocios en crecimiento."
+  title="Comparaciones. Shadia AI vs Calendly, Confirmafy, Heidi | Shadia AI"
+  description="Compara Shadia AI con herramientas de agenda y documentación clínica. Sesiones, recepción y citas para clínicas."
   lang="es"
   canonical="https://shadia.ai/es/comparar"
   ogImage="/og/compare-es.png"
@@ -34,7 +31,7 @@ const competitors = [
     eyebrow="Comparaciones"
     title="Elige con datos,"
     titleAccent="no con marketing."
-    lead="Shadia es AI-native, WhatsApp-first y con citas nativas — diseñada para negocios que quieren resolver, no solo enrutar mensajes."
+    lead="Shadia combina sesiones clínicas, recepcionista IA y citas, diseñada para cómo opera una clínica de verdad."
   />
 
   <PageBand variant="muted" size="sm">
@@ -76,8 +73,8 @@ const competitors = [
   <PageCta
     lang="es"
     source="compare_index_cta"
-    title="Pruébalo en tu operación"
-    titleAccent="7 días gratis."
-    lead="Conecta WhatsApp y compara resultados reales — sin tarjeta de crédito."
+    title="Pruébalo en tu clínica"
+    titleAccent="con una demo."
+    lead="Conecta WhatsApp y mira sesiones, recepción y citas en acción."
   />
 </BaseLayout>

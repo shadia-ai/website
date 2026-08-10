@@ -1,0 +1,48 @@
+---
+import ComparePage from '../../../components/ComparePage.astro';
+
+const compareRows = [
+  { feature: 'AI clinical notes (scribe)', shadia: true, competitor: true },
+  { feature: 'Patient-friendly visit summary', shadia: true, competitor: 'Limited' },
+  { feature: 'Share summary on connected chat', shadia: true, competitor: false },
+  { feature: 'AI receptionist 24/7', shadia: true, competitor: false },
+  { feature: 'Native appointments engine', shadia: true, competitor: false },
+  { feature: 'Omnichannel messaging', shadia: true, competitor: false },
+  { feature: 'Front desk + clinical ops together', shadia: true, competitor: false },
+  { feature: 'Waitlist and no-show recovery', shadia: true, competitor: false },
+];
+
+const faqs = [
+  {
+    q: 'Does Shadia replace a clinical scribe like Heidi?',
+    a: 'Shadia documents the visit and also runs front desk and scheduling. If you only need notes, a dedicated scribe may be enough; if you want less admin across the practice, Shadia covers the full loop.',
+  },
+  {
+    q: 'Can patients receive a summary after the visit?',
+    a: 'Yes. Shadia drafts a clinician note and a patient-friendly summary, then can share it on the connected channel once approved.',
+  },
+];
+---
+
+<ComparePage
+  lang="en"
+  competitor="Heidi"
+  competitorSlug="heidi"
+  title="Shadia AI vs Heidi. Sessions + front desk vs scribe | Shadia AI"
+  description="Heidi focuses on clinical documentation. Shadia combines sessions, AI receptionist, and appointments for modern clinics."
+  canonical="https://shadia.ai/en/compare/vs-heidi"
+  ogImage="/og/compare-default.png"
+  heroHeadline="Shadia AI vs Heidi. More than a scribe"
+  heroSubheadline="Heidi eases the note. Shadia documents the visit and also runs reception, scheduling, and patient follow-up."
+  verdictPoints={[
+    'Shadia includes scribe + receptionist + appointments',
+    'Clinician note and patient summary ready to share',
+    'Built for messaging-first clinic operations',
+    'Human handoff with full patient context',
+    'One platform to document and run the practice',
+  ]}
+  compareRows={compareRows}
+  detailedText={`<h2>What Heidi does well</h2><p>Heidi is a strong clinical scribe: it captures the visit and drafts notes so clinicians spend less time charting after each encounter.</p><h2>Where Shadia goes further</h2><p>Documentation is only one part of running a practice. Between visits there are messages, confirmations, cancellations, waitlists, and patients who need a clear summary.</p><p>Shadia combines <strong>clinical sessions</strong>, an <strong>AI receptionist</strong>, and a <strong>native appointments engine</strong>: record and structure the visit, update the chart, generate clinician + patient summaries, and keep the schedule full.</p><h2>For the whole practice</h2><p>If your team lives in chat and calendar chaos, a scribe alone does not fix the front desk. Shadia closes that gap.</p>`}
+  migrationText="If you already use a dedicated scribe, start with Shadia sessions and turn on receptionist and appointments when you are ready, without switching platforms again."
+  faqs={faqs}
+/>

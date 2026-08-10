@@ -1,20 +1,48 @@
 ---
 import ComparePage from '../../../components/ComparePage.astro';
+
 const compareRows = [
   { feature: 'Agendamiento por WhatsApp', shadia: true, competitor: false },
-  { feature: 'Agentes IA conversacionales', shadia: true, competitor: false },
-  { feature: 'Responde preguntas automáticamente', shadia: true, competitor: false },
+  { feature: 'Recepcionista IA conversacional', shadia: true, competitor: false },
+  { feature: 'Responde preguntas del paciente', shadia: true, competitor: false },
   { feature: 'Recordatorios por WhatsApp', shadia: true, competitor: 'Solo email' },
-  { feature: 'Conversaciones unificadas omnicanal', shadia: true, competitor: false },
-  { feature: 'Ventas y seguimiento post-cita', shadia: true, competitor: false },
+  { feature: 'Lista de espera / llenar huecos', shadia: true, competitor: false },
+  { feature: 'Sesiones clínicas y resúmenes', shadia: true, competitor: false },
   { feature: 'Reagendamiento por chat', shadia: true, competitor: 'Por link' },
-  { feature: 'Sin necesidad de link externo', shadia: true, competitor: false },
-  { feature: 'Precio accesible', shadia: 'Desde $49/mes', competitor: '$10–20/usuario/mes' },
-  { feature: 'Integración WhatsApp Business API', shadia: true, competitor: false },
+  { feature: 'Sin link externo para el paciente', shadia: true, competitor: false },
 ];
+
 const faqs = [
-  { q: '¿Por qué usar Shadia en lugar de Calendly?', a: 'Calendly es excelente para agendar reuniones virtuales entre profesionales. Pero no habla con tus clientes, no responde preguntas, no cierra ventas ni gestiona toda la operación. Shadia hace todo eso — y también agenda citas.' },
-  { q: '¿Puede Shadia reemplazar completamente a Calendly?', a: 'Para la mayoría de negocios orientados a clientes finales: sí. Shadia agenda, confirma, reconfirma y gestiona toda la comunicación desde WhatsApp sin que el cliente tenga que abrir un link externo.' },
+  {
+    q: '¿Por qué usar Shadia en lugar de Calendly en una clínica?',
+    a: 'Calendly es un link de agenda. Shadia habla con el paciente en WhatsApp, responde dudas, confirma, reagenda y además documenta sesiones. Es operación de clínica, no solo un calendario.',
+  },
+  {
+    q: '¿Puede Shadia reemplazar Calendly para citas de pacientes?',
+    a: 'Para la mayoría de clínicas sí. El paciente escribe por WhatsApp y confirma sin abrir un formulario externo.',
+  },
 ];
 ---
-<ComparePage lang="es" competitor="Calendly" competitorSlug="calendly" title="Shadia AI vs Calendly — Agenda inteligente por WhatsApp vs links de citas | Shadia AI" description="Calendly genera links para que tus clientes agenden. Shadia AI agenda directamente por WhatsApp con IA. La diferencia es enorme para negocios de atención al cliente." canonical="https://shadia.ai/es/comparar/vs-calendly" ogImage="/og/compare-calendly-es.png" heroHeadline="Shadia AI vs Calendly — Agente IA vs links de agenda" heroSubheadline="Calendly es un link que tus clientes tienen que abrir. Shadia es el agente que habla con ellos, entiende lo que necesitan y agenda sin que salgan de WhatsApp." verdictPoints={['Shadia agenda por WhatsApp; Calendly requiere un link externo','Shadia tiene IA que responde preguntas; Calendly solo muestra un calendario','Recordatorios automáticos por WhatsApp vs solo email','Shadia gestiona toda la operación; Calendly solo maneja el agendamiento','Precio muy inferior para equipos completos']} compareRows={compareRows} detailedText={`<h2>¿Qué hace bien Calendly?</h2><p>Calendly es excelente para profesionales independientes y equipos B2B que necesitan coordinar reuniones con otros profesionales. Es la herramienta estándar para agendar demos, calls de ventas y reuniones internas de equipos remotos.</p><h2>Por qué Calendly no es suficiente para negocios de atención al cliente</h2><p>Calendly asume que tu cliente está dispuesto a abrir un link, navegar por tu disponibilidad y llenar un formulario. Pero la realidad de negocios de salud, belleza, educación o ventas directas es diferente: el cliente ya está en WhatsApp y no quiere salir de ahí.</p><p>Shadia atiende al cliente donde ya está. Responde preguntas, maneja objeciones, presenta opciones de horario en la conversación y confirma la cita — todo en el mismo chat de WhatsApp, sin fricciones.</p><h2>La diferencia práctica</h2><p>Con Calendly, envías un link. El cliente puede o no abrirlo. Con Shadia, el cliente escribe "quiero una cita" a tu número de WhatsApp y el agente confirma la cita en 3 mensajes.</p>`} migrationText="Si usas Calendly, Shadia puede importar tus tipos de cita y disponibilidad. En menos de 2 horas, tu agente estará agendando citas directamente por WhatsApp." faqs={faqs} />
+
+<ComparePage
+  lang="es"
+  competitor="Calendly"
+  competitorSlug="calendly"
+  title="Shadia AI vs Calendly. Citas clínicas por WhatsApp | Shadia AI"
+  description="Calendly usa links de agenda. Shadia agenda pacientes por WhatsApp con IA, confirma, llena huecos y documenta sesiones."
+  canonical="https://shadia.ai/es/comparar/vs-calendly"
+  ogImage="/og/compare-calendly-es.png"
+  heroHeadline="Shadia AI vs Calendly. Citas en el chat, no en un link"
+  heroSubheadline="Calendly asume que el paciente abrirá un enlace. Shadia agenda, confirma y da seguimiento donde ya escribe: WhatsApp."
+  verdictPoints={[
+    'Shadia agenda por WhatsApp; Calendly requiere un link',
+    'Recepcionista IA responde preguntas; Calendly solo muestra horarios',
+    'Recordatorios y lista de espera nativos',
+    'Sesiones clínicas incluidas en la misma plataforma',
+    'Pensada para clínicas, no solo reuniones B2B',
+  ]}
+  compareRows={compareRows}
+  detailedText={`<h2>¿Qué hace bien Calendly?</h2><p>Calendly es excelente para coordinar reuniones entre profesionales. Es simple y universal para demos y calls.</p><h2>Por qué no alcanza para una clínica</h2><p>El paciente de una clínica ya está en WhatsApp. Pedirle que abra un link, elija un slot y llene un formulario añade fricción y no-shows.</p><p>Shadia confirma, reagenda y llena huecos en la conversación, y además documenta la consulta con sesiones clínicas.</p>`}
+  migrationText="Importa tus tipos de cita y disponibilidad. En poco tiempo, tu recepcionista IA agenda por WhatsApp."
+  faqs={faqs}
+/>

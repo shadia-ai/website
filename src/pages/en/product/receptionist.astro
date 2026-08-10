@@ -1,0 +1,163 @@
+---
+import Icon from '../../../components/Icon.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProductHeroSplit from '../../../components/ProductHeroSplit.astro';
+import PageBand from '../../../components/PageBand.astro';
+import PageCta from '../../../components/PageCta.astro';
+import { InboxFloatPreview } from '../../../components/FloatWidgets.tsx';
+import { t } from '../../../i18n/utils';
+
+const liveScenarios = [
+  { event: 'A patient writes at 11 PM', reaction: 'Replies, books, and confirms for the next day' },
+  { event: 'Question about visit prep', reaction: 'Sends pre-visit instructions instantly' },
+  { event: 'Sensitive or out-of-protocol case', reaction: 'Escalates to your team with full history' },
+  { event: 'Patient asks to reschedule', reaction: 'Offers the next open slot in the same chat' },
+];
+---
+
+<BaseLayout
+  title={t('meta.receptionist.title', 'en')}
+  description={t('meta.receptionist.desc', 'en')}
+  lang="en"
+  canonical="https://shadia.ai/en/product/receptionist"
+  ogImage="/og/receptionist-en.png"
+>
+
+<ProductHeroSplit
+  badge="AI Receptionist"
+  title="The front desk that"
+  titleAccent="after hours too."
+  lead="Shadia books, confirms, answers common questions, and preps visits on WhatsApp and Instagram. When a case needs a person, it escalates with the full history."
+  lang="en"
+  source="product_receptionist_hero"
+  hint="No credit card required · Setup in 24h"
+>
+  <InboxFloatPreview lang="en" client:load />
+</ProductHeroSplit>
+
+<PageBand variant="plain" size="sm">
+  <div class="container">
+    <div class="page-stats-row">
+      {[
+        { v: '24/7', l: 'Front desk available' },
+        { v: '85%', l: 'Inquiries resolved without staff' },
+        { v: '< 30 s', l: 'First response time' },
+        { v: '0', l: 'Unanswered messages' },
+      ].map(s => (
+        <div>
+          <div class="page-stat__value" style="color: var(--accent);">{s.v}</div>
+          <div class="page-stat__label">{s.l}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">Capabilities</div>
+      <h2 class="section-title">Everything a great front desk does, automated</h2>
+    </div>
+    <div class="grid-3">
+      {[
+        { icon: 'calendar', title: 'Scheduling', desc: 'Books, confirms and reschedules appointments right in the chat, no external links or forms.' },
+        { icon: 'message-square', title: 'FAQs', desc: 'Pricing, hours, insurance and requirements answered instantly, in your practice\'s tone.' },
+        { icon: 'clipboard', title: 'Visit prep', desc: 'Sends pre-visit instructions, required documents and fasting or prep reminders.' },
+        { icon: 'user-check', title: 'Handoff with context', desc: 'When a case needs a person, Shadia escalates with the full history, no repeated questions.' },
+        { icon: 'smartphone', title: 'Multi-channel', desc: 'WhatsApp, Instagram and Messenger in one front desk flow, with the same level of service.' },
+        { icon: 'bell', title: 'Reminders & confirmations', desc: 'Automatic confirmations before every appointment to cut no-shows without manual calls.' },
+      ].map(f => (
+        <div class="card-feature">
+          <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={f.icon} size={20} /></div>
+          <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">{f.title}</h3>
+          <p style="font-size:0.875rem;line-height:1.65;color:var(--ink-3);">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="plain">
+  <div class="container" style="max-width: 860px;">
+    <div class="page-section-head">
+      <div class="eyebrow">Before & After</div>
+      <h2 class="section-title">Front desk stops being the bottleneck</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+      <div style="padding:1.75rem;background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.15);border-radius:18px;">
+        <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#ef4444;margin-bottom:1.25rem;">Without Shadia</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
+          {['Front desk split between the phone and the room', 'WhatsApp messages left unanswered for hours', 'The same questions asked over and over', 'Zero coverage outside business hours', 'Every case starts from scratch for your team'].map(item => (
+            <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink-3);">
+              <span style="color:#ef4444;flex-shrink:0;">✗</span>{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div style="padding:1.75rem;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.2);border-radius:18px;">
+        <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#22c55e;margin-bottom:1.25rem;">With AI Receptionist</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
+          {['Every message answered in under 30 seconds', 'Appointments booked 24/7, even overnight', 'FAQs handled without pulling in your team', 'Sensitive cases escalated with full history', 'Your team focuses on the patient in front of them'].map(item => (
+            <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink);">
+              <span style="color:var(--green);font-weight:700;flex-shrink:0;">✓</span>{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="tint">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">Front desk in action</div>
+      <h2 class="section-title">Four moments Shadia handles on its own</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1rem;">
+      {liveScenarios.map(s => (
+        <div class="live-item">
+          <strong>{s.event}</strong>
+          <span>✦ {s.reaction}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container" style="max-width:680px;">
+    <div class="page-section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-title">Frequently asked questions</h2>
+    </div>
+    {[
+      { q: 'Does the AI Receptionist replace my staff?', a: 'No. It handles routine volume, booking, FAQs, visit prep, so your team can focus on the patient in front of them and the cases that truly need their judgment.' },
+      { q: 'How does it handle sensitive or urgent situations?', a: 'You define the escalation rules. When it detects a case outside protocol, Shadia hands it to your team immediately with the full conversation history.' },
+      { q: 'Does it work outside business hours?', a: 'Yes, 24/7. You configure what it can resolve on its own overnight and what waits for business hours.' },
+      { q: 'Can I customize the FAQs?', a: 'Yes. You define the answers, tone and specific protocols for your practice or specialty, no code required.' },
+    ].map(faq => (
+      <div class="faq-item">
+        <div style="padding:1.25rem 0;font-weight:600;font-size:1rem;color:var(--ink);">{faq.q}</div>
+        <div class="faq-answer">{faq.a}</div>
+      </div>
+    ))}
+  </div>
+</PageBand>
+
+<PageCta
+  lang="en"
+  source="product_receptionist_cta"
+  title="Your front desk,"
+  titleAccent="covered after hours."
+  lead="Connect WhatsApp and Instagram and let Shadia handle patients around the clock without growing the team."
+/>
+
+</BaseLayout>
+
+<style>
+  @media (max-width: 900px) {
+    [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  }
+</style>

@@ -113,26 +113,26 @@ const features: Record<PlanKey, Record<Lang, { text: string; included: boolean }
 };
 
 const taglines: Record<PlanKey, Record<Lang, string>> = {
-  HOB: { es: 'Para negocios que arrancan', en: 'For businesses getting started' },
+  HOB: { es: 'Para consultorios que arrancan', en: 'For practices getting started' },
   PRO: { es: 'Para equipos que crecen', en: 'For growing teams' },
   ULTRA: { es: 'Enterprise · Ajustado a tu escala', en: 'Enterprise · Tailored to your scale' },
 };
 
 const faqEs = [
-  { q: '¿Qué son los AI Credits?', a: 'Los AI Credits son el combustible de Shadia AI — se consumen cada vez que la IA procesa una conversación, genera una respuesta o toma una acción autónoma. Funciona similar a los créditos de Cursor: tu plan incluye un saldo mensual y puedes recargar o activar uso on-demand cuando lo necesites.' },
+  { q: '¿Qué son los AI Credits?', a: 'Los AI Credits son el combustible de Shadia AI, se consumen cada vez que la IA procesa una conversación, genera una respuesta o toma una acción autónoma. Funciona similar a los créditos de Cursor: tu plan incluye un saldo mensual y puedes recargar o activar uso on-demand cuando lo necesites.' },
   { q: '¿Qué pasa si se acaban los AI Credits?', a: 'Puedes activar el uso on-demand desde la configuración: la IA sigue operando y los créditos extra se cobran automáticamente a la tarifa de tu plan. También puedes comprar packs de créditos por adelantado o establecer un límite de gasto mensual para tener control total.' },
   { q: '¿Puedo agregar más miembros del equipo sin cambiar de plan?', a: 'Sí. Puedes agregar miembros extra por $12/mes en HUB y $15/mes en PRO. ULTRA es enterprise y los seats se definen en el contrato.' },
   { q: '¿Puedo cambiar de plan en cualquier momento?', a: 'Sí. Los cambios aplican de inmediato y el costo se prorratea automáticamente.' },
-  { q: '¿Shadia Agent está incluido en todos los planes?', a: 'Sí. Shadia Agent — el agente IA de tu equipo para threads y operación — está incluido en todos los planes sin costo adicional.' },
+  { q: '¿Shadia Agent está incluido en todos los planes?', a: 'Sí. Shadia Agent, el agente IA de tu equipo para threads y operación, está incluido en todos los planes sin costo adicional.' },
   { q: '¿Hay periodo de prueba?', a: 'Sí. 7 días gratis con acceso completo al plan PRO. Sin tarjeta de crédito.' },
 ];
 
 const faqEn = [
-  { q: 'What are AI Credits?', a: 'AI Credits are the fuel powering Shadia AI — they\'re consumed every time the AI processes a conversation, generates a response, or takes an autonomous action. Similar to how Cursor works: your plan includes a monthly credit balance and you can top up or enable on-demand usage anytime.' },
+  { q: 'What are AI Credits?', a: 'AI Credits are the fuel powering Shadia AI, they\'re consumed every time the AI processes a conversation, generates a response, or takes an autonomous action. Similar to how Cursor works: your plan includes a monthly credit balance and you can top up or enable on-demand usage anytime.' },
   { q: 'What happens when I run out of AI Credits?', a: 'You can enable on-demand usage from your account settings: the AI keeps running and extra credits are billed automatically at your plan\'s rate. You can also purchase credit packs in advance or set a monthly spend cap for full control.' },
   { q: 'Can I add more team members without upgrading?', a: 'Yes. Extra members are $12/mo on HUB and $15/mo on PRO. ULTRA is enterprise and seats are defined in the contract.' },
   { q: 'Can I change plans at any time?', a: 'Yes. Changes apply immediately and costs are prorated automatically.' },
-  { q: 'Is Shadia Agent included in all plans?', a: 'Yes. Shadia Agent — the AI on your team for threads and operations — is included in all plans at no extra cost.' },
+  { q: 'Is Shadia Agent included in all plans?', a: 'Yes. Shadia Agent, the AI on your team for threads and operations, is included in all plans at no extra cost.' },
   { q: 'Is there a free trial?', a: 'Yes. 7 days free with full PRO plan access. No credit card required.' },
 ];
 
@@ -267,7 +267,7 @@ export default function PricingSection({ lang = 'es' }: Props) {
                 </div>
               )}
 
-              {/* Package summary — only for priced plans */}
+              {/* Package summary, only for priced plans */}
               {!isEnterprise && (
                 <div style={{ background: 'var(--bg-subtle)', borderRadius: '10px', padding: '0.875rem', display: 'flex', flexDirection: 'column' as const, gap: '0.5rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8125rem', color: 'var(--ink-2)' }}>
@@ -306,7 +306,7 @@ export default function PricingSection({ lang = 'es' }: Props) {
                 </div>
               )}
 
-              {/* Features — only for priced plans */}
+              {/* Features, only for priced plans */}
               {!isEnterprise && (
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column' as const, gap: '0.5rem', flex: 1 }}>
                   {planFeatures.map((f, i) => (

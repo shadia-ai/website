@@ -6,21 +6,22 @@ import PageBand from '../../../components/PageBand.astro';
 import PageCta from '../../../components/PageCta.astro';
 import { InboxFloatPreview } from '../../../components/FloatWidgets.tsx';
 import { Check } from 'lucide-react';
+import { t } from '../../../i18n/utils';
 
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: '¿Los agentes IA de Shadia funcionan con el API oficial de WhatsApp?', acceptedAnswer: { '@type': 'Answer', text: 'Sí. Shadia usa la API oficial de WhatsApp Business, lo que garantiza que tu número no será bloqueado y tienes acceso a todas las funciones premium incluyendo plantillas, catálogos y llamadas.' } },
-    { '@type': 'Question', name: '¿Cuántos miembros del equipo pueden colaborar en conversaciones?', acceptedAnswer: { '@type': 'Answer', text: 'En el plan PRO tienes hasta 8 agentes. En ULTRA, con asientos ilimitados vía addon. Cada miembro ve el historial completo y puede colaborar con notas internas.' } },
-    { '@type': 'Question', name: '¿La IA reemplaza a mi equipo?', acceptedAnswer: { '@type': 'Answer', text: 'No. El agente IA gestiona el volumen y escala al humano correcto. Tu equipo decide qué respuestas aprobar y cuándo intervenir.' } },
+    { '@type': 'Question', name: '¿Shadia funciona con el API oficial de WhatsApp Business?', acceptedAnswer: { '@type': 'Answer', text: 'Sí. Shadia usa la API oficial de WhatsApp Business, lo que garantiza que el número de tu clínica no será bloqueado y tienes acceso a todas las funciones premium.' } },
+    { '@type': 'Question', name: '¿Cuántos miembros del equipo pueden colaborar en las conversaciones?', acceptedAnswer: { '@type': 'Answer', text: 'En el plan PRO tienes hasta 8 miembros de tu equipo. En ULTRA, asientos ilimitados vía addon. Cada uno ve el historial completo del paciente y puede colaborar con notas internas.' } },
+    { '@type': 'Question', name: '¿La IA reemplaza a mi recepción?', acceptedAnswer: { '@type': 'Answer', text: 'No. El agente gestiona el volumen rutinario y escala al miembro del equipo correcto. Tu personal decide qué respuestas aprobar y cuándo intervenir.' } },
   ],
 };
 ---
 
 <BaseLayout
-  title="Agentes IA omnicanal — Atención en todos tus canales | Shadia AI"
-  description="Despliega agentes IA en WhatsApp, Instagram, Facebook y TikTok. Resolución autónoma con escalación inteligente y contexto completo para tu equipo."
+  title={t('meta.omnichannel.title', 'es')}
+  description={t('meta.omnichannel.desc', 'es')}
   lang="es"
   canonical="https://shadia.ai/es/producto/omnicanal"
   ogImage="/og/omnicanal-es.png"
@@ -28,10 +29,10 @@ const faqSchema = {
 >
 
 <ProductHeroSplit
-  badge="Omnicanal"
-  title="Agentes IA en"
-  titleAccent="todos tus canales."
-  lead="Un agente en WhatsApp, Instagram, Facebook y TikTok. Resuelve volumen rutinario; tu equipo interviene con historial completo — sin cambiar de app ni repetir preguntas."
+  badge="Omnicanal clínico"
+  title="Un agente, todo el"
+  titleAccent="contexto del paciente."
+  lead="WhatsApp, Instagram y Messenger en un solo inbox clínico. El agente resuelve lo rutinario; tu equipo entra con el historial completo, sin saltar de app ni pedirle al paciente que repita todo."
   lang="es"
   source="product_omnicanal_hero"
   hint="Sin tarjeta de crédito · Gratis para empezar"
@@ -44,8 +45,8 @@ const faqSchema = {
     <div class="page-stats-row">
       {[
         { v: '< 3 min', l: 'Tiempo de primera respuesta' },
-        { v: '94%', l: 'Mensajes resueltos por IA' },
-        { v: '0', l: 'Conversaciones perdidas' },
+        { v: '90%+', l: 'Mensajes resueltos por el agente' },
+        { v: '0', l: 'Conversaciones de pacientes perdidas' },
         { v: '24/7', l: 'Disponibilidad del agente IA' },
       ].map(s => (
         <div>
@@ -61,16 +62,16 @@ const faqSchema = {
   <div class="container">
     <div class="page-section-head">
       <div class="eyebrow">Capacidades</div>
-      <h2 class="section-title">Todo lo que tus agentes IA necesitan a escala</h2>
+      <h2 class="section-title">Todo lo que necesita la recepción de tu clínica</h2>
     </div>
     <div class="grid-3">
       {[
-        { icon: 'zap', title: 'Respuestas asistidas por IA', desc: 'Tu agente sugiere respuestas con el historial del cliente. Aprueba o edita con un clic. Tu equipo responde 5x más rápido.' },
-        { icon: 'users', title: 'Colaboración en equipo', desc: 'Asigna conversaciones, deja notas internas, ve quién atiende qué. Nunca más dos agentes respondiendo al mismo cliente.' },
-        { icon: 'bar-chart', title: 'Inteligencia de contactos', desc: 'Historial completo por contacto, etiquetas, notas y seguimiento del ciclo de vida — integrado, sin herramientas externas.' },
-        { icon: 'search', title: 'Búsqueda instantánea', desc: 'Encuentra cualquier mensaje en segundos. Filtra por canal, agente, etiqueta, fecha o busca en el contenido de mensajes.' },
-        { icon: 'bot', title: 'Automatización inteligente', desc: 'Respuestas automáticas para FAQs, bienvenidas, fuera de horario y más. Sin código, visual y configurable.' },
-        { icon: 'trending-up', title: 'Analítica de resolución', desc: 'Métricas en tiempo real: tiempos de respuesta, resolución, satisfacción y rendimiento por miembro y canal.' },
+        { icon: 'zap', title: 'Respuestas con contexto del paciente', desc: 'El agente sugiere respuestas con el historial clínico y de citas del paciente. Aprueba o edita con un clic.' },
+        { icon: 'users', title: 'Colaboración del equipo', desc: 'Asigna conversaciones a recepción, enfermería o al médico correspondiente. Nunca dos personas respondiendo al mismo paciente.' },
+        { icon: 'bar-chart', title: 'Historial del paciente', desc: 'Citas, mensajes y notas centralizadas por paciente, sin herramientas externas ni hojas de cálculo.' },
+        { icon: 'search', title: 'Búsqueda instantánea', desc: 'Encuentra cualquier conversación en segundos. Filtra por canal, paciente, etiqueta o fecha.' },
+        { icon: 'bot', title: 'Automatización de rutina', desc: 'Respuestas automáticas para FAQs, bienvenida, fuera de horario y preparación de visita. Sin código.' },
+        { icon: 'trending-up', title: 'Analítica de resolución', desc: 'Tiempos de respuesta, tasa de resolución y volumen por canal, en tiempo real.' },
       ].map(f => (
         <div class="card-feature">
           <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={f.icon} size={20} /></div>
@@ -92,7 +93,7 @@ const faqSchema = {
       <div style="padding:1.75rem;background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.15);border-radius:18px;">
         <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#ef4444;margin-bottom:1.25rem;">Sin Shadia</div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
-          {['Mensajes perdidos entre WhatsApp, Instagram y Email', 'Respuestas tardías que pierden ventas', 'Sin historial centralizado del cliente', 'Equipo confundido sobre quién atiende qué', 'Imposible escalar sin contratar más personal'].map(item => (
+          {['Mensajes de pacientes perdidos entre WhatsApp e Instagram', 'Respuestas tardías que terminan en citas perdidas', 'Sin historial centralizado del paciente', 'Equipo confundido sobre quién atiende cada caso', 'Imposible escalar sin contratar más recepción'].map(item => (
             <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink-3);">
               <span style="color:#ef4444;flex-shrink:0;">✗</span>{item}
             </li>
@@ -102,7 +103,7 @@ const faqSchema = {
       <div style="padding:1.75rem;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.2);border-radius:18px;">
         <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#22c55e;margin-bottom:1.25rem;">Con agentes Shadia</div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
-          {['Todos los canales conectados, cero pérdidas', 'IA responde en segundos, 24/7 sin intervención', 'Historial completo del cliente en un solo lugar', 'Asignación automática + notas internas', 'Escala sin contratar: los agentes manejan el volumen'].map(item => (
+          {['Todos los canales conectados, cero mensajes perdidos', 'El agente responde en segundos, 24/7', 'Historial completo del paciente en un solo lugar', 'Asignación automática + notas internas del equipo', 'Escala sin contratar: el agente absorbe el volumen'].map(item => (
             <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink);">
               <Check size={15} style={{ color: '#22c55e', flexShrink: 0, marginTop: '2px' }} />{item}
             </li>
@@ -121,10 +122,10 @@ const faqSchema = {
     </div>
     <div style="display:flex;flex-direction:column;gap:1.5rem;">
       {[
-        { n: '1', title: 'Conecta tus canales', desc: 'WhatsApp Business API, Instagram, Facebook, Email — todos en un click. Sin configuración técnica compleja.' },
-        { n: '2', title: 'Configura tu agente IA', desc: 'Dale contexto de negocio, respuestas frecuentes y reglas de escalación. Lenguaje natural, sin código.' },
-        { n: '3', title: 'Invita a tu equipo', desc: 'Añade miembros, define roles y permisos. Cada uno ve solo lo que necesita.' },
-        { n: '4', title: 'La IA empieza a trabajar', desc: 'Desde el primer mensaje, tu agente responde, clasifica y escala. Tu equipo aprueba y refina.' },
+        { n: '1', title: 'Conecta tus canales', desc: 'WhatsApp Business API, Instagram y Messenger, todos en un click. Sin configuración técnica compleja.' },
+        { n: '2', title: 'Configura tu agente', desc: 'Dale el contexto de tu clínica: especialidad, horarios, políticas y reglas de escalación. Lenguaje natural, sin código.' },
+        { n: '3', title: 'Invita a tu equipo', desc: 'Recepción, enfermería y médicos, cada uno con el rol y los permisos que necesita.' },
+        { n: '4', title: 'El agente empieza a trabajar', desc: 'Desde el primer mensaje, responde, agenda y escala. Tu equipo aprueba y refina.' },
       ].map(s => (
         <div class="card" style="display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;">
           <div style="width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">{s.n}</div>
@@ -142,9 +143,9 @@ const faqSchema = {
   <div class="container page-section-head" style="max-width:760px;">
     <div class="eyebrow">Integraciones</div>
     <h2 class="section-title">Conecta con las herramientas que ya usas</h2>
-    <p class="lead-sm" style="margin-bottom:2.5rem;">Shadia se integra nativamente con los sistemas más populares. Sin Zapier, sin código.</p>
+    <p class="lead-sm" style="margin-bottom:2.5rem;">Shadia se integra nativamente con los sistemas más comunes en clínicas. Sin Zapier, sin código.</p>
     <div class="product-channel-bar">
-      {['WhatsApp Business API', 'Google Workspace', 'HubSpot', 'Salesforce', 'Calendly', 'Stripe', 'Shopify', 'Notion', 'Zapier', 'Slack', 'Twilio', 'Mailchimp'].map(int => (
+      {['WhatsApp Business API', 'Google Calendar', 'Google Workspace', 'Zoom', 'Calendly', 'Twilio', 'Slack', 'Notion', 'Zapier'].map(int => (
         <span class="channel-badge">{int}</span>
       ))}
     </div>
@@ -158,10 +159,10 @@ const faqSchema = {
       <h2 class="section-title">Preguntas frecuentes</h2>
     </div>
     {[
-      { q: '¿Funciona con la API oficial de WhatsApp?', a: 'Sí. Usamos la API oficial de WhatsApp Business, garantizando que tu número no sea bloqueado y que tengas acceso a todas las funciones premium.' },
-      { q: '¿Cuántos miembros del equipo pueden colaborar?', a: 'En PRO hasta 8 miembros; en ULTRA, con asientos adicionales sin límite. Cada uno ve el historial completo y puede colaborar con notas internas.' },
-      { q: '¿La IA reemplaza a mi equipo de atención?', a: 'No. El agente IA gestiona el volumen y escala al humano correcto. Tu equipo decide qué respuestas aprobar y cuándo intervenir.' },
-      { q: '¿Qué pasa si el cliente escribe fuera del horario?', a: 'Tu agente IA responde las 24 horas. Puedes configurar qué solicitudes maneja solo y cuáles esperan al siguiente día hábil.' },
+      { q: '¿Funciona con el API oficial de WhatsApp?', a: 'Sí. Usamos la API oficial de WhatsApp Business, garantizando que el número de tu clínica no sea bloqueado y con acceso completo a funciones premium.' },
+      { q: '¿Cuántos miembros del equipo pueden colaborar?', a: 'En PRO hasta 8 miembros; en ULTRA, asientos adicionales sin límite. Cada uno ve el historial completo del paciente y puede dejar notas internas.' },
+      { q: '¿La IA reemplaza a mi recepción?', a: 'No. El agente gestiona el volumen rutinario y escala al miembro del equipo correcto. Tu personal decide qué aprobar y cuándo intervenir.' },
+      { q: '¿Qué pasa si un paciente escribe fuera de horario?', a: 'El agente responde las 24 horas. Configuras qué solicitudes resuelve solo y cuáles esperan al siguiente día hábil.' },
     ].map(faq => (
       <div class="faq-item">
         <div style="padding:1.25rem 0;font-weight:600;font-size:1rem;color:var(--ink);">{faq.q}</div>
@@ -174,9 +175,9 @@ const faqSchema = {
 <PageCta
   lang="es"
   source="product_omnicanal_cta"
-  title="Despliega tus agentes"
-  titleAccent="en todos tus canales."
-  lead="Conecta WhatsApp, Instagram, Facebook y TikTok hoy — un agente, resolución consistente."
+  title="Despliega tu recepción"
+  titleAccent="en todos los canales."
+  lead="Conecta WhatsApp, Instagram y Messenger. Un inbox, un historial por paciente."
 />
 
 </BaseLayout>

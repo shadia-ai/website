@@ -11,6 +11,8 @@ const esToEn: Record<string, string> = {
   '/es/blog':                       '/en/blog',
 
   // Product
+  '/es/producto/sesiones':          '/en/product/sessions',
+  '/es/producto/recepcionista':     '/en/product/receptionist',
   '/es/producto/omnicanal':         '/en/product/omnichannel',
   '/es/producto/agente':            '/en/product/agent',
   '/es/producto/agentes-ia':        '/en/product/ai-agents',
@@ -23,28 +25,25 @@ const esToEn: Record<string, string> = {
   '/es/canales/facebook':           '/en/channels/facebook',
   '/es/canales/tiktok':             '/en/channels/tiktok',
 
-  // Industries
-  '/es/industrias':                 '/en/industries',
-  '/es/industrias/ecommerce':       '/en/industries/ecommerce',
-  '/es/industrias/salud':           '/en/industries/healthcare',
-  '/es/industrias/ventas':          '/en/industries/sales',
-  '/es/industrias/soporte':         '/en/industries/support',
-  '/es/industrias/agencias':        '/en/industries/agencies',
-  '/es/industrias/odontologia':     '/en/industries/dental',
-  '/es/industrias/belleza':         '/en/industries/beauty',
+  // Specialties
+  '/es/especialidades':             '/en/specialties',
+  '/es/especialidades/clinicas':    '/en/specialties/clinics',
+  '/es/especialidades/odontologia': '/en/specialties/dental',
+  '/es/especialidades/salud-mental':'/en/specialties/mental-health',
+  '/es/especialidades/estetica':    '/en/specialties/aesthetics',
+  '/es/especialidades/hospitales':  '/en/specialties/hospitals',
+
+  // Legacy industry redirects (hreflang fallbacks)
+  '/es/industrias':                 '/en/specialties',
+  '/es/industrias/salud':           '/en/specialties/clinics',
+  '/es/industrias/odontologia':     '/en/specialties/dental',
 
   // Compare
   '/es/comparar':                   '/en/compare',
   '/es/comparar/vs-calendly':       '/en/compare/vs-calendly',
-  '/es/comparar/vs-wazzy':          '/en/compare/vs-wazzy',
-  '/es/comparar/vs-wati':           '/en/compare/vs-wati',
-  '/es/comparar/vs-manychat':       '/en/compare/vs-manychat',
-  '/es/comparar/vs-respond-io':     '/en/compare/vs-respond-io',
-  '/es/comparar/vs-intercom':       '/en/compare/vs-intercom',
-  '/es/comparar/vs-kommo':          '/en/compare/vs-kommo',
-  '/es/comparar/vs-trengo':         '/en/compare/vs-trengo',
-  '/es/comparar/vs-chatfuel':       '/en/compare/vs-chatfuel',
   '/es/comparar/vs-confirmafy':     '/en/compare/vs-confirmafy',
+  '/es/comparar/vs-heidi':          '/en/compare/vs-heidi',
+  '/es/comparar/vs-recepcionista-tradicional': '/en/compare/vs-traditional-front-desk',
 };
 
 // Build the reverse map automatically (EN → ES)

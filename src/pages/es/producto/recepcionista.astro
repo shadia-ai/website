@@ -1,0 +1,163 @@
+---
+import Icon from '../../../components/Icon.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProductHeroSplit from '../../../components/ProductHeroSplit.astro';
+import PageBand from '../../../components/PageBand.astro';
+import PageCta from '../../../components/PageCta.astro';
+import { InboxFloatPreview } from '../../../components/FloatWidgets.tsx';
+import { t } from '../../../i18n/utils';
+
+const liveScenarios = [
+  { event: 'Paciente escribe a las 11 PM', reaction: 'Responde, agenda y confirma para el día siguiente' },
+  { event: 'Pregunta sobre preparación de visita', reaction: 'Envía instrucciones pre-consulta al instante' },
+  { event: 'Caso sensible o fuera de protocolo', reaction: 'Escala a tu equipo con el historial completo' },
+  { event: 'Paciente pide reagendar', reaction: 'Ofrece el próximo espacio disponible en el mismo chat' },
+];
+---
+
+<BaseLayout
+  title={t('meta.receptionist.title', 'es')}
+  description={t('meta.receptionist.desc', 'es')}
+  lang="es"
+  canonical="https://shadia.ai/es/producto/recepcionista"
+  ogImage="/og/recepcionista-es.png"
+>
+
+<ProductHeroSplit
+  badge="Recepcionista IA"
+  title="Recepción que sigue"
+  titleAccent="atendiendo fuera de horario."
+  lead="Shadia agenda, confirma, responde preguntas frecuentes y prepara visitas por WhatsApp e Instagram. Si el caso necesita a una persona, escala con el historial completo."
+  lang="es"
+  source="product_recepcionista_hero"
+  hint="Sin tarjeta de crédito · Configuración en 24h"
+>
+  <InboxFloatPreview lang="es" client:load />
+</ProductHeroSplit>
+
+<PageBand variant="plain" size="sm">
+  <div class="container">
+    <div class="page-stats-row">
+      {[
+        { v: '24/7', l: 'Recepción disponible' },
+        { v: '85%', l: 'Consultas resueltas sin intervención' },
+        { v: '< 30 s', l: 'Tiempo de primera respuesta' },
+        { v: '0', l: 'Mensajes sin responder' },
+      ].map(s => (
+        <div>
+          <div class="page-stat__value" style="color: var(--accent);">{s.v}</div>
+          <div class="page-stat__label">{s.l}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">Funcionalidades</div>
+      <h2 class="section-title">Todo lo que hace un buen front desk, automatizado</h2>
+    </div>
+    <div class="grid-3">
+      {[
+        { icon: 'calendar', title: 'Agendamiento', desc: 'Agenda, confirma y reagenda citas directamente en el chat, sin links externos ni formularios.' },
+        { icon: 'message-square', title: 'Preguntas frecuentes', desc: 'Precios, horarios, seguros y requisitos respondidos al instante, en el tono de tu clínica.' },
+        { icon: 'clipboard', title: 'Preparación de visita', desc: 'Envía indicaciones pre-consulta, documentos necesarios y recordatorios de ayuno o preparación.' },
+        { icon: 'user-check', title: 'Handoff con contexto', desc: 'Cuando un caso necesita a una persona, Shadia escala con el historial completo, sin repetir preguntas.' },
+        { icon: 'smartphone', title: 'Multi-canal', desc: 'WhatsApp, Instagram y Messenger en un solo flujo de recepción, con el mismo nivel de servicio.' },
+        { icon: 'bell', title: 'Recordatorios y confirmaciones', desc: 'Confirmaciones automáticas antes de cada cita para reducir ausencias sin llamadas manuales.' },
+      ].map(f => (
+        <div class="card-feature">
+          <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={f.icon} size={20} /></div>
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">{f.title}</h3>
+          <p style="font-size:0.875rem;line-height:1.65;">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="plain">
+  <div class="container" style="max-width: 860px;">
+    <div class="page-section-head">
+      <div class="eyebrow">Antes y Después</div>
+      <h2 class="section-title">La recepción deja de ser el cuello de botella</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+      <div style="padding:1.75rem;background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.15);border-radius:18px;">
+        <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#ef4444;margin-bottom:1.25rem;">Sin Shadia</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
+          {['Recepcionista dividida entre el teléfono y la sala', 'Mensajes de WhatsApp sin respuesta por horas', 'Preguntas repetidas que consumen el día', 'Cero atención fuera de horario', 'Cada caso empieza de cero para el equipo'].map(item => (
+            <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink-3);">
+              <span style="color:#ef4444;flex-shrink:0;">✗</span>{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div style="padding:1.75rem;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.2);border-radius:18px;">
+        <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#22c55e;margin-bottom:1.25rem;">Con Recepcionista IA</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
+          {['Cada mensaje respondido en menos de 30 segundos', 'Citas agendadas 24/7, incluso de noche', 'FAQs resueltas sin ocupar a tu equipo', 'Casos sensibles escalados con historial completo', 'Tu equipo se enfoca en el paciente frente a ellos'].map(item => (
+            <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink);">
+              <span style="color:var(--green);font-weight:700;flex-shrink:0;">✓</span>{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="tint">
+  <div class="container">
+    <div class="page-section-head">
+      <div class="eyebrow">Recepción en acción</div>
+      <h2 class="section-title">Cuatro momentos que Shadia resuelve sola</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1rem;">
+      {liveScenarios.map(s => (
+        <div class="live-item">
+          <strong>{s.event}</strong>
+          <span>✦ {s.reaction}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageBand>
+
+<PageBand variant="muted">
+  <div class="container" style="max-width:680px;">
+    <div class="page-section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-title">Preguntas frecuentes</h2>
+    </div>
+    {[
+      { q: '¿La Recepcionista IA reemplaza a mi personal?', a: 'No. Se encarga del volumen rutinario, agenda, FAQs, preparación de visita, para que tu equipo se enfoque en el paciente que tiene enfrente y en los casos que sí requieren su criterio.' },
+      { q: '¿Cómo maneja situaciones sensibles o urgentes?', a: 'Defines las reglas de escalación. Cuando detecta un caso fuera de protocolo, Shadia lo transfiere a tu equipo de inmediato con el historial completo de la conversación.' },
+      { q: '¿Funciona fuera de horario de atención?', a: 'Sí, las 24 horas. Puedes configurar qué puede resolver sola de noche y qué espera al horario de atención.' },
+      { q: '¿Puedo personalizar las preguntas frecuentes?', a: 'Sí. Defines las respuestas, el tono y los protocolos específicos de tu clínica o especialidad, sin código.' },
+    ].map(faq => (
+      <div class="faq-item">
+        <div style="padding:1.25rem 0;font-weight:600;font-size:1rem;color:var(--ink);">{faq.q}</div>
+        <div class="faq-answer">{faq.a}</div>
+      </div>
+    ))}
+  </div>
+</PageBand>
+
+<PageCta
+  lang="es"
+  source="product_recepcionista_cta"
+  title="Tu recepción,"
+  titleAccent="con respaldo fuera de horario."
+  lead="Conecta WhatsApp e Instagram y deja que Shadia atienda pacientes a cualquier hora, sin ampliar el equipo."
+/>
+
+</BaseLayout>
+
+<style>
+  @media (max-width: 900px) {
+    [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  }
+</style>

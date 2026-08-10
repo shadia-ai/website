@@ -1,0 +1,48 @@
+---
+import ComparePage from '../../../components/ComparePage.astro';
+
+const compareRows = [
+  { feature: 'Notas clínicas con IA (scribe)', shadia: true, competitor: true },
+  { feature: 'Resumen para el paciente', shadia: true, competitor: 'Limitado' },
+  { feature: 'Envío del resumen por WhatsApp', shadia: true, competitor: false },
+  { feature: 'Recepcionista IA 24/7', shadia: true, competitor: false },
+  { feature: 'Motor de citas nativo', shadia: true, competitor: false },
+  { feature: 'Omnicanal (WhatsApp, IG, Messenger)', shadia: true, competitor: false },
+  { feature: 'Pensado para clínicas WhatsApp-first', shadia: true, competitor: false },
+  { feature: 'Interfaz en español', shadia: true, competitor: 'Parcial' },
+];
+
+const faqs = [
+  {
+    q: '¿Shadia reemplaza a un scribe clínico como Heidi?',
+    a: 'Shadia documenta la consulta y además opera la recepción y las citas. Si solo necesitas notas, un scribe dedicado puede bastar; si quieres que la clínica corra con menos admin, Shadia cubre el flujo completo.',
+  },
+  {
+    q: '¿Puedo compartir el resumen con el paciente?',
+    a: 'Sí. Shadia genera una versión clínica y una versión paciente, y puede enviarla por el canal conectado (WhatsApp, por ejemplo) cuando el médico aprueba.',
+  },
+];
+---
+
+<ComparePage
+  lang="es"
+  competitor="Heidi"
+  competitorSlug="heidi"
+  title="Shadia AI vs Heidi. Sesiones clínicas + recepción vs scribe | Shadia AI"
+  description="Heidi se enfoca en documentación clínica. Shadia combina sesiones, recepcionista IA y citas para clínicas."
+  canonical="https://shadia.ai/es/comparar/vs-heidi"
+  ogImage="/og/compare-default.png"
+  heroHeadline="Shadia AI vs Heidi. Más que un scribe"
+  heroSubheadline="Heidi alivia la nota clínica. Shadia documenta la consulta y además opera la recepción, la agenda y el seguimiento del paciente."
+  verdictPoints={[
+    'Shadia incluye scribe + recepción + citas en una plataforma',
+    'Resumen médico y versión paciente listos para WhatsApp',
+    'Diseñada para clínicas WhatsApp-first',
+    'Handoff humano con contexto del paciente',
+    'Un solo lugar para documentar y operar la clínica',
+  ]}
+  compareRows={compareRows}
+  detailedText={`<h2>¿Qué hace bien Heidi?</h2><p>Heidi es un referente en documentación clínica asistida por IA: captura la consulta y genera notas para el clínico. Reduce el tiempo administrativo después de cada visita.</p><h2>Dónde Shadia va más allá</h2><p>Documentar es solo una parte de operar una clínica. Entre consultas hay mensajes, confirmaciones, cancelaciones, lista de espera y pacientes que necesitan un resumen claro.</p><p>Shadia une <strong>sesiones clínicas</strong>, <strong>recepcionista IA</strong> y <strong>motor de citas</strong>: graba y estructura la consulta, actualiza el expediente, genera resumen médico + versión paciente, y mantiene la agenda llena por WhatsApp.</p><h2>Para la clínica completa</h2><p>El paciente ya escribe por WhatsApp. Shadia está diseñada para ese contexto: menos herramientas sueltas, más flujo clínico continuo.</p>`}
+  migrationText="Si hoy usas un scribe por separado, puedes empezar con sesiones en Shadia y activar recepción y citas cuando estés listo, sin cambiar de plataforma."
+  faqs={faqs}
+/>

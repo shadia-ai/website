@@ -5,6 +5,7 @@ import ProductHeroSplit from '../../../components/ProductHeroSplit.astro';
 import PageBand from '../../../components/PageBand.astro';
 import PageCta from '../../../components/PageCta.astro';
 import { AppointmentsFloatComposition } from '../../../components/FloatWidgets.tsx';
+import { t } from '../../../i18n/utils';
 
 const citasSlides = [
   {
@@ -13,8 +14,8 @@ const citasSlides = [
     stat1Label: 'Menos no-shows con\nrecordatorios automáticos',
     stat2: '48h + 2h',
     stat2Label: 'Ventanas de recordatorio\nque maximizan la confirmación',
-    insight: 'Los no-shows no son inevitables — son el resultado de no contactar al paciente en el momento correcto.',
-    detail: 'Shadia envía recordatorios automáticos en los momentos de mayor efectividad y solicita confirmación. Si no hay respuesta, el agente reagenda antes de que el hueco quede vacío.',
+    insight: 'Los no-shows suelen pasar por no contactar al paciente en el momento correcto.',
+    detail: 'Shadia envía recordatorios automáticos en los momentos de mayor efectividad y solicita confirmación. Si el paciente no responde, el agente reagenda antes de que el espacio quede vacío.',
   },
   {
     tag: 'Disponibilidad 24/7',
@@ -22,33 +23,33 @@ const citasSlides = [
     stat1Label: 'De citas solicitadas\nfuera del horario de atención',
     stat2: '< 30 s',
     stat2Label: 'Tiempo de confirmación\ndel agente IA',
-    insight: 'Tu agenda no para cuando tu equipo se va. Tampoco debería parar la posibilidad de agendar.',
-    detail: 'Shadia captura cada solicitud en tiempo real, consulta disponibilidad y confirma la cita en segundos — a cualquier hora, en WhatsApp. Cero llamadas perdidas, cero solicitudes ignoradas.',
+    insight: 'Tu agenda no para cuando tu equipo se va a casa. Tampoco debería parar la posibilidad de que un paciente agende.',
+    detail: 'Shadia captura cada solicitud en tiempo real, consulta disponibilidad por proveedor y confirma la cita en segundos, a cualquier hora, por WhatsApp. Bajan las llamadas perdidas y las solicitudes sin respuesta.',
   },
   {
-    tag: 'Reactivación',
+    tag: 'Lista de espera',
     stat1: '1 de 4',
-    stat1Label: 'Clientes inactivos\nque regresan con IA',
+    stat1Label: 'Espacios cancelados que se\nllenan desde la lista de espera',
     stat2: '6 meses',
-    stat2Label: 'Umbral para activar\ncampaña de reactivación',
-    insight: 'El cliente que no ha regresado en 6 meses no está perdido — solo nadie lo ha contactado.',
-    detail: 'Shadia identifica los contactos sin cita reciente y lanza mensajes de reactivación personalizados. No campañas masivas — mensajes que se sienten individuales y oportunos.',
+    stat2Label: 'Umbral para activar\nseguimiento de reactivación',
+    insight: 'Un espacio cancelado puede ir a alguien en tu lista de espera.',
+    detail: 'Cuando un paciente cancela, Shadia contacta automáticamente a quienes están en lista de espera y ofrece el nuevo horario disponible, en orden de prioridad.',
   },
   {
     tag: 'Productividad',
     stat1: '3 hrs',
-    stat1Label: 'Diarias que se recuperan\nal automatizar la gestión',
+    stat1Label: 'Diarias que recupera tu equipo\nal automatizar la agenda',
     stat2: '0',
-    stat2Label: 'Llamadas manuales\nnecesarias con Shadia activo',
-    insight: 'Cada hora que tu equipo pasa gestionando la agenda es una hora que no pasa con clientes reales.',
-    detail: 'Confirmaciones, reagendamientos, recordatorios y captura de nuevas citas — todo automatizado. Tu equipo se dedica a la atención, no a la logística.',
+    stat2Label: 'Llamadas manuales de\nconfirmación necesarias',
+    insight: 'Cada hora que tu equipo pasa gestionando la agenda es una hora que no pasa con un paciente real.',
+    detail: 'Confirmaciones, reagendamientos, recordatorios y nuevas citas quedan automatizados. Tu equipo se ocupa de atender, no de la logística de agenda.',
   },
 ];
 ---
 
 <BaseLayout
-  title="Motor de Citas IA — Agenda Automática | Shadia AI"
-  description="Automatiza citas, confirmaciones y recordatorios con IA. Tu calendario siempre lleno, sin intervención humana. Integración con Google Calendar y WhatsApp."
+  title={t('meta.appointments.title', 'es')}
+  description={t('meta.appointments.desc', 'es')}
   lang="es"
   canonical="https://shadia.ai/es/producto/citas"
   ogImage="/og/citas-es.png"
@@ -56,9 +57,9 @@ const citasSlides = [
 
 <ProductHeroSplit
   badge="Motor de Citas"
-  title="Un agente IA llena tu calendario."
-  titleAccent="Sin formularios. Sin fricción."
-  lead="El agente conversa, entiende disponibilidad y confirma la cita directamente. Agenda, confirma, reagenda y elimina no-shows — sin que tu equipo intervenga."
+  title="Un agente IA llena"
+  titleAccent="la agenda de tu clínica."
+  lead="El agente conversa con el paciente, entiende disponibilidad por proveedor y confirma la cita directamente. Agenda, confirma, reagenda y llena la lista de espera, sin que tu equipo intervenga."
   lang="es"
   source="product_citas_hero"
   hint="Sin tarjeta de crédito · Gratis para empezar"
@@ -92,12 +93,12 @@ const citasSlides = [
     </div>
     <div class="grid-3">
       {[
-        { icon: 'bot', title: 'Agenda autónoma', desc: 'El agente IA recibe la solicitud, verifica disponibilidad y confirma la cita sin intervención humana.' },
-        { icon: 'bell', title: 'Recordatorios inteligentes', desc: 'WhatsApp, SMS y email con timing óptimo. El cliente confirma con un tap. No-shows eliminados.' },
-        { icon: 'refresh-cw', title: 'Reagendamiento fácil', desc: 'El cliente puede cambiar su cita respondiendo el recordatorio. El agente actualiza el calendario automáticamente.' },
-        { icon: 'calendar', title: 'Sincronización de calendarios', desc: 'Google Calendar, Outlook, Apple Calendar — todos sincronizados en tiempo real. Sin dobles reservas.' },
-        { icon: 'zap', title: 'Reglas de disponibilidad', desc: 'Define horarios, servicios, duración, tiempos de preparación y máximo de citas simultáneas por servicio.' },
-        { icon: 'bar-chart', title: 'Reportes de ocupación', desc: 'Ve cuándo está lleno tu calendario, qué servicios se agendan más y optimiza tu disponibilidad.' },
+        { icon: 'bot', title: 'Agenda autónoma', desc: 'El agente recibe la solicitud del paciente, verifica disponibilidad por proveedor y confirma la cita sin intervención manual.' },
+        { icon: 'bell', title: 'Recordatorios inteligentes', desc: 'WhatsApp con timing óptimo. El paciente confirma con un tap. No-shows eliminados.' },
+        { icon: 'refresh-cw', title: 'Reagendamiento fácil', desc: 'El paciente puede cambiar su cita respondiendo el recordatorio. El agente actualiza el calendario automáticamente.' },
+        { icon: 'users', title: 'Lista de espera activa', desc: 'Si un espacio se cancela, Shadia contacta a la lista de espera en orden de prioridad y lo llena al instante.' },
+        { icon: 'calendar', title: 'Múltiples proveedores', desc: 'Cada médico o especialista tiene su propio calendario, servicios y disponibilidad sincronizados en tiempo real.' },
+        { icon: 'bar-chart', title: 'Reportes de ocupación', desc: 'Ve cuándo está lleno tu calendario, qué proveedores tienen más demanda y optimiza la disponibilidad.' },
       ].map(f => (
         <div class="card-feature">
           <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={f.icon} size={20} /></div>
@@ -119,7 +120,7 @@ const citasSlides = [
       <div style="padding:1.75rem;background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.15);border-radius:18px;">
         <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#ef4444;margin-bottom:1.25rem;">Sin Shadia</div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
-          {['Clientes esperando confirmación por horas', 'No-shows sin recordatorio previo', 'Doble booking por error humano', 'Recepcionista tomando citas manualmente', 'Sin datos de ocupación ni optimización'].map(item => (
+          {['Pacientes esperando confirmación por horas', 'No-shows sin recordatorio previo', 'Doble booking entre proveedores por error humano', 'Recepción tomando citas manualmente por teléfono', 'Espacios cancelados que quedan vacíos'].map(item => (
             <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink-3);">
               <span style="color:#ef4444;flex-shrink:0;">✗</span>{item}
             </li>
@@ -129,7 +130,7 @@ const citasSlides = [
       <div style="padding:1.75rem;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.2);border-radius:18px;">
         <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#22c55e;margin-bottom:1.25rem;">Con Motor de Citas</div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
-          {['Cita confirmada en 3 minutos por WhatsApp', '85% menos no-shows con recordatorios automáticos', 'Cero doble booking, calendario en tiempo real', 'Tu equipo enfocado en atender, no en agendar', 'Reportes de ocupación y tendencias'].map(item => (
+          {['Cita confirmada en 3 minutos por WhatsApp', '85% menos no-shows con recordatorios automáticos', 'Cero doble booking, calendario por proveedor en tiempo real', 'Tu equipo enfocado en atender, no en agendar', 'Lista de espera que llena cada espacio cancelado'].map(item => (
             <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink);">
               <span style="color:var(--green);font-weight:700;flex-shrink:0;">✓</span>{item}
             </li>
@@ -144,14 +145,14 @@ const citasSlides = [
   <div class="container">
     <div class="page-section-head">
       <div class="eyebrow">Casos de Uso</div>
-      <h2 class="section-title">Perfecto para cualquier negocio con agenda</h2>
+      <h2 class="section-title">Adaptado a cómo agenda cada especialidad</h2>
     </div>
     <div class="grid-4">
       {[
-        { icon: 'heart', title: 'Clínicas y consultorios', desc: 'Citas médicas, recordatorios pre-consulta, reagendamiento automático.' },
-        { icon: 'scissors', title: 'Salones de belleza', desc: 'Servicios múltiples, diferentes duraciones, evita espacios vacíos.' },
-        { icon: 'graduation-cap', title: 'Academias y tutores', desc: 'Clases individuales, grupos, sesiones de prueba gratuitas.' },
-        { icon: 'activity', title: 'Fitness y bienestar', desc: 'Entrenamientos personales, clases grupales, evaluaciones iniciales.' },
+        { icon: 'stethoscope', title: 'Clínicas generales', desc: 'Consultas, seguimientos y controles con recordatorios pre-consulta.' },
+        { icon: 'tooth', title: 'Odontología', desc: 'Tratamientos de varias sesiones, limpiezas y agenda por sillón.' },
+        { icon: 'heart', title: 'Salud mental', desc: 'Sesiones recurrentes semanales o quincenales con reagendamiento sin fricción.' },
+        { icon: 'building', title: 'Clínicas multi-proveedor', desc: 'Calendarios independientes por médico, sincronizados en una sola vista.' },
       ].map(u => (
         <div class="card-feature">
           <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={u.icon} size={20} /></div>
@@ -171,11 +172,11 @@ const citasSlides = [
     </div>
     <div style="display:flex;flex-direction:column;gap:1rem;">
       {[
-        { n: '1', title: 'El cliente solicita cita por WhatsApp', desc: 'El agente detecta la intención, solicita fecha/servicio y verifica disponibilidad en tiempo real.' },
-        { n: '2', title: 'Confirmación instantánea', desc: 'Se confirma la cita, se envía resumen y se añade al calendario del cliente y al tuyo.' },
-        { n: '3', title: 'Recordatorio 24h antes', desc: 'WhatsApp o email automático con todos los detalles. El cliente responde S/N para confirmar.' },
-        { n: '4', title: 'Recordatorio 1h antes', desc: 'Segundo recordatorio con dirección, indicaciones y opción de reagendar si es necesario.' },
-        { n: '5', title: 'Post-cita y seguimiento', desc: 'Encuesta de satisfacción y recordatorio de próxima cita. El ciclo se repite sin esfuerzo.' },
+        { n: '1', title: 'El paciente solicita cita por WhatsApp', desc: 'El agente detecta la intención, pregunta por proveedor/servicio preferido y verifica disponibilidad en tiempo real.' },
+        { n: '2', title: 'Confirmación instantánea', desc: 'Se confirma la cita, se envía el resumen y se añade al calendario del paciente y del proveedor.' },
+        { n: '3', title: 'Recordatorio 24h antes', desc: 'Mensaje automático por WhatsApp con todos los detalles. El paciente responde para confirmar.' },
+        { n: '4', title: 'Recordatorio 2h antes', desc: 'Segundo recordatorio con dirección, indicaciones y opción de reagendar si es necesario.' },
+        { n: '5', title: 'Cancelación y lista de espera', desc: 'Si el paciente cancela, Shadia libera el espacio y lo ofrece de inmediato a quien está en lista de espera.' },
       ].map(s => (
         <div style="display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--surface-raised);border:1px solid var(--border);border-radius:14px;">
           <div style="width:36px;height:36px;border-radius:50%;background:#0EA5E9;color:#fff;font-weight:700;font-size:0.875rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;">{s.n}</div>
@@ -224,10 +225,10 @@ const citasSlides = [
       <h2 class="section-title">Preguntas frecuentes</h2>
     </div>
     {[
-      { q: '¿Funciona con Google Calendar?', a: 'Sí. Sincronización bidireccional en tiempo real. Las citas aparecen en tu Google Calendar automáticamente y los bloqueos del calendario se respetan.' },
-      { q: '¿Puedo tener múltiples servicios con duraciones distintas?', a: 'Sí. Defines cada servicio con su duración, precio, tiempo de preparación y disponibilidad específica.' },
-      { q: '¿Qué pasa si el cliente necesita cancelar?', a: 'El agente gestiona la cancelación, libera el slot y puede ofrecer una nueva fecha de inmediato. Tú recibes notificación en tiempo real.' },
-      { q: '¿Funciona para negocios con múltiples empleados?', a: 'Sí. Cada empleado tiene su propio calendario y disponibilidad. El agente distribuye las citas de forma inteligente.' },
+      { q: '¿Funciona con Google Calendar?', a: 'Sí. Sincronización bidireccional en tiempo real. Las citas aparecen en el Google Calendar de cada proveedor automáticamente y los bloqueos se respetan.' },
+      { q: '¿Puedo tener servicios con duraciones distintas por proveedor?', a: 'Sí. Defines cada servicio con su duración, preparación necesaria y disponibilidad específica por médico o especialista.' },
+      { q: '¿Qué pasa si el paciente necesita cancelar?', a: 'El agente gestiona la cancelación, libera el espacio y lo ofrece de inmediato a quien esté en la lista de espera. Tú recibes notificación en tiempo real.' },
+      { q: '¿Funciona con múltiples médicos o proveedores?', a: 'Sí. Cada proveedor tiene su propio calendario y disponibilidad. El agente distribuye las citas de forma inteligente entre todos.' },
     ].map(faq => (
       <div class="faq-item">
         <div style="padding:1.25rem 0;font-weight:600;font-size:1rem;color:var(--ink);">{faq.q}</div>
@@ -240,9 +241,9 @@ const citasSlides = [
 <PageCta
   lang="es"
   source="product_citas_cta"
-  title="Tu calendario lleno"
-  titleAccent="empieza hoy"
-  lead="Activa el motor de citas y deja que la IA llene tu agenda automáticamente."
+  title="La agenda de tu clínica,"
+  titleAccent="llena desde hoy."
+  lead="Activa el motor de citas y deja que la IA agende, confirme y reagende pacientes automáticamente."
 />
 
 </BaseLayout>

@@ -1,20 +1,48 @@
 ---
 import ComparePage from '../../../components/ComparePage.astro';
+
 const compareRows = [
-  { feature: 'WhatsApp scheduling', shadia: true, competitor: false },
-  { feature: 'Conversational AI agents', shadia: true, competitor: false },
-  { feature: 'Answers questions automatically', shadia: true, competitor: false },
-  { feature: 'WhatsApp reminders', shadia: true, competitor: 'Email only' },
-  { feature: 'Unified omnichannel conversations', shadia: true, competitor: false },
-  { feature: 'Post-appointment sales & follow-up', shadia: true, competitor: false },
-  { feature: 'In-chat rescheduling', shadia: true, competitor: 'Link only' },
-  { feature: 'No external link needed', shadia: true, competitor: false },
-  { feature: 'Accessible pricing', shadia: 'From $49/mo', competitor: '$10–20/user/mo' },
-  { feature: 'Official WhatsApp Business API', shadia: true, competitor: false },
+  { feature: 'Scheduling in patient chat', shadia: true, competitor: false },
+  { feature: 'AI receptionist', shadia: true, competitor: false },
+  { feature: 'Answers patient questions', shadia: true, competitor: false },
+  { feature: 'Chat reminders', shadia: true, competitor: 'Email mainly' },
+  { feature: 'Waitlist / fill open slots', shadia: true, competitor: false },
+  { feature: 'Clinical sessions & summaries', shadia: true, competitor: false },
+  { feature: 'Reschedule in conversation', shadia: true, competitor: 'Via link' },
+  { feature: 'No external booking link required', shadia: true, competitor: false },
 ];
+
 const faqs = [
-  { q: 'Why use Shadia instead of Calendly?', a: "Calendly is great for scheduling virtual meetings between professionals. But it doesn't talk to your customers, answer questions, close sales or manage operations. Shadia does all of that — and also books appointments." },
-  { q: 'Can Shadia fully replace Calendly?', a: "For most consumer-facing businesses: yes. Shadia books, confirms and manages all communication from WhatsApp without customers needing to open an external link." },
+  {
+    q: 'Why use Shadia instead of Calendly for a clinic?',
+    a: 'Calendly is a booking link. Shadia talks to patients, answers questions, confirms, fills gaps, and documents visits. It is practice operations, not just a calendar.',
+  },
+  {
+    q: 'Can Shadia replace Calendly for patient appointments?',
+    a: 'For most clinics, yes. Patients confirm in chat without opening an external form.',
+  },
 ];
 ---
-<ComparePage lang="en" competitor="Calendly" competitorSlug="calendly" title="Shadia AI vs Calendly — Smart WhatsApp scheduling vs booking links | Shadia AI" description="Calendly generates links for clients to book. Shadia AI books directly on WhatsApp with AI. A fundamentally different experience for customer-facing businesses." canonical="https://shadia.ai/en/compare/vs-calendly" ogImage="/og/compare-calendly-en.png" heroHeadline="Shadia AI vs Calendly — AI agent vs booking links" heroSubheadline="Calendly is a link your clients have to open. Shadia is the agent that talks to them, understands what they need and books without them ever leaving WhatsApp." verdictPoints={['Shadia books via WhatsApp; Calendly requires an external link','Shadia has AI that answers questions; Calendly just shows a calendar','Automatic WhatsApp reminders vs email only','Shadia manages the entire operation; Calendly only handles scheduling','Much lower price for full teams']} compareRows={compareRows} detailedText={`<h2>What does Calendly do well?</h2><p>Calendly is excellent for independent professionals and B2B teams that need to coordinate meetings with other professionals. It's the standard tool for booking demos, sales calls and remote team meetings.</p><h2>Why Calendly isn't enough for customer-facing businesses</h2><p>Calendly assumes your customer is willing to open a link, navigate your availability and fill out a form. But the reality for health, beauty, education or direct sales businesses is different: the client is already on WhatsApp and doesn't want to leave.</p><p>Shadia serves clients where they already are. It answers questions, handles objections, presents time slots in the conversation and confirms the appointment — all in the same WhatsApp chat, without friction.</p><h2>The practical difference</h2><p>With Calendly, you send a link. The client may or may not open it. With Shadia, the client types "I want an appointment" to your WhatsApp number and the agent confirms in 3 messages.</p>`} migrationText="If you use Calendly, Shadia can import your appointment types and availability. In under 2 hours, your agent will be booking appointments directly on WhatsApp." faqs={faqs} />
+
+<ComparePage
+  lang="en"
+  competitor="Calendly"
+  competitorSlug="calendly"
+  title="Shadia AI vs Calendly. Clinic scheduling in chat | Shadia AI"
+  description="Calendly uses booking links. Shadia schedules patients in chat with AI, confirms visits, fills gaps, and documents sessions."
+  canonical="https://shadia.ai/en/compare/vs-calendly"
+  ogImage="/og/compare-calendly-en.png"
+  heroHeadline="Shadia AI vs Calendly. Book in chat, not a link"
+  heroSubheadline="Calendly assumes patients will open a link. Shadia schedules, confirms, and follows up where patients already message."
+  verdictPoints={[
+    'Shadia books in chat; Calendly needs an external link',
+    'AI receptionist answers questions; Calendly only shows slots',
+    'Native reminders and waitlist',
+    'Clinical sessions on the same platform',
+    'Built for clinics, not just B2B meetings',
+  ]}
+  compareRows={compareRows}
+  detailedText={`<h2>What Calendly does well</h2><p>Calendly is excellent for coordinating meetings between professionals. Simple and universal for demos and calls.</p><h2>Why clinics need more</h2><p>Patients already message your practice. Sending them to a link adds friction and no-shows.</p><p>Shadia confirms, reschedules, and fills gaps in conversation, and documents visits with clinical sessions.</p>`}
+  migrationText="Import your appointment types and availability. Soon your AI receptionist can book in chat."
+  faqs={faqs}
+/>

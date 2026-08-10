@@ -43,14 +43,18 @@ const softwareAppSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'Shadia AI',
-  applicationCategory: 'BusinessApplication',
+  applicationCategory: 'HealthApplication',
   operatingSystem: 'Web',
   description:
-    'AI-native conversational operations platform. Autonomous AI agents on WhatsApp and social channels, plus native appointment scheduling for growing businesses.',
+    'AI for clinics: clinical session notes and patient summaries, AI receptionist, and native appointment scheduling on WhatsApp and messaging channels.',
   offers: { '@type': 'Offer', priceCurrency: 'USD' },
   areaServed: ['DO', 'MX', 'CO', 'AR', 'CL', 'PE', 'EC', 'US'],
   inLanguage: ['es', 'en'],
   url: siteUrl,
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Healthcare clinics and medical practices',
+  },
 };
 
 const schemas = jsonLd

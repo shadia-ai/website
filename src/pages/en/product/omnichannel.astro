@@ -6,21 +6,22 @@ import PageBand from '../../../components/PageBand.astro';
 import PageCta from '../../../components/PageCta.astro';
 import { InboxFloatPreview } from '../../../components/FloatWidgets.tsx';
 import { Check } from 'lucide-react';
+import { t } from '../../../i18n/utils';
 
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'Do Shadia AI agents work with the official WhatsApp API?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Shadia uses the official WhatsApp Business API, ensuring your number is never blocked and you have access to all premium features.' } },
-    { '@type': 'Question', name: 'How many team members can collaborate on conversations?', acceptedAnswer: { '@type': 'Answer', text: 'PRO plan includes up to 5 members. ULTRA enterprise supports custom seat counts. Every member sees the full conversation history and can collaborate with notes.' } },
-    { '@type': 'Question', name: 'Does the AI replace my team?', acceptedAnswer: { '@type': 'Answer', text: 'No. The AI agent handles volume and escalates to the right human. Your team decides which responses to approve and when to step in.' } },
+    { '@type': 'Question', name: 'Does Shadia work with the official WhatsApp Business API?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Shadia uses the official WhatsApp Business API, ensuring your practice number is never blocked and you have access to all premium features.' } },
+    { '@type': 'Question', name: 'How many team members can collaborate on conversations?', acceptedAnswer: { '@type': 'Answer', text: 'PRO includes up to 8 team members. ULTRA supports unlimited seats via add-on. Everyone sees the full patient history and can collaborate with internal notes.' } },
+    { '@type': 'Question', name: 'Does the AI replace my front desk?', acceptedAnswer: { '@type': 'Answer', text: 'No. The agent handles routine volume and escalates to the right team member. Your staff decides which replies to approve and when to step in.' } },
   ],
 };
 ---
 
 <BaseLayout
-  title="Omnichannel AI Agents — Customer service on every channel | Shadia AI"
-  description="Deploy AI agents on WhatsApp, Instagram, Messenger, and TikTok. Autonomous resolution with smart escalation and full context for your team."
+  title={t('meta.omnichannel.title', 'en')}
+  description={t('meta.omnichannel.desc', 'en')}
   lang="en"
   canonical="https://shadia.ai/en/product/omnichannel"
   ogImage="/og/omnichannel-en.png"
@@ -28,10 +29,10 @@ const faqSchema = {
 >
 
 <ProductHeroSplit
-  badge="Omnichannel"
-  title="AI agents on"
-  titleAccent="every channel."
-  lead="One agent across WhatsApp, Instagram, Messenger, and TikTok. It resolves routine volume; your team steps in with full history — no switching apps, no repeated questions."
+  badge="Clinical Omnichannel"
+  title="One agent, full"
+  titleAccent="patient context."
+  lead="WhatsApp, Instagram, and Messenger in one clinical inbox. The agent handles routine questions; your team steps in with the full history, without hopping apps or making the patient repeat themselves."
   lang="en"
   source="product_omnichannel_hero"
   hint="No credit card required · Free to start"
@@ -44,8 +45,8 @@ const faqSchema = {
     <div class="page-stats-row">
       {[
         { v: '< 3 min', l: 'Time to first response' },
-        { v: '94%', l: 'Messages resolved by AI' },
-        { v: '0', l: 'Missed conversations' },
+        { v: '90%+', l: 'Messages resolved by the agent' },
+        { v: '0', l: 'Missed patient conversations' },
         { v: '24/7', l: 'AI agent availability' },
       ].map(s => (
         <div>
@@ -61,21 +62,21 @@ const faqSchema = {
   <div class="container">
     <div class="page-section-head">
       <div class="eyebrow">Capabilities</div>
-      <h2 class="section-title">Everything your AI agents need at scale</h2>
+      <h2 class="section-title">Everything your front desk needs at scale</h2>
     </div>
     <div class="grid-3">
       {[
-        { icon: 'zap', title: 'AI-assisted responses', desc: 'Your agent suggests replies based on client history. Approve or edit with one click. Your team responds 5x faster.' },
-        { icon: 'users', title: 'Team collaboration', desc: 'Assign conversations, leave internal notes, see who is handling what. Never two agents responding to the same client.' },
-        { icon: 'bar-chart', title: 'Contact intelligence', desc: 'Full contact history, tags, notes and lifecycle tracking — built in, no external contact tools required.' },
-        { icon: 'search', title: 'Instant search', desc: 'Find any message in seconds. Filter by channel, agent, tag, date or search inside message content.' },
-        { icon: 'bot', title: 'Smart automation', desc: 'Automatic responses for FAQs, welcome messages, out-of-hours and more. Visual, no-code, configurable.' },
-        { icon: 'trending-up', title: 'Resolution analytics', desc: 'Real-time metrics: response times, resolution rates, satisfaction and performance by member and channel.' },
+        { icon: 'zap', title: 'Replies with patient context', desc: 'Your agent suggests replies using the patient\'s visit and message history. Approve or edit in one click.' },
+        { icon: 'users', title: 'Team collaboration', desc: 'Assign conversations to front desk, nursing, or the right clinician. Never two people replying to the same patient.' },
+        { icon: 'bar-chart', title: 'Patient history', desc: 'Appointments, messages, and notes centralized per patient, no external tools or spreadsheets.' },
+        { icon: 'search', title: 'Instant search', desc: 'Find any conversation in seconds. Filter by channel, patient, tag, or date.' },
+        { icon: 'bot', title: 'Routine automation', desc: 'Automatic replies for FAQs, welcome messages, after-hours, and visit prep. No code required.' },
+        { icon: 'trending-up', title: 'Resolution analytics', desc: 'Response times, resolution rate, and volume by channel, in real time.' },
       ].map(f => (
         <div class="card-feature">
           <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={f.icon} size={20} /></div>
-          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">{f.title}</h3>
-          <p style="font-size:0.875rem;line-height:1.65;">{f.desc}</p>
+          <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">{f.title}</h3>
+          <p style="font-size:0.875rem;line-height:1.65;color:var(--ink-3);">{f.desc}</p>
         </div>
       ))}
     </div>
@@ -92,7 +93,7 @@ const faqSchema = {
       <div style="padding:1.75rem;background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.15);border-radius:18px;">
         <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#ef4444;margin-bottom:1.25rem;">Without Shadia</div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
-          {['Messages lost across WhatsApp, Instagram and Email', 'Slow responses that lose sales', 'No centralized client history', 'Team confusion about who handles what', 'Impossible to scale without hiring more staff'].map(item => (
+          {['Patient messages lost between WhatsApp and Instagram', 'Slow responses that turn into missed appointments', 'No centralized patient history', 'Team confusion about who is handling what', 'Impossible to scale without hiring more front desk staff'].map(item => (
             <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink-3);">
               <span style="color:#ef4444;flex-shrink:0;">✗</span>{item}
             </li>
@@ -102,7 +103,7 @@ const faqSchema = {
       <div style="padding:1.75rem;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.2);border-radius:18px;">
         <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#22c55e;margin-bottom:1.25rem;">With Shadia agents</div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
-          {['All channels connected, zero missed messages', 'AI responds in seconds, 24/7 without intervention', 'Full customer history in one place', 'Auto assignment + internal team notes', 'Scale without hiring: agents handle the volume'].map(item => (
+          {['Every channel connected, zero missed messages', 'The agent responds in seconds, 24/7', 'Full patient history in one place', 'Automatic assignment + internal team notes', 'Scale without hiring: the agent absorbs the volume'].map(item => (
             <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink);">
               <Check size={15} style={{ color: '#22c55e', flexShrink: 0, marginTop: '2px' }} />{item}
             </li>
@@ -121,10 +122,10 @@ const faqSchema = {
     </div>
     <div style="display:flex;flex-direction:column;gap:1.5rem;">
       {[
-        { n: '1', title: 'Connect your channels', desc: 'WhatsApp Business API, Instagram, Facebook, Email — all in one click. No complex technical setup.' },
-        { n: '2', title: 'Configure your AI agent', desc: 'Give your agent business context, common responses and escalation rules. Plain language, no code.' },
-        { n: '3', title: 'Invite your team', desc: 'Add agents, define roles and permissions. Each person sees only what they need.' },
-        { n: '4', title: 'AI starts working', desc: 'From the first message, your agent responds, classifies and escalates. Your team approves and refines.' },
+        { n: '1', title: 'Connect your channels', desc: 'WhatsApp Business API, Instagram, and Messenger, all in one click. No complex technical setup.' },
+        { n: '2', title: 'Configure your agent', desc: 'Give it your practice\'s context: specialty, hours, policies, and escalation rules. Plain language, no code.' },
+        { n: '3', title: 'Invite your team', desc: 'Front desk, nursing, and clinicians, each with the role and permissions they need.' },
+        { n: '4', title: 'The agent starts working', desc: 'From the first message, it replies, books, and escalates. Your team approves and refines.' },
       ].map(s => (
         <div class="card" style="display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;">
           <div style="width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">{s.n}</div>
@@ -142,9 +143,9 @@ const faqSchema = {
   <div class="container page-section-head" style="max-width:760px;">
     <div class="eyebrow">Integrations</div>
     <h2 class="section-title">Connect with the tools you already use</h2>
-    <p class="lead-sm" style="margin-bottom:2.5rem;">Shadia integrates natively with the most popular systems. No Zapier, no code.</p>
+    <p class="lead-sm" style="margin-bottom:2.5rem;">Shadia integrates natively with the systems clinics already run on. No Zapier, no code.</p>
     <div class="product-channel-bar">
-      {['WhatsApp Business API', 'Google Workspace', 'HubSpot', 'Salesforce', 'Calendly', 'Stripe', 'Shopify', 'Notion', 'Zapier', 'Slack', 'Twilio', 'Mailchimp'].map(int => (
+      {['WhatsApp Business API', 'Google Calendar', 'Google Workspace', 'Zoom', 'Calendly', 'Twilio', 'Slack', 'Notion', 'Zapier'].map(int => (
         <span class="channel-badge">{int}</span>
       ))}
     </div>
@@ -158,10 +159,10 @@ const faqSchema = {
       <h2 class="section-title">Frequently asked questions</h2>
     </div>
     {[
-      { q: 'Does it work with the official WhatsApp API?', a: 'Yes. We use the official WhatsApp Business API, ensuring your number is never blocked and you have full access to premium features.' },
-      { q: 'How many team members can collaborate?', a: 'PRO includes up to 5 members. ULTRA supports custom seat counts. Every member sees full history and can leave notes.' },
-      { q: 'Does the AI replace my support team?', a: 'No. The AI agent handles volume and escalates to the right human. Your team decides which responses to approve and when to intervene.' },
-      { q: 'What happens when a client writes outside business hours?', a: 'Your AI agent responds 24/7. You configure what it handles alone and what waits for the next business day.' },
+      { q: 'Does it work with the official WhatsApp API?', a: 'Yes. We use the official WhatsApp Business API, ensuring your practice number is never blocked and you have full access to premium features.' },
+      { q: 'How many team members can collaborate?', a: 'PRO includes up to 8 members. ULTRA supports unlimited seats via add-on. Everyone sees the full patient history and can leave internal notes.' },
+      { q: 'Does the AI replace my front desk?', a: 'No. The agent handles routine volume and escalates to the right team member. Your staff decides what to approve and when to step in.' },
+      { q: 'What happens when a patient writes outside business hours?', a: 'Your agent responds 24/7. You configure what it can resolve alone and what waits for the next business day.' },
     ].map(faq => (
       <div class="faq-item">
         <div style="padding:1.25rem 0;font-weight:600;font-size:1rem;color:var(--ink);">{faq.q}</div>
@@ -174,9 +175,9 @@ const faqSchema = {
 <PageCta
   lang="en"
   source="product_omnichannel_cta"
-  title="Deploy your agents"
+  title="Deploy your front desk"
   titleAccent="on every channel."
-  lead="Connect WhatsApp, Instagram, Messenger, and TikTok today — one agent, consistent resolution."
+  lead="Connect WhatsApp, Instagram, and Messenger. One inbox, one history per patient."
 />
 
 </BaseLayout>

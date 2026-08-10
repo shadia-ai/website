@@ -19,8 +19,8 @@ interface Props {
 
 export default function IndustryCarousel({
   slides,
-  color = '#5B4FA8',
-  colorBg = 'rgba(91,79,168,0.08)',
+  color = '#0F766E',
+  colorBg = 'rgba(15,118,110,0.08)',
   eyebrow = 'Por los números',
 }: Props) {
   const [active, setActive] = useState(0);

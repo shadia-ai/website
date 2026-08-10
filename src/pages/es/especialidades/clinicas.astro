@@ -1,0 +1,8 @@
+---
+import IndustryPageLayout from '../../../components/IndustryPageLayout.astro';
+import { getSpecialtyPage } from '../../../lib/specialty-pages';
+
+const page = getSpecialtyPage('es', 'clinics');
+---
+
+<IndustryPageLayout {...page} />

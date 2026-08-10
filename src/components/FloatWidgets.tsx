@@ -1,5 +1,5 @@
 import { useState, useEffect, type ReactNode } from 'react';
-import { Calendar, Bell, Check } from 'lucide-react';
+import { Calendar, Bell, Check, Mic, FileText } from 'lucide-react';
 
 const AiHint = ({ children }: { children: ReactNode }) => (
   <div className="float-ai-hint">{children}</div>
@@ -16,27 +16,27 @@ export function HeroFloatComposition({ lang = 'es' }: { lang?: 'es' | 'en' }) {
   const hints = lang === 'es'
     ? [
         'La IA está confirmando una cita por WhatsApp…',
-        'La IA está enviando recordatorio de cita…',
+        'La IA está generando el resumen de la sesión…',
         'La IA está respondiendo un DM de Instagram…',
       ]
     : [
-        'AI is resolving a shipping inquiry…',
-        'AI is confirming a booking in chat…',
-        'AI is drafting a follow-up for a stalled ticket…',
+        'AI is confirming a patient appointment…',
+        'AI is drafting the visit summary…',
+        'AI is answering a new-patient inquiry…',
       ];
 
   const cards = lang === 'es'
     ? {
-        live: { label: 'WhatsApp activo', sub: '12 chats hoy · 2 citas nuevas' },
-        wa: { name: 'María R.', msg: '¿Tienen cita para mañana en la tarde?', status: 'Cita confirmada — 4:00 PM' },
+        live: { label: 'Clínica activa', sub: '12 chats hoy · 2 citas nuevas' },
+        wa: { name: 'María R.', msg: '¿Tienen cita para mañana en la tarde?', status: 'Cita confirmada, 4:00 PM' },
         cal: { label: 'Agenda de hoy', count: 'Consultorio casi lleno' },
-        follow: { label: 'Seguimiento', sub: 'Cliente de Instagram · respondido' },
+        follow: { label: 'Resumen enviado', sub: 'Paciente · versión WhatsApp' },
       }
     : {
-        live: { label: 'Agent live', sub: '47 conversations today · 31 resolved by AI' },
-        wa: { name: 'Sarah M.', msg: 'Where is my order #4821?', status: 'Shipped — arrives Thursday' },
-        cal: { label: 'Queue health', count: '4 awaiting human review' },
-        follow: { label: 'Escalation', sub: 'Billing issue · routed to Tier 2' },
+        live: { label: 'Practice live', sub: '28 chats today · 9 bookings confirmed' },
+        wa: { name: 'Sarah M.', msg: 'Can I reschedule Friday?', status: 'Confirmed. Fri 3:30 PM' },
+        cal: { label: "Today's schedule", count: 'Nearly full · 1 open slot' },
+        follow: { label: 'Summary shared', sub: 'Patient · chat version sent' },
       };
 
   return (
@@ -95,14 +95,14 @@ export function HeroFloatComposition({ lang = 'es' }: { lang?: 'es' | 'en' }) {
 export function InboxFloatPreview({ lang = 'es' }: { lang?: 'es' | 'en' }) {
   const items = lang === 'es'
     ? [
-        { ch: 'WhatsApp', color: '#25D366', name: 'Ana P.', preview: '¿Cuánto cuesta la consulta?', ai: 'La IA está cotizando y ofreciendo cita…' },
+        { ch: 'WhatsApp', color: '#25D366', name: 'Ana P.', preview: '¿Cuánto cuesta la consulta?', ai: 'La IA está respondiendo y ofreciendo cita…' },
         { ch: 'WhatsApp', color: '#25D366', name: 'Luis M.', preview: 'Necesito cambiar mi cita', ai: 'La IA está reagendando…' },
         { ch: 'Instagram', color: '#E1306C', name: 'Valentina S.', preview: '¿Tienen disponible hoy?', ai: 'La IA está respondiendo el DM…' },
       ]
     : [
-        { ch: 'WhatsApp', color: '#25D366', name: 'James T.', preview: 'Where is order #4821?', ai: 'AI pulled tracking — resolved' },
-        { ch: 'Messenger', color: '#0099FF', name: 'Emily R.', preview: 'I need to change my subscription', ai: 'AI is updating billing…' },
-        { ch: 'Instagram', color: '#E1306C', name: 'Mike D.', preview: 'Refund policy for last purchase?', ai: 'AI answered from knowledge base…' },
+        { ch: 'WhatsApp', color: '#25D366', name: 'Sarah M.', preview: 'How much is the consultation?', ai: 'AI is replying and offering a time slot…' },
+        { ch: 'WhatsApp', color: '#25D366', name: 'James T.', preview: 'I need to change my appointment', ai: 'AI is rescheduling…' },
+        { ch: 'Instagram', color: '#E1306C', name: 'Emily R.', preview: 'Do you have anything open today?', ai: 'AI is replying to the DM…' },
       ];
 
   return (
@@ -148,7 +148,7 @@ export function AppointmentsFloatComposition({ lang = 'es' }: { lang?: 'es' | 'e
         liveSub: '6 citas hoy · 2 pendientes de confirmar',
         waName: 'Carlos M.',
         waMsg: '¿Hay espacio el viernes en la tarde?',
-        waStatus: 'Cita confirmada — Vie 4:00 PM',
+        waStatus: 'Cita confirmada. Vie 4:00 PM',
         week: 'Esta semana',
         reminder: 'Recordatorio 48h',
         reminderSub: '13 confirmaciones automáticas',
@@ -166,7 +166,7 @@ export function AppointmentsFloatComposition({ lang = 'es' }: { lang?: 'es' | 'e
         liveSub: '6 appointments today · 2 awaiting confirm',
         waName: 'James T.',
         waMsg: 'Any openings Friday afternoon?',
-        waStatus: 'Confirmed — Fri 4:00 PM',
+        waStatus: 'Confirmed. Fri 4:00 PM',
         week: 'This week',
         reminder: '48h reminder',
         reminderSub: '13 auto-confirmed',
@@ -252,7 +252,7 @@ export function AppointmentsFloatComposition({ lang = 'es' }: { lang?: 'es' | 'e
   );
 }
 
-/* ─── Calendar preview (compact list — industry pages) ─────────────── */
+/* ─── Calendar preview (compact list, industry pages) ─────────────── */
 export function CalendarFloatPreview({ lang = 'es' }: { lang?: 'es' | 'en' }) {
   const slots = lang === 'es'
     ? [
@@ -315,7 +315,7 @@ export function ChannelFloatPreview({
         status: 'en línea · IA activa',
         msgs: [
           { who: 'Cliente', text: '¿Tienen disponibilidad el viernes por la tarde?', time: '10:02' },
-          { who: 'Shadia', text: 'Sí — tengo 4:00 PM y 6:30 PM. ¿Cuál prefieres?', time: '10:02', ai: true },
+          { who: 'Shadia', text: 'Sí, tengo 4:00 PM y 6:30 PM. ¿Cuál prefieres?', time: '10:02', ai: true },
           { who: 'Cliente', text: '4:00 PM está perfecto', time: '10:03' },
           { who: 'Shadia', text: 'Listo. Cita confirmada y recordatorio programado.', time: '10:03', ai: true },
         ],
@@ -325,7 +325,7 @@ export function ChannelFloatPreview({
         status: 'online · AI active',
         msgs: [
           { who: 'Customer', text: 'Do you have anything open Friday afternoon?', time: '10:02' },
-          { who: 'Shadia', text: 'Yes — 4:00 PM and 6:30 PM are open. Which works?', time: '10:02', ai: true },
+          { who: 'Shadia', text: 'Yes, 4:00 PM and 6:30 PM are open. Which works?', time: '10:02', ai: true },
           { who: 'Customer', text: '4 PM works', time: '10:03' },
           { who: 'Shadia', text: 'Done. Appointment confirmed with reminder scheduled.', time: '10:03', ai: true },
         ],
@@ -365,6 +365,103 @@ export function ChannelFloatPreview({
   );
 }
 
+/* ─── Clinical sessions product hero ──────────────────────────────── */
+export function SessionFloatComposition({ lang = 'es' }: { lang?: 'es' | 'en' }) {
+  const [active, setActive] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setActive(i => (i + 1) % 3), 3000);
+    return () => clearInterval(t);
+  }, []);
+
+  const hints = lang === 'es'
+    ? [
+        'Grabando consulta… generando nota clínica',
+        'Actualizando expediente del paciente…',
+        'Enviando resumen al paciente por WhatsApp…',
+      ]
+    : [
+        'Recording visit… drafting clinical note',
+        'Updating the patient chart…',
+        'Sharing patient summary on chat…',
+      ];
+
+  const copy = lang === 'es'
+    ? {
+        live: 'Sesión en curso',
+        liveSub: 'Dr. Pérez · Consulta de seguimiento',
+        noteTitle: 'Nota clínica',
+        noteBody: 'Paciente refiere mejoría. Ajusta dosis. Control en 4 semanas.',
+        patientTitle: 'Resumen paciente',
+        patientBody: 'Hoy revisamos tu tratamiento. Próxima cita en 4 semanas.',
+        waStatus: 'Resumen enviado por WhatsApp',
+        pulse: 'Audio capturado',
+      }
+    : {
+        live: 'Session in progress',
+        liveSub: 'Dr. Perez · Follow-up visit',
+        noteTitle: 'Clinical note',
+        noteBody: 'Patient reports improvement. Adjust dose. Follow-up in 4 weeks.',
+        patientTitle: 'Patient summary',
+        patientBody: 'We reviewed your plan today. Next visit in 4 weeks.',
+        waStatus: 'Summary shared on chat',
+        pulse: 'Audio captured',
+      };
+
+  return (
+    <div className="float-composition" aria-hidden="true">
+      <div className="float-chip">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+          <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--red)', animation: 'pulse-dot 2s infinite' }} />
+          <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--ink)' }}>{copy.live}</span>
+        </div>
+        <div style={{ fontSize: '0.6875rem', color: 'var(--ink-4)', marginBottom: '0.625rem' }}>{copy.liveSub}</div>
+        <AiHint>{hints[active]}</AiHint>
+      </div>
+
+      <div className="float-chip">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.625rem' }}>
+          <Mic size={14} style={{ color: 'var(--accent)', flexShrink: 0 }} />
+          <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--ink)' }}>{copy.pulse}</span>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 3, height: 28 }}>
+          {[4, 10, 16, 8, 20, 12, 18, 6, 14, 22, 9, 15].map((h, i) => (
+            <div
+              key={i}
+              style={{
+                width: 4,
+                height: h,
+                borderRadius: 2,
+                background: 'var(--accent)',
+                opacity: 0.35 + (i % 3) * 0.2,
+                animation: `pulse-dot ${1.2 + (i % 4) * 0.15}s infinite`,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="float-chip">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem', marginBottom: '0.375rem' }}>
+          <FileText size={13} style={{ color: 'var(--accent)', flexShrink: 0 }} />
+          <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--ink)' }}>{copy.noteTitle}</span>
+        </div>
+        <p style={{ margin: 0, fontSize: '0.6875rem', color: 'var(--ink-3)', lineHeight: 1.45 }}>{copy.noteBody}</p>
+      </div>
+
+      <div className="float-chip">
+        <div style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--ink)', marginBottom: '0.375rem' }}>{copy.patientTitle}</div>
+        <p style={{ margin: '0 0 0.5rem', fontSize: '0.6875rem', color: 'var(--ink-3)', lineHeight: 1.45 }}>{copy.patientBody}</p>
+        <div style={{
+          fontSize: '0.6875rem', fontWeight: 500, padding: '0.4375rem 0.625rem', borderRadius: 10,
+          background: 'var(--accent-bg)', color: 'var(--accent)', border: '1px solid var(--accent-ring)',
+        }}>
+          ✦ {copy.waStatus}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Natural language / @shadia style ────────────────────────────── */
 export function AgentFloatPreview({ lang = 'es' }: { lang?: 'es' | 'en' }) {
   const [line, setLine] = useState(0);
@@ -386,8 +483,8 @@ export function AgentFloatPreview({ lang = 'es' }: { lang?: 'es' | 'en' }) {
   }, [prompts.length]);
 
   const labels = lang === 'es'
-    ? { title: 'Pregúntale a Shadia', sub: 'Lenguaje natural — sin workflows' }
-    : { title: 'Ask Shadia', sub: 'Plain language — no workflows' };
+    ? { title: 'Pregúntale a Shadia', sub: 'Lenguaje natural, sin workflows' }
+    : { title: 'Ask Shadia', sub: 'Plain language, no workflows' };
 
   return (
     <div className="float-preview-stack">

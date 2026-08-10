@@ -1,0 +1,48 @@
+---
+import ComparePage from '../../../components/ComparePage.astro';
+
+const compareRows = [
+  { feature: 'Disponibilidad 24/7', shadia: true, competitor: false },
+  { feature: 'Confirmaciones automáticas por WhatsApp', shadia: true, competitor: 'Manual' },
+  { feature: 'Llenado de huecos / lista de espera', shadia: true, competitor: 'Manual' },
+  { feature: 'Notas y resúmenes de sesión', shadia: true, competitor: false },
+  { feature: 'Resumen al paciente por canal', shadia: true, competitor: 'Manual' },
+  { feature: 'Historial unificado del paciente', shadia: true, competitor: 'Parcial' },
+  { feature: 'Escalación a humanos cuando hace falta', shadia: true, competitor: true },
+  { feature: 'Costo predecible al escalar', shadia: true, competitor: false },
+];
+
+const faqs = [
+  {
+    q: '¿Shadia reemplaza a la recepción humana?',
+    a: 'No. Shadia absorbe el volumen repetitivo, confirmaciones, FAQs, reagendamientos, y escala a tu equipo con contexto. Las personas se quedan con lo que requiere criterio y trato personal.',
+  },
+  {
+    q: '¿Qué pasa con casos urgentes o sensibles?',
+    a: 'Defines reglas de escalación. La IA detecta urgencias o temas delicados y avisa al humano correcto de inmediato.',
+  },
+];
+---
+
+<ComparePage
+  lang="es"
+  competitor="Recepcionista tradicional"
+  competitorSlug="recepcionista-tradicional"
+  title="Shadia AI vs recepción tradicional. Clínica con IA | Shadia AI"
+  description="Compara operar con recepción solo humana frente a Shadia: sesiones, citas y WhatsApp 24/7 para clínicas."
+  canonical="https://shadia.ai/es/comparar/vs-recepcionista-tradicional"
+  ogImage="/og/compare-default.png"
+  heroHeadline="Shadia vs recepción tradicional"
+  heroSubheadline="Tu equipo humano es irreemplazable en el trato. Shadia elimina el trabajo repetitivo que satura la agenda y el teléfono."
+  verdictPoints={[
+    'Atención 24/7 sin turnos extra',
+    'Menos no-shows con confirmaciones automáticas',
+    'Documentación de sesión sin alargar el día del médico',
+    'Handoff humano con contexto completo',
+    'Escala sin contratar recepción proporcional al volumen',
+  ]}
+  compareRows={compareRows}
+  detailedText={`<h2>Lo que la recepción humana hace mejor</h2><p>Calidez, criterio y manejo de situaciones delicadas. Ninguna IA debería pretender reemplazar eso.</p><h2>El costo oculto del modelo solo-manual</h2><p>Llamadas perdidas fuera de horario, confirmaciones inconsistentes, huecos vacíos, notas escritas de noche y pacientes sin respuesta en WhatsApp.</p><p>Shadia opera como una capa de calma: confirma, reagenda, documenta y escala, para que tu recepción y tus médicos trabajen donde más importan.</p>`}
+  migrationText="Empieza conectando WhatsApp y la agenda. En días, la IA ya confirma citas; luego activas sesiones clínicas cuando el equipo esté listo."
+  faqs={faqs}
+/>

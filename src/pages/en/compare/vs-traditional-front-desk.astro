@@ -1,0 +1,48 @@
+---
+import ComparePage from '../../../components/ComparePage.astro';
+
+const compareRows = [
+  { feature: '24/7 availability', shadia: true, competitor: false },
+  { feature: 'Automatic appointment confirmations', shadia: true, competitor: 'Manual' },
+  { feature: 'Waitlist / fill open slots', shadia: true, competitor: 'Manual' },
+  { feature: 'Session notes and summaries', shadia: true, competitor: false },
+  { feature: 'Patient summary on chat', shadia: true, competitor: 'Manual' },
+  { feature: 'Unified patient history', shadia: true, competitor: 'Partial' },
+  { feature: 'Human handoff when needed', shadia: true, competitor: true },
+  { feature: 'Predictable cost at scale', shadia: true, competitor: false },
+];
+
+const faqs = [
+  {
+    q: 'Does Shadia replace front-desk staff?',
+    a: 'No. Shadia absorbs repetitive volume, confirmations, FAQs, reschedules, and escalates to your team with context. People keep the judgment and the human touch.',
+  },
+  {
+    q: 'What about urgent or sensitive cases?',
+    a: 'You set escalation rules. The AI flags urgency or sensitive topics and alerts the right human immediately.',
+  },
+];
+---
+
+<ComparePage
+  lang="en"
+  competitor="Traditional front desk"
+  competitorSlug="traditional-front-desk"
+  title="Shadia AI vs traditional front desk. AI for clinics | Shadia AI"
+  description="Compare a people-only front desk with Shadia: clinical sessions, appointments, and always-on patient messaging."
+  canonical="https://shadia.ai/en/compare/vs-traditional-front-desk"
+  ogImage="/og/compare-default.png"
+  heroHeadline="Shadia vs traditional front desk"
+  heroSubheadline="Your team is irreplaceable for care. Shadia removes the repetitive work that fills phones, inboxes, and evenings."
+  verdictPoints={[
+    '24/7 coverage without extra shifts',
+    'Fewer no-shows with automatic confirmations',
+    'Session documentation without lengthening the clinician day',
+    'Human handoff with full context',
+    'Scale without hiring front desk proportional to volume',
+  ]}
+  compareRows={compareRows}
+  detailedText={`<h2>What humans do best</h2><p>Warmth, judgment, and sensitive situations. No AI should pretend to replace that.</p><h2>The hidden cost of manual-only ops</h2><p>Missed after-hours messages, inconsistent confirmations, empty slots, late-night charting, and patients waiting for replies.</p><p>Shadia adds a calm layer: confirm, reschedule, document, and escalate, so staff and clinicians spend time where it matters.</p>`}
+  migrationText="Start by connecting messaging and your schedule. Within days, AI can confirm appointments; turn on clinical sessions when the team is ready."
+  faqs={faqs}
+/>

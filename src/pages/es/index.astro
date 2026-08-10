@@ -1,130 +1,72 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SignupInput from '../../components/SignupInput.tsx';
-import ChannelCards from '../../components/ChannelCards.astro';
-import { HeroFloatComposition, InboxFloatPreview } from '../../components/FloatWidgets.tsx';
-import { WhatsAppIcon, InstagramIcon, MessengerIcon, WhatsAppBadge, InstagramBadge, TikTokBadge, MessengerBadge } from '../../lib/channel-icons';
-
-const channelCards = [
-  {
-    id: 'whatsapp',
-    name: 'WhatsApp',
-    featured: true,
-    desc: 'Donde tus clientes ya te escriben: citas, precios y seguimiento en el mismo chat.',
-    href: '/es/canales/whatsapp',
-    iconSvg: WhatsAppIcon,
-  },
-  {
-    id: 'instagram',
-    name: 'Instagram DMs',
-    desc: 'Convierte preguntas y comentarios en citas y ventas — aunque no estés en línea.',
-    href: '/es/canales/instagram',
-    iconSvg: InstagramIcon,
-  },
-  {
-    id: 'messenger',
-    name: 'Messenger',
-    desc: 'Pedidos y consultas de Facebook sin que tu equipo esté pegado al celular.',
-    href: '/es/canales/facebook',
-    iconSvg: MessengerIcon,
-  },
-];
+import Icon from '../../components/Icon.astro';
+import { SessionFloatComposition, InboxFloatPreview } from '../../components/FloatWidgets.tsx';
+import { t } from '../../i18n/utils';
 
 const pillars = [
-  { label: 'Omnicanal', title: 'Agentes IA en todos tus canales', desc: 'Clínicas, salones y negocios locales: contexto completo antes de que alguien de tu equipo responda.', href: '/es/producto/omnicanal' },
-  { label: 'Citas', title: 'Agenda sin links ni formularios', desc: 'Confirma, recuerda y reagenda en el chat. Menos ausencias, más espacios llenos.', href: '/es/producto/citas' },
-  { label: 'IA', title: 'Configúralo en español, sin tecnicismos', desc: 'Dile a Shadia cómo atiendes. Tu equipo sigue cerrando y cuidando la relación.', href: '/es/producto/agentes-ia' },
+  { label: 'Sesiones', title: t('pillars.sessions.title', 'es'), desc: t('pillars.sessions.desc', 'es'), href: '/es/producto/sesiones' },
+  { label: 'Recepción', title: t('pillars.receptionist.title', 'es'), desc: t('pillars.receptionist.desc', 'es'), href: '/es/producto/recepcionista' },
+  { label: 'Citas', title: t('pillars.appointments.title', 'es'), desc: t('pillars.appointments.desc', 'es'), href: '/es/producto/citas' },
 ];
 
-const steps = [
-  { n: '01', title: 'Cuéntanos tu negocio', desc: 'Horarios, servicios y cómo quieres atender por WhatsApp.' },
-  { n: '02', title: 'Activamos tu IA', desc: 'Con el tono y reglas de tu consultorio, salón o tienda.' },
-  { n: '03', title: 'Empiezas a llenar agenda', desc: 'Más citas confirmadas, menos mensajes sin responder.' },
+const workflowSteps = [
+  { n: '1', title: 'Grabar', desc: 'El médico activa Shadia al iniciar la consulta. Audio capturado de forma segura, con consentimiento.' },
+  { n: '2', title: 'Expediente', desc: 'La IA transcribe y estructura la información directamente en el historial del paciente.' },
+  { n: '3', title: 'Resumen médico', desc: 'Nota clínica clara con hallazgos, diagnóstico y plan, lista para revisión.' },
+  { n: '4', title: 'Versión paciente', desc: 'El mismo encuentro, en lenguaje simple, sin jerga médica.' },
+  { n: '5', title: 'Canal', desc: 'El resumen se envía por WhatsApp apenas el médico aprueba.' },
 ];
 
 const liveScenarios = [
-  { event: 'Un paciente cancela', reaction: 'Reagenda y avisa por WhatsApp' },
-  { event: 'Queda un hueco hoy', reaction: 'Contacta a quien estaba en espera' },
-  { event: 'Preguntan precio en Instagram', reaction: 'Responde y ofrece agendar' },
+  { event: t('live.scenario1.event', 'es'), reaction: t('live.scenario1.reaction', 'es') },
+  { event: t('live.scenario2.event', 'es'), reaction: t('live.scenario2.reaction', 'es') },
+  { event: t('live.scenario3.event', 'es'), reaction: t('live.scenario3.reaction', 'es') },
+  { event: t('live.scenario4.event', 'es'), reaction: t('live.scenario4.reaction', 'es') },
+];
+
+const specialties = [
+  { title: t('industries.clinics.title', 'es'), href: '/es/especialidades/clinicas', icon: 'stethoscope' },
+  { title: t('industries.dental.title', 'es'), href: '/es/especialidades/odontologia', icon: 'tooth' },
+  { title: t('industries.mental.title', 'es'), href: '/es/especialidades/salud-mental', icon: 'heart' },
+  { title: t('industries.aesthetics.title', 'es'), href: '/es/especialidades/estetica', icon: 'sparkles' },
+  { title: t('industries.hospitals.title', 'es'), href: '/es/especialidades/hospitales', icon: 'building' },
+];
+
+const trustItems = [
+  { icon: 'lock', title: 'Encriptación de extremo a extremo', desc: 'Conversaciones y datos clínicos protegidos en tránsito y en reposo.' },
+  { icon: 'user', title: 'Roles y permisos', desc: 'Cada miembro del equipo ve solo la información que necesita para su función.' },
+  { icon: 'clipboard', title: 'Auditoría completa', desc: 'Registro de cada interacción con timestamp y usuario responsable.' },
 ];
 ---
 
 <BaseLayout
-  title="Shadia AI — IA para tu negocio en WhatsApp | RD y LATAM"
-  description="IA que trabaja con tu equipo en República Dominicana y Latinoamérica. Citas, ventas y atención por WhatsApp e Instagram — sin workflows."
+  title={t('meta.home.title', 'es')}
+  description={t('meta.home.desc', 'es')}
   lang="es"
   canonical="https://shadia.ai/es/"
   ogImage="/og/home-es.png"
 >
 
-<section class="home-band hero-mesh section-lg" style="padding-bottom: 4rem;">
+<section class="home-band hero-mesh section-lg" style="padding-bottom: 3rem;">
   <div class="container-wide hero-split">
     <div>
       <div class="pill-badge" style="margin-bottom: 1.25rem;">
         <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent);"></span>
-        Para negocios en RD y LATAM
+        Para clínicas que viven en WhatsApp
       </div>
-      <h1 class="hero-title" style="margin-bottom: 1rem;">
-        Tu negocio en WhatsApp,<br/>
-        <span class="headline-accent">con IA a tu lado.</span>
+      <h1 class="hero-title" style="margin-bottom: 1.25rem;">
+        {t('hero.headline', 'es')}
       </h1>
-      <p class="lead" style="margin-bottom: 1rem;">
-        Shadia confirma citas, responde consultas y da seguimiento — para que tu equipo se enfoque en atender, vender y dar el trato personal.
+      <p class="lead" style="margin-bottom: 1.5rem; max-width: 32rem;">
+        {t('hero.subheadline', 'es')}
       </p>
-      <p class="lead-sm" style="margin-bottom: 1.5rem;">Más de 200 negocios en República Dominicana y la región.</p>
       <SignupInput lang="es" source="home_hero" size="lg" client:load />
-      <p class="lead-sm" style="margin-top: 0.875rem;">Sin tarjeta · Conecta WhatsApp en minutos</p>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem;">
-        <span class="channel-badge" set:html={`${WhatsAppBadge}<span style="font-weight:500;color:#25D366">WhatsApp</span>`}></span>
-        <span class="channel-badge" set:html={`${InstagramBadge}<span>Instagram</span>`}></span>
-        <span class="channel-badge" set:html={`${TikTokBadge}<span>TikTok</span>`}></span>
-        <span class="channel-badge" set:html={`${MessengerBadge}<span>Messenger</span>`}></span>
-      </div>
+      <p class="lead-sm" style="margin-top: 0.875rem;">Sin tarjeta de crédito · Configuración en 24h</p>
     </div>
     <div>
-      <HeroFloatComposition lang="es" client:load />
-    </div>
-  </div>
-</section>
-
-<section class="home-band home-band--plain section-sm">
-  <div class="container-wide">
-    <div class="section-intro" style="margin-bottom: 2.5rem;">
-      <div class="eyebrow">Canales</div>
-      <h2 class="section-title" style="margin-bottom: 0.75rem;">Donde te buscan tus clientes</h2>
-      <p class="lead-sm">En LATAM el negocio pasa por WhatsApp. Shadia unifica todo en una sola operación.</p>
-    </div>
-    <ChannelCards lang="es" channels={channelCards} />
-  </div>
-</section>
-
-<section class="home-band home-band--muted section">
-  <div class="container-wide section-split">
-    <div class="section-intro section-intro--wide">
-      <div class="eyebrow">Juntos</div>
-      <h2 class="section-title" style="margin-bottom: 1rem;">Tu equipo, con refuerzo de IA</h2>
-      <p class="lead" style="margin-bottom: 1rem;">
-        Shadia no reemplaza a tu gente. Le quita lo repetitivo para que cierren, atiendan en consultorio y cuiden la relación.
-      </p>
-      <p class="lead-sm">Ideal para clínicas, odontología, belleza, academias y comercios que viven del chat.</p>
-    </div>
-    <div class="split-grid" style="max-width: none; margin: 0;">
-      <div class="split-panel split-panel--accent">
-        <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 1rem; color: var(--accent);">Shadia responde por ti</h3>
-        <ul class="split-list">
-          <li>✦ Recordatorios y reagendos de cita</li>
-          <li>✦ Consultas de precio y disponibilidad</li>
-          <li>✦ Seguimiento a quien no confirmó</li>
-        </ul>
-      </div>
-      <div class="split-panel">
-        <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 1rem; color: var(--ink);">Tu equipo cierra</h3>
-        <ul class="split-list">
-          <li>✓ La atención en persona</li>
-          <li>✓ Casos que requieren criterio</li>
-          <li>✓ Relación y confianza del cliente</li>
-        </ul>
-      </div>
+      <SessionFloatComposition lang="es" client:load />
     </div>
   </div>
 </section>
@@ -133,8 +75,7 @@ const liveScenarios = [
   <div class="container-wide">
     <div class="section-intro" style="margin-bottom: 2.5rem;">
       <div class="eyebrow">Producto</div>
-      <h2 class="section-title" style="margin-bottom: 0.75rem;">Hecho para cómo vendes en la región</h2>
-      <p class="lead-sm">WhatsApp, agenda y IA en una sola plataforma — sin Calendly ni flujos complicados.</p>
+      <h2 class="section-title" style="margin-bottom: 0.75rem;">{t('pillars.heading', 'es')}</h2>
     </div>
     <div class="pillar-grid">
       {pillars.map(p => (
@@ -142,10 +83,34 @@ const liveScenarios = [
           <span class="pillar-card__label">{p.label}</span>
           <h3 class="pillar-card__title">{p.title}</h3>
           <p class="pillar-card__desc">{p.desc}</p>
-          <span class="pillar-card__link">Saber más →</span>
+          <span class="pillar-card__link">Ver más →</span>
         </a>
       ))}
     </div>
+  </div>
+</section>
+
+<section class="home-band home-band--muted section">
+  <div class="container-wide">
+    <div class="section-intro" style="margin-bottom: 2.5rem;">
+      <div class="eyebrow">Sesiones clínicas</div>
+      <h2 class="section-title" style="margin-bottom: 0.75rem;">De la consulta al mensaje</h2>
+      <p class="lead-sm">Shadia documenta la visita y envía el resumen. El médico revisa y aprueba; no tiene que escribir la nota desde cero.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1rem;max-width:820px;">
+      {workflowSteps.map(s => (
+        <div style="display:flex;gap:1.25rem;align-items:flex-start;padding:1.125rem 1.375rem;background:var(--bg-elevated);border:1px solid var(--border);border-radius:14px;">
+          <div style="width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:0.8125rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;">{s.n}</div>
+          <div>
+            <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.25rem;">{s.title}</h3>
+            <p style="font-size:0.9rem;color:var(--ink-3);margin:0;">{s.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <p style="margin-top: 2rem;">
+      <a href="/es/producto/sesiones" class="btn-secondary">Ver sesiones clínicas →</a>
+    </p>
   </div>
 </section>
 
@@ -155,29 +120,34 @@ const liveScenarios = [
       <InboxFloatPreview lang="es" client:load />
     </div>
     <div class="section-intro">
-      <div class="eyebrow">En acción</div>
-      <h2 class="section-title" style="margin-bottom: 1rem;">Ves todo. Intervienes cuando quieres.</h2>
-      <p class="lead">
-        Cada chat de WhatsApp e Instagram con historial claro. Apruebas solo lo que necesita un humano.
-      </p>
-      <a href="/es/producto/omnicanal" class="btn-ghost" style="margin-top: 1.5rem; display: inline-flex;">Ver agentes omnicanal →</a>
+      <div class="eyebrow">Recepción 24/7</div>
+      <h2 class="section-title" style="margin-bottom: 1rem;">{t('live.heading', 'es')}</h2>
+      <p class="lead" style="margin-bottom: 1.5rem;">{t('live.subheading', 'es')}</p>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.875rem;">
+        {liveScenarios.map(s => (
+          <div class="live-item">
+            <strong>{s.event}</strong>
+            <span>✦ {s.reaction}</span>
+          </div>
+        ))}
+      </div>
+      <a href="/es/producto/recepcionista" class="btn-ghost" style="margin-top: 1.5rem; display: inline-flex;">Ver recepcionista IA →</a>
     </div>
   </div>
 </section>
 
 <section class="home-band home-band--plain section">
   <div class="container-wide">
-    <div class="section-intro">
-      <div class="eyebrow">Siempre activo</div>
-      <h2 class="section-title" style="margin-bottom: 0.75rem;">Tu consultorio no cierra en WhatsApp</h2>
-      <p class="lead-sm">Aunque tu local esté cerrado, Shadia sigue confirmando y dando seguimiento.</p>
+    <div class="section-intro" style="margin-bottom: 2.5rem;">
+      <div class="eyebrow">Especialidades</div>
+      <h2 class="section-title" style="margin-bottom: 0.75rem;">{t('industries.heading', 'es')}</h2>
     </div>
-    <div class="live-row">
-      {liveScenarios.map(s => (
-        <div class="live-item">
-          <strong>{s.event}</strong>
-          <span>✦ {s.reaction}</span>
-        </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;">
+      {specialties.map(s => (
+        <a href={s.href} class="card-feature" style="text-decoration:none;color:inherit;text-align:center;">
+          <div style="display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--accent);"><Icon name={s.icon} size={22} /></div>
+          <h3 style="font-size:0.9375rem;font-weight:600;margin:0;">{s.title}</h3>
+        </a>
       ))}
     </div>
   </div>
@@ -185,43 +155,20 @@ const liveScenarios = [
 
 <section class="home-band home-band--muted section">
   <div class="container-wide">
-    <div class="section-intro" style="margin-bottom: 2rem;">
-      <div class="eyebrow">Cómo lo usas</div>
-      <h2 class="section-title" style="margin-bottom: 0.75rem;">Tú eliges el nivel de apoyo</h2>
+    <div class="section-intro" style="margin-bottom: 2.5rem;">
+      <div class="eyebrow">Privacidad</div>
+      <h2 class="section-title" style="margin-bottom: 0.75rem;">Datos de salud con controles claros</h2>
+      <p class="lead-sm">Encriptación, permisos por rol y un registro de quién hizo qué.</p>
     </div>
-    <div class="mode-grid">
-      <div class="mode-card">
-        <div class="mode-card__tag">Modo autónomo</div>
-        <h3>Shadia atiende el día a día</h3>
-        <p>Ideal si recibes muchos mensajes y quieres llenar agenda sin ampliar recepción.</p>
-      </div>
-      <div class="mode-card">
-        <div class="mode-card__tag">Modo asistido</div>
-        <h3>Shadia apoya a recepción</h3>
-        <p>Sugerencias, contexto y borradores — tu equipo valida y envía.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="home-band home-band--plain section">
-  <div class="container-wide">
-    <div class="section-intro">
-      <div class="eyebrow">Cómo funciona</div>
-      <h2 class="section-title">Listo hoy, no en semanas</h2>
-    </div>
-    <div class="steps-row">
-      {steps.map(s => (
-        <div class="step-item">
-          <div class="step-item__num">{s.n}</div>
-          <h3>{s.title}</h3>
-          <p>{s.desc}</p>
+    <div class="grid-3">
+      {trustItems.map(f => (
+        <div class="card-feature">
+          <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={f.icon} size={20} /></div>
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">{f.title}</h3>
+          <p style="font-size:0.875rem;line-height:1.65;">{f.desc}</p>
         </div>
       ))}
     </div>
-    <p style="margin-top: 2.5rem;">
-      <a href="/es/caracteristicas" class="btn-secondary">Ver capacidades →</a>
-    </p>
   </div>
 </section>
 
@@ -231,17 +178,16 @@ const liveScenarios = [
     <div class="hero-split" style="align-items: center;">
       <div>
         <h2 class="hero-title" style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem;">
-          Potencia a tu equipo<br/>
-          <span class="headline-accent">en WhatsApp.</span>
+          {t('final_cta.headline', 'es')}
         </h2>
         <p class="lead" style="margin-bottom: 1.75rem; max-width: 26rem;">
-          Empieza gratis. Conecta tu WhatsApp y deja que Shadia trabaje contigo — incluso fuera de horario.
+          {t('final_cta.desc', 'es')}
         </p>
         <SignupInput lang="es" source="home_footer_cta" size="lg" client:load />
       </div>
       <div style="display: flex; justify-content: flex-end; opacity: 0.9;">
         <div class="home-band__quote">
-          <p>“En la clínica dejamos de perder citas por mensajes que nadie alcanzaba a ver.”</p>
+          <p>"En la clínica dejamos de perder citas por mensajes que nadie alcanzaba a ver."</p>
         </div>
       </div>
     </div>
@@ -249,3 +195,9 @@ const liveScenarios = [
 </section>
 
 </BaseLayout>
+
+<style>
+  @media (max-width: 720px) {
+    [style*="grid-template-columns: repeat(2,minmax(0,1fr))"] { grid-template-columns: 1fr !important; }
+  }
+</style>

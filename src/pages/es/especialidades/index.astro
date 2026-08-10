@@ -1,0 +1,57 @@
+---
+import Icon from '../../../components/Icon.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import PageBand from '../../../components/PageBand.astro';
+import PageCta from '../../../components/PageCta.astro';
+import { t } from '../../../i18n/utils';
+
+const specialties = [
+  { id: 'clinics', icon: 'activity', href: '/es/especialidades/clinicas', titleKey: 'industries.clinics.title', descKey: 'industries.clinics.desc' },
+  { id: 'dental', icon: 'tooth', href: '/es/especialidades/odontologia', titleKey: 'industries.dental.title', descKey: 'industries.dental.desc' },
+  { id: 'mental', icon: 'heart', href: '/es/especialidades/salud-mental', titleKey: 'industries.mental.title', descKey: 'industries.mental.desc' },
+  { id: 'aesthetics', icon: 'sparkles', href: '/es/especialidades/estetica', titleKey: 'industries.aesthetics.title', descKey: 'industries.aesthetics.desc' },
+  { id: 'hospitals', icon: 'building', href: '/es/especialidades/hospitales', titleKey: 'industries.hospitals.title', descKey: 'industries.hospitals.desc' },
+];
+---
+
+<BaseLayout
+  title={t('meta.industries.title', 'es')}
+  description={t('meta.industries.desc', 'es')}
+  lang="es"
+  canonical="https://shadia.ai/es/especialidades"
+>
+  <PageHero
+    eyebrow="Especialidades"
+    title="Shadia para tu"
+    titleAccent="tipo de clínica."
+    lead="Sesiones clínicas, recepcionista IA y citas, adaptadas a cómo opera cada especialidad."
+  />
+
+  <PageBand variant="plain">
+    <div class="container">
+      <div class="page-grid-3">
+        {specialties.map(s => (
+          <a href={s.href} class="page-card-link">
+            <div class="card page-card">
+              <div style="display:flex;align-items:center;margin-bottom:0.75rem;color:var(--accent);">
+                <Icon name={s.icon} size={22} />
+              </div>
+              <h3 class="page-card__title">{t(s.titleKey, 'es')}</h3>
+              <p class="page-card__desc">{t(s.descKey, 'es')}</p>
+              <span class="page-card__link">Explorar →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </PageBand>
+
+  <PageCta
+    lang="es"
+    source="specialties_index_cta"
+    title="Tu clínica,"
+    titleAccent="con menos admin."
+    lead="Agenda una demo y mira sesiones, recepción y citas en acción."
+  />
+</BaseLayout>

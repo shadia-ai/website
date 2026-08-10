@@ -8,40 +8,40 @@ import IndustryCarousel from '../../components/IndustryCarousel.tsx';
 
 const enterpriseSlides = [
   {
-    tag: 'Real scale',
-    stat1: '10M+',
-    stat1Label: 'Messages per month\nhandled without degradation',
+    tag: 'Multi-site',
+    stat1: '50+',
+    stat1Label: 'Locations operating\non one platform',
     stat2: '99.9%',
     stat2Label: 'Uptime SLA with\ndedicated infrastructure',
-    insight: 'Enterprise operations cannot depend on tools that go down when they are needed most.',
-    detail: 'Shadia runs on dedicated infrastructure with a guaranteed SLA. No arbitrary volume limits, no performance degradation during demand spikes. It scales with your business — not against it.',
+    insight: 'Hospital networks cannot depend on tools that do not scale across locations.',
+    detail: 'Shadia unifies front desk, appointments, clinical sessions, and patient communication across every site, with centralized roles, permissions, and reporting.',
   },
   {
-    tag: 'Proven ROI',
-    stat1: '< 3 months',
-    stat1Label: 'Average time to\nrecover your investment',
-    stat2: '4.7x',
-    stat2Label: 'Average ROI by\nthe end of year one',
-    insight: 'This is not technology for technology\'s sake — it is measurable cost reduction from month one.',
-    detail: 'The combination of autonomous resolution, lower support headcount and improved customer retention produces ROI you can measure, report and scale. No speculation required.',
+    tag: 'Clinical operations',
+    stat1: '85%',
+    stat1Label: 'Front desk inquiries\nresolved without staff',
+    stat2: '40%',
+    stat2Label: 'Average no-show reduction\nwith AI reminders',
+    insight: 'Less administrative load means more clinical time for your team.',
+    detail: 'The AI receptionist handles FAQs, confirms appointments, and sends pre-visit prep. Your team steps in only when the case requires it.',
   },
   {
-    tag: 'Efficient teams',
+    tag: 'Clinical teams',
     stat1: '3x',
-    stat1Label: 'More capacity without\nhiring additional people',
-    stat2: '67%',
-    stat2Label: 'Cost reduction vs.\ntraditional team growth',
-    insight: 'Every support hire has a hidden cost: onboarding, training, attrition. AI does not attrite.',
-    detail: 'Shadia absorbs routine volume so your existing team can scale. The saving is not just salaries — it is management time, consistent quality and 24/7 availability.',
+    stat1Label: 'More patient capacity\nwithout hiring front desk staff',
+    stat2: '24/7',
+    stat2Label: 'Front desk coverage\nwithout overnight shifts',
+    insight: 'Every front desk hire has hidden cost: training, turnover, shift coverage.',
+    detail: 'Shadia absorbs routine volume so front desk, nursing, and admin focus on what requires human judgment.',
   },
   {
-    tag: 'Security',
-    stat1: 'E2E',
-    stat1Label: 'End-to-end encryption\nacross all channels',
-    stat2: 'GDPR',
-    stat2Label: 'Compliance with configurable\ndata retention controls',
-    insight: 'In enterprise, security is not an optional feature — it is the starting point.',
-    detail: 'Shadia provides role-based access controls, encryption in transit and at rest, and configurable data retention. Full GDPR compliance with enterprise DPA support.',
+    tag: 'Privacy',
+    stat1: 'RBAC',
+    stat1Label: 'Role-based access\nacross the network',
+    stat2: 'BAA',
+    stat2Label: 'Business Associate Agreement\navailable for enterprise',
+    insight: 'In healthcare, patient data confidentiality is not optional.',
+    detail: 'Encryption in transit and at rest, granular permissions by role and site, configurable retention, and full audit logs. Designed for healthcare privacy expectations with BAA available for enterprise accounts.',
   },
 ];
 
@@ -50,54 +50,54 @@ const lang = 'en';
 const features = [
   {
     icon: 'lock',
-    title: 'Enterprise-grade security',
-    desc: 'End-to-end encryption, full audit logs, role-based access control, and compliance with international privacy standards.',
+    title: 'Clinical security & privacy',
+    desc: 'TLS/AES-256 encryption, access audit logs, role-based access, and configurable retention. Designed for healthcare privacy expectations.',
   },
   {
     icon: 'users',
-    title: 'Teams & permissions',
-    desc: 'Organize your operation into teams with granular permissions by role, folder, and channel. Each member sees only what they need.',
+    title: 'Multi-site roles & permissions',
+    desc: 'Define what each role sees and does, front desk, nursing, clinicians, admin, by location, specialty, or channel.',
   },
   {
-    icon: 'zap',
-    title: 'Advanced API',
-    desc: 'Deep integrations with your internal systems. Queries, mutations, and real-time webhooks to sync every conversation event.',
+    icon: 'clipboard',
+    title: 'Clinical sessions at scale',
+    desc: 'AI scribe across the network. Specialty templates, review-before-save, and export for clinical integration.',
   },
   {
-    icon: 'bar-chart',
-    title: 'Custom reporting',
-    desc: 'Performance dashboards by member, team, and channel. SLA tracking, response times, and conversion analytics.',
+    icon: 'calendar',
+    title: 'Centralized scheduling',
+    desc: 'Unified calendar by location, provider, and room. Automatic reminders, in-chat rescheduling, and utilization reports.',
   },
   {
     icon: 'bot',
-    title: 'Custom AI agents',
-    desc: 'Train agents specialized in your operation, products, and customers. Escalation rules, business hours, and auto-assignment.',
+    title: 'AI receptionist per location',
+    desc: 'Agents configured by site, specialty, and tone. Smart escalation to human staff with full context.',
   },
   {
-    icon: 'globe',
-    title: 'Dedicated multichannel support',
-    desc: 'Official WhatsApp Business API, Instagram, Facebook Messenger, and TikTok — all in a unified platform with full customer context.',
+    icon: 'bar-chart',
+    title: 'Network reporting',
+    desc: 'Dashboards by location, specialty, and channel. CSAT, no-shows, response times, and cross-site comparisons.',
   },
 ];
 
 const stats = [
-  { value: '< 5 min', label: 'Average response time with AI agents' },
-  { value: '90%', label: 'Conversations resolved without human intervention' },
-  { value: '24/7', label: 'Availability with no extra payroll costs' },
-  { value: '3x', label: 'Average increase in support capacity' },
+  { value: '< 30 s', label: 'Average AI receptionist response time' },
+  { value: '85%', label: 'Inquiries resolved without human intervention' },
+  { value: '24/7', label: 'Front desk available at every location' },
+  { value: '50+', label: 'Sites supported in one account' },
 ];
 ---
 
 <BaseLayout
   lang={lang}
-  title="Shadia AI Enterprise — AI agent platform for teams"
-  description="Shadia AI Enterprise: advanced security, API, teams with granular permissions, and AI agents that scale with your operation."
+  title="Shadia AI Enterprise. Clinical platform for hospital networks"
+  description="Shadia AI Enterprise: multi-site, clinical roles, AI receptionist, clinical sessions, and security designed for hospital networks and health systems."
 >
   <PageHero
     eyebrow="Enterprise"
-    title="AI agents that scale"
-    titleAccent="with your operation."
-    lead="Control, security, and unlimited customization — for teams that cannot depend on fragile tooling."
+    title="Clinical AI that scales"
+    titleAccent="with your network."
+    lead="Multi-site, clinical roles, AI receptionist, and clinical sessions, with the security and control a serious healthcare operation demands."
     narrow={false}
   >
     <div class="page-hero__actions">
@@ -122,8 +122,8 @@ const stats = [
   <PageBand variant="plain">
     <div class="container">
       <div class="page-section-head">
-        <h2 class="section-title">Everything a serious operation needs</h2>
-        <p class="lead-sm">Full control over your customer service infrastructure.</p>
+        <h2 class="section-title">Everything a hospital network needs</h2>
+        <p class="lead-sm">Full control over front desk, scheduling, clinical documentation, and patient communication.</p>
       </div>
       <div class="page-grid-3" style="max-width:none;">
         {features.map(f => (
@@ -143,13 +143,13 @@ const stats = [
         <div>
           <div style="font-size: 0.8125rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Security & privacy</div>
           <h2 style="font-size: clamp(1.5rem, 3.5vw, 2.25rem); font-weight: 700; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1rem;">
-            Your data. Only yours.
+            Patient data. Only yours.
           </h2>
           <p style="font-size: 1rem; color: var(--ink-3); line-height: 1.7; margin-bottom: 1.5rem;">
-            We never use your conversations to train models. Encryption in transit and at rest. Automatic backups and configurable data retention.
+            We never use your conversations or clinical notes to train models. Encryption in transit and at rest. Automatic backups and configurable retention by location.
           </p>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.625rem;">
-            {['TLS/AES-256 encryption', 'Full audit log', 'Role-based access control', 'GDPR-ready compliance', 'Configurable data retention'].map(item => (
+            {['TLS/AES-256 encryption', 'Full audit log', 'Role & site-based access control', 'Configurable data retention', 'No training on your data', 'BAA available for enterprise'].map(item => (
               <li style="display: flex; align-items: center; gap: 0.625rem; font-size: 0.9375rem; color: var(--ink-2);">
                 <span style="width: 18px; height: 18px; border-radius: 50%; background: var(--accent-bg); border: 1px solid var(--accent-ring); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                   <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -163,10 +163,10 @@ const stats = [
           <h3 style="font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 1.25rem;">Dedicated Enterprise support</h3>
           <div style="display: flex; flex-direction: column; gap: 1rem;">
             {[
-              { icon: 'zap', title: 'Guided onboarding', desc: 'Dedicated implementation with your technical team' },
-              { icon: 'phone', title: 'Account Manager', desc: 'A direct point of contact for your account' },
+              { icon: 'zap', title: 'Guided clinical onboarding', desc: 'Dedicated implementation with your technical and clinical teams' },
+              { icon: 'phone', title: 'Account Manager', desc: 'A direct point of contact for your network' },
               { icon: 'zap', title: 'Priority SLA', desc: 'Guaranteed response time < 4 hours' },
-              { icon: 'wrench', title: 'Custom integrations', desc: 'Connector development for your internal systems' },
+              { icon: 'wrench', title: 'Custom integrations', desc: 'EHR/EMR connectors and internal system integrations' },
             ].map(item => (
               <div style="display: flex; gap: 0.875rem; align-items: flex-start;">
                 <span style="font-size: 1.25rem; flex-shrink: 0; line-height: 1;"><Icon name={item.icon} size={20} /></span>
@@ -184,16 +184,16 @@ const stats = [
 
   <PageBand variant="muted">
     <div class="container">
-      <IndustryCarousel slides={enterpriseSlides} eyebrow="Why enterprise teams choose Shadia" client:load />
+      <IndustryCarousel slides={enterpriseSlides} eyebrow="Why hospital networks choose Shadia" client:load />
     </div>
   </PageBand>
 
   <PageCta
     lang={lang}
     source="enterprise_cta"
-    title="Ready to scale"
-    titleAccent="your operation?"
-    lead="Talk to our team and we'll show you how Shadia AI adapts to your enterprise needs."
+    title="Ready to unify"
+    titleAccent="your clinical network?"
+    lead="Talk to our team and we'll show you how Shadia AI adapts to your multi-site operation."
   />
 </BaseLayout>
 

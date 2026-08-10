@@ -38,111 +38,85 @@ function row(label: L, hob: Cell, pro: Cell, ultra: Cell): FeatureRow {
 
 const featureGroupsData: FeatureGroup[] = [
   {
-    group: { es: 'Canales y mensajería', en: 'Channels & messaging' },
+    group: { es: 'Sesiones clínicas y recepción', en: 'Clinical sessions & reception' },
     rows: [
-      row({ es: 'WhatsApp Business API (oficial)', en: 'WhatsApp Business API (official)' }, true, true, true),
-      row({ es: 'Instagram DMs y comentarios', en: 'Instagram DMs & comments' }, true, true, true),
-      row({ es: 'TikTok DMs', en: 'TikTok DMs' }, false, true, true),
-      row({ es: 'Facebook Messenger', en: 'Facebook Messenger' }, true, true, true),
-      row({ es: 'Mensajes de difusión masivos', en: 'Broadcast messages' }, { es: '500/mes', en: '500/mo' }, { es: '5,000/mes', en: '5,000/mo' }, { es: 'Ilimitados', en: 'Unlimited' }),
-      row({ es: 'Plantillas de WhatsApp aprobadas', en: 'Approved WhatsApp templates' }, '5', '25', { es: 'Ilimitadas', en: 'Unlimited' }),
-    ],
-  },
-  {
-    group: { es: 'Conversaciones y equipo', en: 'Conversations & team' },
-    rows: [
-      row({ es: 'Conversaciones omnicanal unificadas', en: 'Unified omnichannel conversations' }, true, true, true),
-      row({ es: 'Miembros del equipo incluidos', en: 'Team members included' }, '2', '5', { es: 'A medida', en: 'Custom' }),
-      row({ es: 'Miembro extra', en: 'Extra member' }, '+$12/miembro', '+$15/miembro', { es: 'A medida', en: 'Custom' }),
-      row({ es: 'AI Credits incluidos/mes', en: 'AI Credits included/mo' }, '300', '1,500', { es: 'A medida', en: 'Custom' }),
-      row({ es: 'On-demand (por credit extra)', en: 'On-demand (per extra credit)' }, '$0.015/credit', '$0.010/credit', { es: 'A medida', en: 'Custom' }),
-      row({ es: 'Conversaciones activas', en: 'Active conversations' }, { es: 'Ilimitadas', en: 'Unlimited' }, { es: 'Ilimitadas', en: 'Unlimited' }, { es: 'Ilimitadas', en: 'Unlimited' }),
-      row({ es: 'Asignación automática de conversaciones', en: 'Automatic conversation assignment' }, false, true, true),
-      row({ es: 'Notas internas', en: 'Internal notes' }, true, true, true),
-      row({ es: 'Reacciones a mensajes', en: 'Message reactions' }, true, true, true),
-      row({ es: 'Respuestas en hilo', en: 'Thread replies' }, true, true, true),
-      row({ es: 'Menciones de equipo (@)', en: 'Team mentions (@)' }, true, true, true),
-      row({ es: 'Presencia de equipo en tiempo real', en: 'Real-time team presence' }, false, true, true),
-      row({ es: 'Adjuntos (archivos, imágenes, audio)', en: 'Attachments (files, images, audio)' }, true, true, true),
-      row({ es: 'Búsqueda en conversaciones', en: 'Conversation search' }, true, true, true),
-      row({ es: 'Folders y organización', en: 'Folders & organization' }, false, true, true),
-      row({ es: 'Mensajes programados', en: 'Scheduled messages' }, true, true, true),
-      row({ es: 'Auto-cierre por inactividad', en: 'Auto-close on inactivity' }, true, true, true),
-      row({ es: 'Colaboradores en conversación', en: 'Conversation collaborators' }, false, true, true),
-      row({ es: 'Modos de visualización (Full/Focus/Standard/Collaborative)', en: 'View modes (Full/Focus/Standard/Collaborative)' }, true, true, true),
-    ],
-  },
-  {
-    group: { es: 'Contactos y datos', en: 'Contacts & data' },
-    rows: [
-      row({ es: 'Contactos', en: 'Contacts' }, '1,000', '10,000', { es: 'Ilimitados', en: 'Unlimited' }),
-      row({ es: 'Empresas y organizaciones', en: 'Companies & organizations' }, false, true, true),
-      row({ es: 'Tags y etiquetas', en: 'Tags' }, '10', '50', { es: 'Ilimitadas', en: 'Unlimited' }),
-      row({ es: 'Data attributes personalizados (16 tipos)', en: 'Custom data attributes (16 types)' }, '10', '50', { es: 'Ilimitados', en: 'Unlimited' }),
-      row({ es: 'Sugerencias de contactos duplicados', en: 'Duplicate contact suggestions' }, false, true, true),
-      row({ es: 'Notas de contactos', en: 'Contact notes' }, true, true, true),
-      row({ es: 'Resource viewers', en: 'Resource viewers' }, false, true, true),
-      row({ es: 'Importación y exportación de contactos', en: 'Contact import & export' }, true, true, true),
-      row({ es: 'Limpieza de contactos IA (flags automáticos)', en: 'AI contact cleanup (auto flags)' }, false, true, true),
-      row({ es: 'Acciones masivas (bulk actions)', en: 'Bulk actions' }, false, true, true),
-      row({ es: 'Enmascarado de datos (Mask)', en: 'Data masking (Mask)' }, false, true, true),
-    ],
-  },
-  {
-    group: { es: 'IA y agentes', en: 'AI & agents' },
-    rows: [
-      row({ es: 'Agentes IA conversacionales', en: 'Conversational AI agents' }, '1', '3', { es: 'Ilimitados', en: 'Unlimited' }),
-      row({ es: 'Shadia Agent (agente de tu equipo)', en: 'Shadia Agent (team copilot)' }, true, true, true),
-      row({ es: 'AI Threads', en: 'AI Threads' }, '5', { es: 'Ilimitados', en: 'Unlimited' }, { es: 'Ilimitados', en: 'Unlimited' }),
-      row({ es: 'AI Presence', en: 'AI Presence' }, true, true, true),
-      row({ es: 'Motor de citas autónomo', en: 'Autonomous appointments engine' }, true, true, true),
-      row({ es: 'Respuestas automáticas FAQs', en: 'Automatic FAQ responses' }, true, true, true),
-      row({ es: 'Escalación inteligente a humanos', en: 'Smart escalation to humans' }, true, true, true),
-      row({ es: 'Personalidad y tono de marca', en: 'Brand personality & tone' }, false, true, true),
-      row({ es: 'Agentes con acceso a datos externos', en: 'Agents with external data access' }, false, false, true),
+      row({ es: 'Scribe clínico con IA', en: 'AI clinical scribe' }, true, true, true),
+      row({ es: 'Plantillas por especialidad', en: 'Specialty note templates' }, '2', '10', { es: 'Ilimitadas', en: 'Unlimited' }),
+      row({ es: 'Recepcionista IA (WhatsApp 24/7)', en: 'AI receptionist (24/7 WhatsApp)' }, true, true, true),
+      row({ es: 'Escalación inteligente a humanos', en: 'Smart escalation to staff' }, true, true, true),
+      row({ es: 'Preparación pre-visita automatizada', en: 'Automated pre-visit prep' }, true, true, true),
+      row({ es: 'Shadia Agent (copiloto del equipo)', en: 'Shadia Agent (team copilot)' }, true, true, true),
     ],
   },
   {
     group: { es: 'Citas y calendario', en: 'Appointments & calendar' },
     rows: [
       row({ es: 'Motor de citas nativo', en: 'Native appointments engine' }, true, true, true),
-      row({ es: 'Sincronización Google Calendar', en: 'Google Calendar sync' }, true, true, true),
-      row({ es: 'Recordatorios automáticos por WhatsApp', en: 'Automatic WhatsApp reminders' }, true, true, true),
+      row({ es: 'Agendamiento por WhatsApp', en: 'WhatsApp booking' }, true, true, true),
+      row({ es: 'Recordatorios automáticos', en: 'Automatic reminders' }, true, true, true),
       row({ es: 'Reagendamiento por chat', en: 'In-chat rescheduling' }, true, true, true),
-      row({ es: 'Citas por múltiples ubicaciones', en: 'Multi-location appointments' }, false, true, true),
-      row({ es: 'Tipos de cita personalizados', en: 'Custom appointment types' }, '3', '15', { es: 'Ilimitados', en: 'Unlimited' }),
+      row({ es: 'Sincronización Google Calendar', en: 'Google Calendar sync' }, true, true, true),
+      row({ es: 'Tipos de cita clínica', en: 'Clinical appointment types' }, '3', '15', { es: 'Ilimitados', en: 'Unlimited' }),
+      row({ es: 'Múltiples sedes / consultorios', en: 'Multi-location / offices' }, '1', '3', { es: 'Ilimitadas', en: 'Unlimited' }),
+    ],
+  },
+  {
+    group: { es: 'Canales y mensajería', en: 'Channels & messaging' },
+    rows: [
+      row({ es: 'WhatsApp Business API (oficial)', en: 'WhatsApp Business API (official)' }, true, true, true),
+      row({ es: 'Instagram DMs y comentarios', en: 'Instagram DMs & comments' }, false, true, true),
+      row({ es: 'Facebook Messenger', en: 'Facebook Messenger' }, true, true, true),
+      row({ es: 'TikTok DMs', en: 'TikTok DMs' }, false, true, true),
+      row({ es: 'Plantillas de WhatsApp aprobadas', en: 'Approved WhatsApp templates' }, '5', '25', { es: 'Ilimitadas', en: 'Unlimited' }),
+      row({ es: 'Recordatorios y seguimiento por WhatsApp', en: 'WhatsApp reminders & follow-up' }, { es: '500/mes', en: '500/mo' }, { es: '5,000/mes', en: '5,000/mo' }, { es: 'Ilimitados', en: 'Unlimited' }),
+    ],
+  },
+  {
+    group: { es: 'Pacientes y equipo', en: 'Patients & team' },
+    rows: [
+      row({ es: 'Perfiles de paciente unificados', en: 'Unified patient profiles' }, true, true, true),
+      row({ es: 'Pacientes en base de datos', en: 'Patients in database' }, '1,000', '10,000', { es: 'Ilimitados', en: 'Unlimited' }),
+      row({ es: 'Miembros del equipo incluidos', en: 'Team members included' }, '2', '5', { es: 'A medida', en: 'Custom' }),
+      row({ es: 'Miembro extra', en: 'Extra member' }, '+$12/miembro', '+$15/miembro', { es: 'A medida', en: 'Custom' }),
+      row({ es: 'AI Credits incluidos/mes', en: 'AI Credits included/mo' }, '300', '1,500', { es: 'A medida', en: 'Custom' }),
+      row({ es: 'On-demand (por credit extra)', en: 'On-demand (per extra credit)' }, '$0.015/credit', '$0.010/credit', { es: 'A medida', en: 'Custom' }),
+      row({ es: 'Atributos personalizados del paciente', en: 'Custom patient attributes' }, '10', '50', { es: 'Ilimitados', en: 'Unlimited' }),
+      row({ es: 'Enmascarado de datos sensibles', en: 'Sensitive data masking' }, false, true, true),
+      row({ es: 'Control de acceso por rol (RBAC)', en: 'Role-based access (RBAC)' }, false, true, true),
+    ],
+  },
+  {
+    group: { es: 'Automatización y analítica', en: 'Automation & analytics' },
+    rows: [
+      row({ es: 'Flujos de bienvenida y seguimiento', en: 'Welcome & follow-up flows' }, true, true, true),
+      row({ es: 'Asignación automática de conversaciones', en: 'Automatic conversation routing' }, false, true, true),
+      row({ es: 'Dashboard de métricas clínicas', en: 'Clinical metrics dashboard' }, true, true, true),
+      row({ es: 'Reportes de citas y no-shows', en: 'Appointment & no-show reports' }, false, true, true),
+      row({ es: 'CSAT post-consulta', en: 'Post-visit CSAT' }, false, true, true),
+      row({ es: 'Reportes por sede', en: 'Per-location reports' }, false, false, true),
+      row({ es: 'Reportes personalizados', en: 'Custom reports' }, false, false, true),
     ],
   },
   {
     group: { es: 'Integraciones y API', en: 'Integrations & API' },
     rows: [
-      row({ es: 'Integraciones nativas (Google, HubSpot, etc.)', en: 'Native integrations (Google, HubSpot, etc.)' }, '3', '10', { es: 'Ilimitadas', en: 'Unlimited' }),
+      row({ es: 'Integraciones nativas (Google Calendar, etc.)', en: 'Native integrations (Google Calendar, etc.)' }, '3', '10', { es: 'Ilimitadas', en: 'Unlimited' }),
       row({ es: 'API', en: 'API' }, false, true, true),
       row({ es: 'Webhooks', en: 'Webhooks' }, false, true, true),
       row({ es: 'Acceso a SDK', en: 'SDK access' }, false, false, true),
-      row({ es: 'IP whitelisting', en: 'IP whitelisting' }, false, false, true),
-    ],
-  },
-  {
-    group: { es: 'Reportes y analytics', en: 'Reports & analytics' },
-    rows: [
-      row({ es: 'Dashboard de métricas', en: 'Metrics dashboard' }, true, true, true),
-      row({ es: 'Reporte de rendimiento por miembro', en: 'Per-member performance report' }, false, true, true),
-      row({ es: 'Reporte de conversiones por canal', en: 'Per-channel conversion report' }, false, true, true),
-      row({ es: 'Exportación de reportes (CSV)', en: 'Report export (CSV)' }, false, true, true),
-      row({ es: 'Reportes personalizados', en: 'Custom reports' }, false, false, true),
+      row({ es: 'Integraciones EHR / HIS (ULTRA)', en: 'EHR / EMR integrations (ULTRA)' }, false, false, true),
     ],
   },
   {
     group: { es: 'Seguridad y soporte', en: 'Security & support' },
     rows: [
-      row({ es: 'Encriptación de datos (TLS + AES-256)', en: 'Data encryption (TLS + AES-256)' }, true, true, true),
+      row({ es: 'Cifrado de datos (TLS + AES-256)', en: 'Data encryption (TLS + AES-256)' }, true, true, true),
       row({ es: 'Auditoría de accesos', en: 'Access audit logs' }, false, true, true),
-      row({ es: 'Control de acceso por rol (RBAC)', en: 'Role-based access (RBAC)' }, false, true, true),
+      row({ es: 'Retención de datos configurable', en: 'Configurable data retention' }, false, true, true),
       row({ es: 'SSO (Single Sign-On)', en: 'SSO (Single Sign-On)' }, false, false, true),
       row({ es: 'SLA de uptime', en: 'Uptime SLA' }, '99%', '99.5%', '99.9%'),
       row({ es: 'Soporte', en: 'Support' }, 'Email', { es: 'Chat prioritario', en: 'Priority chat' }, { es: 'Dedicado', en: 'Dedicated' }),
-      row({ es: 'Onboarding asistido', en: 'Assisted onboarding' }, false, false, true),
+      row({ es: 'Onboarding clínico asistido', en: 'Assisted clinical onboarding' }, false, false, true),
     ],
   },
 ];
@@ -166,12 +140,12 @@ export function getFeatureGroups(lang: PricingLang): { group: string; rows: { la
 }
 
 const enterpriseItems: L[] = [
-  { es: 'Miembros y AI Credits a medida', en: 'Custom members & AI Credits' },
+  { es: 'Red multi-sede con roles y permisos a medida', en: 'Multi-site network with custom roles & permissions' },
   { es: 'SLA contractual 99.9%', en: 'Contractual 99.9% SLA' },
-  { es: 'Onboarding dedicado', en: 'Dedicated onboarding' },
+  { es: 'Onboarding clínico dedicado', en: 'Dedicated clinical onboarding' },
   { es: 'Account manager asignado', en: 'Dedicated account manager' },
   { es: 'Seguridad avanzada + SSO', en: 'Advanced security + SSO' },
-  { es: 'API con límites personalizados', en: 'API with custom rate limits' },
+  { es: 'Integraciones EHR / HIS personalizadas', en: 'Custom EHR / EMR integrations' },
 ];
 
 export function getPlans(lang: PricingLang): (PricingPlan & {
@@ -184,7 +158,7 @@ export function getPlans(lang: PricingLang): (PricingPlan & {
     {
       id: 'HOB',
       name: 'HOB',
-      tagline: { es: 'Para negocios que arrancan', en: 'For businesses getting started' },
+      tagline: { es: 'Para consultorios y prácticas pequeñas', en: 'For solo practices & small offices' },
       price: '$49',
       period: { es: '/mes', en: '/mo' },
       popular: false,
@@ -198,7 +172,7 @@ export function getPlans(lang: PricingLang): (PricingPlan & {
     {
       id: 'PRO',
       name: 'PRO',
-      tagline: { es: 'Para equipos que crecen', en: 'For growing teams' },
+      tagline: { es: 'Para clínicas con equipo y varias especialidades', en: 'For clinics with staff & multiple specialties' },
       price: '$119',
       period: { es: '/mes', en: '/mo' },
       popular: true,
@@ -212,7 +186,7 @@ export function getPlans(lang: PricingLang): (PricingPlan & {
     {
       id: 'ULTRA',
       name: 'ULTRA',
-      tagline: { es: 'Enterprise · Ajustado a tu escala', en: 'Enterprise · Tailored to your scale' },
+      tagline: { es: 'Redes hospitalarias · Multi-sede a escala', en: 'Hospital networks · Multi-site at scale' },
       price: null,
       period: { es: '', en: '' },
       popular: false,
@@ -238,20 +212,20 @@ export function getPlans(lang: PricingLang): (PricingPlan & {
 export function getFaq(lang: PricingLang): { q: string; a: string }[] {
   if (lang === 'es') {
     return [
-      { q: '¿Qué son los AI Credits?', a: 'Los AI Credits son el combustible de Shadia AI — se consumen en cada acción que toma la IA: responder, agendar, analizar, decidir. Funciona como los créditos de Cursor: tu plan incluye un saldo mensual y puedes recargar o activar uso on-demand cuando lo necesites.' },
-      { q: '¿Qué pasa si se acaban los AI Credits?', a: 'Puedes activar el uso on-demand desde tu configuración: la IA sigue operando y los créditos extra se cobran automáticamente. También puedes comprar packs por adelantado o establecer un límite de gasto mensual.' },
-      { q: '¿Puedo agregar más agentes sin cambiar de plan?', a: 'Sí. Puedes agregar asientos extra por $12/mes en HOB y $15/mes en PRO. ULTRA es enterprise y los seats se definen según la operación.' },
-      { q: '¿Shadia Agent está incluido en todos los planes?', a: 'Sí. Shadia Agent — el agente IA de tu equipo para threads y operación — está incluido en todos los planes sin costo adicional.' },
-      { q: '¿Tienen API para integraciones?', a: 'Sí. A partir del plan PRO tienes acceso a la API y webhooks para integrar Shadia con cualquier sistema.' },
+      { q: '¿Qué son los AI Credits?', a: 'Los AI Credits son el combustible de Shadia AI, se consumen en cada acción que toma la IA: documentar sesiones, responder pacientes, agendar citas, generar resúmenes. Tu plan incluye un saldo mensual y puedes recargar o activar uso on-demand cuando lo necesites.' },
+      { q: '¿Qué plan necesita mi consultorio?', a: 'HOB es ideal para consultorios de 1–2 profesionales con recepcionista IA y citas por WhatsApp. PRO cubre clínicas con varios médicos, recepción, enfermería y hasta 3 sedes. ULTRA es para redes hospitalarias con múltiples centros, roles avanzados e integraciones a medida.' },
+      { q: '¿Puedo agregar más miembros del equipo?', a: 'Sí. Puedes agregar asientos extra por $12/mes en HOB y $15/mes en PRO. ULTRA define seats según la operación de la red.' },
+      { q: '¿El scribe clínico está incluido?', a: 'Sí. Sesiones clínicas con IA están incluidas en todos los planes. HOB incluye 2 plantillas por especialidad; PRO y ULTRA amplían según el plan.' },
+      { q: '¿Tienen API para integrar con nuestro sistema?', a: 'Sí. A partir del plan PRO tienes acceso a API y webhooks. ULTRA incluye integraciones EHR/HIS personalizadas.' },
       { q: '¿Hay un periodo de prueba?', a: 'Sí. 7 días de prueba gratuita con acceso completo al plan PRO. Sin tarjeta de crédito.' },
     ];
   }
   return [
-    { q: 'What are AI Credits?', a: 'AI Credits power every action Shadia takes — responding, scheduling, analyzing, deciding. Like Cursor credits: your plan includes a monthly balance and you can top up or enable on-demand usage anytime.' },
-    { q: 'What happens when I run out of AI Credits?', a: 'Enable on-demand from settings: AI keeps running and extra credits bill automatically. You can also buy packs upfront or set a monthly spend cap.' },
-    { q: 'Can I add more team members without upgrading?', a: 'Yes. Extra seats are $12/mo on HOB and $15/mo on PRO. ULTRA is enterprise and seats are defined in your contract.' },
-    { q: 'Is Shadia Agent included in all plans?', a: 'Yes. Shadia Agent — your team copilot for threads and operations — is included in every plan at no extra cost.' },
-    { q: 'Do you offer an API for integrations?', a: 'Yes. PRO and ULTRA include API access and webhooks to integrate Shadia with your stack.' },
+    { q: 'What are AI Credits?', a: 'AI Credits power every action Shadia takes, documenting sessions, replying to patients, booking appointments, generating summaries. Your plan includes a monthly balance and you can top up or enable on-demand usage anytime.' },
+    { q: 'Which plan fits my practice?', a: 'HOB is ideal for solo or 2-provider practices with AI receptionist and WhatsApp booking. PRO covers clinics with multiple clinicians, front desk, nursing, and up to 3 locations. ULTRA is for hospital networks with multiple sites, advanced roles, and custom integrations.' },
+    { q: 'Can I add more team members?', a: 'Yes. Extra seats are $12/mo on HOB and $15/mo on PRO. ULTRA defines seats based on your network operation.' },
+    { q: 'Is the clinical scribe included?', a: 'Yes. AI clinical sessions are included in all plans. HOB includes 2 specialty templates; PRO and ULTRA expand based on plan.' },
+    { q: 'Do you offer an API for integrations?', a: 'Yes. PRO and above include API access and webhooks. ULTRA includes custom EHR/EMR integrations.' },
     { q: 'Is there a free trial?', a: 'Yes. 7-day free trial with full PRO access. No credit card required.' },
   ];
 }
@@ -273,26 +247,26 @@ export function getPricingCopy(lang: PricingLang) {
   return {
     meta: {
       title: t
-        ? 'Precios Shadia AI — HOB $49, PRO $119, ULTRA Enterprise | Shadia AI'
-        : 'Pricing — HOB $49, PRO $119, ULTRA Enterprise | Shadia AI',
+        ? 'Precios Shadia AI. HOB consultorios, PRO clínicas, ULTRA redes | Shadia AI'
+        : 'Pricing. HOB practices, PRO clinics, ULTRA networks | Shadia AI',
       description: t
-        ? 'Planes con AI Credits incluidos y uso on-demand. HOB $49/mes (2 seats, 300 credits), PRO $119/mes (5 seats, 1,500 credits), ULTRA enterprise con precio a medida. 7 días gratis.'
-        : 'Plans with AI Credits included and on-demand usage. HOB $49/mo (2 seats, 300 credits), PRO $119/mo (5 seats, 1,500 credits), ULTRA enterprise with custom pricing. 7-day free trial.',
+        ? 'Planes para consultorios, clínicas y redes hospitalarias. HOB $49/mes, PRO $119/mes, ULTRA enterprise. Sesiones clínicas, recepcionista IA y citas incluidos. 7 días gratis.'
+        : 'Plans for practices, clinics, and hospital networks. HOB $49/mo, PRO $119/mo, ULTRA enterprise. Clinical sessions, AI receptionist, and appointments included. 7-day free trial.',
       canonical: t ? 'https://shadia.ai/es/precios' : 'https://shadia.ai/en/pricing',
       ogImage: t ? undefined : '/og/pricing-en.png',
     },
     hero: {
       eyebrow: t ? 'Precios' : 'Pricing',
-      title: t ? 'Simple, claro,' : 'Simple, transparent,',
-      titleAccent: t ? 'sin sorpresas.' : 'no surprises.',
-      lead: t ? '7 días gratis en todos los planes. Sin tarjeta de crédito.' : '7-day free trial on every plan. No credit card required.',
+      title: t ? 'Planes para cada etapa' : 'Plans for every stage',
+      titleAccent: t ? 'de tu clínica.' : 'of your practice.',
+      lead: t ? 'Desde consultorios independientes hasta redes hospitalarias. 7 días gratis, sin tarjeta de crédito.' : 'From solo practices to hospital networks. 7-day free trial, no credit card required.',
     },
     creditsPill: t
-      ? 'AI Credits = combustible para cada acción IA. Incluidos en el plan · Recargables on-demand'
-      : 'AI Credits = fuel for every AI action. Included in your plan · Rechargeable on-demand',
+      ? 'AI Credits = documentación, recepción, citas y seguimiento. Incluidos en el plan · Recargables on-demand'
+      : 'AI Credits = documentation, reception, booking & follow-up. Included in your plan · Rechargeable on-demand',
     popularBadge: t ? 'MÁS POPULAR' : 'MOST POPULAR',
     customPrice: t ? 'Precio a medida' : 'Custom pricing',
-    customPriceSub: t ? 'Ajustado a tu operación' : 'Tailored to your operation',
+    customPriceSub: t ? 'Ajustado a tu red hospitalaria' : 'Tailored to your hospital network',
     membersIncluded: t ? 'miembros incluidos' : 'members included',
     extraMember: t ? 'miembro extra' : 'extra member',
     creditsPerMonth: t ? 'AI Credits/mes' : 'AI Credits/mo',
@@ -307,30 +281,30 @@ export function getPricingCopy(lang: PricingLang) {
       perMonth: t ? '/mes' : '/mo',
     },
     api: {
-      eyebrow: t ? 'API & Desarrolladores' : 'API & Developers',
-      title: t ? 'API' : 'API',
-      titleAccent: t ? 'para integraciones robustas.' : 'for robust integrations.',
+      eyebrow: t ? 'API & Integraciones clínicas' : 'API & Clinical integrations',
+      title: t ? 'Conecta Shadia' : 'Connect Shadia',
+      titleAccent: t ? 'a tu ecosistema clínico.' : 'to your clinical stack.',
       lead: t
-        ? 'Shadia expone una API completa que te permite integrar toda la operación con tus sistemas internos, herramientas externas o construir aplicaciones propias sobre nuestra plataforma.'
-        : 'Shadia exposes a full API to integrate your operation with internal systems, external tools, or build custom apps on our platform.',
+        ? 'Integra citas, pacientes y conversaciones con tu calendario, EHR o sistemas internos. API completa disponible en PRO; integraciones EHR/HIS a medida en ULTRA.'
+        : 'Integrate appointments, patients, and conversations with your calendar, EHR, or internal systems. Full API on PRO; custom EHR/EMR integrations on ULTRA.',
       bullets: t
         ? [
-            'Consultas y mutaciones API completas',
+            'Sincronización Google Calendar bidireccional',
+            'API de pacientes, citas y conversaciones',
             'Webhooks en tiempo real',
-            'Autenticación OAuth 2.0',
+            'Integraciones EHR/HIS personalizadas (ULTRA)',
             'Documentación interactiva incluida',
-            'Rate limits generosos (PRO/ULTRA)',
-            'SDK para Node.js, Python y más (ULTRA)',
+            'SDK para Node.js y Python (ULTRA)',
           ]
         : [
-            'Full API queries and mutations',
+            'Bidirectional Google Calendar sync',
+            'Patients, appointments & conversations API',
             'Real-time webhooks',
-            'OAuth 2.0 authentication',
+            'Custom EHR/EMR integrations (ULTRA)',
             'Interactive documentation included',
-            'Generous rate limits (PRO/ULTRA)',
-            'SDK for Node.js, Python, and more (ULTRA)',
+            'SDK for Node.js and Python (ULTRA)',
           ],
-      badge: t ? 'Disponible en plan PRO y ULTRA' : 'Available on PRO and ULTRA plans',
+      badge: t ? 'API en PRO · Integraciones EHR en ULTRA' : 'API on PRO · EHR integrations on ULTRA',
     },
     faq: {
       eyebrow: t ? 'Preguntas frecuentes' : 'FAQ',
@@ -342,7 +316,7 @@ export function getPricingCopy(lang: PricingLang) {
       titleAccent: t ? 'Sin compromisos.' : 'No commitments.',
       lead: t
         ? 'Prueba Shadia con todos los features del plan PRO durante 7 días, sin tarjeta de crédito.'
-        : 'Try Shadia with full PRO plan features for 7 days — no credit card required.',
+        : 'Try Shadia with full PRO plan features for 7 days, no credit card required.',
     },
   };
 }

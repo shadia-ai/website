@@ -4,19 +4,23 @@ import ComparePage from '../../../components/ComparePage.astro';
 const compareRows = [
   { feature: 'Appointment reminders', shadia: true, competitor: true },
   { feature: 'Smart rescheduling', shadia: true, competitor: 'Basic' },
-  { feature: 'AI-native with LLMs', shadia: true, competitor: false },
-  { feature: 'Autonomous AI Agents', shadia: true, competitor: false },
-  { feature: 'Unified multi-channel agents', shadia: true, competitor: false },
-  { feature: 'Lead qualification', shadia: true, competitor: false },
-  { feature: 'Inactive client reactivation', shadia: true, competitor: false },
-  { feature: 'Full appointments engine + optimization', shadia: true, competitor: 'Partial' },
-  { feature: 'Instagram + Facebook + TikTok', shadia: true, competitor: false },
-  { feature: 'Spanish language support', shadia: true, competitor: true },
+  { feature: 'Waitlist / fill open slots', shadia: true, competitor: false },
+  { feature: 'AI receptionist 24/7', shadia: true, competitor: false },
+  { feature: 'Clinical sessions & summaries', shadia: true, competitor: false },
+  { feature: 'Omnichannel (WhatsApp, IG, Messenger)', shadia: true, competitor: false },
+  { feature: 'Patient reactivation', shadia: true, competitor: false },
+  { feature: 'Clinic-focused workflows', shadia: true, competitor: 'Reminders only' },
 ];
 
 const faqs = [
-  { q: "What's the difference between Shadia AI and Confirmafy?", a: "Confirmafy is a specialized tool for sending appointment reminders via WhatsApp. Shadia AI is a complete AI operations platform: includes reminders, plus smart rescheduling, autonomous AI agents, unified platform, lead qualification and client reactivation. Confirmafy solves one problem. Shadia solves the entire operation." },
-  { q: 'Should I use Confirmafy or Shadia AI for my clinic?', a: 'If you only need basic reminders and have a very limited budget, Confirmafy may be sufficient. If you want to automate the complete operation — reminders, smart rescheduling, waitlist, patient reactivation and multi-channel communication — Shadia AI is the right platform.' },
+  {
+    q: "What's the difference between Shadia AI and Confirmafy?",
+    a: 'Confirmafy specializes in appointment reminders. Shadia is the clinic platform: reminders, AI receptionist, documented sessions, and patient follow-up in one place.',
+  },
+  {
+    q: 'Should I use Confirmafy or Shadia for my clinic?',
+    a: 'If you only need basic reminders, Confirmafy may be enough. If you want front desk, scheduling, and documentation with AI, Shadia is the complete option.',
+  },
 ];
 ---
 
@@ -24,29 +28,21 @@ const faqs = [
   lang="en"
   competitor="Confirmafy"
   competitorSlug="confirmafy"
-  title="Shadia AI vs Confirmafy — More Than Reminders: Full AI Operations | Shadia AI"
-  description="Compare Shadia AI vs Confirmafy. The Confirmafy alternative that goes beyond reminders: AI agents, full appointments engine and complete automation."
+  title="Shadia AI vs Confirmafy. Full clinic ops vs reminders | Shadia AI"
+  description="Confirmafy reminds patients. Shadia confirms, reschedules, documents sessions, and runs front desk in chat."
   canonical="https://shadia.ai/en/compare/vs-confirmafy"
   ogImage="/og/compare-confirmafy-en.png"
-  heroHeadline="Shadia AI vs Confirmafy — More than reminders, complete operations"
-  heroSubheadline="Confirmafy does one thing well: appointment reminders. Shadia AI does that and much more: autonomous AI agents, unified platform, client reactivation and a complete appointments engine."
+  heroHeadline="Shadia AI vs Confirmafy. More than reminders"
+  heroSubheadline="Confirmafy reminds the appointment. Shadia runs the practice: reception, schedule, and clinical sessions."
   verdictPoints={[
-    'Shadia includes reminders + rescheduling + reactivation + omnichannel agents',
-    'Confirmafy only does reminders; more features require additional tools',
-    'Full appointments engine with optimization and waitlist in Shadia',
-    'Autonomous AI agents operating 24/7 in Shadia; not available in Confirmafy',
-    'One platform vs multiple tools with Confirmafy',
+    'Reminders + rescheduling + waitlist',
+    'AI receptionist and clinical sessions included',
+    'Patients informed with post-visit summaries',
+    'One system vs fragmented tools',
+    'Built for modern clinics',
   ]}
   compareRows={compareRows}
-  detailedText={`
-    <h2>What does Confirmafy do well?</h2>
-    <p>Confirmafy is a simple and effective tool for sending appointment reminders via WhatsApp. It's easy to set up, has good Spanish support and is an affordable solution for businesses that only need basic reminders.</p>
-    <h2>Why many businesses outgrow Confirmafy and need Shadia</h2>
-    <p>Confirmafy solves one problem but creates another: when a patient cancels after the reminder, who manages rescheduling? Who notifies the next person on the waitlist? Who follows up with clients who haven't been back in 2 months?</p>
-    <p>Shadia AI doesn't just remind — it manages the entire operation: when someone cancels, AI fills that slot. When a client hasn't returned in 60 days, AI contacts them. When a new inquiry arrives at 10 PM, AI responds.</p>
-    <h2>The cost of fragmented tools</h2>
-    <p>Many businesses use Confirmafy + manual WhatsApp + Google Calendar + Calendly + separate contact tools. The result is fragmented operations, duplicated data and team time wasted coordinating tools. Shadia unifies everything in one platform.</p>
-  `}
-  migrationText="If you currently use Confirmafy, migrating to Shadia AI takes less than a day. We configure your first appointments agent with reminders, rescheduling and active waitlist from day one."
+  detailedText={`<h2>What Confirmafy does well</h2><p>Confirmafy is effective for appointment reminders. Simple and focused if that is your only need.</p><h2>What clinics need after the reminder</h2><p>When a patient cancels, who fills the slot? Who answers after hours? Who documents the visit and sends the summary?</p><p>Shadia covers that loop: confirm, reschedule, document, and follow up, without stacking more tools.</p>`}
+  migrationText="If you use Confirmafy, you can migrate in under a day: connect messaging, turn on reminders, and activate the AI receptionist."
   faqs={faqs}
 />

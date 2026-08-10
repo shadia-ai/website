@@ -2,86 +2,88 @@
 @import "@fontsource/dm-sans/400.css";
 @import "@fontsource/dm-sans/500.css";
 @import "@fontsource/dm-sans/600.css";
+@import "@fontsource/fraunces/400.css";
+@import "@fontsource/fraunces/500.css";
+@import "@fontsource/fraunces/600.css";
 
-/* ─── Brand tokens ─── */
+/* ─── Brand tokens — clinical teal ─── */
 @theme {
-  --color-violet:        #5B4FA8;
-  --color-violet-mid:    #7B6EC0;
-  --color-violet-light:  #EEEAF8;
-  --color-ink:           #0D0C0F;
+  --color-teal:          #0F766E;
+  --color-teal-mid:      #2A9B8F;
+  --color-teal-light:    #E6F4F2;
+  --color-ink:           #0F1413;
 
-  --font-display: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
   --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 /* ─── Light mode (default) ─── */
 :root,
 [data-theme="light"] {
-  --bg:           #FFFFFF;
-  --bg-subtle:    #F7F7F8;
-  --bg-muted:     #EFEFEF;
-  --bg-tint:      #F3F0FA;
+  --bg:           #FAFCFB;
+  --bg-subtle:    #F2F7F6;
+  --bg-muted:     #E6EEEC;
+  --bg-tint:      #E8F3F1;
   --bg-elevated:  #FFFFFF;
   --surface:      rgba(255,255,255,0.72);
   --surface-raised: rgba(255,255,255,0.95);
   --glass:        rgba(255,255,255,0.65);
-  --glass-border: rgba(0,0,0,0.07);
-  --border:       rgba(0,0,0,0.08);
-  --border-mid:   rgba(0,0,0,0.12);
-  --ink:          #0D0C0F;
-  --ink-2:        #3D3B47;
-  --ink-3:        #68636F;
-  --ink-4:        #9B97A8;
-  --accent:       #5B4FA8;
-  --accent-mid:   #7B6EC0;
-  --accent-bg:    rgba(91,79,168,0.05);
-  --accent-soft:  rgba(91,79,168,0.08);
-  --accent-ring:  rgba(91,79,168,0.14);
+  --glass-border: rgba(15,20,19,0.07);
+  --border:       rgba(15,20,19,0.08);
+  --border-mid:   rgba(15,20,19,0.12);
+  --ink:          #0F1413;
+  --ink-2:        #2C3836;
+  --ink-3:        #5A6B68;
+  --ink-4:        #8A9A96;
+  --accent:       #0F766E;
+  --accent-mid:   #2A9B8F;
+  --accent-bg:    rgba(15,118,110,0.05);
+  --accent-soft:  rgba(15,118,110,0.08);
+  --accent-ring:  rgba(15,118,110,0.16);
   --header-offset: 5.5rem;
-  --btn-primary: #2F2636;
-  --btn-primary: oklch(27.1% 0.032 303.4);
-  --btn-primary-hover: #3D3247;
-  --btn-primary-hover: oklch(32% 0.034 303.4);
+  --btn-primary: #142422;
+  --btn-primary: oklch(22% 0.02 180);
+  --btn-primary-hover: #1E332F;
+  --btn-primary-hover: oklch(28% 0.025 180);
   --btn-on-primary: #FFFFFF;
   --green:        #16A34A;
   --green-bg:     rgba(22,163,74,0.07);
   --amber:        #D97706;
   --red:          #DC2626;
-  --shadow-xs:    0 1px 2px rgba(0,0,0,0.04), 0 0 0 1px rgba(0,0,0,0.04);
-  --shadow-sm:    0 1px 4px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.05);
-  --shadow-md:    0 2px 8px rgba(0,0,0,0.05), 0 12px 32px rgba(0,0,0,0.07);
-  --shadow-lg:    0 4px 16px rgba(0,0,0,0.05), 0 24px 60px rgba(0,0,0,0.08);
-  --shadow-glass: 0 8px 32px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04),
+  --shadow-xs:    0 1px 2px rgba(15,20,19,0.04), 0 0 0 1px rgba(15,20,19,0.04);
+  --shadow-sm:    0 1px 4px rgba(15,20,19,0.05), 0 4px 12px rgba(15,20,19,0.05);
+  --shadow-md:    0 2px 8px rgba(15,20,19,0.05), 0 12px 32px rgba(15,20,19,0.07);
+  --shadow-lg:    0 4px 16px rgba(15,20,19,0.05), 0 24px 60px rgba(15,20,19,0.08);
+  --shadow-glass: 0 8px 32px rgba(15,20,19,0.07), 0 1px 2px rgba(15,20,19,0.04),
                   inset 0 1px 0 rgba(255,255,255,0.9);
-  --glow:         0 0 60px rgba(91,79,168,0.06);
+  --glow:         0 0 60px rgba(15,118,110,0.08);
 }
 
 /* ─── Dark mode ─── */
 [data-theme="dark"] {
-  --btn-primary: #2F2636;
-  --btn-primary: oklch(27.1% 0.032 303.4);
-  --btn-primary-hover: #3D3247;
-  --btn-primary-hover: oklch(34% 0.036 303.4);
-  --btn-on-primary: #FFFFFF;
-  --bg:           #0B0A10;
-  --bg-subtle:    #131120;
-  --bg-muted:     #1A1826;
-  --bg-tint:      #16131F;
-  --bg-elevated:  #1C1928;
+  --btn-primary: #E6F4F2;
+  --btn-primary: oklch(94% 0.02 180);
+  --btn-primary-hover: #FFFFFF;
+  --btn-on-primary: #0F1413;
+  --bg:           #0A1211;
+  --bg-subtle:    #101A19;
+  --bg-muted:     #162220;
+  --bg-tint:      #12201E;
+  --bg-elevated:  #1A2826;
   --surface:      rgba(255,255,255,0.05);
   --surface-raised: rgba(255,255,255,0.08);
   --glass:        rgba(255,255,255,0.06);
   --glass-border: rgba(255,255,255,0.10);
   --border:       rgba(255,255,255,0.08);
   --border-mid:   rgba(255,255,255,0.12);
-  --ink:          #F0EEF8;
-  --ink-2:        #C8C4D4;
-  --ink-3:        #8B879A;
-  --ink-4:        #5C5869;
-  --accent:       #7B6EC0;
-  --accent-mid:   #9A8ED8;
-  --accent-bg:    rgba(123,110,192,0.12);
-  --accent-ring:  rgba(123,110,192,0.22);
+  --ink:          #EEF6F4;
+  --ink-2:        #C5D4D1;
+  --ink-3:        #8A9E9A;
+  --ink-4:        #5A6E6A;
+  --accent:       #3DB8AA;
+  --accent-mid:   #5CCBBF;
+  --accent-bg:    rgba(61,184,170,0.12);
+  --accent-ring:  rgba(61,184,170,0.22);
   --green:        #22C55E;
   --green-bg:     rgba(34,197,94,0.10);
   --amber:        #F59E0B;
@@ -91,7 +93,7 @@
   --shadow-md:    0 4px 20px rgba(0,0,0,0.5);
   --shadow-lg:    0 8px 40px rgba(0,0,0,0.6);
   --shadow-glass: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08);
-  --glow:         0 0 80px rgba(123,110,192,0.14);
+  --glow:         0 0 80px rgba(61,184,170,0.14);
 }
 
 /* ─── Base ─── */
@@ -116,35 +118,37 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: var(--font-body);
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-weight: 500;
   line-height: 1.15;
   color: var(--ink);
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
 }
 
 p { color: var(--ink-3); line-height: 1.7; }
 a { color: inherit; text-decoration: none; }
 
-/* ─── Display typography (DM Sans only, soft weight) ─── */
+/* ─── Display typography (Fraunces) ─── */
 .display {
-  font-family: var(--font-body);
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.025em;
   line-height: 1.08;
   color: var(--ink);
 }
 
 .headline-accent {
   font-weight: 500;
+  font-style: italic;
   color: var(--accent);
 }
 
 .hero-title {
+  font-family: var(--font-display);
   font-size: clamp(2.5rem, 6.5vw, 4.5rem);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.08;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
   color: var(--ink);
 }
 
@@ -1361,11 +1365,12 @@ a { color: inherit; text-decoration: none; }
 .bg-subtle { background: var(--bg-subtle); }
 .bg-muted  { background: var(--bg-muted); }
 
-/* Soft mesh gradient for hero */
+/* Soft mesh gradient for hero — clinical atmosphere */
 .hero-mesh {
   background:
-    radial-gradient(ellipse 75% 55% at 18% -8%, rgba(91, 79, 168, 0.07) 0%, transparent 58%),
-    radial-gradient(ellipse 55% 45% at 92% 12%, rgba(91, 79, 168, 0.04) 0%, transparent 52%),
+    radial-gradient(ellipse 80% 60% at 12% -10%, rgba(15, 118, 110, 0.10) 0%, transparent 58%),
+    radial-gradient(ellipse 55% 45% at 95% 8%, rgba(42, 155, 143, 0.07) 0%, transparent 52%),
+    radial-gradient(ellipse 40% 35% at 55% 100%, rgba(230, 244, 242, 0.9) 0%, transparent 60%),
     var(--bg);
 }
 

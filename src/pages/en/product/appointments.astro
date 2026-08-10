@@ -5,6 +5,7 @@ import ProductHeroSplit from '../../../components/ProductHeroSplit.astro';
 import PageBand from '../../../components/PageBand.astro';
 import PageCta from '../../../components/PageCta.astro';
 import { AppointmentsFloatComposition } from '../../../components/FloatWidgets.tsx';
+import { t } from '../../../i18n/utils';
 
 const appointmentSlides = [
   {
@@ -13,8 +14,8 @@ const appointmentSlides = [
     stat1Label: 'Fewer no-shows with\nautomated reminders',
     stat2: '48h + 2h',
     stat2Label: 'Reminder windows that\nmaximise confirmation rates',
-    insight: 'No-shows are not inevitable — they are the result of not contacting the customer at the right moment.',
-    detail: 'Shadia sends automated reminders at the most effective windows and requests confirmation. If there is no reply, the agent reschedules before the slot stays empty.',
+    insight: 'No-shows usually happen because of not reaching the patient at the right moment.',
+    detail: 'Shadia sends automated reminders at the most effective windows and requests confirmation. If the patient does not reply, the agent reschedules before the slot stays empty.',
   },
   {
     tag: '24/7 availability',
@@ -22,33 +23,33 @@ const appointmentSlides = [
     stat1Label: 'Of appointments requested\noutside opening hours',
     stat2: '< 30 s',
     stat2Label: 'AI confirmation time\nat any hour',
-    insight: 'Your schedule does not stop when your team goes home. Neither should the ability to book.',
-    detail: 'Shadia captures every request in real time, checks availability and confirms in seconds — any time, on WhatsApp. Zero missed calls, zero ignored requests.',
+    insight: 'Your schedule does not stop when your team goes home. Neither should a patient\'s ability to book.',
+    detail: 'Shadia captures every request in real time, checks provider availability and confirms in seconds, any time, on WhatsApp. You get fewer missed calls and unanswered requests.',
   },
   {
-    tag: 'Reactivation',
+    tag: 'Waitlist',
     stat1: '1 in 4',
-    stat1Label: 'Inactive customers\nbrought back by AI',
+    stat1Label: 'Cancelled slots refilled\nfrom the waitlist',
     stat2: '6 months',
-    stat2Label: 'Threshold to trigger\na reactivation campaign',
-    insight: 'A customer who has not returned in 6 months is not lost — nobody has contacted them.',
-    detail: 'Shadia identifies contacts with no recent appointment and launches personalised reactivation messages. Not mass campaigns — messages that feel individual and timely.',
+    stat2Label: 'Threshold to trigger\na reactivation follow-up',
+    insight: 'A cancelled slot can go to someone on your waitlist.',
+    detail: 'When a patient cancels, Shadia automatically reaches out to the waitlist and offers the newly open slot, in priority order.',
   },
   {
     tag: 'Productivity',
     stat1: '3 hrs',
-    stat1Label: 'Per day recovered by\nautomating scheduling admin',
+    stat1Label: 'Per day recovered by\nautomating the schedule',
     stat2: '0',
     stat2Label: 'Manual confirmation calls\nneeded with Shadia active',
-    insight: 'Every hour your team spends managing the schedule is an hour not spent with real customers.',
-    detail: 'Confirmations, reschedules, reminders and new booking capture — all automated. Your team focuses on service, not logistics.',
+    insight: 'Every hour your team spends managing the schedule is an hour not spent with a real patient.',
+    detail: 'Confirmations, reschedules, reminders and new bookings run automatically so your team can stay on care instead of calendar logistics.',
   },
 ];
 ---
 
 <BaseLayout
-  title="Appointments Engine — Scheduling in customer conversations | Shadia AI"
-  description="Book, confirm, and reschedule inside WhatsApp and social chat — no external links. Built for support teams with appointment-based workflows."
+  title={t('meta.appointments.title', 'en')}
+  description={t('meta.appointments.desc', 'en')}
   lang="en"
   canonical="https://shadia.ai/en/product/appointments"
   ogImage="/og/appointments-en.png"
@@ -56,9 +57,9 @@ const appointmentSlides = [
 
 <ProductHeroSplit
   badge="Appointments Engine"
-  title="Scheduling inside"
-  titleAccent="the support conversation."
-  lead="When bookings are part of customer service, Shadia handles availability, confirmation, and reminders in chat — no Calendly links, no broken handoffs to your team."
+  title="An AI agent fills"
+  titleAccent="your practice's schedule."
+  lead="The agent talks with the patient, understands availability by provider, and confirms the appointment directly. It books, confirms, reschedules, and works the waitlist, without your team stepping in."
   lang="en"
   source="product_appts_hero"
   hint="No credit card · Free to start"
@@ -88,16 +89,16 @@ const appointmentSlides = [
   <div class="container">
     <div class="page-section-head">
       <div class="eyebrow">Features</div>
-      <h2 class="section-title">Automated appointments, start to finish.</h2>
+      <h2 class="section-title">Automated appointments, start to finish</h2>
     </div>
     <div class="grid-3">
       {[
-        { icon: 'bot', title: 'Autonomous scheduling', desc: 'The AI agent receives the request, checks availability and confirms the appointment without human intervention.' },
-        { icon: 'bell', title: 'Smart reminders', desc: 'WhatsApp reminders with optimal timing. The client confirms with a tap. No-shows eliminated.' },
-        { icon: 'refresh-cw', title: 'Easy rescheduling', desc: 'Clients can change their appointment by replying to the reminder. The agent updates the calendar automatically.' },
-        { icon: 'calendar', title: 'Calendar sync', desc: 'Google Calendar, Outlook, Apple Calendar — all synced in real time. Zero double bookings.' },
-        { icon: 'zap', title: 'Availability rules', desc: 'Define hours, services, duration, prep times and maximum simultaneous appointments per service.' },
-        { icon: 'bar-chart', title: 'Occupancy reports', desc: 'See when your calendar is full, which services get booked most and optimize your availability.' },
+        { icon: 'bot', title: 'Autonomous scheduling', desc: 'The agent receives the patient\'s request, checks provider availability and confirms the appointment without manual work.' },
+        { icon: 'bell', title: 'Smart reminders', desc: 'WhatsApp reminders with optimal timing. The patient confirms with a tap. No-shows eliminated.' },
+        { icon: 'refresh-cw', title: 'Easy rescheduling', desc: 'Patients can change their appointment by replying to the reminder. The agent updates the calendar automatically.' },
+        { icon: 'users', title: 'Active waitlist', desc: 'When a slot is cancelled, Shadia reaches the waitlist in priority order and fills it instantly.' },
+        { icon: 'calendar', title: 'Multiple providers', desc: 'Every clinician has their own calendar, services and availability, synced in real time.' },
+        { icon: 'bar-chart', title: 'Occupancy reports', desc: 'See when your schedule is full, which providers are in highest demand, and optimize availability.' },
       ].map(f => (
         <div class="card-feature">
           <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={f.icon} size={20} /></div>
@@ -113,13 +114,13 @@ const appointmentSlides = [
   <div class="container" style="max-width: 860px;">
     <div class="page-section-head">
       <div class="eyebrow">Before & After</div>
-      <h2 class="section-title">From scheduling chaos to total control.</h2>
+      <h2 class="section-title">From scheduling chaos to total control</h2>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
       <div style="padding:1.75rem;background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.15);border-radius:18px;">
         <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#ef4444;margin-bottom:1.25rem;">Without Shadia</div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
-          {['Clients waiting hours for confirmation', 'No-shows with no prior reminder', 'Double bookings from human error', 'Receptionist taking appointments manually', 'No occupancy data or optimization'].map(item => (
+          {['Patients waiting hours for confirmation', 'No-shows with no prior reminder', 'Double bookings between providers from human error', 'Front desk taking appointments manually by phone', 'Cancelled slots that stay empty'].map(item => (
             <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink-3);">
               <span style="color:#ef4444;flex-shrink:0;">✗</span>{item}
             </li>
@@ -127,9 +128,9 @@ const appointmentSlides = [
         </ul>
       </div>
       <div style="padding:1.75rem;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.2);border-radius:18px;">
-        <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#22c55e;margin-bottom:1.25rem;">With Shadia Appointments</div>
+        <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#22c55e;margin-bottom:1.25rem;">With Appointments Engine</div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
-          {['Confirmed in 3 minutes via WhatsApp', '85% fewer no-shows with automatic reminders', 'Zero double bookings, real-time calendar', 'Your team focused on serving, not scheduling', 'Occupancy reports and trends'].map(item => (
+          {['Confirmed in 3 minutes via WhatsApp', '85% fewer no-shows with automatic reminders', 'Zero double bookings, real-time calendar per provider', 'Your team focused on care, not scheduling', 'A waitlist that fills every cancelled slot'].map(item => (
             <li style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9375rem;color:var(--ink);">
               <span style="color:var(--green);font-weight:700;flex-shrink:0;">✓</span>{item}
             </li>
@@ -144,14 +145,14 @@ const appointmentSlides = [
   <div class="container">
     <div class="page-section-head">
       <div class="eyebrow">Use Cases</div>
-      <h2 class="section-title">Perfect for any business that runs on appointments.</h2>
+      <h2 class="section-title">Adapted to how every specialty schedules</h2>
     </div>
     <div class="grid-4">
       {[
-        { icon: 'heart', title: 'Clinics & practices', desc: 'Medical appointments, pre-consultation reminders, automatic rescheduling.' },
-        { icon: 'scissors', title: 'Beauty salons', desc: 'Multiple services, different durations, zero empty slots.' },
-        { icon: 'graduation-cap', title: 'Academies & tutors', desc: 'Individual classes, groups, free trial sessions.' },
-        { icon: 'activity', title: 'Fitness & wellness', desc: 'Personal training, group classes, initial assessments.' },
+        { icon: 'stethoscope', title: 'General practices', desc: 'Visits, follow-ups and check-ups with pre-visit reminders.' },
+        { icon: 'tooth', title: 'Dental', desc: 'Multi-session treatments, cleanings and chair-based scheduling.' },
+        { icon: 'heart', title: 'Mental health', desc: 'Recurring weekly or biweekly sessions with frictionless rescheduling.' },
+        { icon: 'building', title: 'Multi-provider clinics', desc: 'Independent calendars per clinician, synced into one view.' },
       ].map(u => (
         <div class="card-feature">
           <div style="display:flex;align-items:center;margin-bottom:0.875rem;color:var(--accent);"><Icon name={u.icon} size={20} /></div>
@@ -167,15 +168,15 @@ const appointmentSlides = [
   <div class="container" style="max-width: 860px;">
     <div class="page-section-head">
       <div class="eyebrow">Appointment Flow</div>
-      <h2 class="section-title">One appointment. Five automatic steps.</h2>
+      <h2 class="section-title">One appointment. Five automatic steps</h2>
     </div>
     <div style="display:flex;flex-direction:column;gap:1rem;">
       {[
-        { n: '1', title: 'Client requests via WhatsApp', desc: 'The agent detects intent, asks for date/service and checks real-time availability.' },
-        { n: '2', title: 'Instant confirmation', desc: 'Appointment confirmed, summary sent and added to both the client\'s and your calendar.' },
-        { n: '3', title: '24h reminder', desc: 'Automatic WhatsApp message with all details. Client replies Y/N to confirm.' },
-        { n: '4', title: '1h reminder', desc: 'Second reminder with address, directions and option to reschedule if needed.' },
-        { n: '5', title: 'Post-appointment follow-up', desc: 'Satisfaction survey and next appointment reminder. The cycle repeats effortlessly.' },
+        { n: '1', title: 'Patient requests via WhatsApp', desc: 'The agent detects intent, asks for a preferred provider/service and checks real-time availability.' },
+        { n: '2', title: 'Instant confirmation', desc: 'Appointment confirmed, summary sent and added to both the patient\'s and provider\'s calendar.' },
+        { n: '3', title: '24h reminder', desc: 'Automatic WhatsApp message with all details. Patient replies to confirm.' },
+        { n: '4', title: '2h reminder', desc: 'Second reminder with address, directions and option to reschedule if needed.' },
+        { n: '5', title: 'Cancellation and waitlist', desc: 'If the patient cancels, Shadia frees the slot and offers it immediately to the next person on the waitlist.' },
       ].map(s => (
         <div style="display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--surface-raised);border:1px solid var(--border);border-radius:14px;">
           <div style="width:36px;height:36px;border-radius:50%;background:#0EA5E9;color:#fff;font-weight:700;font-size:0.875rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;">{s.n}</div>
@@ -193,7 +194,7 @@ const appointmentSlides = [
   <div class="container">
     <div class="page-section-head">
       <div class="eyebrow">By the numbers</div>
-      <h2 class="section-title">What changes with the scheduling engine</h2>
+      <h2 class="section-title">What changes with the appointments engine</h2>
     </div>
     <div class="page-grid-2">
       {appointmentSlides.map(slide => (
@@ -224,10 +225,10 @@ const appointmentSlides = [
       <h2 class="section-title">Frequently asked questions</h2>
     </div>
     {[
-      { q: 'Does it work with Google Calendar?', a: 'Yes. Bidirectional real-time sync. Appointments appear in your Google Calendar automatically and calendar blocks are respected.' },
-      { q: 'Can I have multiple services with different durations?', a: 'Yes. Define each service with its duration, price, prep time and specific availability.' },
-      { q: 'What happens if the client needs to cancel?', a: 'The agent handles the cancellation, frees the slot and can offer a new date immediately. You get a real-time notification.' },
-      { q: 'Does it work for businesses with multiple staff?', a: 'Yes. Each team member has their own calendar and availability. The agent distributes appointments intelligently.' },
+      { q: 'Does it work with Google Calendar?', a: 'Yes. Bidirectional real-time sync. Appointments appear in each provider\'s Google Calendar automatically and calendar blocks are respected.' },
+      { q: 'Can I have services with different durations per provider?', a: 'Yes. Define each service with its duration, prep time and specific availability per clinician.' },
+      { q: 'What happens if the patient needs to cancel?', a: 'The agent handles the cancellation, frees the slot and offers it immediately to the next person on the waitlist. You get a real-time notification.' },
+      { q: 'Does it work with multiple clinicians or providers?', a: 'Yes. Each provider has their own calendar and availability. The agent distributes appointments intelligently across all of them.' },
     ].map(faq => (
       <div class="faq-item">
         <div style="padding:1.25rem 0;font-weight:600;font-size:1rem;color:var(--ink);">{faq.q}</div>
@@ -240,9 +241,9 @@ const appointmentSlides = [
 <PageCta
   lang="en"
   source="product_appts_cta"
-  title="A full calendar"
+  title="A full schedule"
   titleAccent="starts today."
-  lead="Activate the appointments engine and let AI fill your schedule automatically."
+  lead="Activate the appointments engine and let AI book, confirm, and reschedule patients automatically."
 />
 
 </BaseLayout>

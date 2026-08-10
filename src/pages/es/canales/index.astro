@@ -11,28 +11,28 @@ const channels = [
     id: 'whatsapp',
     name: 'WhatsApp',
     featured: true,
-    desc: 'Citas, ventas y seguimiento en el canal que ya usan tus clientes en RD y LATAM.',
+    desc: 'Citas, confirmaciones y resúmenes de sesión en el canal que ya usan tus pacientes.',
     href: '/es/canales/whatsapp',
     iconSvg: WhatsAppIcon,
   },
   {
     id: 'instagram',
     name: 'Instagram DMs',
-    desc: 'Convierte DMs y comentarios en citas — aunque tu equipo no esté en línea.',
+    desc: 'Convierte consultas de estética y nuevas visitas en citas, aunque tu recepción no esté en línea.',
     href: '/es/canales/instagram',
     iconSvg: InstagramIcon,
   },
   {
     id: 'messenger',
     name: 'Messenger',
-    desc: 'Atiende Facebook Messenger y ofrece continuar en WhatsApp cuando convenga.',
+    desc: 'Atiende Facebook Messenger y ofrece continuar en WhatsApp cuando convenga al paciente.',
     href: '/es/canales/facebook',
     iconSvg: MessengerIcon,
   },
   {
     id: 'tiktok',
     name: 'TikTok',
-    desc: 'Responde DMs de TikTok y lleva la conversación a una cita o venta real.',
+    desc: 'Responde DMs de estética médica y lleva la conversación a una consulta agendada.',
     href: '/es/canales/tiktok',
     iconSvg: TikTokIcon,
   },
@@ -40,17 +40,17 @@ const channels = [
 ---
 
 <BaseLayout
-  title="Canales — WhatsApp, Instagram, Messenger y TikTok | Shadia AI"
-  description="Unifica WhatsApp, Instagram, Messenger y TikTok en una sola operación con IA. Hecho para negocios en República Dominicana y Latinoamérica."
+  title="Canales. WhatsApp, Instagram y Messenger para clínicas | Shadia AI"
+  description="Unifica WhatsApp, Instagram y Messenger en la operación de tu clínica. Citas, recepción IA y resúmenes de sesión."
   lang="es"
   canonical="https://shadia.ai/es/canales/"
   ogImage="/og/channels-es.png"
 >
   <PageHero
     eyebrow="Canales"
-    title="Donde te escriben,"
+    title="Donde te escriben tus pacientes,"
     titleAccent="en un solo lugar."
-    lead="Shadia conecta los canales que ya usas en LATAM — con plataforma unificada, citas nativas e IA que trabaja con tu equipo."
+    lead="Shadia conecta los canales de tu clínica, con inbox unificado, citas nativas y contexto del paciente."
   />
 
   <PageBand variant="plain" size="sm">
@@ -63,14 +63,14 @@ const channels = [
     <div class="container">
       <div class="page-section-head">
         <div class="eyebrow">Por qué unificar</div>
-        <h2 class="section-title">Una operación, no cuatro apps</h2>
-        <p class="lead-sm">Tu equipo deja de saltar entre celulares. La IA mantiene contexto en todos los canales.</p>
+        <h2 class="section-title">Una clínica, no cuatro apps</h2>
+        <p class="lead-sm">Tu equipo deja de saltar entre celulares. La IA mantiene el contexto del paciente en todos los canales.</p>
       </div>
       <div class="page-grid-3">
         {[
-          { t: 'Contexto completo', d: 'Historial del cliente sin importar si escribió por WhatsApp o Instagram.' },
-          { t: 'IA en cada canal', d: 'Mismo tono y reglas de negocio — citas, precios y seguimiento.' },
-          { t: 'Handoff humano', d: 'Tu equipo interviene cuando quiera, con todo el hilo visible.' },
+          { t: 'Contexto del paciente', d: 'Historial sin importar si escribió por WhatsApp o Instagram.' },
+          { t: 'IA en cada canal', d: 'Mismo tono clínico, citas, preparación de visita y seguimiento.' },
+          { t: 'Handoff humano', d: 'Tu equipo interviene cuando hace falta, con todo el hilo visible.' },
         ].map(item => (
           <div class="card page-card">
             <h3 class="page-card__title">{item.t}</h3>
@@ -86,6 +86,6 @@ const channels = [
     source="channels_index_cta"
     title="Conecta tus canales"
     titleAccent="en minutos."
-    lead="Empieza gratis. Sin tarjeta — activa WhatsApp y el resto cuando quieras."
+    lead="Agenda una demo. Activa WhatsApp y el resto cuando quieras."
   />
 </BaseLayout>

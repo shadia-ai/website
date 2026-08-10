@@ -8,10 +8,11 @@ interface Props {
 const { lang } = Astro.props;
 
 const productLinks = [
-  { label: '✦ Shadia Agent', href: lang === 'es' ? '/es/producto/agente' : '/en/product/agent' },
-  { label: t('nav.omnichannel', lang), href: lang === 'es' ? '/es/producto/omnicanal' : '/en/product/omnichannel' },
-  { label: t('nav.agents', lang), href: lang === 'es' ? '/es/producto/agentes-ia' : '/en/product/ai-agents' },
+  { label: t('nav.sessions', lang), href: lang === 'es' ? '/es/producto/sesiones' : '/en/product/sessions' },
+  { label: t('nav.receptionist', lang), href: lang === 'es' ? '/es/producto/recepcionista' : '/en/product/receptionist' },
   { label: t('nav.appointments', lang), href: lang === 'es' ? '/es/producto/citas' : '/en/product/appointments' },
+  { label: t('nav.omnichannel', lang), href: lang === 'es' ? '/es/producto/omnicanal' : '/en/product/omnichannel' },
+  { label: '✦ Shadia Agent', href: lang === 'es' ? '/es/producto/agente' : '/en/product/agent' },
   { label: t('nav.pricing', lang), href: lang === 'es' ? '/es/precios' : '/en/pricing' },
 ];
 
@@ -19,23 +20,21 @@ const channelLinks = [
   { label: 'WhatsApp',  href: lang === 'es' ? '/es/canales/whatsapp'  : '/en/channels/whatsapp'  },
   { label: 'Instagram', href: lang === 'es' ? '/es/canales/instagram' : '/en/channels/instagram' },
   { label: 'Facebook',  href: lang === 'es' ? '/es/canales/facebook'  : '/en/channels/facebook'  },
-  { label: 'TikTok',    href: lang === 'es' ? '/es/canales/tiktok'    : '/en/channels/tiktok'    },
 ];
 
 const industryLinks = [
-  { label: t('nav.ecommerce', lang), href: lang === 'es' ? '/es/industrias/ecommerce'  : '/en/industries/ecommerce'  },
-  { label: t('nav.healthcare', lang),href: lang === 'es' ? '/es/industrias/salud'       : '/en/industries/healthcare' },
-  { label: t('nav.sales', lang),     href: lang === 'es' ? '/es/industrias/ventas'      : '/en/industries/sales'      },
-  { label: t('nav.support', lang),   href: lang === 'es' ? '/es/industrias/soporte'     : '/en/industries/support'    },
-  { label: t('nav.dental', lang),    href: lang === 'es' ? '/es/industrias/odontologia' : '/en/industries/dental'     },
-  { label: t('nav.beauty', lang),    href: lang === 'es' ? '/es/industrias/belleza'     : '/en/industries/beauty'     },
+  { label: t('nav.clinics', lang), href: lang === 'es' ? '/es/especialidades/clinicas' : '/en/specialties/clinics' },
+  { label: t('nav.dental', lang), href: lang === 'es' ? '/es/especialidades/odontologia' : '/en/specialties/dental' },
+  { label: t('nav.mental', lang), href: lang === 'es' ? '/es/especialidades/salud-mental' : '/en/specialties/mental-health' },
+  { label: t('nav.aesthetics', lang), href: lang === 'es' ? '/es/especialidades/estetica' : '/en/specialties/aesthetics' },
+  { label: t('nav.hospitals', lang), href: lang === 'es' ? '/es/especialidades/hospitales' : '/en/specialties/hospitals' },
 ];
 
 const compareLinks = [
-  { label: 'vs Respond.io', href: lang === 'es' ? '/es/comparar/vs-respond-io' : '/en/compare/vs-respond-io' },
-  { label: 'vs Wati',       href: lang === 'es' ? '/es/comparar/vs-wati'       : '/en/compare/vs-wati'       },
-  { label: 'vs ManyChat',   href: lang === 'es' ? '/es/comparar/vs-manychat'   : '/en/compare/vs-manychat'   },
-  { label: 'vs Intercom',   href: lang === 'es' ? '/es/comparar/vs-intercom'   : '/en/compare/vs-intercom'   },
+  { label: 'vs Calendly', href: lang === 'es' ? '/es/comparar/vs-calendly' : '/en/compare/vs-calendly' },
+  { label: 'vs Confirmafy', href: lang === 'es' ? '/es/comparar/vs-confirmafy' : '/en/compare/vs-confirmafy' },
+  { label: 'vs Heidi', href: lang === 'es' ? '/es/comparar/vs-heidi' : '/en/compare/vs-heidi' },
+  { label: lang === 'es' ? 'vs Recepcionista tradicional' : 'vs Traditional front desk', href: lang === 'es' ? '/es/comparar/vs-recepcionista-tradicional' : '/en/compare/vs-traditional-front-desk' },
 ];
 const compareAllHref  = lang === 'es' ? '/es/comparar' : '/en/compare';
 const compareAllLabel = lang === 'es' ? 'Ver todas →' : 'See all →';
@@ -55,9 +54,9 @@ const compareAllLabel = lang === 'es' ? 'Ver todas →' : 'See all →';
       <div>
         <a href={lang === 'es' ? '/es/' : '/en/'} style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none; margin-bottom: 1rem;">
           <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="32" height="32" rx="8" fill="#2F2636"/>
-            <path d="M16 6 L22 14 L16 12 L10 14 Z" fill="#8C5A9E"/>
-            <path d="M16 12 L22 14 L16 26 L10 14 Z" fill="#8C5A9E" opacity="0.6"/>
+            <rect width="32" height="32" rx="8" fill="#142422"/>
+            <path d="M16 6 L22 14 L16 12 L10 14 Z" fill="#2A9B8F"/>
+            <path d="M16 12 L22 14 L16 26 L10 14 Z" fill="#2A9B8F" opacity="0.6"/>
           </svg>
           <span style="font-weight: 700; font-size: 1rem; color: var(--ink); letter-spacing: -0.02em;">Shadia AI</span>
         </a>
